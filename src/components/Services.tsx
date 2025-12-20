@@ -1,25 +1,25 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Zap, Home, Wind, Leaf } from 'lucide-react';
+import { Sun, Battery, Home, Trees } from 'lucide-react';
 import Link from 'next/link';
 
 const Services = () => {
   const services = [
     {
-      icon: Zap,
+      icon: Sun,
       title: 'Solar Energy',
       description: 'Harness the power of the sun with our cutting-edge solar panel technology and installation services.',
       image: '/globe.svg'
     },
     {
-      icon: Home,
+      icon: Battery,
       title: 'Hybrid Energy',
       description: 'Combine solar with battery storage for maximum energy independence and reliability.',
       image: '/window.svg'
     },
     {
-      icon: Wind,
+      icon: Trees,
       title: 'Wind Energy',
       description: 'Supplement your solar system with wind turbines for comprehensive renewable energy solutions.',
       image: '/file.svg'
@@ -36,10 +36,25 @@ const Services = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Services</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <motion.h2 
+            className="text-3xl md:text-4xl font-bold text-gray-900 mb-4"
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            whileHover={{ scale: 1.05 }}
+          >
+            Our Services
+          </motion.h2>
+          <motion.p 
+            className="text-lg text-gray-600 max-w-3xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
             Comprehensive renewable energy solutions tailored to your needs
-          </p>
+          </motion.p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -51,6 +66,7 @@ const Services = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: index * 0.2 }}
               className="group"
+              whileHover={{ y: -10, scale: 1.02 }}
             >
               <div className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden">
                 {/* Image Section */}
@@ -67,6 +83,7 @@ const Services = () => {
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
                     className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-full p-3 z-20"
+                    whileHover={{ rotate: 360, scale: 1.2 }}
                   >
                     <service.icon className="w-6 h-6 text-green-600" />
                   </motion.div>
@@ -79,7 +96,8 @@ const Services = () => {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
-                    className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-green-600 transition-colors"
+                    className="text-xl font-bold text-gray-900 mb-4 group-hover:text-green-600 transition-colors"
+                    whileHover={{ scale: 1.05 }}
                   >
                     {service.title}
                   </motion.h3>
@@ -89,7 +107,7 @@ const Services = () => {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
-                    className="text-gray-600 leading-relaxed mb-6"
+                    className="text-gray-600 leading-relaxed mb-6 text-sm"
                   >
                     {service.description}
                   </motion.p>
@@ -104,10 +122,19 @@ const Services = () => {
                       href="/service"
                       className="inline-flex items-center text-green-600 font-semibold hover:text-green-700 transition-colors group"
                     >
-                      Learn More
-                      <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
+                      <motion.span className="flex items-center">
+                        Learn More
+                        <motion.svg 
+                          className="w-4 h-4 ml-2" 
+                          fill="none" 
+                          stroke="currentColor" 
+                          viewBox="0 0 24 24"
+                          whileHover={{ x: 5 }}
+                          transition={{ duration: 0.3 }}
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </motion.svg>
+                      </motion.span>
                     </Link>
                   </motion.div>
                 </div>
@@ -125,8 +152,8 @@ const Services = () => {
           className="mt-16 text-center"
         >
           <div className="bg-gray-50 rounded-2xl p-8">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">Need a Custom Solution?</h3>
-            <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
+            <h3 className="text-xl font-bold text-gray-900 mb-4">Need a Custom Solution?</h3>
+            <p className="text-gray-600 mb-6 max-w-2xl mx-auto text-sm">
               We provide tailored renewable energy solutions to meet your specific requirements. Contact us to discuss your project.
             </p>
             <Link

@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Sun, Users, Award, Globe, CheckCircle, TrendingUp, Zap } from 'lucide-react';
+import { Sun, Users, Award, Globe, CheckCircle, TrendingUp, Wrench } from 'lucide-react';
 
 const AboutUs = () => {
   const stats = [
@@ -23,7 +23,7 @@ const AboutUs = () => {
       description: 'Competitive pricing with maximum ROI'
     },
     {
-      icon: Zap,
+      icon: Wrench,
       title: 'Fast Installation',
       description: 'Quick turnaround with minimal disruption'
     }
@@ -46,17 +46,37 @@ const AboutUs = () => {
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
             className="w-20 h-20 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg"
+            whileHover={{ scale: 1.1, rotate: 5 }}
+            animate={{ y: [0, -10, 0] }}
+            transition={{ duration: 3, repeat: Infinity }}
           >
-            <Sun className="w-10 h-10 text-white" />
+            <motion.div
+              animate={{ rotate: 360 }}
+              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+            >
+              <Sun className="w-10 h-10 text-white" />
+            </motion.div>
           </motion.div>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 font-serif">
+          <motion.h2 
+            className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 font-serif"
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            whileHover={{ scale: 1.05 }}
+          >
             About <span className="text-green-600">Procura Solar</span>
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-light">
+          </motion.h2>
+          <motion.p 
+            className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed font-light"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
             Leading the renewable energy revolution with innovative solar solutions and unwavering commitment to excellence
-          </p>
+          </motion.p>
         </motion.div>
 
         {/* Main Content Section */}
@@ -68,15 +88,22 @@ const AboutUs = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="space-y-6"
           >
-            <h3 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight font-serif">
+            <motion.h3 
+              className="text-xl md:text-2xl font-bold text-gray-900 leading-tight font-serif"
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              whileHover={{ scale: 1.05, x: 10 }}
+            >
               Pioneering Solar Excellence with Innovation and Trust
-            </h3>
+            </motion.h3>
             
             <div className="space-y-4 text-gray-600 leading-relaxed">
-              <p className="text-lg">
+              <p className="text-gray-600 leading-relaxed">
                 At Procura Solar, we are committed to transforming India's energy landscape through cutting-edge solar technology. Our mission is to make clean, renewable energy accessible to everyone while reducing carbon footprints and energy costs.
               </p>
-              <p className="text-lg">
+              <p className="text-gray-600 leading-relaxed">
                 We specialize in providing high-quality solar installations across residential, commercial, and industrial sectors, establishing ourselves as a trusted name in the renewable energy industry. Our approach combines technical expertise with customer-centric service.
               </p>
             </div>
@@ -88,18 +115,30 @@ const AboutUs = () => {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="grid grid-cols-3 gap-6 pt-6"
             >
-              <div className="text-center">
-                <div className="text-3xl font-bold text-green-600 mb-2 font-serif">10+</div>
-                <div className="text-sm text-gray-600 font-medium">Years Experience</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-green-600 mb-2 font-serif">98%</div>
-                <div className="text-sm text-gray-600 font-medium">Customer Satisfaction</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-green-600 mb-2 font-serif">24/7</div>
-                <div className="text-sm text-gray-600 font-medium">Support Available</div>
-              </div>
+              {[
+                { value: "10+", label: "Years Experience" },
+                { value: "98%", label: "Customer Satisfaction" },
+                { value: "24/7", label: "Support Available" }
+              ].map((stat, index) => (
+                <motion.div 
+                  key={index}
+                  className="text-center"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
+                  whileHover={{ scale: 1.1, y: -5 }}
+                >
+                  <motion.div 
+                    className="text-3xl font-bold text-green-600 mb-2 font-serif"
+                    animate={{ scale: [1, 1.1, 1] }}
+                    transition={{ duration: 2, repeat: Infinity, delay: index * 0.3 }}
+                  >
+                    {stat.value}
+                  </motion.div>
+                  <div className="text-sm text-gray-600 font-medium">{stat.label}</div>
+                </motion.div>
+              ))}
             </motion.div>
           </motion.div>
 
@@ -109,8 +148,13 @@ const AboutUs = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.4 }}
             className="relative"
+            whileHover={{ scale: 1.02 }}
           >
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-green-500 via-green-600 to-emerald-500 h-96">
+            <motion.div 
+              className="relative rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-green-500 via-green-600 to-emerald-500 h-96"
+              animate={{ y: [0, -15, 0] }}
+              transition={{ duration: 4, repeat: Infinity }}
+            >
               <div className="absolute inset-0 bg-black/20" />
               <img
                 src="/globe.svg"
@@ -129,7 +173,7 @@ const AboutUs = () => {
                   Delivering sustainable energy solutions that power a brighter future for generations to come.
                 </p>
               </motion.div>
-            </div>
+            </motion.div>
           </motion.div>
         </div>
 
@@ -165,7 +209,7 @@ const AboutUs = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 1 }}
         >
-          <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center font-serif">Why Choose Us</h3>
+          <h3 className="text-xl font-bold text-gray-900 mb-8 text-center font-serif">Why Choose Us</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {highlights.map((highlight, index) => (
               <motion.div

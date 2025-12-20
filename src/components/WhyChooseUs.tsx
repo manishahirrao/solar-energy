@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { CheckCircle, TrendingUp, Shield, Clock, Users, Award } from 'lucide-react';
+import { CheckCircle, TrendingUp, Shield, Clock, Users, Award, Sun, Battery, Wrench } from 'lucide-react';
 import Link from 'next/link';
 
 const WhyChooseUs = () => {
@@ -33,31 +33,49 @@ const WhyChooseUs = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Why Choose Procura Solar</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <motion.h2 
+            className="text-3xl md:text-4xl font-bold text-gray-900 mb-4"
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            whileHover={{ scale: 1.05 }}
+          >
+            Why Choose Procura Solar
+          </motion.h2>
+          <motion.p 
+            className="text-lg text-gray-600 max-w-3xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
             We deliver excellence in every solar project with unmatched expertise and dedication
-          </p>
+          </motion.p>
         </motion.div>
 
         <div className="space-y-12">
           {features.map((feature, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: index * 0.2 }}
+              transition={{ duration: 0.8, delay: index * 0.3 }}
               className={`grid grid-cols-1 lg:grid-cols-3 gap-6 items-center ${
                 index % 2 === 1 ? 'lg:flex-row-reverse' : ''
               }`}
+              whileHover={{ scale: 1.02 }}
             >
               <div className={`${index % 2 === 0 ? 'lg:col-start-1' : 'lg:col-start-3'}`}>
                 <motion.div
-                  initial={{ opacity: 0, scale: 0.9 }}
+                  initial={{ opacity: 0, scale: 0.8 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.2 + 0.2 }}
                   className="relative rounded-xl overflow-hidden shadow-xl bg-gradient-to-br from-green-500 via-green-600 to-emerald-500 h-40 w-40"
+                  whileHover={{ rotate: 5, scale: 1.1 }}
+                  animate={{ y: [0, -10, 0] }}
+                  transition={{ duration: 3, repeat: Infinity, delay: index * 0.5 }}
                 >
                   <div className="absolute inset-0 bg-black/20" />
                   <img
@@ -71,6 +89,7 @@ const WhyChooseUs = () => {
                     viewport={{ once: true }}
                     transition={{ duration: 0.7, delay: index * 0.2 + 0.4 }}
                     className="absolute top-2 left-2 bg-white/90 backdrop-blur-md rounded-lg p-2 z-20"
+                    whileHover={{ scale: 1.1 }}
                   >
                     <p className="text-xs font-semibold text-green-700 uppercase tracking-wide">
                       {feature.title}
@@ -85,7 +104,8 @@ const WhyChooseUs = () => {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: index * 0.2 + 0.3 }}
-                  className="text-2xl font-bold text-gray-900 mb-3"
+                  className="text-xl font-bold text-gray-900 mb-3"
+                  whileHover={{ scale: 1.05, x: 10 }}
                 >
                   {feature.title}
                 </motion.h3>
@@ -94,7 +114,7 @@ const WhyChooseUs = () => {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: index * 0.2 + 0.4 }}
-                  className="text-base text-gray-600 leading-relaxed mb-4"
+                  className="text-gray-600 leading-relaxed mb-4 text-sm"
                 >
                   {feature.description}
                 </motion.p>
@@ -104,47 +124,32 @@ const WhyChooseUs = () => {
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: index * 0.2 + 0.5 }}
                   className="flex items-center gap-3"
+                  whileHover={{ scale: 1.05 }}
                 >
-                  <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
-                    {index === 0 && <CheckCircle className="w-5 h-5 text-green-600" />}
+                  <motion.div 
+                    className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center"
+                    whileHover={{ rotate: 360, scale: 1.2 }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    {index === 0 && <Sun className="w-5 h-5 text-green-600" />}
                     {index === 1 && <TrendingUp className="w-5 h-5 text-green-600" />}
-                    {index === 2 && <Shield className="w-5 h-5 text-green-600" />}
-                  </div>
-                  <span className="text-gray-700 font-medium text-sm">
+                    {index === 2 && <Battery className="w-5 h-5 text-green-600" />}
+                  </motion.div>
+                  <motion.span 
+                    className="text-gray-700 font-medium text-sm"
+                    whileHover={{ x: 5 }}
+                  >
                     {index === 0 && 'Guaranteed Quality'}
                     {index === 1 && 'Best Value'}
                     {index === 2 && 'Expert Service'}
-                  </span>
+                  </motion.span>
                 </motion.div>
               </div>
             </motion.div>
           ))}
         </div>
 
-        {/* Service Navigation Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="mt-20 text-center"
-        >
-          <div className="bg-gradient-to-r from-green-600 to-green-700 rounded-2xl p-12 text-white">
-            <h3 className="text-3xl font-bold mb-4">Ready to Explore Our Services?</h3>
-            <p className="text-xl mb-8 max-w-2xl mx-auto">
-              Discover our comprehensive solar solutions tailored to your needs. From residential to commercial installations, we have the perfect solution for you.
-            </p>
-            <Link 
-              href="/service"
-              className="inline-flex items-center bg-white text-green-600 px-8 py-4 rounded-full hover:bg-gray-100 transition-colors font-semibold text-lg group"
-            >
-              View Our Services
-              <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-              </svg>
-            </Link>
-          </div>
-        </motion.div>
+    
       </div>
     </section>
   );

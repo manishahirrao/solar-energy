@@ -3,7 +3,7 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { motion } from 'framer-motion';
-import { Zap, CheckCircle, ArrowRight, Phone, Mail } from 'lucide-react';
+import { Sun, CheckCircle, ArrowRight, Phone, Mail } from 'lucide-react';
 
 export default function SolarEnergyService() {
   const benefits = [
@@ -52,10 +52,27 @@ export default function SolarEnergyService() {
             transition={{ duration: 0.8 }}
             className="text-center text-white"
           >
-            <h1 className="text-5xl md:text-6xl font-bold mb-4">Solar Energy Solutions</h1>
-            <p className="text-xl max-w-3xl mx-auto">
-              Harness the power of the sun with our cutting-edge solar panel technology and professional installation services
-            </p>
+            <motion.h1 
+              className="text-4xl md:text-5xl font-bold mb-4"
+              whileHover={{ scale: 1.05 }}
+            >
+              <motion.span
+                animate={{ backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }}
+                transition={{ duration: 5, repeat: Infinity }}
+                className="bg-gradient-to-r from-white via-green-200 to-white bg-clip-text text-transparent"
+              >
+                Solar Energy Solutions
+              </motion.span>
+            </motion.h1>
+            <motion.p 
+              className="text-lg max-w-3xl mx-auto leading-relaxed"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              Harness the power of the sun with our cutting-edge solar panel technology and installation services.
+            </motion.p>
           </motion.div>
         </div>
       </section>
@@ -96,15 +113,20 @@ export default function SolarEnergyService() {
             </motion.div>
             
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="relative"
+              className="w-20 h-20 bg-white bg-opacity-10 backdrop-blur-sm border-2 border-white border-opacity-30 rounded-full flex items-center justify-center mx-auto mb-6"
+              whileHover={{ scale: 1.1, rotate: 5 }}
+              animate={{ y: [0, -10, 0] }}
+              transition={{ duration: 3, repeat: Infinity }}
             >
-              <div className="w-full h-96 bg-gradient-to-br from-green-400 to-green-600 rounded-xl flex items-center justify-center">
-                <Zap className="w-24 h-24 text-white text-opacity-50" />
-              </div>
+              <motion.div
+                animate={{ rotate: 360 }}
+                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+              >
+                <Sun className="w-10 h-10 text-white" />
+              </motion.div>
             </motion.div>
           </div>
         </div>

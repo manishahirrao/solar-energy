@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Phone, Mail, MapPin, Facebook, Twitter, Linkedin, Instagram, Sun, Users, Award, Clock, Shield, Leaf, Zap, Globe } from 'lucide-react';
+import { Phone, Mail, MapPin, Facebook, Twitter, Linkedin, Instagram, Sun, Users, Award, Clock, Shield, Trees, Battery, Globe } from 'lucide-react';
 import Link from 'next/link';
 
 const Footer = () => {
@@ -54,86 +54,82 @@ const Footer = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="lg:col-span-1"
+            className="lg:col-span-2"
           >
-            <div className="flex items-center mb-4">
-              <div className="w-12 h-12 bg-gradient-to-r from-green-400 to-green-600 rounded-full flex items-center justify-center mr-3">
-                <Sun className="w-7 h-7 text-white" />
-              </div>
-              <h3 className="text-2xl font-bold text-green-400">Procura Solar</h3>
-            </div>
-            <p className="text-gray-300 mb-4 leading-relaxed text-sm">
-              Leading the renewable energy revolution with cutting-edge solar solutions.
-            </p>
+            <motion.div 
+              className="flex items-center mb-4"
+              whileHover={{ scale: 1.05 }}
+            >
+              <motion.div
+                animate={{ rotate: 360 }}
+                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                className="mr-3"
+              >
+                <Sun className="w-8 h-8 text-green-400" />
+              </motion.div>
+              <h3 className="text-2xl font-bold">Procura Solar</h3>
+            </motion.div>
+            <motion.p 
+              className="text-gray-300 mb-6 leading-relaxed"
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              Leading the renewable energy revolution with innovative solar solutions and unwavering commitment to excellence.
+            </motion.p>
             
-            <div className="space-y-2">
-              <div className="flex items-center text-gray-300">
-                <Phone className="w-5 h-5 mr-3 text-green-400" />
-                <span>+91 98765-43210</span>
-              </div>
-              <div className="flex items-center text-gray-300">
-                <Mail className="w-5 h-5 mr-3 text-green-400" />
-                <span>info@procurasolar.com</span>
-              </div>
-              <div className="flex items-center text-gray-300">
-                <MapPin className="w-5 h-5 mr-3 text-green-400" />
-                <span>Ahmedabad, Gujarat, India</span>
-              </div>
-            </div>
-            
-            {/* Social Media */}
-            <div className="mt-4 flex items-center space-x-2">
-              <span className="text-gray-300 text-xs mr-2">Follow:</span>
-              <a
-                href="#"
-                className="w-6 h-6 bg-gray-800/50 rounded-full flex items-center justify-center text-gray-400 hover:bg-green-600 hover:text-white transition-all transform hover:scale-110"
-                aria-label="Facebook"
+            <motion.div 
+              className="flex items-center space-x-4"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
+              <motion.div
+                className="flex items-center text-gray-300 hover:text-white transition-colors"
+                whileHover={{ x: 5 }}
               >
-                <Facebook className="w-3 h-3" />
-              </a>
-              <a
-                href="#"
-                className="w-6 h-6 bg-gray-800/50 rounded-full flex items-center justify-center text-gray-400 hover:bg-green-600 hover:text-white transition-all transform hover:scale-110"
-                aria-label="Twitter"
+                <Phone className="w-4 h-4 mr-2" />
+                <span className="text-sm">+91 004-9985-484-44</span>
+              </motion.div>
+              <motion.div
+                className="flex items-center text-gray-300 hover:text-white transition-colors"
+                whileHover={{ x: 5 }}
               >
-                <Twitter className="w-3 h-3" />
-              </a>
-              <a
-                href="#"
-                className="w-6 h-6 bg-gray-800/50 rounded-full flex items-center justify-center text-gray-400 hover:bg-green-600 hover:text-white transition-all transform hover:scale-110"
-                aria-label="LinkedIn"
-              >
-                <Linkedin className="w-3 h-3" />
-              </a>
-              <a
-                href="#"
-                className="w-6 h-6 bg-gray-800/50 rounded-full flex items-center justify-center text-gray-400 hover:bg-green-600 hover:text-white transition-all transform hover:scale-110"
-                aria-label="Instagram"
-              >
-                <Instagram className="w-3 h-3" />
-              </a>
-            </div>
+                <Mail className="w-4 h-4 mr-2" />
+                <span className="text-sm">info@procu rasolar.com</span>
+              </motion.div>
+            </motion.div>
           </motion.div>
 
-          {/* Quick Links */}
+          {/* Useful Links */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.1 }}
           >
-            <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
+            <motion.h4 
+              className="text-lg font-semibold mb-4"
+              whileHover={{ scale: 1.05 }}
+            >
+              Useful Links
+            </motion.h4>
             <ul className="space-y-2">
               {usefulLinks.map((link, index) => (
-                <li key={index}>
-                  <Link
-                    href={link.href}
-                    className="text-gray-300 hover:text-green-400 transition-colors flex items-center group"
-                  >
-                    <span className="w-1 h-1 bg-green-400 rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                <motion.li 
+                  key={index}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
+                  whileHover={{ x: 5 }}
+                >
+                  <Link href={link.href} className="text-gray-300 hover:text-green-400 transition-colors">
                     {link.name}
                   </Link>
-                </li>
+                </motion.li>
               ))}
             </ul>
           </motion.div>
@@ -145,18 +141,26 @@ const Footer = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <h4 className="text-lg font-semibold mb-4">Resources</h4>
+            <motion.h4 
+              className="text-lg font-semibold mb-4"
+              whileHover={{ scale: 1.05 }}
+            >
+              Resources
+            </motion.h4>
             <ul className="space-y-2">
               {resources.map((link, index) => (
-                <li key={index}>
-                  <Link
-                    href={link.href}
-                    className="text-gray-300 hover:text-green-400 transition-colors flex items-center group"
-                  >
-                    <span className="w-1 h-1 bg-green-400 rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                <motion.li 
+                  key={index}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
+                  whileHover={{ x: 5 }}
+                >
+                  <Link href={link.href} className="text-gray-300 hover:text-green-400 transition-colors">
                     {link.name}
                   </Link>
-                </li>
+                </motion.li>
               ))}
             </ul>
           </motion.div>
@@ -168,41 +172,57 @@ const Footer = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
-            <h4 className="text-lg font-semibold mb-4">Services</h4>
+            <motion.h4 
+              className="text-lg font-semibold mb-4"
+              whileHover={{ scale: 1.05 }}
+            >
+              Services
+            </motion.h4>
             <ul className="space-y-2">
               {services.slice(0, 4).map((service, index) => (
-                <li key={index}>
-                  <Link
-                    href={service.href}
-                    className="text-gray-300 hover:text-green-400 transition-colors flex items-center group"
-                  >
-                    <span className="w-1 h-1 bg-green-400 rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                <motion.li 
+                  key={index}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
+                  whileHover={{ x: 5 }}
+                >
+                  <Link href={service.href} className="text-gray-300 hover:text-green-400 transition-colors">
                     {service.name}
                   </Link>
-                </li>
+                </motion.li>
               ))}
             </ul>
           </motion.div>
 
-          {/* Legal */}
+          {/* Support */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            <h4 className="text-lg font-semibold mb-4">Legal</h4>
+            <motion.h4 
+              className="text-lg font-semibold mb-4"
+              whileHover={{ scale: 1.05 }}
+            >
+              Support
+            </motion.h4>
             <ul className="space-y-2">
-              {support.map((link, index) => (
-                <li key={index}>
-                  <Link
-                    href={link.href}
-                    className="text-gray-300 hover:text-green-400 transition-colors flex items-center group"
-                  >
-                    <span className="w-1 h-1 bg-green-400 rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                    {link.name}
+              {support.map((item, index) => (
+                <motion.li 
+                  key={index}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
+                  whileHover={{ x: 5 }}
+                >
+                  <Link href={item.href} className="text-gray-300 hover:text-green-400 transition-colors">
+                    {item.name}
                   </Link>
-                </li>
+                </motion.li>
               ))}
             </ul>
           </motion.div>

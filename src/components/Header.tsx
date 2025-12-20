@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import { Menu, X, Phone, Mail, Sun, ChevronDown } from 'lucide-react';
 import Link from 'next/link';
 
@@ -25,58 +26,85 @@ const Header = () => {
         <div className="w-full px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             {/* Logo */}
-            <div className="flex-shrink-0">
+            <motion.div 
+              className="flex-shrink-0"
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+            >
               <Link href="/" className="flex items-center group">
-                <img 
-                  src="/procura logo.jpg" 
-                  alt="Procura Solar" 
-                  className="w-16 h-16 transition-transform duration-300 group-hover:scale-110"
-                />
+                <motion.div
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <img 
+                    src="/procura logo.jpg" 
+                    alt="Procura Solar" 
+                    className="w-16 h-16 transition-transform duration-300"
+                  />
+                </motion.div>
               </Link>
-            </div>
+            </motion.div>
 
             {/* Desktop menu */}
-            <div className="hidden md:block">
+            <motion.div 
+              className="hidden md:block"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
               <ul className="flex space-x-8">
-                <li>
-                  <Link href="/" className="text-gray-700 hover:text-green-600 transition-colors font-medium">
-                    Home
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/about" className="text-gray-700 hover:text-green-600 transition-colors font-medium">
-                    About Us
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/service" className="text-gray-700 hover:text-green-600 transition-colors font-medium">
-                    Services
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/project" className="text-gray-700 hover:text-green-600 transition-colors font-medium">
-                    Project
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/gallery" className="text-gray-700 hover:text-green-600 transition-colors font-medium">
-                    Gallery
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/contact" className="text-gray-700 hover:text-green-600 transition-colors font-medium">
-                    Contact Us
-                  </Link>
-                </li>
+                {[
+                  { name: 'Home', href: '/' },
+                  { name: 'About Us', href: '/about' },
+                  { name: 'Services', href: '/service' },
+                  { name: 'Projects', href: '/projects' },
+                  { name: 'Contact', href: '/contact' }
+                ].map((item, index) => (
+                  <motion.li
+                    key={item.name}
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
+                  >
+                    <Link 
+                      href={item.href} 
+                      className="text-gray-700 hover:text-green-600 transition-colors font-medium relative group"
+                    >
+                      {item.name}
+                      <motion.div
+                        className="absolute bottom-0 left-0 w-0 h-0.5 bg-green-600 group-hover:w-full transition-all duration-300"
+                        layoutId="underline"
+                      />
+                    </Link>
+                  </motion.li>
+                ))}
               </ul>
-            </div>
+            </motion.div>
 
             {/* CTA Button */}
-            <div className="hidden md:block">
-              <Link href="/contact" className="bg-green-600 text-white px-6 py-2 rounded-full hover:bg-green-700 transition-colors font-medium">
-                Get a Quote
-              </Link>
-            </div>
+            <motion.div
+              className="hidden md:block"
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+            >
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Link href="/contact" className="bg-green-600 text-white px-6 py-2 rounded-full hover:bg-green-700 transition-colors font-medium flex items-center">
+                  <motion.div
+                    animate={{ x: [0, 3, 0] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                    className="mr-2"
+                  >
+                    <Sun className="w-4 h-4" />
+                  </motion.div>
+                  Get a Quote
+                </Link>
+              </motion.div>
+            </motion.div>
 
             {/* Mobile menu button */}
             <div className="md:hidden">

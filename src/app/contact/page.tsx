@@ -3,7 +3,7 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { motion } from 'framer-motion';
-import { Phone, Mail, MapPin, Send, Clock } from 'lucide-react';
+import { Phone, Mail, MapPin, Send, Clock, Building } from 'lucide-react';
 
 export default function Contact() {
   const contactInfo = [
@@ -20,7 +20,7 @@ export default function Contact() {
       description: 'We respond within 24 hours'
     },
     {
-      icon: MapPin,
+      icon: Building,
       title: 'Office',
       details: 'Gujarat, India',
       description: 'Visit us for consultation'
@@ -92,13 +92,40 @@ export default function Contact() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
               className="w-20 h-20 bg-white bg-opacity-10 backdrop-blur-sm border-2 border-white border-opacity-30 rounded-full flex items-center justify-center mx-auto mb-6"
+              whileHover={{ scale: 1.1, rotate: 5 }}
             >
-              <Phone className="w-10 h-10 text-white" />
+              <motion.div
+                animate={{ rotate: 360 }}
+                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+              >
+                <Phone className="w-10 h-10 text-white" />
+              </motion.div>
             </motion.div>
-            <h1 className="text-5xl md:text-6xl font-bold mb-4">Contact Us</h1>
-            <p className="text-xl max-w-3xl mx-auto leading-relaxed">
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="text-4xl md:text-5xl font-bold mb-4"
+              whileHover={{ scale: 1.05 }}
+            >
+              <motion.span
+                animate={{ backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }}
+                transition={{ duration: 5, repeat: Infinity }}
+                className="bg-gradient-to-r from-white via-green-200 to-white bg-clip-text text-transparent"
+              >
+                Contact Us
+              </motion.span>
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-lg max-w-3xl mx-auto leading-relaxed"
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
               Get in touch with our solar energy experts for consultation and quotes
-            </p>
+            </motion.p>
           </motion.div>
         </div>
       </section>
@@ -115,13 +142,23 @@ export default function Contact() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: index * 0.1 }}
                 className="text-center"
+                whileHover={{ scale: 1.05, y: -5 }}
               >
-                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <motion.div 
+                  className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6"
+                  whileHover={{ rotate: 360, scale: 1.1 }}
+                  transition={{ duration: 0.5 }}
+                >
                   <info.icon className="w-8 h-8 text-green-600" />
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">{info.title}</h3>
-                <p className="text-green-600 font-medium mb-2">{info.details}</p>
-                <p className="text-gray-600 text-sm">{info.description}</p>
+                </motion.div>
+                <motion.h3 
+                  className="text-lg font-semibold text-gray-900 mb-2"
+                  whileHover={{ scale: 1.1 }}
+                >
+                  {info.title}
+                </motion.h3>
+                <motion.p className="text-green-600 font-medium mb-2">{info.details}</motion.p>
+                <motion.p className="text-gray-600 text-sm">{info.description}</motion.p>
               </motion.div>
             ))}
           </div>
@@ -133,46 +170,55 @@ export default function Contact() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Form */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="bg-white rounded-xl shadow-lg p-8"
-            >
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">Send us a Message</h2>
+                <motion.div
+                  initial={{ opacity: 0, x: -30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8 }}
+                  className="bg-white rounded-xl shadow-lg p-8"
+                  whileHover={{ scale: 1.02, y: -5 }}
+                >
+                <motion.h2 
+                  className="text-2xl font-bold text-gray-900 mb-6"
+                  initial={{ opacity: 0, y: -20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6 }}
+                >
+                  Send us a Message
+                </motion.h2>
               
               <form className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-gray-700 font-medium mb-2">First Name</label>
+                    <label className="block text-gray-700 font-medium mb-2 text-sm">First Name</label>
                     <input
                       type="text"
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-green-600 transition-colors"
-                      placeholder="John"
+                      placeholder="rahul"
                     />
                   </div>
                   <div>
-                    <label className="block text-gray-700 font-medium mb-2">Last Name</label>
+                    <label className="block text-gray-700 font-medium mb-2 text-sm">Last Name</label>
                     <input
                       type="text"
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-green-600 transition-colors"
-                      placeholder="Doe"
+                      placeholder="sharma"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-gray-700 font-medium mb-2">Email</label>
+                  <label className="block text-gray-700 font-medium mb-2 text-sm">Email</label>
                   <input
                     type="email"
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-green-600 transition-colors"
-                    placeholder="john@example.com"
+                    placeholder="rahul@example.com"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-gray-700 font-medium mb-2">Phone</label>
+                  <label className="block text-gray-700 font-medium mb-2 text-sm">Phone</label>
                   <input
                     type="tel"
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-green-600 transition-colors"
@@ -181,7 +227,7 @@ export default function Contact() {
                 </div>
 
                 <div>
-                  <label className="block text-gray-700 font-medium mb-2">Service Interested In</label>
+                  <label className="block text-gray-700 font-medium mb-2 text-sm">Service Interested</label>
                   <select className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-green-600 transition-colors">
                     <option>Select a service</option>
                     <option>Solar Energy</option>
@@ -194,7 +240,7 @@ export default function Contact() {
                 </div>
 
                 <div>
-                  <label className="block text-gray-700 font-medium mb-2">Message</label>
+                  <label className="block text-gray-700 font-medium mb-2 text-sm">Message</label>
                   <textarea
                     rows={5}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-green-600 transition-colors"
@@ -202,13 +248,20 @@ export default function Contact() {
                   ></textarea>
                 </div>
 
-                <button
+                <motion.button
                   type="submit"
                   className="w-full bg-green-600 text-white px-6 py-4 rounded-lg hover:bg-green-700 transition-colors font-semibold flex items-center justify-center"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                 >
-                  <Send className="w-5 h-5 mr-2" />
+                  <motion.div
+                    animate={{ x: [0, 5, 0] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                  >
+                    <Send className="w-5 h-5 mr-2" />
+                  </motion.div>
                   Send Message
-                </button>
+                </motion.button>
               </form>
             </motion.div>
 
@@ -223,7 +276,7 @@ export default function Contact() {
               {/* Map Placeholder */}
               <div className="bg-gray-200 rounded-xl h-96 flex items-center justify-center">
                 <div className="text-gray-500 text-center">
-                  <MapPin className="w-16 h-16 mx-auto mb-4" />
+                  <Building className="w-16 h-16 mx-auto mb-4" />
                   <p>Interactive Map</p>
                   <p className="text-sm">Showing office locations</p>
                 </div>
@@ -288,7 +341,7 @@ export default function Contact() {
                 <h3 className="text-xl font-bold text-gray-900 mb-4">{office.city}</h3>
                 <div className="space-y-3">
                   <div className="flex items-start">
-                    <MapPin className="w-5 h-5 text-green-600 mr-3 mt-1 flex-shrink-0" />
+                    <Building className="w-5 h-5 text-green-600 mr-3 mt-1 flex-shrink-0" />
                     <span className="text-gray-600">{office.address}</span>
                   </div>
                   <div className="flex items-center">

@@ -1,14 +1,14 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Play, ArrowRight, Sun, Zap, Leaf, Shield } from 'lucide-react';
+import { Play, ArrowRight, Sun, Battery, Trees, Wrench } from 'lucide-react';
 
 const Hero = () => {
   const features = [
     { icon: Sun, label: 'Solar Panels' },
-    { icon: Zap, label: 'Energy Storage' },
-    { icon: Leaf, label: 'Eco Friendly' },
-    { icon: Shield, label: '25 Year Warranty' }
+    { icon: Battery, label: 'Energy Storage' },
+    { icon: Trees, label: 'Eco Friendly' },
+    { icon: Wrench, label: '25 Year Warranty' }
   ];
 
   return (
@@ -65,7 +65,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="text-3xl md:text-5xl font-bold text-white mb-4 leading-tight drop-shadow-2xl"
+              className="text-4xl md:text-5xl font-bold text-white mb-4 leading-tight drop-shadow-2xl"
             >
               Empowering Your Future
               <span className="block text-white drop-shadow-lg">with Solar Energy</span>
@@ -75,7 +75,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-lg md:text-xl text-white mb-6 leading-relaxed max-w-2xl mx-auto drop-shadow-lg"
+              className="text-base md:text-lg text-white mb-6 leading-relaxed max-w-2xl mx-auto drop-shadow-lg"
             >
               At Procura Solar, we're committed to revolutionizing the way you think about energy. Say goodbye to skyrocketing utility bills and hello to a brighter, greener future with our state-of-the-art solar energy solutions.
             </motion.p>
@@ -86,12 +86,12 @@ const Hero = () => {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="flex flex-col sm:flex-row gap-4 mb-8 justify-center"
             >
-              <button className="bg-green-600 text-white px-6 py-3 rounded-full hover:bg-green-700 transition-all duration-300 font-semibold text-base flex items-center justify-center group transform hover:scale-105 shadow-2xl">
+              <button className="bg-green-600 text-white px-5 py-2.5 rounded-full hover:bg-green-700 transition-all duration-300 font-medium text-sm flex items-center justify-center group transform hover:scale-105 shadow-2xl">
                 Get Started
                 <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
               </button>
               
-              <button className="bg-transparent border-2 border-white text-white px-6 py-3 rounded-full hover:bg-white hover:text-green-700 transition-all duration-300 font-semibold text-base flex items-center justify-center transform hover:scale-105 shadow-2xl backdrop-blur-sm">
+              <button className="bg-transparent border-2 border-white text-white px-5 py-2.5 rounded-full hover:bg-white hover:text-green-700 transition-all duration-300 font-medium text-sm flex items-center justify-center transform hover:scale-105 shadow-2xl backdrop-blur-sm">
                 <Play className="w-4 h-4 mr-2" />
                 View Projects
               </button>

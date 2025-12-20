@@ -3,13 +3,13 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { motion } from 'framer-motion';
-import { Zap, Home, Leaf, ArrowRight } from 'lucide-react';
+import { Sun, Battery, Home, Trees, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
 export default function Service() {
   const services = [
     {
-      icon: Zap,
+      icon: Sun,
       title: 'Solar Energy',
       description: 'Complete solar panel installation and maintenance services for residential and commercial properties.',
       features: ['High-efficiency solar panels', '25-year warranty', 'Smart monitoring systems', 'Grid-tie and off-grid solutions'],
@@ -17,7 +17,7 @@ export default function Service() {
       href: '/service/solar-energy'
     },
     {
-      icon: Home,
+      icon: Battery,
       title: 'Hybrid Energy',
       description: 'Integrated solar and battery storage systems for maximum energy independence and reliability.',
       features: ['Battery backup systems', 'Smart energy management', 'Load optimization', 'Emergency power backup'],
@@ -25,7 +25,7 @@ export default function Service() {
       href: '/service/hybrid-energy'
     },
     {
-      icon: Leaf,
+      icon: Trees,
       title: 'Solar Consulting',
       description: 'Expert consulting services to help you choose the best solar energy solutions.',
       features: ['Energy audit', 'System design', 'Financial analysis', 'Regulatory compliance'],
@@ -33,7 +33,7 @@ export default function Service() {
       href: '/service/solar-consulting'
     },
     {
-      icon: Zap,
+      icon: Sun,
       title: 'Solar Maintenance',
       description: 'Comprehensive maintenance and repair services for solar energy systems.',
       features: ['Regular inspections', 'Performance optimization', 'Emergency repairs', 'System upgrades'],
@@ -41,7 +41,7 @@ export default function Service() {
       href: '/service/maintenance'
     },
     {
-      icon: Home,
+      icon: Battery,
       title: 'Energy Storage',
       description: 'Advanced battery storage solutions for solar energy independence and grid stability.',
       features: ['Lithium-ion batteries', 'Smart charging', 'Peak shaving', 'Demand response'],
@@ -95,7 +95,7 @@ export default function Service() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="w-20 h-20 bg-white bg-opacity-10 backdrop-blur-sm border-2 border-white border-opacity-30 rounded-full flex items-center justify-center mx-auto mb-6"
             >
-              <Zap className="w-10 h-10 text-white" />
+              <Sun className="w-10 h-10 text-white" />
             </motion.div>
             <h1 className="text-5xl md:text-6xl font-bold mb-4">Our Services</h1>
             <p className="text-xl max-w-3xl mx-auto leading-relaxed">
