@@ -3,14 +3,14 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { motion } from 'framer-motion';
-import { Users, Award, Leaf, Target } from 'lucide-react';
+import { Users, Award, Leaf, Target, Sun, Zap, Shield, Clock, Globe, CheckCircle, TrendingUp, Lightbulb, Wrench } from 'lucide-react';
 
 export default function About() {
   const stats = [
-    { number: '500+', label: 'Projects Completed', icon: Award },
-    { number: '10+', label: 'Years Experience', icon: Users },
-    { number: '100%', label: 'Customer Satisfaction', icon: Leaf },
-    { number: '50MW', label: 'Solar Installed', icon: Target }
+    { number: 'Many', label: 'Projects Delivered', icon: Award },
+    { number: 'Experienced', label: 'Solar Specialists', icon: Users },
+    { number: 'Trusted', label: 'Customer Relationships', icon: Leaf },
+    { number: 'Extensive', label: 'Solar Capacity Installed', icon: Target }
   ];
 
   const values = [
@@ -36,13 +36,61 @@ export default function About() {
     }
   ];
 
+  const milestones = [
+    { year: 'Foundation', title: 'Company Established', description: 'Started with a vision to make solar energy accessible to all' },
+    { year: 'Growth', title: 'Expanded Operations', description: 'Extended services across multiple states with growing team' },
+    { year: 'Innovation', title: 'Technology Integration', description: 'Adopted cutting-edge solar technology and smart solutions' },
+    { year: 'Excellence', title: 'Industry Recognition', description: 'Received multiple awards for outstanding service and innovation' }
+  ];
+
+  const expertise = [
+    { title: 'Residential Solar', description: 'Customized solar solutions for homes of all sizes', icon: Sun },
+    { title: 'Commercial Systems', description: 'Large-scale solar installations for businesses and industries', icon: Globe },
+    { title: 'Energy Storage', description: 'Advanced battery solutions for energy independence', icon: Zap },
+    { title: 'Smart Technology', description: 'IoT-enabled monitoring and optimization systems', icon: Lightbulb },
+    { title: 'Maintenance', description: 'Comprehensive maintenance and support services', icon: Wrench },
+    { title: 'Consultation', description: 'Expert energy consulting and feasibility studies', icon: CheckCircle }
+  ];
+
+  const team = [
+    { name: 'Solar Specialists', role: 'Expert Engineers', description: 'Dedicated team of certified solar professionals' },
+    { name: 'Installation Crew', role: 'Skilled Technicians', description: 'Experienced installation experts ensuring quality workmanship' },
+    { name: 'Customer Support', role: 'Service Team', description: 'Friendly support staff ready to assist you' },
+    { name: 'Energy Consultants', role: 'Advisors', description: 'Knowledgeable consultants helping you make informed decisions' }
+  ];
+
   return (
     <div className="min-h-screen">
       <Header />
       
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-green-600 to-green-800">
-        <div className="absolute inset-0 bg-black bg-opacity-20"></div>
+      <section className="relative py-32 bg-gradient-to-br from-green-600 via-green-700 to-green-800 overflow-hidden">
+        {/* Animated background elements */}
+        <div className="absolute inset-0">
+          {[...Array(4)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute bg-white rounded-full opacity-5"
+              style={{
+                width: Math.random() * 80 + 40 + 'px',
+                height: Math.random() * 80 + 40 + 'px',
+                left: Math.random() * 100 + '%',
+                top: Math.random() * 100 + '%'
+              }}
+              animate={{
+                y: [0, -20, 0],
+                x: [0, 15, 0],
+              }}
+              transition={{
+                duration: 3 + Math.random() * 2,
+                repeat: Infinity,
+                repeatType: 'reverse',
+                ease: 'easeInOut'
+              }}
+            />
+          ))}
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-transparent bg-opacity-20"></div>
         <div className="relative container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -50,8 +98,16 @@ export default function About() {
             transition={{ duration: 0.8 }}
             className="text-center text-white"
           >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="w-20 h-20 bg-white bg-opacity-10 backdrop-blur-sm border-2 border-white border-opacity-30 rounded-full flex items-center justify-center mx-auto mb-6"
+            >
+              <Users className="w-10 h-10 text-white" />
+            </motion.div>
             <h1 className="text-5xl md:text-6xl font-bold mb-4">About Us</h1>
-            <p className="text-xl max-w-3xl mx-auto">
+            <p className="text-xl max-w-3xl mx-auto leading-relaxed">
               We are the best of renewable energy solutions, committed to transforming the way India powers its future
             </p>
           </motion.div>
@@ -69,16 +125,16 @@ export default function About() {
               transition={{ duration: 0.8 }}
             >
               <h2 className="text-4xl font-bold text-gray-900 mb-6">
-                We are the best of renewable energy
+                Empowering India with Clean Solar Energy
               </h2>
               <p className="text-gray-600 mb-6 leading-relaxed">
-                At SolarBright, we've been at the forefront of India's renewable energy revolution for over a decade. Our mission is to make clean, sustainable energy accessible to everyone - from homeowners to large industrial facilities.
+                Procura Solar is dedicated to driving India's renewable energy transition with reliable, high-quality solar solutions. Our mission is to make clean, sustainable energy accessible to everyone – from homeowners to large industrial facilities.
               </p>
               <p className="text-gray-600 mb-6 leading-relaxed">
-                Founded in 2014, we've grown from a small team of passionate engineers to one of India's most trusted solar energy companies. Our expertise spans residential, commercial, and utility-scale solar installations across the country.
+                Our team of solar professionals designs and delivers systems tailored to each site, whether residential, commercial, or utility-scale. Every project is engineered for performance, durability, and long-term value.
               </p>
               <p className="text-gray-600 leading-relaxed">
-                We believe that solar energy is not just about saving money - it's about creating a sustainable future for generations to come. Every installation we complete brings us closer to our vision of a 100% renewable India.
+                We believe solar energy is not just about lowering bills – it is about building a sustainable future for generations to come. Every installation moves us closer to a cleaner, more resilient energy landscape.
               </p>
             </motion.div>
             
@@ -89,10 +145,29 @@ export default function About() {
               transition={{ duration: 0.8 }}
               className="relative"
             >
-              <div className="w-full h-96 bg-gradient-to-br from-green-400 to-green-600 rounded-xl flex items-center justify-center">
-                <div className="text-white text-opacity-50 text-2xl font-semibold">
-                  About SolarBright
-                </div>
+              <div className="w-full h-96 rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-green-500 via-green-600 to-emerald-500 relative">
+                <div className="absolute inset-0 bg-black/20" />
+                <img
+                  src="/window.svg"
+                  alt="Solar installation illustration"
+                  className="w-full h-full object-contain mix-blend-screen relative z-10"
+                />
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.7, delay: 0.3 }}
+                  className="absolute bottom-6 left-6 right-6 bg-white/90 backdrop-blur-md rounded-xl p-4 flex items-center justify-between gap-4 z-20"
+                >
+                  <div>
+                    <p className="text-sm font-semibold text-green-700 uppercase tracking-wide">Procura Solar</p>
+                    <p className="text-gray-700 text-sm">Designing smart, efficient solar systems for homes and businesses.</p>
+                  </div>
+                  <div className="hidden sm:flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                    <span className="text-xs text-gray-500">Active projects running</span>
+                  </div>
+                </motion.div>
               </div>
             </motion.div>
           </div>
@@ -154,6 +229,205 @@ export default function About() {
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-4">{value.title}</h3>
                 <p className="text-gray-600 leading-relaxed">{value.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Company Story Section */}
+      <section className="py-20 bg-gradient-to-br from-gray-50 to-green-50">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Journey</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              From a small vision to a leading solar energy provider
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
+              <div className="space-y-8">
+                <div className="flex items-start space-x-4">
+                  <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                    <Sun className="w-6 h-6 text-green-600" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold text-gray-900 mb-2">Our Vision</h3>
+                    <p className="text-gray-600 leading-relaxed">
+                      To create a sustainable future powered by clean, renewable energy. We envision a world where every home and business harnesses the power of the sun to reduce their carbon footprint and energy costs.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-4">
+                  <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                    <Target className="w-6 h-6 text-green-600" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold text-gray-900 mb-2">Our Mission</h3>
+                    <p className="text-gray-600 leading-relaxed">
+                      To provide high-quality, affordable solar energy solutions that make renewable energy accessible to everyone. We strive to exceed customer expectations through innovation, reliability, and exceptional service.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-4">
+                  <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                    <Shield className="w-6 h-6 text-green-600" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold text-gray-900 mb-2">Our Commitment</h3>
+                    <p className="text-gray-600 leading-relaxed">
+                      We are committed to delivering excellence in every project, from initial consultation to final installation and beyond. Our team stands behind every installation with comprehensive warranties and ongoing support.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+            
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="relative"
+            >
+              <div className="grid grid-cols-2 gap-4">
+                {milestones.map((milestone, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: index * 0.1 }}
+                    className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow"
+                  >
+                    <div className="text-green-600 font-semibold text-sm mb-2">{milestone.year}</div>
+                    <h4 className="text-lg font-semibold text-gray-900 mb-2">{milestone.title}</h4>
+                    <p className="text-gray-600 text-sm leading-relaxed">{milestone.description}</p>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Expertise Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Expertise</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Comprehensive solar solutions backed by technical excellence
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {expertise.map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: index * 0.1 }}
+                className="bg-gray-50 rounded-xl p-6 hover:bg-green-50 transition-colors"
+              >
+                <div className="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center mb-4">
+                  <item.icon className="w-7 h-7 text-green-600" />
+                </div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">{item.title}</h3>
+                <p className="text-gray-600 leading-relaxed">{item.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Team Section */}
+      <section className="py-20 bg-gradient-to-br from-green-600 to-green-700 text-white">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl font-bold mb-4">Our Team</h2>
+            <p className="text-xl max-w-3xl mx-auto opacity-90">
+              Meet the dedicated professionals behind your solar success
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {team.map((member, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: index * 0.1 }}
+                className="text-center"
+              >
+                <div className="w-20 h-20 bg-white bg-opacity-20 backdrop-blur-sm border-2 border-white border-opacity-30 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Users className="w-10 h-10 text-white" />
+                </div>
+                <h3 className="text-xl font-semibold mb-2">{member.name}</h3>
+                <div className="text-green-300 text-sm mb-3">{member.role}</div>
+                <p className="opacity-80 leading-relaxed">{member.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Technology Partners Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Technology Partners</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Partnering with industry leaders for the best solar solutions
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8">
+            {['Tier 1 Panels', 'Premium Inverters', 'Smart Monitoring', 'Energy Storage', 'Quality Mounting', 'Advanced Software'].map((partner, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow text-center"
+              >
+                <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <Award className="w-6 h-6 text-green-600" />
+                </div>
+                <div className="text-sm font-medium text-gray-900">{partner}</div>
               </motion.div>
             ))}
           </div>

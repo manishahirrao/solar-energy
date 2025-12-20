@@ -22,7 +22,7 @@ const Testimonials = () => {
     {
       name: 'Courtney Henry',
       role: 'Factory Manager',
-      content: 'Best investment we made for our manufacturing unit. The solar system has been running flawlessly for over 2 years now.',
+      content: 'Best investment we made for our manufacturing unit. The solar system has been running flawlessly since installation.',
       rating: 5,
       image: '/api/placeholder/80/80'
     }

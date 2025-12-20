@@ -55,8 +55,33 @@ export default function Service() {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-green-600 to-green-800">
-        <div className="absolute inset-0 bg-black bg-opacity-20"></div>
+      <section className="relative py-32 bg-gradient-to-br from-green-600 via-green-700 to-green-800 overflow-hidden">
+        {/* Animated background elements */}
+        <div className="absolute inset-0">
+          {[...Array(4)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute bg-white rounded-full opacity-5"
+              style={{
+                width: Math.random() * 80 + 40 + 'px',
+                height: Math.random() * 80 + 40 + 'px',
+                left: Math.random() * 100 + '%',
+                top: Math.random() * 100 + '%'
+              }}
+              animate={{
+                y: [0, -20, 0],
+                x: [0, 15, 0],
+              }}
+              transition={{
+                duration: 3 + Math.random() * 2,
+                repeat: Infinity,
+                repeatType: 'reverse',
+                ease: 'easeInOut'
+              }}
+            />
+          ))}
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-transparent bg-opacity-20"></div>
         <div className="relative container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -64,8 +89,16 @@ export default function Service() {
             transition={{ duration: 0.8 }}
             className="text-center text-white"
           >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="w-20 h-20 bg-white bg-opacity-10 backdrop-blur-sm border-2 border-white border-opacity-30 rounded-full flex items-center justify-center mx-auto mb-6"
+            >
+              <Zap className="w-10 h-10 text-white" />
+            </motion.div>
             <h1 className="text-5xl md:text-6xl font-bold mb-4">Our Services</h1>
-            <p className="text-xl max-w-3xl mx-auto">
+            <p className="text-xl max-w-3xl mx-auto leading-relaxed">
               Comprehensive solar energy solutions tailored to your needs
             </p>
           </motion.div>
