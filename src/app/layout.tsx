@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Poppins, Roboto } from "next/font/google";
 import "./globals.css";
+import WhatsAppButton from "@/components/WhatsAppButton";
+import FloatingInquiryButton from "@/components/FloatingInquiryButton";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -40,6 +42,8 @@ export default function RootLayout({
         className={`${poppins.variable} ${roboto.variable} antialiased`}
       >
         {children}
+        <WhatsAppButton />
+        <FloatingInquiryButton />
       </body>
     </html>
   );

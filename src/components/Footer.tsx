@@ -9,7 +9,7 @@ const Footer = () => {
     { name: 'Home', href: '/' },
     { name: 'About Us', href: '/about' },
     { name: 'Services', href: '/service' },
-    { name: 'Projects', href: '/projects' }
+    { name: 'Gallery', href: '/gallery' }
   ];
 
   const resources = [
@@ -20,18 +20,18 @@ const Footer = () => {
   ];
 
   const services = [
-    { name: 'Solar Panel Installation', href: '/service#installation' },
-    { name: 'Maintenance & Support', href: '/service#maintenance' },
-    { name: 'Energy Storage Solutions', href: '/service#storage' },
-    { name: 'Commercial Solar', href: '/service#commercial' },
-    { name: 'Residential Solar', href: '/service#residential' },
-    { name: 'Solar Consulting', href: '/service#consulting' }
+    { name: 'Solar Energy', href: '/service/solar-energy' },
+    { name: 'Hybrid Energy', href: '/service/hybrid-energy' },
+    { name: 'Energy Storage', href: '/service/energy-storage' },
+    { name: 'Solar Maintenance', href: '/service/maintenance' },
+    { name: 'Solar Consulting', href: '/service/solar-consulting' }
   ];
 
   const support = [
-    { name: 'Privacy Policy', href: '/privacy' },
-    { name: 'Terms of Service', href: '/terms' },
-    { name: 'Cookie Policy', href: '/cookies' }
+    { name: 'Privacy Policy', href: '/privacy-policy' },
+    { name: 'Terms of Service', href: '/terms-of-service' },
+    { name: 'Disclaimer', href: '/disclaimer' },
+    { name: 'Refund Policy', href: '/refund-policy' }
   ];
 
   return (
@@ -80,7 +80,7 @@ const Footer = () => {
             </motion.p>
             
             <motion.div 
-              className="flex items-center space-x-4"
+              className="flex flex-col space-y-3"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -91,14 +91,34 @@ const Footer = () => {
                 whileHover={{ x: 5 }}
               >
                 <Phone className="w-4 h-4 mr-2" />
-                <span className="text-sm">+91 004-9985-484-44</span>
+                <span className="text-sm">+91 8959890113</span>
+              </motion.div>
+              <motion.div
+                className="flex items-center text-gray-300 hover:text-white transition-colors"
+                whileHover={{ x: 5 }}
+              >
+                <Phone className="w-4 h-4 mr-2" />
+                <span className="text-sm">+91 7415550210</span>
               </motion.div>
               <motion.div
                 className="flex items-center text-gray-300 hover:text-white transition-colors"
                 whileHover={{ x: 5 }}
               >
                 <Mail className="w-4 h-4 mr-2" />
-                <span className="text-sm">info@procu rasolar.com</span>
+                <span className="text-sm">sales.procura@gmail.com</span>
+              </motion.div>
+              <motion.div
+                className="flex items-center text-gray-300 hover:text-white transition-colors"
+                whileHover={{ x: 5 }}
+              >
+                <MapPin className="w-4 h-4 mr-2" />
+                <span className="text-sm">E-3/114, 2nd Floor, Anera Colony, Bhopal</span>
+              </motion.div>
+              <motion.div
+                className="flex items-center text-gray-300 hover:text-white transition-colors"
+                whileHover={{ x: 5 }}
+              >
+                <span className="text-sm font-medium">GST: 23GLBPS2222E12J</span>
               </motion.div>
             </motion.div>
           </motion.div>

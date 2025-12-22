@@ -16,7 +16,7 @@ export default function Blog() {
       date: 'December 15, 2024',
       readTime: '5 min read',
       category: 'Solar Planning',
-      image: '/api/placeholder/400/250',
+      image: 'https://via.placeholder.com/400x250/10b981/ffffff?text=Solar+Panels',
       href: '/blog/how-many-solar-panels-business'
     },
     {
@@ -27,7 +27,7 @@ export default function Blog() {
       date: 'December 12, 2024',
       readTime: '7 min read',
       category: 'Finance',
-      image: '/api/placeholder/400/250',
+      image: 'https://via.placeholder.com/400x250/10b981/ffffff?text=Tax+Benefits',
       href: '/blog/tax-deductions-small-businesses'
     },
     {
@@ -38,7 +38,7 @@ export default function Blog() {
       date: 'December 10, 2024',
       readTime: '6 min read',
       category: 'Industry Trends',
-      image: '/api/placeholder/400/250',
+      image: 'https://via.placeholder.com/400x250/10b981/ffffff?text=Solar+Trends',
       href: '/blog/solar-energy-trends-2024'
     },
     {
@@ -49,7 +49,7 @@ export default function Blog() {
       date: 'December 8, 2024',
       readTime: '4 min read',
       category: 'Comparison',
-      image: '/api/placeholder/400/250',
+      image: 'https://via.placeholder.com/400x250/10b981/ffffff?text=Commercial+vs+Residential',
       href: '/blog/commercial-vs-residential-solar'
     },
     {
@@ -60,7 +60,7 @@ export default function Blog() {
       date: 'December 5, 2024',
       readTime: '5 min read',
       category: 'Maintenance',
-      image: '/api/placeholder/400/250',
+      image: 'https://via.placeholder.com/400x250/10b981/ffffff?text=Maintenance',
       href: '/blog/maintaining-solar-system'
     },
     {
@@ -71,7 +71,7 @@ export default function Blog() {
       date: 'December 3, 2024',
       readTime: '8 min read',
       category: 'Energy Storage',
-      image: '/api/placeholder/400/250',
+      image: 'https://via.placeholder.com/400x250/10b981/ffffff?text=Battery+Storage',
       href: '/blog/battery-storage-solutions'
     }
   ];
@@ -94,22 +94,27 @@ export default function Blog() {
       <section className="relative py-32 bg-gradient-to-br from-green-600 via-green-700 to-green-800 overflow-hidden">
         {/* Animated background elements */}
         <div className="absolute inset-0">
-          {[...Array(4)].map((_, i) => (
+          {[
+            { width: 80, height: 80, left: 10, top: 20, duration: 3 },
+            { width: 60, height: 60, left: 70, top: 60, duration: 4 },
+            { width: 100, height: 100, left: 30, top: 80, duration: 5 },
+            { width: 50, height: 50, left: 85, top: 15, duration: 3.5 }
+          ].map((style, i) => (
             <motion.div
               key={i}
               className="absolute bg-white rounded-full opacity-5"
               style={{
-                width: Math.random() * 80 + 40 + 'px',
-                height: Math.random() * 80 + 40 + 'px',
-                left: Math.random() * 100 + '%',
-                top: Math.random() * 100 + '%'
+                width: style.width + 'px',
+                height: style.height + 'px',
+                left: style.left + '%',
+                top: style.top + '%'
               }}
               animate={{
                 y: [0, -20, 0],
                 x: [0, 15, 0],
               }}
               transition={{
-                duration: 3 + Math.random() * 2,
+                duration: style.duration,
                 repeat: Infinity,
                 repeatType: 'reverse',
                 ease: 'easeInOut'
@@ -203,11 +208,11 @@ export default function Blog() {
                   >
                     {/* Image */}
                     <div className="relative h-48 overflow-hidden">
-                      <div className="w-full h-full bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center">
-                        <div className="text-white text-opacity-50 text-lg font-semibold">
-                          {post.category}
-                        </div>
-                      </div>
+                      <img
+                        src={post.image}
+                        alt={post.title}
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      />
                       <div className="absolute top-4 left-4">
                         <span className="bg-green-600 text-white px-3 py-1 rounded-full text-sm">
                           {post.category}

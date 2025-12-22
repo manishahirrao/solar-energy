@@ -1,8 +1,9 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Sun, Battery, Home, Trees } from 'lucide-react';
+import { Sun, Battery, Home, Trees, Zap, Wrench } from 'lucide-react';
 import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
 
 const Services = () => {
   const services = [
@@ -10,19 +11,31 @@ const Services = () => {
       icon: Sun,
       title: 'Solar Energy',
       description: 'Harness the power of the sun with our cutting-edge solar panel technology and installation services.',
-      image: '/globe.svg'
+      image: '/solar-energy-service.webp'
     },
     {
       icon: Battery,
       title: 'Hybrid Energy',
       description: 'Combine solar with battery storage for maximum energy independence and reliability.',
-      image: '/window.svg'
+      image: '/solar-storage-services.webp'
     },
     {
       icon: Trees,
-      title: 'Wind Energy',
-      description: 'Supplement your solar system with wind turbines for comprehensive renewable energy solutions.',
-      image: '/file.svg'
+      title: 'Solar Consulting',
+      description: 'Expert consultation services to help you make informed decisions about solar energy solutions.',
+      image: '/solar-consulting-service.webp'
+    },
+    {
+      icon: Wrench,
+      title: 'Solar Maintenance',
+      description: 'Professional maintenance services to keep your solar system operating at peak efficiency.',
+      image: '/solar-maintenance-service.jpg'
+    },
+    {
+      icon: Zap,
+      title: 'Energy Storage',
+      description: 'Advanced energy storage solutions for reliable power backup and grid independence.',
+      image: '/solar-storage-services.webp'
     }
   ];
 
@@ -37,27 +50,28 @@ const Services = () => {
           className="text-center mb-16"
         >
           <motion.h2 
-            className="text-3xl md:text-4xl font-bold text-gray-900 mb-4"
+            className="text-4xl md:text-5xl font-bold text-gray-900 mb-6"
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             whileHover={{ scale: 1.05 }}
           >
-            Our Services
+            Our <span className="text-green-600">Services</span>
           </motion.h2>
           <motion.p 
-            className="text-lg text-gray-600 max-w-3xl mx-auto"
+            className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-light mb-8"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             Comprehensive renewable energy solutions tailored to your needs
+            <span className="block text-green-600 font-medium mt-2">From consultation to installation and maintenance</span>
           </motion.p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, index) => (
             <motion.div
               key={index}
@@ -68,15 +82,22 @@ const Services = () => {
               className="group"
               whileHover={{ y: -10, scale: 1.02 }}
             >
-              <div className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden">
+              <div className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden h-full">
                 {/* Image Section */}
-                <div className="relative h-48 bg-gradient-to-br from-green-500 via-green-600 to-emerald-500 overflow-hidden">
-                  <div className="absolute inset-0 bg-black/20" />
+                <div className="relative h-48 overflow-hidden">
                   <img
                     src={service.image}
                     alt={service.title}
-                    className="w-full h-full object-contain mix-blend-screen relative z-10"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    onError={(e) => {
+                      console.log('Image failed to load:', service.image);
+                      e.currentTarget.style.display = 'none';
+                    }}
+                    onLoad={(e) => {
+                      console.log('Image loaded successfully:', service.image);
+                    }}
                   />
+                  <div className="absolute inset-0 bg-gradient-to-br from-green-500/20 via-green-600/20 to-emerald-500/20" />
                   <motion.div
                     initial={{ opacity: 0, scale: 0.8 }}
                     whileInView={{ opacity: 1, scale: 1 }}
@@ -96,7 +117,7 @@ const Services = () => {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
-                    className="text-xl font-bold text-gray-900 mb-4 group-hover:text-green-600 transition-colors"
+                    className="text-xl font-bold text-gray-900 mb-3 group-hover:text-green-600 transition-colors"
                     whileHover={{ scale: 1.05 }}
                   >
                     {service.title}
@@ -107,66 +128,35 @@ const Services = () => {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
-                    className="text-gray-600 leading-relaxed mb-6 text-sm"
+                    className="text-gray-600 text-base leading-relaxed mb-6"
                   >
                     {service.description}
                   </motion.p>
-
+                  
+                  <Link href={`/service/${service.title.toLowerCase().replace(/\s+/g, '-')}`}>
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
+                    className="flex items-center text-green-600 font-medium text-sm hover:text-green-700 transition-colors"
+                    whileHover={{ x: 5 }}
                   >
-                    <Link
-                      href="/service"
-                      className="inline-flex items-center text-green-600 font-semibold hover:text-green-700 transition-colors group"
+                    Learn More
+                    <motion.div
+                      animate={{ x: [0, 3, 0] }}
+                      transition={{ duration: 1, repeat: Infinity }}
+                      className="ml-2"
                     >
-                      <motion.span className="flex items-center">
-                        Learn More
-                        <motion.svg 
-                          className="w-4 h-4 ml-2" 
-                          fill="none" 
-                          stroke="currentColor" 
-                          viewBox="0 0 24 24"
-                          whileHover={{ x: 5 }}
-                          transition={{ duration: 0.3 }}
-                        >
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                        </motion.svg>
-                      </motion.span>
-                    </Link>
+                      <ArrowRight className="w-4 h-4" />
+                    </motion.div>
                   </motion.div>
+                </Link>
                 </div>
               </div>
             </motion.div>
           ))}
         </div>
-
-        {/* Bottom CTA Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          className="mt-16 text-center"
-        >
-          <div className="bg-gray-50 rounded-2xl p-8">
-            <h3 className="text-xl font-bold text-gray-900 mb-4">Need a Custom Solution?</h3>
-            <p className="text-gray-600 mb-6 max-w-2xl mx-auto text-sm">
-              We provide tailored renewable energy solutions to meet your specific requirements. Contact us to discuss your project.
-            </p>
-            <Link
-              href="/contact"
-              className="inline-flex items-center bg-green-600 text-white px-8 py-3 rounded-full hover:bg-green-700 transition-colors font-semibold"
-            >
-              Get Quote
-              <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </Link>
-          </div>
-        </motion.div>
       </div>
     </section>
   );

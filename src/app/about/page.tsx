@@ -3,12 +3,12 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { motion } from 'framer-motion';
-import { Users, Award, Leaf, Target, Sun, Zap, Shield, Clock, Globe, CheckCircle, TrendingUp, Lightbulb, Wrench } from 'lucide-react';
+import { Award, Leaf, Target, Sun, Zap, Shield, Clock, Globe, CheckCircle, TrendingUp, Lightbulb, Wrench } from 'lucide-react';
 
 export default function About() {
   const stats = [
     { number: 'Many', label: 'Projects Delivered', icon: Award },
-    { number: 'Experienced', label: 'Solar Specialists', icon: Users },
+    { number: 'Experienced', label: 'Solar Specialists', icon: Award },
     { number: 'Trusted', label: 'Customer Relationships', icon: Leaf },
     { number: 'Extensive', label: 'Solar Capacity Installed', icon: Target }
   ];
@@ -32,7 +32,7 @@ export default function About() {
     {
       title: 'Customer Focus',
       description: 'Our customers are at the heart of everything we do, ensuring complete satisfaction.',
-      icon: Users
+      icon: Award
     }
   ];
 
@@ -52,37 +52,46 @@ export default function About() {
     { title: 'Consultation', description: 'Expert energy consulting and feasibility studies', icon: CheckCircle }
   ];
 
-  const team = [
-    { name: 'Solar Specialists', role: 'Expert Engineers', description: 'Dedicated team of certified solar professionals' },
-    { name: 'Installation Crew', role: 'Skilled Technicians', description: 'Experienced installation experts ensuring quality workmanship' },
-    { name: 'Customer Support', role: 'Service Team', description: 'Friendly support staff ready to assist you' },
-    { name: 'Energy Consultants', role: 'Advisors', description: 'Knowledgeable consultants helping you make informed decisions' }
-  ];
-
+  
   return (
     <div className="min-h-screen">
       <Header />
       
       {/* Hero Section */}
       <section className="relative py-32 bg-gradient-to-br from-green-600 via-green-700 to-green-800 overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <img
+            src="/about-hero.avif"
+            alt="About Procura Solar"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60" />
+        </div>
+        
         {/* Animated background elements */}
         <div className="absolute inset-0">
-          {[...Array(4)].map((_, i) => (
+          {[
+            { width: 80, height: 80, left: 10, top: 20, duration: 3 },
+            { width: 60, height: 60, left: 70, top: 60, duration: 4 },
+            { width: 100, height: 100, left: 30, top: 80, duration: 5 },
+            { width: 50, height: 50, left: 85, top: 15, duration: 3.5 }
+          ].map((style, i) => (
             <motion.div
               key={i}
               className="absolute bg-white rounded-full opacity-5"
               style={{
-                width: Math.random() * 80 + 40 + 'px',
-                height: Math.random() * 80 + 40 + 'px',
-                left: Math.random() * 100 + '%',
-                top: Math.random() * 100 + '%'
+                width: style.width + 'px',
+                height: style.height + 'px',
+                left: style.left + '%',
+                top: style.top + '%'
               }}
               animate={{
                 y: [0, -20, 0],
                 x: [0, 15, 0],
               }}
               transition={{
-                duration: 3 + Math.random() * 2,
+                duration: style.duration,
                 repeat: Infinity,
                 repeatType: 'reverse',
                 ease: 'easeInOut'
@@ -104,7 +113,7 @@ export default function About() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="w-20 h-20 bg-white bg-opacity-10 backdrop-blur-sm border-2 border-white border-opacity-30 rounded-full flex items-center justify-center mx-auto mb-6"
             >
-              <Users className="w-10 h-10 text-white" />
+              <Award className="w-10 h-10 text-white" />
             </motion.div>
             <h1 className="text-5xl md:text-6xl font-bold mb-4">About Us</h1>
             <p className="text-xl max-w-3xl mx-auto leading-relaxed">
@@ -145,13 +154,20 @@ export default function About() {
               transition={{ duration: 0.8 }}
               className="relative"
             >
-              <div className="w-full h-96 rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-green-500 via-green-600 to-emerald-500 relative">
-                <div className="absolute inset-0 bg-black/20" />
+              <div className="w-full h-96 rounded-2xl overflow-hidden shadow-2xl relative">
                 <img
-                  src="/window.svg"
-                  alt="Solar installation illustration"
-                  className="w-full h-full object-contain mix-blend-screen relative z-10"
+                  src="/about.jpg"
+                  alt="Solar installation by Procura Solar"
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    console.log('About image failed to load');
+                    e.currentTarget.style.display = 'none';
+                  }}
+                  onLoad={(e) => {
+                    console.log('About image loaded successfully');
+                  }}
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -339,65 +355,73 @@ export default function About() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {expertise.map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
-                className="bg-gray-50 rounded-xl p-6 hover:bg-green-50 transition-colors"
-              >
-                <div className="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center mb-4">
-                  <item.icon className="w-7 h-7 text-green-600" />
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">{item.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{item.description}</p>
-              </motion.div>
-            ))}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {expertise.map((item, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8, delay: index * 0.1 }}
+                    className="bg-gray-50 rounded-xl p-6 hover:bg-green-50 transition-colors"
+                  >
+                    <div className="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center mb-4">
+                      <item.icon className="w-7 h-7 text-green-600" />
+                    </div>
+                    <h3 className="text-xl font-semibold text-gray-900 mb-3">{item.title}</h3>
+                    <p className="text-gray-600 leading-relaxed">{item.description}</p>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+            
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="relative"
+            >
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                <img
+                  src="/solar-consulting-service.webp"
+                  alt="Solar Consulting Services"
+                  className="w-full h-96 object-cover"
+                  onError={(e) => {
+                    console.log('Consulting image failed to load');
+                    e.currentTarget.style.display = 'none';
+                  }}
+                  onLoad={(e) => {
+                    console.log('Consulting image loaded successfully');
+                  }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.7, delay: 0.3 }}
+                  className="absolute bottom-6 left-6 right-6 bg-white/90 backdrop-blur-md rounded-xl p-6 z-20"
+                >
+                  <h4 className="text-lg font-bold text-green-700 mb-2">Expert Solar Consulting</h4>
+                  <p className="text-gray-700 text-sm leading-relaxed">
+                    Our certified consultants provide comprehensive feasibility studies, system design, and energy optimization strategies tailored to your specific needs.
+                  </p>
+                </motion.div>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Team Section */}
-      <section className="py-20 bg-gradient-to-br from-green-600 to-green-700 text-white">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl font-bold mb-4">Our Team</h2>
-            <p className="text-xl max-w-3xl mx-auto opacity-90">
-              Meet the dedicated professionals behind your solar success
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {team.map((member, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
-                className="text-center"
-              >
-                <div className="w-20 h-20 bg-white bg-opacity-20 backdrop-blur-sm border-2 border-white border-opacity-30 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Users className="w-10 h-10 text-white" />
-                </div>
-                <h3 className="text-xl font-semibold mb-2">{member.name}</h3>
-                <div className="text-green-300 text-sm mb-3">{member.role}</div>
-                <p className="opacity-80 leading-relaxed">{member.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
+      
       {/* Technology Partners Section */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">

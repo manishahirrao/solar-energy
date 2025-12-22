@@ -13,7 +13,7 @@ export default function Service() {
       title: 'Solar Energy',
       description: 'Complete solar panel installation and maintenance services for residential and commercial properties.',
       features: ['High-efficiency solar panels', '25-year warranty', 'Smart monitoring systems', 'Grid-tie and off-grid solutions'],
-      image: '/api/placeholder/400/300',
+      image: '/solar-energy-service.webp',
       href: '/service/solar-energy'
     },
     {
@@ -21,7 +21,7 @@ export default function Service() {
       title: 'Hybrid Energy',
       description: 'Integrated solar and battery storage systems for maximum energy independence and reliability.',
       features: ['Battery backup systems', 'Smart energy management', 'Load optimization', 'Emergency power backup'],
-      image: '/api/placeholder/400/300',
+      image: '/solar-storage-services.webp',
       href: '/service/hybrid-energy'
     },
     {
@@ -29,7 +29,7 @@ export default function Service() {
       title: 'Solar Consulting',
       description: 'Expert consulting services to help you choose the best solar energy solutions.',
       features: ['Energy audit', 'System design', 'Financial analysis', 'Regulatory compliance'],
-      image: '/api/placeholder/400/300',
+      image: '/solar-consulting-service.webp',
       href: '/service/solar-consulting'
     },
     {
@@ -37,7 +37,7 @@ export default function Service() {
       title: 'Solar Maintenance',
       description: 'Comprehensive maintenance and repair services for solar energy systems.',
       features: ['Regular inspections', 'Performance optimization', 'Emergency repairs', 'System upgrades'],
-      image: '/api/placeholder/400/300',
+      image: '/solar-maintainance-service.jpg',
       href: '/service/maintenance'
     },
     {
@@ -45,7 +45,7 @@ export default function Service() {
       title: 'Energy Storage',
       description: 'Advanced battery storage solutions for solar energy independence and grid stability.',
       features: ['Lithium-ion batteries', 'Smart charging', 'Peak shaving', 'Demand response'],
-      image: '/api/placeholder/400/300',
+      image: '/solar-energy-service.webp',
       href: '/service/energy-storage'
     }
   ];
@@ -56,24 +56,39 @@ export default function Service() {
       
       {/* Hero Section */}
       <section className="relative py-32 bg-gradient-to-br from-green-600 via-green-700 to-green-800 overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <img
+            src="/solar-energy-service.webp"
+            alt="Solar Services Hero"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70" />
+        </div>
+        
         {/* Animated background elements */}
         <div className="absolute inset-0">
-          {[...Array(4)].map((_, i) => (
+          {[
+            { width: 80, height: 80, left: 10, top: 20, duration: 3 },
+            { width: 60, height: 60, left: 70, top: 60, duration: 4 },
+            { width: 100, height: 100, left: 30, top: 80, duration: 5 },
+            { width: 50, height: 50, left: 85, top: 15, duration: 3.5 }
+          ].map((style, i) => (
             <motion.div
               key={i}
               className="absolute bg-white rounded-full opacity-5"
               style={{
-                width: Math.random() * 80 + 40 + 'px',
-                height: Math.random() * 80 + 40 + 'px',
-                left: Math.random() * 100 + '%',
-                top: Math.random() * 100 + '%'
+                width: style.width + 'px',
+                height: style.height + 'px',
+                left: style.left + '%',
+                top: style.top + '%'
               }}
               animate={{
                 y: [0, -20, 0],
                 x: [0, 15, 0],
               }}
               transition={{
-                duration: 3 + Math.random() * 2,
+                duration: style.duration,
                 repeat: Infinity,
                 repeatType: 'reverse',
                 ease: 'easeInOut'
@@ -81,7 +96,6 @@ export default function Service() {
             />
           ))}
         </div>
-        <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-transparent bg-opacity-20"></div>
         <div className="relative container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -119,11 +133,30 @@ export default function Service() {
                 className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow overflow-hidden group"
               >
                 {/* Image */}
-                <div className="relative h-48 overflow-hidden">
-                  <div className="w-full h-full bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center">
-                    <service.icon className="w-16 h-16 text-white text-opacity-50" />
+                <div className="relative h-48 overflow-hidden bg-gray-100">
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    onError={(e) => {
+                    console.error('Service image failed to load:', service.image);
+                    // Show fallback gradient if local image fails
+                    const parent = e.currentTarget.parentElement;
+                    if (parent) {
+                      e.currentTarget.style.display = 'none';
+                      parent.className = 'relative h-48 overflow-hidden bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center';
+                      parent.innerHTML = `
+                        <div class="text-white text-center">
+                          <div class="text-2xl font-bold mb-2">${service.title}</div>
+                          <div class="text-sm opacity-75">Service Image</div>
+                        </div>
+                      `;
+                    }
+                  }}
+                  />
+                  <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <span className="text-xs font-semibold text-green-700">View Details</span>
                   </div>
-                  <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300"></div>
                 </div>
 
                 {/* Content */}

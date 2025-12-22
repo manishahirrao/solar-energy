@@ -12,7 +12,7 @@ export default function Team() {
       position: 'CEO & Founder',
       bio: 'With over 15 years of experience in renewable energy, Rajesh founded SolarBright with a vision to make India energy independent.',
       expertise: ['Strategic Planning', 'Business Development', 'Renewable Energy Policy'],
-      image: '/api/placeholder/300/300',
+      image: 'https://via.placeholder.com/300x300/10b981/ffffff?text=Rajesh',
       linkedin: '#',
       twitter: '#',
       email: 'rajesh@domain.com'
@@ -22,7 +22,7 @@ export default function Team() {
       position: 'CTO',
       bio: 'Priya leads our technical team with expertise in solar engineering and smart grid technologies. She holds a PhD in Renewable Energy.',
       expertise: ['Solar Engineering', 'System Design', 'Quality Assurance'],
-      image: '/api/placeholder/300/300',
+      image: 'https://via.placeholder.com/300x300/10b981/ffffff?text=Priya',
       linkedin: '#',
       twitter: '#',
       email: 'priya@domain.com'
@@ -32,7 +32,7 @@ export default function Team() {
       position: 'Operations Director',
       bio: 'Amit ensures smooth project execution and operational excellence across all our installations with his 12 years of experience.',
       expertise: ['Project Management', 'Operations', 'Supply Chain'],
-      image: '/api/placeholder/300/300',
+      image: 'https://via.placeholder.com/300x300/10b981/ffffff?text=Amit',
       linkedin: '#',
       twitter: '#',
       email: 'amit@domain.com'
@@ -42,7 +42,7 @@ export default function Team() {
       position: 'Finance Director',
       bio: 'Neha manages our financial strategy and helps clients with solar financing options. She\'s an expert in renewable energy investments.',
       expertise: ['Financial Planning', 'Investment Strategy', 'Risk Management'],
-      image: '/api/placeholder/300/300',
+      image: 'https://via.placeholder.com/300x300/10b981/ffffff?text=Neha',
       linkedin: '#',
       twitter: '#',
       email: 'neha@domain.com'
@@ -52,7 +52,7 @@ export default function Team() {
       position: 'Lead Engineer',
       bio: 'Vikram heads our engineering team and oversees all technical aspects of solar installations with precision and expertise.',
       expertise: ['Solar Installation', 'Technical Design', 'Maintenance'],
-      image: '/api/placeholder/300/300',
+      image: 'https://via.placeholder.com/300x300/10b981/ffffff?text=Vikram',
       linkedin: '#',
       twitter: '#',
       email: 'vikram@domain.com'
@@ -62,7 +62,7 @@ export default function Team() {
       position: 'Marketing Head',
       bio: 'Anjali drives our marketing initiatives and customer engagement strategies to promote solar adoption across India.',
       expertise: ['Digital Marketing', 'Brand Strategy', 'Customer Relations'],
-      image: '/api/placeholder/300/300',
+      image: 'https://via.placeholder.com/300x300/10b981/ffffff?text=Anjali',
       linkedin: '#',
       twitter: '#',
       email: 'anjali@domain.com'
@@ -72,7 +72,7 @@ export default function Team() {
       position: 'Senior Project Manager',
       bio: 'Sanjay manages large-scale solar projects and ensures timely delivery with quality standards maintained throughout.',
       expertise: ['Large-scale Projects', 'Team Leadership', 'Quality Control'],
-      image: '/api/placeholder/300/300',
+      image: 'https://via.placeholder.com/300x300/10b981/ffffff?text=Sanjay',
       linkedin: '#',
       twitter: '#',
       email: 'sanjay@domain.com'
@@ -82,7 +82,7 @@ export default function Team() {
       position: 'HR Director',
       bio: 'Kavita builds and nurtures our talented team, ensuring we have the best people to deliver exceptional solar solutions.',
       expertise: ['Human Resources', 'Team Building', 'Organizational Development'],
-      image: '/api/placeholder/300/300',
+      image: 'https://via.placeholder.com/300x300/10b981/ffffff?text=Kavita',
       linkedin: '#',
       twitter: '#',
       email: 'kavita@domain.com'

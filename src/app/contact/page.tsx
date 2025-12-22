@@ -2,49 +2,63 @@
 
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import WhatsAppButton from '@/components/WhatsAppButton';
+import InquiryForm from '@/components/InquiryForm';
 import { motion } from 'framer-motion';
-import { Phone, Mail, MapPin, Send, Clock, Building } from 'lucide-react';
+import { Phone, Mail, MapPin, Send, Clock, Home } from 'lucide-react';
 
 export default function Contact() {
-  const contactInfo = [
+  const contactDetails = [
     {
       icon: Phone,
-      title: 'Phone',
-      details: '+91 004-9985-484-44',
-      description: 'Monday to Friday, 9:00 AM - 6:00 PM'
+      title: 'Call Us',
+      details: '+91 8959890113',
+      description: 'Primary contact number'
+    },
+    {
+      icon: Phone,
+      title: 'Alternate Number',
+      details: '+91 7415550210',
+      description: 'Secondary contact number'
     },
     {
       icon: Mail,
-      title: 'Email',
-      details: 'info@domain.com',
-      description: 'We respond within 24 hours'
+      title: 'Email Us',
+      details: 'sales.procura@gmail.com',
+      description: 'Get in touch via email'
     },
     {
-      icon: Building,
-      title: 'Office',
-      details: 'Gujarat, India',
-      description: 'Visit us for consultation'
+      icon: MapPin,
+      title: 'Visit Us',
+      details: 'E-3/114, 2nd Floor, Anera Colony, Bhopal',
+      description: 'Our office location'
+    },
+    {
+      icon: Phone,
+      title: 'WhatsApp',
+      details: '+91 8959890113',
+      description: 'Chat with us on WhatsApp'
     }
   ];
 
   const officeLocations = [
     {
-      city: 'Gujarat Headquarters',
-      address: 'Solar Park, Sector 12, Gandhinagar, Gujarat - 382007',
-      phone: '+91 004-9985-484-44',
-      email: 'gujarat@domain.com'
+      city: 'Bhopal Office',
+      address: 'E-3/114, 2nd Floor, Anera Colony, Bhopal',
+      phone: '+91 8959890113',
+      email: 'sales.procura@gmail.com'
     },
     {
-      city: 'Mumbai Office',
-      address: 'Energy Tower, Bandra Kurla Complex, Mumbai - 400051',
-      phone: '+91 004-9985-484-45',
-      email: 'mumbai@domain.com'
+      city: 'WhatsApp Support',
+      address: 'Available 24/7 for instant support',
+      phone: '+91 8959890113',
+      email: 'sales.procura@gmail.com'
     },
     {
-      city: 'Delhi Office',
-      address: 'Green Building, Connaught Place, Delhi - 110001',
-      phone: '+91 004-9985-484-46',
-      email: 'delhi@domain.com'
+      city: 'Alternate Contact',
+      address: 'E-3/114, 2nd Floor, Anera Colony, Bhopal',
+      phone: '+91 7415550210',
+      email: 'sales.procura@gmail.com'
     }
   ];
 
@@ -54,24 +68,39 @@ export default function Contact() {
       
       {/* Hero Section */}
       <section className="relative py-32 bg-gradient-to-br from-green-600 via-green-700 to-green-800 overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <img
+            src="/solar-energy-service.webp"
+            alt="Contact Procura Solar"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60" />
+        </div>
+        
         {/* Animated background elements */}
         <div className="absolute inset-0">
-          {[...Array(4)].map((_, i) => (
+          {[
+            { width: 80, height: 80, left: 10, top: 20, duration: 3 },
+            { width: 60, height: 60, left: 70, top: 60, duration: 4 },
+            { width: 100, height: 100, left: 30, top: 80, duration: 5 },
+            { width: 50, height: 50, left: 85, top: 15, duration: 3.5 }
+          ].map((style, i) => (
             <motion.div
               key={i}
               className="absolute bg-white rounded-full opacity-5"
               style={{
-                width: Math.random() * 80 + 40 + 'px',
-                height: Math.random() * 80 + 40 + 'px',
-                left: Math.random() * 100 + '%',
-                top: Math.random() * 100 + '%'
+                width: style.width + 'px',
+                height: style.height + 'px',
+                left: style.left + '%',
+                top: style.top + '%'
               }}
               animate={{
                 y: [0, -20, 0],
                 x: [0, 15, 0],
               }}
               transition={{
-                duration: 3 + Math.random() * 2,
+                duration: style.duration,
                 repeat: Infinity,
                 repeatType: 'reverse',
                 ease: 'easeInOut'
@@ -134,7 +163,7 @@ export default function Contact() {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {contactInfo.map((info, index) => (
+            {officeLocations.map((info: any, index: number) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
@@ -149,7 +178,7 @@ export default function Contact() {
                   whileHover={{ rotate: 360, scale: 1.1 }}
                   transition={{ duration: 0.5 }}
                 >
-                  <info.icon className="w-8 h-8 text-green-600" />
+                  {info.icon && <info.icon className="w-8 h-8 text-green-600" />}
                 </motion.div>
                 <motion.h3 
                   className="text-lg font-semibold text-gray-900 mb-2"
@@ -178,91 +207,7 @@ export default function Contact() {
                   className="bg-white rounded-xl shadow-lg p-8"
                   whileHover={{ scale: 1.02, y: -5 }}
                 >
-                <motion.h2 
-                  className="text-2xl font-bold text-gray-900 mb-6"
-                  initial={{ opacity: 0, y: -20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6 }}
-                >
-                  Send us a Message
-                </motion.h2>
-              
-              <form className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-gray-700 font-medium mb-2 text-sm">First Name</label>
-                    <input
-                      type="text"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-green-600 transition-colors"
-                      placeholder="rahul"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-gray-700 font-medium mb-2 text-sm">Last Name</label>
-                    <input
-                      type="text"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-green-600 transition-colors"
-                      placeholder="sharma"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-gray-700 font-medium mb-2 text-sm">Email</label>
-                  <input
-                    type="email"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-green-600 transition-colors"
-                    placeholder="rahul@example.com"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-gray-700 font-medium mb-2 text-sm">Phone</label>
-                  <input
-                    type="tel"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-green-600 transition-colors"
-                    placeholder="+91 00000 00000"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-gray-700 font-medium mb-2 text-sm">Service Interested</label>
-                  <select className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-green-600 transition-colors">
-                    <option>Select a service</option>
-                    <option>Solar Energy</option>
-                    <option>Hybrid Energy</option>
-                    <option>Wind Energy</option>
-                    <option>Energy Storage</option>
-                    <option>Maintenance</option>
-                    <option>Consulting</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block text-gray-700 font-medium mb-2 text-sm">Message</label>
-                  <textarea
-                    rows={5}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-green-600 transition-colors"
-                    placeholder="Tell us about your project..."
-                  ></textarea>
-                </div>
-
-                <motion.button
-                  type="submit"
-                  className="w-full bg-green-600 text-white px-6 py-4 rounded-lg hover:bg-green-700 transition-colors font-semibold flex items-center justify-center"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <motion.div
-                    animate={{ x: [0, 5, 0] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                  >
-                    <Send className="w-5 h-5 mr-2" />
-                  </motion.div>
-                  Send Message
-                </motion.button>
-              </form>
+                <InquiryForm />
             </motion.div>
 
             {/* Map & Office Info */}
@@ -276,7 +221,7 @@ export default function Contact() {
               {/* Map Placeholder */}
               <div className="bg-gray-200 rounded-xl h-96 flex items-center justify-center">
                 <div className="text-gray-500 text-center">
-                  <Building className="w-16 h-16 mx-auto mb-4" />
+                  <Home className="w-16 h-16 mx-auto mb-4" />
                   <p>Interactive Map</p>
                   <p className="text-sm">Showing office locations</p>
                 </div>
@@ -341,7 +286,7 @@ export default function Contact() {
                 <h3 className="text-xl font-bold text-gray-900 mb-4">{office.city}</h3>
                 <div className="space-y-3">
                   <div className="flex items-start">
-                    <Building className="w-5 h-5 text-green-600 mr-3 mt-1 flex-shrink-0" />
+                    <Home className="w-5 h-5 text-green-600 mr-3 mt-1 flex-shrink-0" />
                     <span className="text-gray-600">{office.address}</span>
                   </div>
                   <div className="flex items-center">
@@ -360,6 +305,7 @@ export default function Contact() {
       </section>
 
       <Footer />
+      <WhatsAppButton />
     </div>
   );
 }

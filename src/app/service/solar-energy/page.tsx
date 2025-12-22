@@ -2,6 +2,7 @@
 
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import InquiryForm from '@/components/InquiryForm';
 import { motion } from 'framer-motion';
 import { Sun, CheckCircle, ArrowRight, Phone, Mail } from 'lucide-react';
 
@@ -43,8 +44,48 @@ export default function SolarEnergyService() {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-green-600 to-green-800">
-        <div className="absolute inset-0 bg-black bg-opacity-20"></div>
+      <section className="relative py-20 bg-gradient-to-br from-green-600 via-green-700 to-green-800 overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <img
+            src="/solar-energy-service.webp"
+            alt="Solar Energy Service"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60" />
+        </div>
+        
+        {/* Animated background elements */}
+        <div className="absolute inset-0">
+          {[
+            { width: 80, height: 80, left: 10, top: 20, duration: 3 },
+            { width: 60, height: 60, left: 70, top: 60, duration: 4 },
+            { width: 100, height: 100, left: 30, top: 80, duration: 5 },
+            { width: 50, height: 50, left: 85, top: 15, duration: 3.5 }
+          ].map((style, i) => (
+            <motion.div
+              key={i}
+              className="absolute bg-white rounded-full opacity-5"
+              style={{
+                width: style.width + 'px',
+                height: style.height + 'px',
+                left: style.left + '%',
+                top: style.top + '%'
+              }}
+              animate={{
+                y: [0, -20, 0],
+                x: [0, 15, 0],
+              }}
+              transition={{
+                duration: style.duration,
+                repeat: Infinity,
+                repeatType: 'reverse',
+                ease: 'easeInOut'
+              }}
+            />
+          ))}
+        </div>
+
         <div className="relative container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -191,12 +232,35 @@ export default function SolarEnergyService() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.1 }}
-              className="bg-gray-50 rounded-xl p-8"
+              className="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
             >
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">High-Efficiency Panels</h3>
-              <p className="text-gray-600 leading-relaxed">
-                We use premium solar panels with efficiency ratings above 22%, ensuring maximum power generation from limited roof space.
-              </p>
+              <div className="relative h-48 overflow-hidden">
+                <img
+                  src="/Rooftop Solar Installation.jpeg"
+                  alt="High-Efficiency Panels"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  onError={(e) => {
+                    console.error('Solar energy image failed to load:', '/Rooftop Solar Installation.jpeg');
+                    // Show fallback gradient if local image fails
+                    const parent = e.currentTarget.parentElement;
+                    if (parent) {
+                      e.currentTarget.style.display = 'none';
+                      parent.className = 'relative h-48 overflow-hidden bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center';
+                      parent.innerHTML = `
+                        <div class="text-white text-center">
+                          <div class="text-lg font-bold">High-Efficiency Panels</div>
+                        </div>
+                      `;
+                    }
+                  }}
+                />
+              </div>
+              <div className="p-6 bg-white">
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">High-Efficiency Panels</h3>
+                <p className="text-gray-600 leading-relaxed">
+                  We use premium solar panels with efficiency ratings above 22%, ensuring maximum power generation from limited roof space.
+                </p>
+              </div>
             </motion.div>
 
             <motion.div
@@ -204,12 +268,35 @@ export default function SolarEnergyService() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="bg-gray-50 rounded-xl p-8"
+              className="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
             >
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">Smart Monitoring</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Real-time monitoring system allows you to track energy production and consumption through our mobile app.
-              </p>
+              <div className="relative h-48 overflow-hidden">
+                <img
+                  src="/Commercial Solar Farm.jpg"
+                  alt="Smart Monitoring"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  onError={(e) => {
+                    console.error('Solar energy image failed to load:', '/Commercial Solar Farm.jpg');
+                    // Show fallback gradient if local image fails
+                    const parent = e.currentTarget.parentElement;
+                    if (parent) {
+                      e.currentTarget.style.display = 'none';
+                      parent.className = 'relative h-48 overflow-hidden bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center';
+                      parent.innerHTML = `
+                        <div class="text-white text-center">
+                          <div class="text-lg font-bold">Smart Monitoring</div>
+                        </div>
+                      `;
+                    }
+                  }}
+                />
+              </div>
+              <div className="p-6 bg-white">
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">Smart Monitoring</h3>
+                <p className="text-gray-600 leading-relaxed">
+                  Real-time monitoring system allows you to track energy production and consumption through our mobile app.
+                </p>
+              </div>
             </motion.div>
 
             <motion.div
@@ -217,13 +304,128 @@ export default function SolarEnergyService() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="bg-gray-50 rounded-xl p-8"
+              className="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
             >
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">Expert Installation</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Our certified technicians ensure professional installation following all safety standards and regulations.
-              </p>
+              <div className="relative h-48 overflow-hidden">
+                <img
+                  src="/Industrial Solar Setup.jpg"
+                  alt="Expert Installation"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  onError={(e) => {
+                    console.error('Solar energy image failed to load:', '/Industrial Solar Setup.jpg');
+                    // Show fallback gradient if local image fails
+                    const parent = e.currentTarget.parentElement;
+                    if (parent) {
+                      e.currentTarget.style.display = 'none';
+                      parent.className = 'relative h-48 overflow-hidden bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center';
+                      parent.innerHTML = `
+                        <div class="text-white text-center">
+                          <div class="text-lg font-bold">Expert Installation</div>
+                        </div>
+                      `;
+                    }
+                  }}
+                />
+              </div>
+              <div className="p-6 bg-white">
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">Expert Installation</h3>
+                <p className="text-gray-600 leading-relaxed">
+                  Our certified technicians ensure professional installation following all safety standards and regulations.
+                </p>
+              </div>
             </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Solar Projects Showcase */}
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Solar Projects</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Explore our successful solar energy installations across different sectors
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                title: 'Residential Rooftop',
+                location: 'Mumbai, Maharashtra',
+                image: '/Rooftop Solar Installation.jpeg',
+                capacity: '5kW System',
+                description: 'Complete rooftop solar installation with net metering'
+              },
+              {
+                title: 'Agricultural Solar Pump',
+                location: 'Punjab',
+                image: '/Agricultural Solar Pump.jpg',
+                capacity: '10HP Pump',
+                description: 'Solar-powered irrigation system for farming'
+              },
+              {
+                title: 'School Installation',
+                location: 'Hyderabad',
+                image: '/School Solar Installation.avif',
+                capacity: '50kW System',
+                description: 'Educational institution with solar learning center'
+              },
+              {
+                title: 'Hospital Backup',
+                location: 'Chennai',
+                image: '/Hospital Solar System.jpg',
+                capacity: '200kW System',
+                description: 'Critical power backup for healthcare facility'
+              },
+              {
+                title: 'Solar Carport',
+                location: 'Pune',
+                image: '/Solar Carport.webp',
+                capacity: '20kW System',
+                description: 'EV charging station with solar carport'
+              },
+              {
+                title: 'Industrial Setup',
+                location: 'Delhi',
+                image: '/Industrial Solar Setup.jpg',
+                capacity: '100kW System',
+                description: 'Large-scale industrial solar installation'
+              }
+            ].map((project, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: index * 0.1 }}
+                className="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+              >
+                <div className="relative h-64 overflow-hidden">
+                  <div 
+                    className="w-full h-full bg-cover bg-center group-hover:scale-110 transition-transform duration-500"
+                    style={{ backgroundImage: `url(${project.image})` }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
+                    <h3 className="text-lg font-semibold mb-1">{project.title}</h3>
+                    <p className="text-sm text-gray-200 mb-2">{project.location}</p>
+                    <div className="flex items-center text-xs bg-green-600 px-2 py-1 rounded-full inline-block">
+                      <span className="font-medium">{project.capacity}</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="p-4 bg-white">
+                  <p className="text-gray-600 text-sm">{project.description}</p>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
@@ -254,6 +456,27 @@ export default function SolarEnergyService() {
               </button>
             </div>
           </motion.div>
+        </div>
+      </section>
+
+      {/* Inquiry Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Ready to Go Solar?</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Get a personalized quote for your solar energy installation. Our experts will help you every step of the way.
+            </p>
+          </motion.div>
+          <div className="max-w-4xl mx-auto">
+            <InquiryForm />
+          </div>
         </div>
       </section>
 

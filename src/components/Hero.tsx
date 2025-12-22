@@ -1,7 +1,8 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Play, ArrowRight, Sun, Battery, Trees, Wrench } from 'lucide-react';
+import { Play, ArrowRight, Sun, Battery, Trees, Wrench, CheckCircle } from 'lucide-react';
+import Link from 'next/link';
 
 const Hero = () => {
   const features = [
@@ -18,22 +19,29 @@ const Hero = () => {
         <div className="w-full h-full bg-gradient-to-br from-green-900 via-green-800 to-green-900">
           {/* Animated background elements */}
           <div className="absolute inset-0">
-            {[...Array(6)].map((_, i) => (
+            {[
+              { width: 80, height: 80, left: 10, top: 20, duration: 4 },
+              { width: 120, height: 120, left: 70, top: 60, duration: 5 },
+              { width: 100, height: 100, left: 30, top: 80, duration: 6 },
+              { width: 60, height: 60, left: 85, top: 15, duration: 4.5 },
+              { width: 90, height: 90, left: 50, top: 40, duration: 5.5 },
+              { width: 110, height: 110, left: 15, top: 70, duration: 6.5 }
+            ].map((style, i) => (
               <motion.div
                 key={i}
                 className="absolute bg-white rounded-full opacity-5"
                 style={{
-                  width: Math.random() * 100 + 50 + 'px',
-                  height: Math.random() * 100 + 50 + 'px',
-                  left: Math.random() * 100 + '%',
-                  top: Math.random() * 100 + '%'
+                  width: style.width + 'px',
+                  height: style.height + 'px',
+                  left: style.left + '%',
+                  top: style.top + '%'
                 }}
                 animate={{
                   y: [0, -30, 0],
                   x: [0, 20, 0],
                 }}
                 transition={{
-                  duration: 4 + Math.random() * 2,
+                  duration: style.duration,
                   repeat: Infinity,
                   repeatType: 'reverse',
                   ease: 'easeInOut'
@@ -59,25 +67,26 @@ const Hero = () => {
 
       {/* Content */}
       <div className="relative z-10 h-full flex items-center justify-center">
-        <div className="container mx-auto px-8">
-          <div className="max-w-3xl mx-auto text-center">
+        <div className="container mx-auto px-4">
+          <div className="max-w-2xl mx-auto text-center">
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="text-4xl md:text-5xl font-bold text-white mb-4 leading-tight drop-shadow-2xl"
+              className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight drop-shadow-2xl"
             >
               Empowering Your Future
-              <span className="block text-white drop-shadow-lg">with Solar Energy</span>
+              <span className="block text-green-300 drop-shadow-lg">with Solar Energy</span>
             </motion.h1>
             
             <motion.p
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-base md:text-lg text-white mb-6 leading-relaxed max-w-2xl mx-auto drop-shadow-lg"
+              className="text-lg md:text-xl lg:text-2xl text-white mb-8 leading-relaxed max-w-3xl mx-auto drop-shadow-lg font-light"
             >
-              At Procura Solar, we're committed to revolutionizing the way you think about energy. Say goodbye to skyrocketing utility bills and hello to a brighter, greener future with our state-of-the-art solar energy solutions.
+              Transform your energy consumption with cutting-edge solar solutions. 
+              <span className="block text-green-200 font-medium mt-2">Save up to 70% on electricity bills while protecting our planet.</span>
             </motion.p>
 
             <motion.div
@@ -86,15 +95,48 @@ const Hero = () => {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="flex flex-col sm:flex-row gap-4 mb-8 justify-center"
             >
-              <button className="bg-green-600 text-white px-5 py-2.5 rounded-full hover:bg-green-700 transition-all duration-300 font-medium text-sm flex items-center justify-center group transform hover:scale-105 shadow-2xl">
-                Get Started
-                <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-              </button>
+              <Link href="/contact">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="bg-gradient-to-r from-green-600 to-green-700 text-white px-8 py-4 rounded-full hover:from-green-700 hover:to-green-800 transition-all duration-300 font-semibold text-lg flex items-center justify-center group shadow-2xl"
+                >
+                  Get Started
+                  <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+                </motion.button>
+              </Link>
               
-              <button className="bg-transparent border-2 border-white text-white px-5 py-2.5 rounded-full hover:bg-white hover:text-green-700 transition-all duration-300 font-medium text-sm flex items-center justify-center transform hover:scale-105 shadow-2xl backdrop-blur-sm">
-                <Play className="w-4 h-4 mr-2" />
-                View Projects
-              </button>
+              <Link href="/gallery">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full hover:bg-white hover:text-green-700 transition-all duration-300 font-semibold text-lg flex items-center justify-center shadow-2xl backdrop-blur-sm"
+                >
+                  <Play className="w-5 h-5 mr-2" />
+                  View Projects
+                </motion.button>
+              </Link>
+            </motion.div>
+
+            {/* Trust Indicators */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="flex flex-wrap justify-center gap-8 text-white text-sm"
+            >
+              <div className="flex items-center gap-2">
+                <CheckCircle className="w-5 h-5 text-green-300" />
+                <span>25 Year Warranty</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle className="w-5 h-5 text-green-300" />
+                <span>Certified Installers</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle className="w-5 h-5 text-green-300" />
+                <span>1000+ Happy Customers</span>
+              </div>
             </motion.div>
           </div>
         </div>

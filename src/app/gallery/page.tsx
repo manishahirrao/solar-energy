@@ -16,16 +16,20 @@ export default function Gallery() {
       title: 'Rooftop Solar Installation',
       category: 'Residential',
       location: 'Mumbai',
-      description: '5kW residential solar installation with battery backup',
-      image: '/api/placeholder/400/300'
+      description: '5kW residential solar installation with battery backup system',
+      image: '/Rooftop Solar Installation.jpeg',
+      capacity: '5kW',
+      year: '2024'
     },
     {
       id: 2,
       title: 'Commercial Solar Farm',
       category: 'Commercial',
       location: 'Gujarat',
-      description: '50MW commercial solar power plant with tracking system',
-      image: '/api/placeholder/400/300'
+      description: '50MW commercial solar power plant with advanced tracking system',
+      image: '/Commercial Solar Farm.jpg',
+      capacity: '50MW',
+      year: '2024'
     },
     {
       id: 3,
@@ -33,7 +37,9 @@ export default function Gallery() {
       category: 'Agricultural',
       location: 'Punjab',
       description: 'Solar-powered water pumping system for irrigation',
-      image: '/api/placeholder/400/300'
+      image: '/Agricultural Solar Pump.jpg',
+      capacity: '10HP',
+      year: '2023'
     },
     {
       id: 4,
@@ -41,7 +47,9 @@ export default function Gallery() {
       category: 'Industrial',
       location: 'Delhi',
       description: 'Large-scale industrial solar installation with monitoring',
-      image: '/api/placeholder/400/300'
+      image: '/Industrial Solar Setup.jpg',
+      capacity: '100kW',
+      year: '2024'
     },
     {
       id: 5,
@@ -49,7 +57,9 @@ export default function Gallery() {
       category: 'Hybrid',
       location: 'Rajasthan',
       description: 'Integrated solar and wind power generation system',
-      image: '/api/placeholder/400/300'
+      image: '/Floating Solar Plant.jpeg',
+      capacity: '25MW',
+      year: '2023'
     },
     {
       id: 6,
@@ -57,7 +67,9 @@ export default function Gallery() {
       category: 'Infrastructure',
       location: 'Bangalore',
       description: 'Smart solar street lighting with motion sensors',
-      image: '/api/placeholder/400/300'
+      image: '/Solar Street Lighting.jpg',
+      capacity: '100W',
+      year: '2024'
     },
     {
       id: 7,
@@ -65,7 +77,9 @@ export default function Gallery() {
       category: 'Healthcare',
       location: 'Chennai',
       description: 'Critical power backup solar system for hospital',
-      image: '/api/placeholder/400/300'
+      image: '/Hospital Solar System.jpg',
+      capacity: '200kW',
+      year: '2023'
     },
     {
       id: 8,
@@ -73,7 +87,9 @@ export default function Gallery() {
       category: 'Educational',
       location: 'Hyderabad',
       description: 'Educational institution solar system with learning center',
-      image: '/api/placeholder/400/300'
+      image: '/School Solar Installation.avif',
+      capacity: '50kW',
+      year: '2024'
     },
     {
       id: 9,
@@ -81,7 +97,9 @@ export default function Gallery() {
       category: 'Commercial',
       location: 'Pune',
       description: 'EV charging station with solar carport structure',
-      image: '/api/placeholder/400/300'
+      image: '/Solar Carport.webp',
+      capacity: '20kW',
+      year: '2024'
     },
     {
       id: 10,
@@ -89,7 +107,9 @@ export default function Gallery() {
       category: 'Innovative',
       location: 'Kerala',
       description: 'Floating solar installation on water reservoir',
-      image: '/api/placeholder/400/300'
+      image: '/Floating Solar Plant.jpeg',
+      capacity: '10MW',
+      year: '2023'
     },
     {
       id: 11,
@@ -97,19 +117,23 @@ export default function Gallery() {
       category: 'Residential',
       location: 'Kolkata',
       description: 'Residential solar water heating system installation',
-      image: '/api/placeholder/400/300'
+      image: '/Solar Water Heater.jpg',
+      capacity: '300L',
+      year: '2024'
     },
     {
       id: 12,
-      title: 'Solar Telecom Tower',
-      category: 'Infrastructure',
-      location: 'Uttar Pradesh',
-      description: 'Solar-powered telecom tower with battery backup',
-      image: '/api/placeholder/400/300'
+      title: 'Solar Maintenance Service',
+      category: 'Maintenance',
+      location: 'Mumbai',
+      description: 'Professional solar panel cleaning and maintenance',
+      image: '/Solar Maintenance Service.jpg',
+      capacity: 'Service',
+      year: '2024'
     }
   ];
 
-  const categories = ['All', 'Residential', 'Commercial', 'Industrial', 'Agricultural', 'Hybrid', 'Infrastructure', 'Healthcare', 'Educational', 'Innovative'];
+  const categories = ['All', 'Residential', 'Commercial', 'Industrial', 'Agricultural', 'Hybrid', 'Infrastructure', 'Healthcare', 'Educational', 'Innovative', 'Maintenance'];
 
   const filteredItems = selectedCategory === 'All' 
     ? galleryItems 
@@ -121,24 +145,39 @@ export default function Gallery() {
       
       {/* Hero Section */}
       <section className="relative py-32 bg-gradient-to-br from-green-600 via-green-700 to-green-800 overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <img
+            src="/solar-energy-service.webp"
+            alt="Gallery Hero"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70" />
+        </div>
+        
         {/* Animated background elements */}
         <div className="absolute inset-0">
-          {[...Array(4)].map((_, i) => (
+          {[
+            { width: 80, height: 80, left: 10, top: 20, duration: 3 },
+            { width: 60, height: 60, left: 70, top: 60, duration: 4 },
+            { width: 100, height: 100, left: 30, top: 80, duration: 5 },
+            { width: 50, height: 50, left: 85, top: 15, duration: 3.5 }
+          ].map((style, i) => (
             <motion.div
               key={i}
               className="absolute bg-white rounded-full opacity-5"
               style={{
-                width: Math.random() * 80 + 40 + 'px',
-                height: Math.random() * 80 + 40 + 'px',
-                left: Math.random() * 100 + '%',
-                top: Math.random() * 100 + '%'
+                width: style.width + 'px',
+                height: style.height + 'px',
+                left: style.left + '%',
+                top: style.top + '%'
               }}
               animate={{
                 y: [0, -20, 0],
                 x: [0, 15, 0],
               }}
               transition={{
-                duration: 3 + Math.random() * 2,
+                duration: style.duration,
                 repeat: Infinity,
                 repeatType: 'reverse',
                 ease: 'easeInOut'
@@ -146,7 +185,6 @@ export default function Gallery() {
             />
           ))}
         </div>
-        <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-transparent bg-opacity-20"></div>
         <div className="relative container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -243,45 +281,33 @@ export default function Gallery() {
           {viewMode === 'grid' && (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
               {filteredItems.map((item, index) => (
-                <motion.div
-                  key={item.id}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8, delay: index * 0.1 }}
-                  className="group cursor-pointer"
-                >
-                  <div className="relative overflow-hidden rounded-xl mb-4">
-                    <div className="w-full h-48 bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center">
-                      <div className="text-white text-opacity-50 text-lg font-semibold">
-                        {item.category}
-                      </div>
-                    </div>
-                    
-                    {/* Overlay */}
-                    <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-60 transition-all duration-300 flex items-center justify-center">
-                      <div className="text-white text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4">
-                        <h3 className="font-bold text-lg mb-2">{item.title}</h3>
-                        <p className="text-sm mb-2">{item.location}</p>
-                        <p className="text-xs">{item.description}</p>
-                      </div>
-                    </div>
-
-                    {/* Category Badge */}
+                <div key={item.id} className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group">
+                  <div className="relative h-48 overflow-hidden">
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      onError={(e) => {
+                        console.error('Image failed to load:', item.image);
+                        // Try alternative path
+                        e.currentTarget.src = item.image.replace(/^\//, '');
+                      }}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
                     <div className="absolute top-4 left-4">
                       <span className="bg-green-600 text-white px-3 py-1 rounded-full text-xs font-medium">
                         {item.category}
                       </span>
                     </div>
                   </div>
-                  
-                  <div className="text-center">
+                  <div className="p-4">
                     <h3 className="text-lg font-semibold text-gray-900 group-hover:text-green-600 transition-colors">
                       {item.title}
                     </h3>
                     <p className="text-sm text-gray-600">{item.location}</p>
+                    <p className="text-xs text-gray-500 mt-2">{item.capacity} • {item.year}</p>
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
           )}
@@ -290,18 +316,19 @@ export default function Gallery() {
           {viewMode === 'list' && (
             <div className="space-y-6">
               {filteredItems.map((item, index) => (
-                <motion.div
-                  key={item.id}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8, delay: index * 0.1 }}
-                  className="bg-gray-50 rounded-xl p-6 flex flex-col md:flex-row gap-6 hover:shadow-lg transition-shadow"
-                >
-                  <div className="md:w-48 h-32 bg-gradient-to-br from-green-400 to-green-600 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <div className="text-white text-opacity-50 font-semibold">
-                      {item.category}
-                    </div>
+                <div key={item.id} className="bg-gray-50 rounded-xl p-6 flex flex-col md:flex-row gap-6 hover:shadow-lg transition-shadow">
+                  <div className="relative md:w-48 h-32 overflow-hidden rounded-lg">
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="w-full h-full object-cover"
+                      onError={(e) => {
+                        console.error('List image failed to load:', item.image);
+                        // Try alternative path
+                        e.currentTarget.src = item.image.replace(/^\//, '');
+                      }}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
                   </div>
                   
                   <div className="flex-1">
@@ -314,10 +341,12 @@ export default function Gallery() {
                     
                     <p className="text-gray-600 mb-2">{item.description}</p>
                     <p className="text-sm text-gray-500">
-                      <span className="font-medium">Location:</span> {item.location}
+                      <span className="font-medium">Location:</span> {item.location} • 
+                      <span className="font-medium"> Capacity:</span> {item.capacity} • 
+                      <span className="font-medium"> Year:</span> {item.year}
                     </p>
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
           )}

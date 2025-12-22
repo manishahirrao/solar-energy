@@ -5,13 +5,6 @@
   --foreground: #171717;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-poppins);
-  --font-mono: var(--font-roboto);
-}
-
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
@@ -23,35 +16,111 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-poppins), Arial, Helvetica, sans-serif;
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-roboto), var(--font-poppins), Arial, Helvetica, sans-serif;
 }
 
+/* Optimized container sizes for better screen fit */
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding: 0 2rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1300px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1400px;
+  }
+}
+
 /* Smaller text sizes for better readability */
 .text-5xl {
-  font-size: 2.5rem;
+  font-size: 2.25rem;
+  line-height: 1.2;
 }
 
 .text-6xl {
-  font-size: 3rem;
+  font-size: 2.5rem;
+  line-height: 1.1;
 }
 
 .text-4xl {
-  font-size: 2rem;
+  font-size: 1.875rem;
+  line-height: 1.2;
 }
 
 .text-3xl {
-  font-size: 1.75rem;
+  font-size: 1.5rem;
+  line-height: 1.3;
 }
 
 .text-2xl {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
+  line-height: 1.4;
 }
 
 .text-xl {
   font-size: 1.125rem;
+  line-height: 1.5;
+}
+
+/* Responsive spacing */
+.py-20 {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+@media (min-width: 768px) {
+  .py-20 {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .py-20 {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+}
+
+/* Grid optimizations */
+.grid {
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    gap: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    gap: 2rem;
+  }
 }
 
 .text-lg {

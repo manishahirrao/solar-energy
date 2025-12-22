@@ -59,7 +59,7 @@ const AboutUs = () => {
             </motion.div>
           </motion.div>
           <motion.h2 
-            className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 font-serif"
+            className="text-4xl md:text-5xl font-bold text-gray-900 mb-6"
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -69,13 +69,14 @@ const AboutUs = () => {
             About <span className="text-green-600">Procura Solar</span>
           </motion.h2>
           <motion.p 
-            className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed font-light"
+            className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed font-light mb-8"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            Leading the renewable energy revolution with innovative solar solutions and unwavering commitment to excellence
+            Leading the renewable energy revolution with innovative solar solutions and unwavering commitment to excellence. 
+            <span className="block text-green-600 font-medium mt-2">Transforming homes and businesses across India with sustainable energy solutions.</span>
           </motion.p>
         </motion.div>
 
@@ -151,16 +152,23 @@ const AboutUs = () => {
             whileHover={{ scale: 1.02 }}
           >
             <motion.div 
-              className="relative rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-green-500 via-green-600 to-emerald-500 h-96"
+              className="relative rounded-2xl overflow-hidden shadow-2xl"
               animate={{ y: [0, -15, 0] }}
               transition={{ duration: 4, repeat: Infinity }}
             >
-              <div className="absolute inset-0 bg-black/20" />
               <img
-                src="/globe.svg"
-                alt="Solar Energy Solutions"
-                className="w-full h-full object-contain mix-blend-screen relative z-10"
+                src="/about.jpg"
+                alt="About Procura Solar"
+                className="w-full h-96 object-cover"
+                onError={(e) => {
+                  console.log('About image failed to load');
+                  e.currentTarget.style.display = 'none';
+                }}
+                onLoad={(e) => {
+                  console.log('About image loaded successfully');
+                }}
               />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}

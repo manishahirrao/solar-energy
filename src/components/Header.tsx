@@ -58,7 +58,7 @@ const Header = () => {
                   { name: 'Home', href: '/' },
                   { name: 'About Us', href: '/about' },
                   { name: 'Services', href: '/service' },
-                  { name: 'Projects', href: '/projects' },
+                  { name: 'Gallery', href: '/gallery' },
                   { name: 'Contact', href: '/contact' }
                 ].map((item, index) => (
                   <motion.li
@@ -93,7 +93,7 @@ const Header = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Link href="/contact" className="bg-green-600 text-white px-6 py-2 rounded-full hover:bg-green-700 transition-colors font-medium flex items-center">
+                <Link href="tel:+918959890113" className="bg-green-600 text-white px-4 py-2 rounded-full hover:bg-green-700 transition-colors font-medium flex items-center text-sm">
                   <motion.div
                     animate={{ x: [0, 3, 0] }}
                     transition={{ duration: 2, repeat: Infinity }}
@@ -101,7 +101,7 @@ const Header = () => {
                   >
                     <Sun className="w-4 h-4" />
                   </motion.div>
-                  Get a Quote
+                  Call: 8959890113
                 </Link>
               </motion.div>
             </motion.div>
@@ -134,11 +134,6 @@ const Header = () => {
                 <li>
                   <Link href="/service" className="block py-2 text-gray-700 hover:text-green-600 transition-colors font-medium">
                     Services
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/project" className="block py-2 text-gray-700 hover:text-green-600 transition-colors font-medium">
-                    Projects
                   </Link>
                 </li>
                 <li>
