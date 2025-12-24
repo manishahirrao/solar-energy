@@ -24,7 +24,7 @@ const WhyChooseUs = () => {
   ];
 
   return (
-    <section className="py-24 bg-gradient-to-br from-emerald-50 via-white to-green-50 relative overflow-hidden">
+    <section className="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-emerald-50 via-white to-green-50 relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-10 w-32 h-32 bg-emerald-100 rounded-full blur-3xl opacity-30" />
@@ -38,22 +38,10 @@ const WhyChooseUs = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-20"
+          className="text-center mb-12 sm:mb-16 lg:mb-20"
         >
-          {/* Section badge */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="inline-flex items-center bg-emerald-100 rounded-full px-4 py-2 mb-6"
-          >
-            <Award className="w-4 h-4 text-emerald-600 mr-2" />
-            <span className="text-emerald-700 text-sm font-medium">Why Choose Us</span>
-          </motion.div>
-          
           <motion.h2 
-            className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 sm:mb-8 leading-tight"
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -69,7 +57,7 @@ const WhyChooseUs = () => {
             </span>
           </motion.h2>
           <motion.p 
-            className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed font-light mb-12"
+            className="text-lg sm:text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed font-light mb-8 sm:mb-12"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -80,7 +68,7 @@ const WhyChooseUs = () => {
           </motion.p>
         </motion.div>
 
-        <div className="space-y-24">
+        <div className="space-y-12 sm:space-y-16 lg:space-y-24">
           {features.map((feature, index) => (
             <motion.div
               key={index}
@@ -88,7 +76,7 @@ const WhyChooseUs = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: index * 0.3 }}
-              className={`grid grid-cols-1 lg:grid-cols-2 gap-16 items-center ${
+              className={`grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center ${
                 index % 2 === 1 ? 'lg:flex-row-reverse' : ''
               }`}
               whileHover={{ scale: 1.01 }}
@@ -99,7 +87,7 @@ const WhyChooseUs = () => {
                   initial={{ opacity: 0, scale: 0.8 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
-                  className="relative rounded-3xl overflow-hidden shadow-2xl bg-gray-100 h-80 w-full max-w-lg mx-auto lg:mx-0 border border-gray-200"
+                  className="relative rounded-3xl overflow-hidden shadow-2xl bg-gray-100 h-60 sm:h-72 lg:h-80 w-full max-w-lg mx-auto lg:mx-0 border border-gray-200"
                   whileHover={{ rotate: 2, scale: 1.03 }}
                   animate={{ y: [0, -8, 0] }}
                   transition={{ duration: 3, repeat: Infinity, delay: index * 0.5 }}
@@ -115,7 +103,7 @@ const WhyChooseUs = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.7, delay: index * 0.2 + 0.4 }}
-                    className="absolute top-6 left-6 bg-white/95 backdrop-blur-md rounded-2xl p-4 z-20 shadow-lg border border-emerald-200"
+                    className="absolute top-4 left-4 sm:top-6 sm:left-6 bg-white/95 backdrop-blur-md rounded-2xl p-3 sm:p-4 z-20 shadow-lg border border-emerald-200"
                     whileHover={{ scale: 1.05, rotate: -1 }}
                   >
                     <p className="text-sm font-bold text-emerald-700 uppercase tracking-wide">
@@ -126,13 +114,13 @@ const WhyChooseUs = () => {
               </div>
 
               {/* Content Section */}
-              <div className={`space-y-8 ${index % 2 === 0 ? 'order-1 lg:order-2' : 'order-1'}`}>
+              <div className={`space-y-6 sm:space-y-8 ${index % 2 === 0 ? 'order-1 lg:order-2' : 'order-1'}`}>
                 <motion.h3
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: index * 0.2 + 0.3 }}
-                  className="text-4xl font-bold text-gray-900 mb-6"
+                  className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 sm:mb-6"
                   whileHover={{ scale: 1.02, x: 5 }}
                 >
                   <span className="bg-gradient-to-r from-gray-900 to-emerald-700 bg-clip-text text-transparent">
@@ -144,7 +132,7 @@ const WhyChooseUs = () => {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: index * 0.2 + 0.4 }}
-                  className="text-xl text-gray-600 leading-relaxed mb-8"
+                  className="text-lg sm:text-xl text-gray-600 leading-relaxed mb-6 sm:mb-8"
                 >
                   {feature.description}
                 </motion.p>
@@ -153,7 +141,7 @@ const WhyChooseUs = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: index * 0.2 + 0.5 }}
-                  className="flex items-center gap-4 bg-emerald-50 px-6 py-4 rounded-2xl inline-flex border border-emerald-200"
+                  className="flex items-center gap-3 sm:gap-4 bg-emerald-50 px-4 sm:px-6 py-3 sm:py-4 rounded-2xl inline-flex border border-emerald-200"
                   whileHover={{ scale: 1.05, boxShadow: "0 10px 30px rgba(16, 185, 129, 0.2)" }}
                 >
                   <motion.div 

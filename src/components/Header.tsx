@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Phone, Mail, Sun, ChevronDown } from 'lucide-react';
 import Link from 'next/link';
 
@@ -32,8 +32,8 @@ const Header = () => {
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-lg' : 'bg-transparent'}`}>
       {/* Main navigation */}
       <nav className={`transition-all duration-300 w-full ${isScrolled ? 'bg-white shadow-none' : 'bg-white bg-opacity-95 backdrop-blur-sm shadow-lg'}`}>
-        <div className="w-full px-6 lg:px-8">
-          <div className="flex justify-between items-center h-20">
+        <div className="w-full px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16 sm:h-20">
             {/* Logo */}
             <motion.div 
               className="flex-shrink-0"
@@ -47,9 +47,9 @@ const Header = () => {
                   transition={{ duration: 0.3 }}
                 >
                   <img 
-                    src="/procura logo.jpg" 
+                    src="/procura logo.png" 
                     alt="Procura Solar" 
-                    className="w-16 h-16 transition-transform duration-300"
+                    className="w-12 h-12 sm:w-16 sm:h-16 transition-transform duration-300"
                   />
                 </motion.div>
               </Link>
@@ -171,52 +171,80 @@ const Header = () => {
 
             {/* Mobile menu button */}
             <div className="md:hidden">
-              <button
+              <motion.button
                 onClick={toggleMenu}
-                className="text-gray-700 hover:text-green-600 transition-colors"
+                className="text-gray-700 hover:text-green-600 transition-colors p-2"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
               >
                 {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-              </button>
+              </motion.button>
             </div>
           </div>
 
-          {/* Mobile menu */}
-          {isMenuOpen && (
-            <div className="md:hidden py-4 border-t">
-              <ul className="space-y-2">
-                <li>
-                  <Link href="/" className="block py-2 text-gray-700 hover:text-green-600 transition-colors font-medium">
-                    Home
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/about" className="block py-2 text-gray-700 hover:text-green-600 transition-colors font-medium">
-                    About Us
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/service" className="block py-2 text-gray-700 hover:text-green-600 transition-colors font-medium">
-                    Services
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/gallery" className="block py-2 text-gray-700 hover:text-green-600 transition-colors font-medium">
-                    Gallery
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/contact" className="block py-2 text-gray-700 hover:text-green-600 transition-colors font-medium">
-                    Contact Us
-                  </Link>
-                </li>
-                <li className="pt-2">
-                  <Link href="/contact" className="w-full bg-green-600 text-white px-6 py-2 rounded-full hover:bg-green-700 transition-colors font-medium block text-center">
-                    Get a Quote
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          )}
+          {/* Mobile menu with animation */}
+          <AnimatePresence>
+            {isMenuOpen && (
+              <motion.div
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: 'auto', opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.3, ease: 'easeInOut' }}
+                className="md:hidden overflow-hidden border-t"
+              >
+                <motion.ul
+                  initial={{ y: -20, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  exit={{ y: -20, opacity: 0 }}
+                  transition={{ duration: 0.3, delay: 0.1 }}
+                  className="space-y-1 py-4 px-4"
+                >
+                  {[
+                    { name: 'Home', href: '/', icon: null },
+                    { name: 'About Us', href: '/about', icon: null },
+                    { name: 'Services', href: '/service', icon: null },
+                    { name: 'Gallery', href: '/gallery', icon: null },
+                    { name: 'Contact', href: '/contact', icon: null }
+                  ].map((item, index) => (
+                    <motion.li
+                      key={item.name}
+                      initial={{ x: -50, opacity: 0 }}
+                      animate={{ x: 0, opacity: 1 }}
+                      transition={{ duration: 0.3, delay: 0.1 + index * 0.05 }}
+                    >
+                      <Link 
+                        href={item.href} 
+                        className="block py-3 px-4 text-gray-700 hover:text-green-600 hover:bg-green-50 transition-all duration-200 font-medium rounded-lg"
+                        onClick={() => setIsMenuOpen(false)}
+                      >
+                        {item.name}
+                      </Link>
+                    </motion.li>
+                  ))}
+                  <motion.li
+                    initial={{ x: -50, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    transition={{ duration: 0.3, delay: 0.4 }}
+                    className="pt-2"
+                  >
+                    <motion.div
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      <Link 
+                        href="tel:+918959890113" 
+                        className="w-full bg-green-600 text-white px-6 py-3 rounded-full hover:bg-green-700 transition-all duration-200 font-medium block text-center shadow-lg"
+                        onClick={() => setIsMenuOpen(false)}
+                      >
+                        <Sun className="w-4 h-4 inline mr-2" />
+                        Call: 8959890113
+                      </Link>
+                    </motion.div>
+                  </motion.li>
+                </motion.ul>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </nav>
     </header>

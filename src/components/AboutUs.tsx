@@ -30,7 +30,7 @@ const AboutUs = () => {
   ];
 
   return (
-    <section className="py-24 bg-gradient-to-br from-purple-50 via-white to-indigo-50 relative overflow-hidden">
+    <section className="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-purple-50 via-white to-indigo-50 relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-10 w-32 h-32 bg-purple-100 rounded-full blur-3xl opacity-30" />
@@ -44,40 +44,28 @@ const AboutUs = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-20"
+          className="text-center mb-12 sm:mb-16 lg:mb-20"
         >
-          {/* Section badge */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="inline-flex items-center bg-purple-100 rounded-full px-4 py-2 mb-6"
-          >
-            <Award className="w-4 h-4 text-purple-600 mr-2" />
-            <span className="text-purple-700 text-sm font-medium">About Us</span>
-          </motion.div>
-          
           <motion.h2 
-            className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 sm:mb-8 leading-tight"
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             whileHover={{ scale: 1.02 }}
           >
-            <span className="bg-gradient-to-r from-gray-900 via-purple-800 to-gray-900 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-gray-900 via-green-800 to-gray-900 bg-clip-text text-transparent">
               About
             </span>
             <br />
-            <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
               Procura Solar
             </span>
           </motion.h2>
         </motion.div>
 
         {/* Main Content Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center mb-12 sm:mb-16 lg:mb-20">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -86,7 +74,7 @@ const AboutUs = () => {
             className="space-y-6"
           >
             <motion.h3 
-              className="text-xl md:text-2xl font-bold text-gray-900 leading-tight font-serif"
+              className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 leading-tight font-serif"
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -110,7 +98,7 @@ const AboutUs = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="grid grid-cols-3 gap-6 pt-6"
+              className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 pt-6"
             >
               {[
                 { value: "10+", label: "Years Experience" },
@@ -127,7 +115,7 @@ const AboutUs = () => {
                   whileHover={{ scale: 1.1, y: -5 }}
                 >
                   <motion.div 
-                    className="text-3xl font-bold text-green-600 mb-2 font-serif"
+                    className="text-2xl sm:text-3xl font-bold text-green-600 mb-2 font-serif"
                     animate={{ scale: [1, 1.1, 1] }}
                     transition={{ duration: 2, repeat: Infinity, delay: index * 0.3 }}
                   >
@@ -155,7 +143,7 @@ const AboutUs = () => {
               <img
                 src="/about.jpg"
                 alt="About Procura Solar"
-                className="w-full h-96 object-cover"
+                className="w-full h-64 sm:h-80 md:h-96 object-cover"
                 onError={(e) => {
                   console.log('About image failed to load');
                   e.currentTarget.style.display = 'none';
@@ -187,7 +175,7 @@ const AboutUs = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20"
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mb-12 sm:mb-16 lg:mb-20"
         >
           {stats.map((stat, index) => (
             <motion.div
@@ -196,12 +184,12 @@ const AboutUs = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.8 + index * 0.1 }}
-              className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-6 text-center border border-green-100 hover:shadow-lg transition-shadow"
+              className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-4 sm:p-6 text-center border border-green-100 hover:shadow-lg transition-shadow"
             >
-              <stat.icon className="w-12 h-12 text-green-600 mx-auto mb-4" />
-              <div className="text-2xl font-bold text-gray-900 mb-1 font-serif">{stat.value}</div>
-              <div className="text-gray-700 font-medium mb-1">{stat.label}</div>
-              <div className="text-sm text-gray-500">{stat.description}</div>
+              <stat.icon className="w-8 h-8 sm:w-10 sm:h-12 text-green-600 mx-auto mb-3 sm:mb-4" />
+              <div className="text-xl sm:text-2xl font-bold text-gray-900 mb-1 font-serif">{stat.value}</div>
+              <div className="text-gray-700 font-medium mb-1 text-sm sm:text-base">{stat.label}</div>
+              <div className="text-xs sm:text-sm text-gray-500">{stat.description}</div>
             </motion.div>
           ))}
         </motion.div>
@@ -213,8 +201,8 @@ const AboutUs = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 1 }}
         >
-          <h3 className="text-xl font-bold text-gray-900 mb-8 text-center font-serif">Why Choose Us</h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-6 sm:mb-8 text-center font-serif">Why Choose Us</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
             {highlights.map((highlight, index) => (
               <motion.div
                 key={index}

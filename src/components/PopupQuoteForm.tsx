@@ -126,13 +126,13 @@ export default function PopupQuoteForm() {
                 transition={{ delay: 0.2 }}
                 className="text-center"
               >
-                <motion.div
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                  className="w-10 h-10 sm:w-16 sm:h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-2 sm:mb-4 shadow-lg"
-                >
-                  <Sun className="w-5 h-5 sm:w-8 sm:h-8 text-white" />
-                </motion.div>
+                <div className="flex justify-center items-center mb-2 sm:mb-4">
+                  <img 
+                    src="/procura logo.png" 
+                    alt="Procura Solar"
+                    className="w-12 h-12 sm:w-16 sm:h-16 object-contain"
+                  />
+                </div>
                 <h3 className="text-lg sm:text-2xl font-bold mb-1 sm:mb-2">Get Your Free Quote</h3>
                 <p className="text-green-100 text-xs sm:text-sm">Save up to 70% on electricity bills</p>
               </motion.div>
@@ -195,7 +195,11 @@ export default function PopupQuoteForm() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                     <div>
                       <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1">
-                        <Sun className="w-3 h-3 sm:w-4 sm:h-4 inline mr-1 text-green-600" />
+                        <img 
+                        src="/procura logo.png" 
+                        alt="Procura Solar"
+                        className="w-3 h-3 sm:w-4 sm:h-4 inline mr-1 object-contain"
+                      />
                         Service Type
                       </label>
                       <select

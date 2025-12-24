@@ -35,19 +35,19 @@ const FAQ = () => {
   };
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-16 sm:py-20 bg-white">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
             Frequently Asked Questions
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
             Find answers to common questions about solar energy and our services
           </p>
         </motion.div>
@@ -60,21 +60,21 @@ const FAQ = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: index * 0.1 }}
-              className="mb-4"
+              className="mb-3 sm:mb-4"
             >
               <button
                 onClick={() => toggleFAQ(index)}
-                className="w-full text-left p-6 bg-gray-50 hover:bg-gray-100 rounded-xl transition-colors focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-opacity-50"
+                className="w-full text-left p-4 sm:p-6 bg-gray-50 hover:bg-gray-100 rounded-xl transition-colors focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-opacity-50"
               >
                 <div className="flex justify-between items-center">
-                  <h3 className="text-lg font-semibold text-gray-900 pr-8">
+                  <h3 className="text-base sm:text-lg font-semibold text-gray-900 pr-4 sm:pr-8">
                     {index + 1}. {faq.question}
                   </h3>
                   <div className="flex-shrink-0">
                     {openIndex === index ? (
-                      <ChevronUp className="w-6 h-6 text-green-600" />
+                      <ChevronUp className="w-5 h-5 sm:w-6 sm:h-6 text-green-600" />
                     ) : (
-                      <ChevronDown className="w-6 h-6 text-gray-400" />
+                      <ChevronDown className="w-5 h-5 sm:w-6 sm:h-6 text-gray-400" />
                     )}
                   </div>
                 </div>
@@ -89,7 +89,7 @@ const FAQ = () => {
                 transition={{ duration: 0.3 }}
                 className="overflow-hidden"
               >
-                <div className="p-6 pt-0 text-gray-600 leading-relaxed">
+                <div className="p-4 sm:p-6 pt-0 text-gray-600 leading-relaxed text-sm sm:text-base">
                   {faq.answer}
                 </div>
               </motion.div>

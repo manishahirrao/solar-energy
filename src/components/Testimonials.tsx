@@ -96,7 +96,7 @@ const Testimonials = () => {
     return Array.from({ length: 5 }, (_, i) => (
       <Star
         key={i}
-        className={`w-5 h-5 ${
+        className={`w-4 h-4 sm:w-5 sm:h-5 ${
           i < rating ? 'text-yellow-400 fill-current' : 'text-gray-300'
         }`}
       />
@@ -104,7 +104,7 @@ const Testimonials = () => {
   };
 
   return (
-    <section className="py-24 bg-gradient-to-br from-blue-50 via-white to-green-50 relative overflow-hidden">
+    <section className="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-blue-50 via-white to-green-50 relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-10 w-32 h-32 bg-blue-100 rounded-full blur-3xl opacity-30" />
@@ -118,22 +118,10 @@ const Testimonials = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-20"
+          className="text-center mb-12 sm:mb-16 lg:mb-20"
         >
-          {/* Section badge */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="inline-flex items-center bg-blue-100 rounded-full px-4 py-2 mb-6"
-          >
-            <Star className="w-4 h-4 text-blue-600 mr-2" />
-            <span className="text-blue-700 text-sm font-medium">Customer Success Stories</span>
-          </motion.div>
-          
           <motion.h2 
-            className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 sm:mb-8 leading-tight"
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -148,7 +136,7 @@ const Testimonials = () => {
             </span>
           </motion.h2>
           <motion.p 
-            className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed font-light mb-12"
+            className="text-lg sm:text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed font-light mb-8 sm:mb-12"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -165,22 +153,22 @@ const Testimonials = () => {
             onClick={goToPrevious}
             onMouseEnter={() => setIsAutoPlaying(false)}
             onMouseLeave={() => setIsAutoPlaying(true)}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-20 bg-white/90 backdrop-blur-sm rounded-full p-4 shadow-xl border border-gray-200 hover:bg-white hover:scale-110 transition-all duration-300"
+            className="absolute left-0 sm:left-4 top-1/2 -translate-y-1/2 -translate-x-4 sm:-translate-x-8 z-20 bg-white/90 backdrop-blur-sm rounded-full p-3 sm:p-4 shadow-xl border border-gray-200 hover:bg-white hover:scale-110 transition-all duration-300"
             whileHover={{ scale: 1.1, rotate: -5 }}
             whileTap={{ scale: 0.95 }}
           >
-            <ChevronLeft className="w-6 h-6 text-blue-600" />
+            <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 text-blue-600" />
           </motion.button>
           
           <motion.button
             onClick={goToNext}
             onMouseEnter={() => setIsAutoPlaying(false)}
             onMouseLeave={() => setIsAutoPlaying(true)}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-20 bg-white/90 backdrop-blur-sm rounded-full p-4 shadow-xl border border-gray-200 hover:bg-white hover:scale-110 transition-all duration-300"
+            className="absolute right-0 sm:right-4 top-1/2 -translate-y-1/2 translate-x-4 sm:translate-x-8 z-20 bg-white/90 backdrop-blur-sm rounded-full p-3 sm:p-4 shadow-xl border border-gray-200 hover:bg-white hover:scale-110 transition-all duration-300"
             whileHover={{ scale: 1.1, rotate: 5 }}
             whileTap={{ scale: 0.95 }}
           >
-            <ChevronRight className="w-6 h-6 text-blue-600" />
+            <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 text-blue-600" />
           </motion.button>
 
           {/* Testimonial Carousel */}
@@ -192,21 +180,21 @@ const Testimonials = () => {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -100 }}
                 transition={{ duration: 0.5, ease: "easeInOut" }}
-                className="bg-white rounded-3xl shadow-2xl p-8 md:p-12 border border-gray-100"
+                className="bg-white rounded-3xl shadow-2xl p-6 sm:p-8 md:p-12 border border-gray-100"
               >
                 {/* Quote icon */}
-                <div className="absolute top-8 right-8 text-blue-100">
-                  <Quote className="w-20 h-20" />
+                <div className="absolute top-4 sm:top-8 right-4 sm:right-8 text-blue-100">
+                  <Quote className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20" />
                 </div>
 
                 {/* Rating */}
-                <div className="flex justify-center mb-8">
+                <div className="flex justify-center mb-6 sm:mb-8">
                   {renderStars(testimonials[currentIndex].rating)}
                 </div>
 
                 {/* Content */}
                 <motion.p 
-                  className="text-gray-700 mb-12 leading-relaxed text-xl md:text-2xl font-light text-center italic"
+                  className="text-gray-700 mb-8 sm:mb-12 leading-relaxed text-lg sm:text-xl md:text-2xl font-light text-center italic"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.3 }}
@@ -221,12 +209,12 @@ const Testimonials = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.4 }}
                 >
-                  <div className="w-20 h-20 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center text-white font-bold text-2xl mr-6 shadow-lg">
+                  <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center text-white font-bold text-lg sm:text-2xl mr-4 sm:mr-6 shadow-lg">
                     {testimonials[currentIndex].name.split(' ').map(n => n[0]).join('')}
                   </div>
                   <div className="text-left">
-                    <h4 className="font-bold text-gray-900 text-xl mb-1">{testimonials[currentIndex].name}</h4>
-                    <p className="text-gray-600 text-lg">{testimonials[currentIndex].role}</p>
+                    <h4 className="font-bold text-gray-900 text-lg sm:text-xl mb-1">{testimonials[currentIndex].name}</h4>
+                    <p className="text-gray-600 text-base sm:text-lg">{testimonials[currentIndex].role}</p>
                   </div>
                 </motion.div>
               </motion.div>
@@ -234,7 +222,7 @@ const Testimonials = () => {
           </div>
 
           {/* Dots indicator */}
-          <div className="flex justify-center mt-12 space-x-3">
+          <div className="flex justify-center mt-8 sm:mt-12 space-x-2 sm:space-x-3">
             {testimonials.map((_, index) => (
               <motion.button
                 key={index}

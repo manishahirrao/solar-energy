@@ -58,7 +58,7 @@ export default function About() {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-green-900 to-slate-900 overflow-hidden">
+      <section className="relative min-h-[60vh] sm:min-h-[70vh] lg:min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 to-slate-900 overflow-hidden">
         {/* Background Image with enhanced effects */}
         <div className="absolute inset-0">
           <img
@@ -66,40 +66,6 @@ export default function About() {
             alt="About Procura Solar"
             className="w-full h-full object-cover"
           />
-        </div>
-        
-        {/* Enhanced animated background elements */}
-        <div className="absolute inset-0">
-          {[
-            { width: 120, height: 120, left: 10, top: 20, duration: 4, color: 'from-green-400 to-emerald-400' },
-            { width: 80, height: 80, left: 70, top: 60, duration: 5, color: 'from-blue-400 to-cyan-400' },
-            { width: 150, height: 150, left: 30, top: 80, duration: 6, color: 'from-yellow-400 to-orange-400' },
-            { width: 60, height: 60, left: 85, top: 15, duration: 3.5, color: 'from-purple-400 to-pink-400' },
-            { width: 100, height: 100, left: 50, top: 40, duration: 4.5, color: 'from-red-400 to-rose-400' }
-          ].map((style, i) => (
-            <motion.div
-              key={i}
-              className={`absolute bg-gradient-to-br ${style.color} rounded-full opacity-10 blur-xl`}
-              style={{
-                width: style.width + 'px',
-                height: style.height + 'px',
-                left: style.left + '%',
-                top: style.top + '%'
-              }}
-              animate={{
-                y: [0, -30, 0],
-                x: [0, 20, 0],
-                scale: [1, 1.2, 1],
-                rotate: [0, 180, 360],
-              }}
-              transition={{
-                duration: style.duration,
-                repeat: Infinity,
-                repeatType: 'reverse',
-                ease: 'easeInOut'
-              }}
-            />
-          ))}
         </div>
         
         <div className="relative container mx-auto px-4 z-10">
@@ -116,9 +82,9 @@ export default function About() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="mb-8"
             >
-              <div className="inline-flex items-center bg-white/10 backdrop-blur-md rounded-full px-6 py-3 border border-white/20">
-                <Award className="w-5 h-5 text-yellow-300 mr-2" />
-                <span className="text-white text-sm font-medium">Leading Solar Solutions Since 2010</span>
+              <div className="inline-flex items-center bg-white/10 backdrop-blur-md rounded-full px-4 sm:px-6 py-2 sm:py-3 border border-white/20">
+                <Award className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-300 mr-2" />
+                <span className="text-white text-xs sm:text-sm font-medium">Leading Solar Solutions Since 2010</span>
               </div>
             </motion.div>
             
@@ -127,10 +93,10 @@ export default function About() {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="w-24 h-24 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center mx-auto mb-8 shadow-2xl border-2 border-white/20"
+              className="w-16 h-16 sm:w-20 sm:h-24 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center mx-auto mb-6 sm:mb-8 shadow-2xl border-2 border-white/20"
               whileHover={{ scale: 1.05, rotate: 5 }}
             >
-              <Award className="w-12 h-12 text-white" />
+              <Award className="w-8 h-8 sm:w-10 sm:h-12 text-white" />
             </motion.div>
             
             {/* Main heading */}
@@ -138,7 +104,7 @@ export default function About() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-6xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-4 sm:mb-6 leading-tight"
             >
               <span className="bg-gradient-to-r from-white via-green-100 to-white bg-clip-text text-transparent">
                 About
@@ -154,7 +120,7 @@ export default function About() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="text-xl md:text-2xl lg:text-3xl text-white/90 mb-12 leading-relaxed max-w-4xl mx-auto font-light"
+              className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-white/90 mb-8 sm:mb-12 leading-relaxed max-w-4xl mx-auto font-light"
             >
               Pioneering excellence in renewable energy solutions, 
               <span className="block text-green-200 font-medium mt-3">committed to transforming the way India powers its future through sustainable innovation.</span>
@@ -165,25 +131,25 @@ export default function About() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8 }}
-              className="flex flex-col sm:flex-row gap-6 justify-center"
+              className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center"
             >
               <motion.button
                 whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(34, 197, 94, 0.4)" }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-gradient-to-r from-green-500 to-emerald-600 text-white px-10 py-5 rounded-full hover:from-green-600 hover:to-emerald-700 transition-all duration-300 font-bold text-lg flex items-center justify-center group shadow-2xl border border-green-400/20"
+                className="bg-gradient-to-r from-green-500 to-emerald-600 text-white px-6 sm:px-10 py-3 sm:py-5 rounded-full hover:from-green-600 hover:to-emerald-700 transition-all duration-300 font-bold text-base sm:text-lg flex items-center justify-center group shadow-2xl border border-green-400/20"
                 onClick={() => window.location.href = '/contact'}
               >
                 Get Quote
-                <ArrowRight className="w-6 h-6 ml-3 group-hover:translate-x-2 transition-transform" />
+                <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 ml-3 group-hover:translate-x-2 transition-transform" />
               </motion.button>
               
               <motion.button
                 whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(255, 255, 255, 0.2)" }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-white/10 backdrop-blur-md border-2 border-white/30 text-white px-10 py-5 rounded-full hover:bg-white/20 transition-all duration-300 font-bold text-lg flex items-center justify-center shadow-2xl"
+                className="bg-white/10 backdrop-blur-md border-2 border-white/30 text-white px-6 sm:px-10 py-3 sm:py-5 rounded-full hover:bg-white/20 transition-all duration-300 font-bold text-base sm:text-lg flex items-center justify-center shadow-2xl"
                 onClick={() => window.location.href = '/gallery'}
               >
-                <Sun className="w-6 h-6 mr-3" />
+                <Sun className="w-5 h-5 sm:w-6 sm:h-6 mr-3" />
                 Our Projects
               </motion.button>
             </motion.div>
@@ -518,18 +484,13 @@ export default function About() {
               }}
             >
               {[
-                'SunPower', 
-                'LG Solar', 
-                'Jinko Solar', 
-                'Trina Solar', 
-                'Sungrow', 
-                'Huawei Solar',
-                'Canadian Solar',
-                'First Solar',
-                'Enphase Energy',
-                'SolarEdge Technologies',
-                'Tesla Energy',
-                'BYD Solar'
+                { name: 'Tata Power Solar', image: '/Tata Power Solar.jpeg' },
+                { name: 'Adani Solar', image: '/Adani Solar.png' },
+                { name: 'Vikram Solar', image: '/Vikram Solar.jpeg' },
+                { name: 'Suntech Power Systems', image: '/Suntech Power Systems.png' },
+                { name: 'Moser Baer Solar', image: '/Moser Baer Solar.png' },
+                { name: 'Navitas Solar', image: '/Navitas Solar.jpg' },
+                { name: 'Websol Energy System', image: '/Websol Energy System.jpeg' }
               ].map((partner, index) => (
                 <motion.div
                   key={index}
@@ -540,26 +501,29 @@ export default function About() {
                   whileHover={{ scale: 1.1, y: -5 }}
                   className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow text-center flex-shrink-0"
                 >
-                  <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                    <Award className="w-6 h-6 text-green-600" />
+                  <div className="w-16 h-16 bg-white rounded-lg flex items-center justify-center mx-auto mb-3 overflow-hidden">
+                    <img 
+                      src={partner.image} 
+                      alt={partner.name}
+                      className="w-full h-full object-contain p-2"
+                      onError={(e) => {
+                        console.log(`Failed to load image for ${partner.name}`);
+                        e.currentTarget.style.display = 'none';
+                      }}
+                    />
                   </div>
-                  <div className="text-sm font-medium text-gray-900 whitespace-nowrap">{partner}</div>
+                  <div className="text-sm font-medium text-gray-900 whitespace-nowrap">{partner.name}</div>
                 </motion.div>
               ))}
               {/* Duplicate partners for seamless loop */}
               {[
-                'SunPower', 
-                'LG Solar', 
-                'Jinko Solar', 
-                'Trina Solar', 
-                'Sungrow', 
-                'Huawei Solar',
-                'Canadian Solar',
-                'First Solar',
-                'Enphase Energy',
-                'SolarEdge Technologies',
-                'Tesla Energy',
-                'BYD Solar'
+                { name: 'Tata Power Solar', image: '/Tata Power Solar.jpeg' },
+                { name: 'Adani Solar', image: '/Adani Solar.png' },
+                { name: 'Vikram Solar', image: '/Vikram Solar.jpeg' },
+                { name: 'Suntech Power Systems', image: '/Suntech Power Systems.png' },
+                { name: 'Moser Baer Solar', image: '/Moser Baer Solar.png' },
+                { name: 'Navitas Solar', image: '/Navitas Solar.jpg' },
+                { name: 'Websol Energy System', image: '/Websol Energy System.jpeg' }
               ].map((partner, index) => (
                 <motion.div
                   key={`duplicate-${index}`}
@@ -570,10 +534,18 @@ export default function About() {
                   whileHover={{ scale: 1.1, y: -5 }}
                   className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow text-center flex-shrink-0"
                 >
-                  <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                    <Award className="w-6 h-6 text-green-600" />
+                  <div className="w-16 h-16 bg-white rounded-lg flex items-center justify-center mx-auto mb-3 overflow-hidden">
+                    <img 
+                      src={partner.image} 
+                      alt={partner.name}
+                      className="w-full h-full object-contain p-2"
+                      onError={(e) => {
+                        console.log(`Failed to load image for ${partner.name}`);
+                        e.currentTarget.style.display = 'none';
+                      }}
+                    />
                   </div>
-                  <div className="text-sm font-medium text-gray-900 whitespace-nowrap">{partner}</div>
+                  <div className="text-sm font-medium text-gray-900 whitespace-nowrap">{partner.name}</div>
                 </motion.div>
               ))}
             </motion.div>

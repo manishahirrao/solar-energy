@@ -73,7 +73,7 @@ export default function Contact() {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-teal-900 via-blue-900 to-cyan-900 overflow-hidden">
+      <section className="relative min-h-[60vh] sm:min-h-[70vh] lg:min-h-screen flex items-center justify-center bg-gradient-to-br from-teal-900 via-blue-900 to-cyan-900 overflow-hidden">
         {/* Background Image with enhanced effects */}
         <div className="absolute inset-0">
           <img
@@ -81,40 +81,6 @@ export default function Contact() {
             alt="Contact Procura Solar"
             className="w-full h-full object-cover"
           />
-        </div>
-        
-        {/* Enhanced animated background elements */}
-        <div className="absolute inset-0">
-          {[
-            { width: 125, height: 125, left: 10, top: 20, duration: 4, color: 'from-teal-400 to-cyan-400' },
-            { width: 80, height: 80, left: 70, top: 60, duration: 5, color: 'from-blue-400 to-indigo-400' },
-            { width: 145, height: 145, left: 30, top: 80, duration: 6, color: 'from-cyan-400 to-teal-400' },
-            { width: 60, height: 60, left: 85, top: 15, duration: 3.5, color: 'from-indigo-400 to-purple-400' },
-            { width: 100, height: 100, left: 50, top: 40, duration: 4.5, color: 'from-green-400 to-teal-400' }
-          ].map((style, i) => (
-            <motion.div
-              key={i}
-              className={`absolute bg-gradient-to-br ${style.color} rounded-full opacity-10 blur-xl`}
-              style={{
-                width: style.width + 'px',
-                height: style.height + 'px',
-                left: style.left + '%',
-                top: style.top + '%'
-              }}
-              animate={{
-                y: [0, -32, 0],
-                x: [0, 20, 0],
-                scale: [1, 1.2, 1],
-                rotate: [0, 180, 360],
-              }}
-              transition={{
-                duration: style.duration,
-                repeat: Infinity,
-                repeatType: 'reverse',
-                ease: 'easeInOut'
-              }}
-            />
-          ))}
         </div>
         
         <div className="relative container mx-auto px-4 z-10">
@@ -131,9 +97,9 @@ export default function Contact() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="mb-8"
             >
-              <div className="inline-flex items-center bg-white/10 backdrop-blur-md rounded-full px-6 py-3 border border-white/20">
-                <Phone className="w-5 h-5 text-teal-300 mr-2" />
-                <span className="text-white text-sm font-medium">We're Here to Help You Go Solar</span>
+              <div className="inline-flex items-center bg-white/10 backdrop-blur-md rounded-full px-4 sm:px-6 py-2 sm:py-3 border border-white/20">
+                <Phone className="w-4 h-4 sm:w-5 sm:h-5 text-teal-300 mr-2" />
+                <span className="text-white text-xs sm:text-sm font-medium">We're Here to Help You Go Solar</span>
               </div>
             </motion.div>
             
@@ -142,14 +108,14 @@ export default function Contact() {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="w-24 h-24 bg-gradient-to-br from-teal-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-8 shadow-2xl border-2 border-white/20"
+              className="w-16 h-16 sm:w-20 sm:h-24 bg-gradient-to-br from-teal-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-6 sm:mb-8 shadow-2xl border-2 border-white/20"
               whileHover={{ scale: 1.05, rotate: 5 }}
             >
               <motion.div
                 animate={{ rotate: 360 }}
                 transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
               >
-                <Phone className="w-12 h-12 text-white" />
+                <Phone className="w-8 h-8 sm:w-10 sm:h-12 text-white" />
               </motion.div>
             </motion.div>
             
@@ -158,7 +124,7 @@ export default function Contact() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-6xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-4 sm:mb-6 leading-tight"
             >
               <span className="bg-gradient-to-r from-white via-teal-100 to-white bg-clip-text text-transparent">
                 Contact
@@ -174,7 +140,7 @@ export default function Contact() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="text-xl md:text-2xl lg:text-3xl text-white/90 mb-12 leading-relaxed max-w-4xl mx-auto font-light"
+              className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-white/90 mb-8 sm:mb-12 leading-relaxed max-w-4xl mx-auto font-light"
             >
               Get in touch with our solar experts for a free consultation
               <span className="block text-teal-200 font-medium mt-3">Let's discuss how we can help you save money and protect the environment</span>
@@ -185,25 +151,25 @@ export default function Contact() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8 }}
-              className="flex flex-col sm:flex-row gap-6 justify-center"
+              className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center"
             >
               <motion.button
                 whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(20, 184, 166, 0.4)" }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-gradient-to-r from-teal-500 to-blue-600 text-white px-10 py-5 rounded-full hover:from-teal-600 hover:to-blue-700 transition-all duration-300 font-bold text-lg flex items-center justify-center group shadow-2xl border border-teal-400/20"
+                className="bg-gradient-to-r from-teal-500 to-blue-600 text-white px-6 sm:px-10 py-3 sm:py-5 rounded-full hover:from-teal-600 hover:to-blue-700 transition-all duration-300 font-bold text-base sm:text-lg flex items-center justify-center group shadow-2xl border border-teal-400/20"
                 onClick={() => document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 Get Quote
-                <ArrowRight className="w-6 h-6 ml-3 group-hover:translate-x-2 transition-transform" />
+                <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 ml-3 group-hover:translate-x-2 transition-transform" />
               </motion.button>
               
               <motion.button
                 whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(255, 255, 255, 0.2)" }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-white/10 backdrop-blur-md border-2 border-white/30 text-white px-10 py-5 rounded-full hover:bg-white/20 transition-all duration-300 font-bold text-lg flex items-center justify-center shadow-2xl"
+                className="bg-white/10 backdrop-blur-md border-2 border-white/30 text-white px-6 py-3 rounded-full hover:bg-white/20 transition-all duration-300 font-bold text-base flex items-center justify-center shadow-2xl"
                 onClick={() => window.location.href = 'tel:+918959890113'}
               >
-                <Phone className="w-6 h-6 mr-3" />
+                <Phone className="w-5 h-5 mr-3" />
                 Call Now
               </motion.button>
             </motion.div>

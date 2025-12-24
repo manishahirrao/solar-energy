@@ -39,8 +39,8 @@ const Footer = () => {
         ></div>
       </div>
       
-      <div className="container mx-auto px-4 py-16 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 p-8">
+      <div className="container mx-auto px-4 py-12 sm:py-16 relative z-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 sm:gap-8 p-4 sm:p-8">
           {/* Company Info */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -60,7 +60,7 @@ const Footer = () => {
               >
                 <Sun className="w-8 h-8 text-green-400" />
               </motion.div>
-              <h3 className="text-2xl font-bold">Procura Solar</h3>
+              <h3 className="text-xl sm:text-2xl font-bold">Procura Solar</h3>
             </motion.div>
             <motion.p 
               className="text-gray-300 mb-6 leading-relaxed"
@@ -105,7 +105,7 @@ const Footer = () => {
                 whileHover={{ x: 5 }}
               >
                 <MapPin className="w-4 h-4 mr-2" />
-                <span className="text-sm">E-3/114, 2nd Floor, Anera Colony, Bhopal</span>
+                <span className="text-xs sm:text-sm">E-3/114, 2nd Floor, Anera Colony, Bhopal</span>
               </motion.div>
               <motion.div
                 className="flex items-center text-gray-300 hover:text-white transition-colors"
@@ -219,12 +219,39 @@ const Footer = () => {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="border-t border-gray-700/50 mt-8 pt-6"
         >
-          <div className="flex flex-col lg:flex-row justify-between items-center space-y-2 lg:space-y-0">
+          <div className="flex flex-col lg:flex-row justify-between items-center space-y-4 lg:space-y-0">
             <div className="text-center lg:text-left">
-              <p className="text-gray-400 text-sm">
+              <p className="text-gray-400 text-xs sm:text-sm">
                 © 2024 Procura Solar. All rights reserved.
               </p>
             </div>
+            
+            {/* Social Media Links */}
+            <motion.div 
+              className="flex space-x-4"
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+            >
+              {[
+                { icon: Facebook, href: '#', label: 'Facebook' },
+                { icon: Twitter, href: '#', label: 'Twitter' },
+                { icon: Linkedin, href: '#', label: 'LinkedIn' },
+                { icon: Instagram, href: '#', label: 'Instagram' }
+              ].map((social, index) => (
+                <motion.a
+                  key={social.label}
+                  href={social.href}
+                  className="text-gray-400 hover:text-green-400 transition-colors"
+                  whileHover={{ scale: 1.2, rotate: 5 }}
+                  whileTap={{ scale: 0.9 }}
+                  aria-label={social.label}
+                >
+                  <social.icon className="w-5 h-5" />
+                </motion.a>
+              ))}
+            </motion.div>
           </div>
         </motion.div>
       </div>

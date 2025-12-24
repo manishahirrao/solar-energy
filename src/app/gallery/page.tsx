@@ -144,7 +144,7 @@ export default function Gallery() {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-900 via-pink-900 to-indigo-900 overflow-hidden">
+      <section className="relative min-h-[60vh] sm:min-h-[70vh] lg:min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-900 via-pink-900 to-indigo-900 overflow-hidden">
         {/* Background Image with enhanced effects */}
         <div className="absolute inset-0">
           <img
@@ -152,40 +152,6 @@ export default function Gallery() {
             alt="Gallery Hero"
             className="w-full h-full object-cover"
           />
-        </div>
-        
-        {/* Enhanced animated background elements */}
-        <div className="absolute inset-0">
-          {[
-            { width: 130, height: 130, left: 10, top: 20, duration: 4, color: 'from-purple-400 to-pink-400' },
-            { width: 85, height: 85, left: 70, top: 60, duration: 5, color: 'from-pink-400 to-rose-400' },
-            { width: 155, height: 155, left: 30, top: 80, duration: 6, color: 'from-indigo-400 to-purple-400' },
-            { width: 65, height: 65, left: 85, top: 15, duration: 3.5, color: 'from-blue-400 to-indigo-400' },
-            { width: 105, height: 105, left: 50, top: 40, duration: 4.5, color: 'from-cyan-400 to-blue-400' }
-          ].map((style, i) => (
-            <motion.div
-              key={i}
-              className={`absolute bg-gradient-to-br ${style.color} rounded-full opacity-10 blur-xl`}
-              style={{
-                width: style.width + 'px',
-                height: style.height + 'px',
-                left: style.left + '%',
-                top: style.top + '%'
-              }}
-              animate={{
-                y: [0, -35, 0],
-                x: [0, 22, 0],
-                scale: [1, 1.25, 1],
-                rotate: [0, 180, 360],
-              }}
-              transition={{
-                duration: style.duration,
-                repeat: Infinity,
-                repeatType: 'reverse',
-                ease: 'easeInOut'
-              }}
-            />
-          ))}
         </div>
         
         <div className="relative container mx-auto px-4 z-10">
@@ -202,9 +168,9 @@ export default function Gallery() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="mb-8"
             >
-              <div className="inline-flex items-center bg-white/10 backdrop-blur-md rounded-full px-6 py-3 border border-white/20">
-                <Grid className="w-5 h-5 text-purple-300 mr-2" />
-                <span className="text-white text-sm font-medium">Showcasing Excellence in Solar Projects</span>
+              <div className="inline-flex items-center bg-white/10 backdrop-blur-md rounded-full px-4 sm:px-6 py-2 sm:py-3 border border-white/20">
+                <Grid className="w-4 h-4 sm:w-5 sm:h-5 text-purple-300 mr-2" />
+                <span className="text-white text-xs sm:text-sm font-medium">Showcasing Excellence in Solar Projects</span>
               </div>
             </motion.div>
             
@@ -213,10 +179,10 @@ export default function Gallery() {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="w-24 h-24 bg-gradient-to-br from-purple-500 to-pink-600 rounded-full flex items-center justify-center mx-auto mb-8 shadow-2xl border-2 border-white/20"
+              className="w-16 h-16 sm:w-20 sm:w-24 bg-gradient-to-br from-purple-500 to-pink-600 rounded-full flex items-center justify-center mx-auto mb-6 sm:mb-8 shadow-2xl border-2 border-white/20"
               whileHover={{ scale: 1.05, rotate: 5 }}
             >
-              <Grid className="w-12 h-12 text-white" />
+              <Grid className="w-8 h-8 sm:w-10 sm:h-12 text-white" />
             </motion.div>
             
             {/* Main heading */}
@@ -224,7 +190,7 @@ export default function Gallery() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-6xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-4 sm:mb-6 leading-tight"
             >
               <span className="bg-gradient-to-r from-white via-purple-100 to-white bg-clip-text text-transparent">
                 Our
@@ -240,7 +206,7 @@ export default function Gallery() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="text-xl md:text-2xl lg:text-3xl text-white/90 mb-12 leading-relaxed max-w-4xl mx-auto font-light"
+              className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-white/90 mb-8 sm:mb-12 leading-relaxed max-w-4xl mx-auto font-light"
             >
               Explore our portfolio of successful solar installations and renewable energy projects
               <span className="block text-purple-200 font-medium mt-3">Transforming homes and businesses with sustainable energy solutions</span>
@@ -251,25 +217,25 @@ export default function Gallery() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8 }}
-              className="flex flex-col sm:flex-row gap-6 justify-center"
+              className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center"
             >
               <motion.button
                 whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(168, 85, 247, 0.4)" }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-gradient-to-r from-purple-500 to-pink-600 text-white px-10 py-5 rounded-full hover:from-purple-600 hover:to-pink-700 transition-all duration-300 font-bold text-lg flex items-center justify-center group shadow-2xl border border-purple-400/20"
+                className="bg-gradient-to-r from-purple-500 to-pink-600 text-white px-6 sm:px-10 py-3 sm:py-5 rounded-full hover:from-purple-600 hover:to-pink-700 transition-all duration-300 font-bold text-base sm:text-lg flex items-center justify-center group shadow-2xl border border-purple-400/20"
                 onClick={() => document.getElementById('gallery-grid')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 View Projects
-                <ArrowRight className="w-6 h-6 ml-3 group-hover:translate-x-2 transition-transform" />
+                <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 ml-3 group-hover:translate-x-2 transition-transform" />
               </motion.button>
               
               <motion.button
                 whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(255, 255, 255, 0.2)" }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-white/10 backdrop-blur-md border-2 border-white/30 text-white px-10 py-5 rounded-full hover:bg-white/20 transition-all duration-300 font-bold text-lg flex items-center justify-center shadow-2xl"
+                className="bg-white/10 backdrop-blur-md border-2 border-white/30 text-white px-6 sm:px-10 py-3 sm:py-5 rounded-full hover:bg-white/20 transition-all duration-300 font-bold text-base sm:text-lg flex items-center justify-center shadow-2xl"
                 onClick={() => window.location.href = '/contact'}
               >
-                <Camera className="w-6 h-6 mr-3" />
+                <Camera className="w-5 h-5 sm:w-6 sm:h-6 mr-3" />
                 Get Consultation
               </motion.button>
             </motion.div>

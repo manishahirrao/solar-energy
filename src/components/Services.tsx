@@ -29,7 +29,7 @@ const Services = () => {
       icon: Wrench,
       title: 'Solar Maintenance',
       description: 'Professional maintenance services to keep your solar system operating at peak efficiency.',
-      image: '/solar-maintenance-service.jpg'
+      image: '/Solar Maintenance Service.jpg'
     },
     {
       icon: Zap,
@@ -40,7 +40,7 @@ const Services = () => {
   ];
 
   return (
-    <section className="py-24 bg-gradient-to-br from-gray-50 via-white to-green-50 relative overflow-hidden">
+    <section className="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-gray-50 via-white to-green-50 relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-10 w-32 h-32 bg-green-100 rounded-full blur-3xl opacity-30" />
@@ -54,22 +54,10 @@ const Services = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-20"
+          className="text-center mb-12 sm:mb-16 lg:mb-20"
         >
-          {/* Section badge */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="inline-flex items-center bg-green-100 rounded-full px-4 py-2 mb-6"
-          >
-            <Sun className="w-4 h-4 text-green-600 mr-2" />
-            <span className="text-green-700 text-sm font-medium">Our Services</span>
-          </motion.div>
-          
           <motion.h2 
-            className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 sm:mb-8 leading-tight"
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -85,7 +73,7 @@ const Services = () => {
             </span>
           </motion.h2>
           <motion.p 
-            className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed font-light mb-12"
+            className="text-lg sm:text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed font-light mb-8 sm:mb-12"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -96,7 +84,7 @@ const Services = () => {
           </motion.p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8">
           {services.map((service, index) => (
             <motion.div
               key={index}
@@ -109,7 +97,7 @@ const Services = () => {
             >
               <div className="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden h-full border border-gray-100">
                 {/* Image Section */}
-                <div className="relative h-56 overflow-hidden bg-gradient-to-br from-green-50 to-emerald-50">
+                <div className="relative h-40 sm:h-48 md:h-56 overflow-hidden bg-gradient-to-br from-green-50 to-emerald-50">
                   <img
                     src={service.image}
                     alt={service.title}
@@ -128,21 +116,21 @@ const Services = () => {
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
-                    className="absolute top-4 right-4 bg-white/95 backdrop-blur-sm rounded-full p-4 z-20 shadow-lg border border-green-200"
+                    className="absolute top-2 sm:top-4 right-2 sm:right-4 bg-white/95 backdrop-blur-sm rounded-full p-2 sm:p-4 z-20 shadow-lg border border-green-200"
                     whileHover={{ rotate: 360, scale: 1.1 }}
                   >
-                    <service.icon className="w-6 h-6 text-green-600" />
+                    <service.icon className="w-4 h-4 sm:w-6 sm:h-6 text-green-600" />
                   </motion.div>
                 </div>
 
                 {/* Content Section */}
-                <div className="p-8">
+                <div className="p-4 sm:p-6 lg:p-8">
                   <motion.h3
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
-                    className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-green-600 transition-colors duration-300"
+                    className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 mb-3 sm:mb-4 group-hover:text-green-600 transition-colors duration-300"
                     whileHover={{ scale: 1.05 }}
                   >
                     {service.title}
@@ -153,7 +141,7 @@ const Services = () => {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
-                    className="text-gray-600 text-lg leading-relaxed mb-8"
+                    className="text-gray-600 text-sm sm:text-base lg:text-lg leading-relaxed mb-6 sm:mb-8"
                   >
                     {service.description}
                   </motion.p>
@@ -164,7 +152,7 @@ const Services = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
-                    className="flex items-center text-green-600 font-semibold text-base hover:text-green-700 transition-colors group"
+                    className="flex items-center text-green-600 font-semibold text-sm sm:text-base hover:text-green-700 transition-colors group"
                     whileHover={{ x: 8 }}
                   >
                     <span>Explore Service</span>
@@ -173,7 +161,7 @@ const Services = () => {
                       transition={{ duration: 2, repeat: Infinity }}
                       className="ml-3"
                     >
-                      <ArrowRight className="w-5 h-5" />
+                      <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
                     </motion.div>
                   </motion.div>
                 </Link>
