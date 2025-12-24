@@ -3,7 +3,7 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { motion } from 'framer-motion';
-import { Search, Filter, Grid, List } from 'lucide-react';
+import { Search, Filter, Grid, List, Sun, TrendingUp, Shield, Phone, ArrowRight, Camera } from 'lucide-react';
 import { useState } from 'react';
 
 export default function Gallery() {
@@ -15,7 +15,7 @@ export default function Gallery() {
       id: 1,
       title: 'Rooftop Solar Installation',
       category: 'Residential',
-      location: 'Mumbai',
+      location: 'Bhopal',
       description: '5kW residential solar installation with battery backup system',
       image: '/Rooftop Solar Installation.jpeg',
       capacity: '5kW',
@@ -25,7 +25,7 @@ export default function Gallery() {
       id: 2,
       title: 'Commercial Solar Farm',
       category: 'Commercial',
-      location: 'Gujarat',
+      location: 'Mandideep',
       description: '50MW commercial solar power plant with advanced tracking system',
       image: '/Commercial Solar Farm.jpg',
       capacity: '50MW',
@@ -35,7 +35,7 @@ export default function Gallery() {
       id: 3,
       title: 'Agricultural Solar Pump',
       category: 'Agricultural',
-      location: 'Punjab',
+      location: 'Sehore',
       description: 'Solar-powered water pumping system for irrigation',
       image: '/Agricultural Solar Pump.jpg',
       capacity: '10HP',
@@ -45,7 +45,7 @@ export default function Gallery() {
       id: 4,
       title: 'Industrial Solar Setup',
       category: 'Industrial',
-      location: 'Delhi',
+      location: 'Govindpura',
       description: 'Large-scale industrial solar installation with monitoring',
       image: '/Industrial Solar Setup.jpg',
       capacity: '100kW',
@@ -55,7 +55,7 @@ export default function Gallery() {
       id: 5,
       title: 'Hybrid Solar-Wind System',
       category: 'Hybrid',
-      location: 'Rajasthan',
+      location: 'Raisen',
       description: 'Integrated solar and wind power generation system',
       image: '/Floating Solar Plant.jpeg',
       capacity: '25MW',
@@ -65,7 +65,7 @@ export default function Gallery() {
       id: 6,
       title: 'Solar Street Lighting',
       category: 'Infrastructure',
-      location: 'Bangalore',
+      location: 'Bhopal',
       description: 'Smart solar street lighting with motion sensors',
       image: '/Solar Street Lighting.jpg',
       capacity: '100W',
@@ -75,7 +75,7 @@ export default function Gallery() {
       id: 7,
       title: 'Hospital Solar System',
       category: 'Healthcare',
-      location: 'Chennai',
+      location: 'Bhopal',
       description: 'Critical power backup solar system for hospital',
       image: '/Hospital Solar System.jpg',
       capacity: '200kW',
@@ -85,7 +85,7 @@ export default function Gallery() {
       id: 8,
       title: 'School Solar Installation',
       category: 'Educational',
-      location: 'Hyderabad',
+      location: 'Bhopal',
       description: 'Educational institution solar system with learning center',
       image: '/School Solar Installation.avif',
       capacity: '50kW',
@@ -95,7 +95,7 @@ export default function Gallery() {
       id: 9,
       title: 'Solar Carport',
       category: 'Commercial',
-      location: 'Pune',
+      location: 'Bhopal',
       description: 'EV charging station with solar carport structure',
       image: '/Solar Carport.webp',
       capacity: '20kW',
@@ -105,7 +105,7 @@ export default function Gallery() {
       id: 10,
       title: 'Floating Solar Plant',
       category: 'Innovative',
-      location: 'Kerala',
+      location: 'Bhopal',
       description: 'Floating solar installation on water reservoir',
       image: '/Floating Solar Plant.jpeg',
       capacity: '10MW',
@@ -115,7 +115,7 @@ export default function Gallery() {
       id: 11,
       title: 'Solar Water Heater',
       category: 'Residential',
-      location: 'Kolkata',
+      location: 'Kolar',
       description: 'Residential solar water heating system installation',
       image: '/Solar Water Heater.jpg',
       capacity: '300L',
@@ -125,7 +125,7 @@ export default function Gallery() {
       id: 12,
       title: 'Solar Maintenance Service',
       category: 'Maintenance',
-      location: 'Mumbai',
+      location: 'Bhopal',
       description: 'Professional solar panel cleaning and maintenance',
       image: '/Solar Maintenance Service.jpg',
       capacity: 'Service',
@@ -144,28 +144,32 @@ export default function Gallery() {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative py-32 bg-gradient-to-br from-green-600 via-green-700 to-green-800 overflow-hidden">
-        {/* Background Image */}
+      <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-900 via-pink-900 to-indigo-900 overflow-hidden">
+        {/* Background Image with enhanced effects */}
         <div className="absolute inset-0">
           <img
             src="/solar-energy-service.webp"
             alt="Gallery Hero"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover mix-blend-overlay"
           />
+          {/* Multiple overlay layers for depth */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/40" />
+          <div className="absolute inset-0 bg-gradient-to-t from-purple-900/20 via-transparent to-pink-900/20" />
         </div>
         
-        {/* Animated background elements */}
+        {/* Enhanced animated background elements */}
         <div className="absolute inset-0">
           {[
-            { width: 80, height: 80, left: 10, top: 20, duration: 3 },
-            { width: 60, height: 60, left: 70, top: 60, duration: 4 },
-            { width: 100, height: 100, left: 30, top: 80, duration: 5 },
-            { width: 50, height: 50, left: 85, top: 15, duration: 3.5 }
+            { width: 130, height: 130, left: 10, top: 20, duration: 4, color: 'from-purple-400 to-pink-400' },
+            { width: 85, height: 85, left: 70, top: 60, duration: 5, color: 'from-pink-400 to-rose-400' },
+            { width: 155, height: 155, left: 30, top: 80, duration: 6, color: 'from-indigo-400 to-purple-400' },
+            { width: 65, height: 65, left: 85, top: 15, duration: 3.5, color: 'from-blue-400 to-indigo-400' },
+            { width: 105, height: 105, left: 50, top: 40, duration: 4.5, color: 'from-cyan-400 to-blue-400' }
           ].map((style, i) => (
             <motion.div
               key={i}
-              className="absolute bg-white rounded-full opacity-5"
+              className={`absolute bg-gradient-to-br ${style.color} rounded-full opacity-10 blur-xl`}
               style={{
                 width: style.width + 'px',
                 height: style.height + 'px',
@@ -173,8 +177,10 @@ export default function Gallery() {
                 top: style.top + '%'
               }}
               animate={{
-                y: [0, -20, 0],
-                x: [0, 15, 0],
+                y: [0, -35, 0],
+                x: [0, 22, 0],
+                scale: [1, 1.25, 1],
+                rotate: [0, 180, 360],
               }}
               transition={{
                 duration: style.duration,
@@ -185,25 +191,92 @@ export default function Gallery() {
             />
           ))}
         </div>
-        <div className="relative container mx-auto px-4">
+        
+        <div className="relative container mx-auto px-4 z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-center text-white"
+            className="text-center text-white max-w-5xl mx-auto"
           >
+            {/* Trust badge */}
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="w-20 h-20 bg-white bg-opacity-10 backdrop-blur-sm border-2 border-white border-opacity-30 rounded-full flex items-center justify-center mx-auto mb-6"
+              className="mb-8"
             >
-              <Grid className="w-10 h-10 text-white" />
+              <div className="inline-flex items-center bg-white/10 backdrop-blur-md rounded-full px-6 py-3 border border-white/20">
+                <Grid className="w-5 h-5 text-purple-300 mr-2" />
+                <span className="text-white text-sm font-medium">Showcasing Excellence in Solar Projects</span>
+              </div>
             </motion.div>
-            <h1 className="text-5xl md:text-6xl font-bold mb-4">Our Gallery</h1>
-            <p className="text-xl max-w-3xl mx-auto leading-relaxed">
+            
+            {/* Icon */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="w-24 h-24 bg-gradient-to-br from-purple-500 to-pink-600 rounded-full flex items-center justify-center mx-auto mb-8 shadow-2xl border-2 border-white/20"
+              whileHover={{ scale: 1.05, rotate: 5 }}
+            >
+              <Grid className="w-12 h-12 text-white" />
+            </motion.div>
+            
+            {/* Main heading */}
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="text-6xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight"
+            >
+              <span className="bg-gradient-to-r from-white via-purple-100 to-white bg-clip-text text-transparent">
+                Our
+              </span>
+              <br />
+              <span className="bg-gradient-to-r from-purple-300 to-pink-300 bg-clip-text text-transparent">
+                Gallery
+              </span>
+            </motion.h1>
+            
+            {/* Description */}
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="text-xl md:text-2xl lg:text-3xl text-white/90 mb-12 leading-relaxed max-w-4xl mx-auto font-light"
+            >
               Explore our portfolio of successful solar installations and renewable energy projects
-            </p>
+              <span className="block text-purple-200 font-medium mt-3">Transforming homes and businesses with sustainable energy solutions</span>
+            </motion.p>
+
+            {/* CTA Buttons */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
+              className="flex flex-col sm:flex-row gap-6 justify-center"
+            >
+              <motion.button
+                whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(168, 85, 247, 0.4)" }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-gradient-to-r from-purple-500 to-pink-600 text-white px-10 py-5 rounded-full hover:from-purple-600 hover:to-pink-700 transition-all duration-300 font-bold text-lg flex items-center justify-center group shadow-2xl border border-purple-400/20"
+                onClick={() => document.getElementById('gallery-grid')?.scrollIntoView({ behavior: 'smooth' })}
+              >
+                View Projects
+                <ArrowRight className="w-6 h-6 ml-3 group-hover:translate-x-2 transition-transform" />
+              </motion.button>
+              
+              <motion.button
+                whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(255, 255, 255, 0.2)" }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-white/10 backdrop-blur-md border-2 border-white/30 text-white px-10 py-5 rounded-full hover:bg-white/20 transition-all duration-300 font-bold text-lg flex items-center justify-center shadow-2xl"
+                onClick={() => window.location.href = '/contact'}
+              >
+                <Camera className="w-6 h-6 mr-3" />
+                Get Consultation
+              </motion.button>
+            </motion.div>
           </motion.div>
         </div>
       </section>
@@ -414,6 +487,109 @@ export default function Gallery() {
               <div className="text-gray-600">Total Capacity</div>
             </motion.div>
           </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 bg-gradient-to-br from-green-600 via-green-700 to-emerald-600 relative overflow-hidden">
+        {/* Background decoration */}
+        <div className="absolute inset-0">
+          <div className="absolute top-10 left-10 w-32 h-32 bg-white/10 rounded-full blur-2xl" />
+          <div className="absolute bottom-10 right-10 w-40 h-40 bg-white/10 rounded-full blur-3xl" />
+          <div className="absolute top-1/2 left-1/4 w-24 h-24 bg-white/5 rounded-full blur-xl" />
+        </div>
+        
+        <div className="container mx-auto px-4 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-12"
+          >
+            <motion.h2 
+              className="text-4xl md:text-5xl font-bold text-white mb-6"
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              Inspired by Our Solar Projects?
+            </motion.h2>
+            <motion.p 
+              className="text-xl text-green-100 max-w-3xl mx-auto mb-8"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              Join hundreds of satisfied customers across Bhopal and transform your property with clean, renewable solar energy.
+            </motion.p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-center"
+            >
+              <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Sun className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-xl font-semibold text-white mb-2">Free Consultation</h3>
+              <p className="text-green-100">Get expert advice tailored to your energy needs</p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-center"
+            >
+              <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                <TrendingUp className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-xl font-semibold text-white mb-2">Save 70% on Bills</h3>
+              <p className="text-green-100">Reduce electricity costs significantly</p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="text-center"
+            >
+              <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Shield className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-xl font-semibold text-white mb-2">25 Year Warranty</h3>
+              <p className="text-green-100">Long-term reliability and peace of mind</p>
+            </motion.div>
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="text-center"
+          >
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-white text-green-600 px-8 py-4 rounded-full font-bold text-lg hover:shadow-2xl transition-all duration-300 inline-flex items-center"
+            >
+              <Phone className="w-5 h-5 mr-2" />
+              Get Your Free Quote Now
+            </motion.button>
+            <p className="text-green-100 mt-4 text-sm">
+              No obligation • Free site assessment • Instant quote
+            </p>
+          </motion.div>
         </div>
       </section>
 

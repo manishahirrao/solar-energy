@@ -69,7 +69,7 @@ export default function PopupQuoteForm() {
   return (
     <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4">
           {/* Backdrop */}
           <motion.div
             initial={{ opacity: 0 }}
@@ -85,10 +85,10 @@ export default function PopupQuoteForm() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
             transition={{ type: "spring", damping: 25, stiffness: 400 }}
-            className="relative bg-white rounded-3xl shadow-2xl max-w-lg w-full"
+            className="relative bg-white rounded-3xl shadow-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto"
           >
             {/* Header */}
-            <div className="bg-gradient-to-r from-green-600 via-green-700 to-emerald-600 text-white p-6 rounded-t-3xl relative">
+            <div className="bg-gradient-to-r from-green-600 via-green-700 to-emerald-600 text-white p-4 sm:p-6 rounded-t-3xl relative">
               <button
                 onClick={handleClose}
                 className="absolute top-4 right-4 text-white/80 hover:text-white transition-all hover:rotate-90 duration-300"
@@ -105,20 +105,20 @@ export default function PopupQuoteForm() {
                 <motion.div
                   animate={{ rotate: 360 }}
                   transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                  className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg"
+                  className="w-12 h-12 sm:w-16 sm:h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-2 sm:mb-4 shadow-lg"
                 >
-                  <Sun className="w-8 h-8 text-white" />
+                  <Sun className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                 </motion.div>
-                <h3 className="text-2xl font-bold mb-2">Get Your Free Quote</h3>
-                <p className="text-green-100 text-sm">Save up to 70% on electricity bills</p>
+                <h3 className="text-xl sm:text-2xl font-bold mb-2">Get Your Free Quote</h3>
+                <p className="text-green-100 text-xs sm:text-sm">Save up to 70% on electricity bills</p>
               </motion.div>
             </div>
 
             {/* Form Content */}
-            <div className="p-6">
+            <div className="p-4 sm:p-6">
               {!isSubmitted ? (
-                <form onSubmit={handleSubmit} className="space-y-3">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
                     <div>
                       <label className="block text-sm font-semibold text-gray-700 mb-1">
                         <User className="w-4 h-4 inline mr-1 text-green-600" />
@@ -130,7 +130,7 @@ export default function PopupQuoteForm() {
                         value={formData.name}
                         onChange={handleInputChange}
                         required
-                        className="w-full px-3 py-2 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-300 hover:border-gray-300"
+                        className="w-full px-3 py-2 sm:px-3 sm:py-2 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-300 hover:border-gray-300 text-sm placeholder-gray-500 text-gray-900"
                         placeholder="John Doe"
                       />
                     </div>
@@ -146,7 +146,7 @@ export default function PopupQuoteForm() {
                         value={formData.phone}
                         onChange={handleInputChange}
                         required
-                        className="w-full px-3 py-2 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-300 hover:border-gray-300"
+                        className="w-full px-3 py-2 sm:px-3 sm:py-2 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-300 hover:border-gray-300 text-sm placeholder-gray-500 text-gray-900"
                         placeholder="+91 98765 43210"
                       />
                     </div>
@@ -163,7 +163,7 @@ export default function PopupQuoteForm() {
                       value={formData.email}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-3 py-2 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-300 hover:border-gray-300"
+                      className="w-full px-3 py-2 sm:px-3 sm:py-2 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-300 hover:border-gray-300 text-sm placeholder-gray-500 text-gray-900"
                       placeholder="john@example.com"
                     />
                   </div>
@@ -178,7 +178,7 @@ export default function PopupQuoteForm() {
                         name="service"
                         value={formData.service}
                         onChange={handleInputChange}
-                        className="w-full px-3 py-2 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-300 hover:border-gray-300"
+                        className="w-full px-3 py-2 sm:px-3 sm:py-2 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-300 hover:border-gray-300 text-sm placeholder-gray-500 text-gray-900"
                       >
                         <option value="solar-energy">Solar Energy</option>
                         <option value="hybrid-energy">Hybrid Energy</option>
@@ -197,7 +197,7 @@ export default function PopupQuoteForm() {
                         name="propertyType"
                         value={formData.propertyType}
                         onChange={handleInputChange}
-                        className="w-full px-3 py-2 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-300 hover:border-gray-300"
+                        className="w-full px-3 py-2 sm:px-3 sm:py-2 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-300 hover:border-gray-300 text-sm placeholder-gray-500 text-gray-900"
                       >
                         <option value="residential">Residential</option>
                         <option value="commercial">Commercial</option>
@@ -217,7 +217,7 @@ export default function PopupQuoteForm() {
                       value={formData.message}
                       onChange={handleInputChange}
                       rows={2}
-                      className="w-full px-3 py-2 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-300 hover:border-gray-300 resize-none"
+                      className="w-full px-3 py-2 sm:px-3 sm:py-2 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-300 hover:border-gray-300 resize-none text-sm placeholder-gray-500 text-gray-900"
                       placeholder="Tell us about your requirements..."
                     />
                   </div>
@@ -226,7 +226,7 @@ export default function PopupQuoteForm() {
                     type="submit"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className="w-full bg-gradient-to-r from-green-600 to-green-700 text-white py-3 rounded-xl font-semibold hover:from-green-700 hover:to-green-800 transition-all duration-300 flex items-center justify-center shadow-lg"
+                    className="w-full bg-gradient-to-r from-green-600 to-green-700 text-white py-2 sm:py-3 rounded-xl font-semibold hover:from-green-700 hover:to-green-800 transition-all duration-300 flex items-center justify-center shadow-lg text-sm sm:text-base"
                   >
                     <Send className="w-5 h-5 mr-2" />
                     Get Free Quote

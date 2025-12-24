@@ -5,7 +5,7 @@ import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import InquiryForm from '@/components/InquiryForm';
 import { motion } from 'framer-motion';
-import { Phone, Mail, MapPin, Send, Clock, Home } from 'lucide-react';
+import { Phone, Mail, MapPin, Send, Clock, Home, ArrowRight } from 'lucide-react';
 
 export default function Contact() {
   const contactDetails = [
@@ -43,22 +43,28 @@ export default function Contact() {
 
   const officeLocations = [
     {
-      city: 'Bhopal Office',
-      address: 'E-3/114, 2nd Floor, Anera Colony, Bhopal',
+      city: 'Bhopal Head Office',
+      address: 'E-3/114, 2nd Floor, Anera Colony, Bhopal, Madhya Pradesh 462022',
       phone: '+91 8959890113',
-      email: 'sales.procura@gmail.com'
+      email: 'sales.procura@gmail.com',
+      coordinates: '23.2599° N, 77.4128° E',
+      services: 'All solar solutions, consultation, installation, maintenance'
     },
     {
       city: 'WhatsApp Support',
-      address: 'Available 24/7 for instant support',
+      address: 'Available 24/7 for instant support and queries',
       phone: '+91 8959890113',
-      email: 'sales.procura@gmail.com'
+      email: 'sales.procura@gmail.com',
+      coordinates: 'Online Support',
+      services: 'Quick quotes, emergency support, general inquiries'
     },
     {
       city: 'Alternate Contact',
-      address: 'E-3/114, 2nd Floor, Anera Colony, Bhopal',
+      address: 'E-3/114, 2nd Floor, Anera Colony, Bhopal, Madhya Pradesh 462022',
       phone: '+91 7415550210',
-      email: 'sales.procura@gmail.com'
+      email: 'sales.procura@gmail.com',
+      coordinates: '23.2599° N, 77.4128° E',
+      services: 'Backup contact, technical support, service requests'
     }
   ];
 
@@ -67,28 +73,32 @@ export default function Contact() {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative py-32 bg-gradient-to-br from-green-600 via-green-700 to-green-800 overflow-hidden">
-        {/* Background Image */}
+      <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-teal-900 via-blue-900 to-cyan-900 overflow-hidden">
+        {/* Background Image with enhanced effects */}
         <div className="absolute inset-0">
           <img
             src="/solar-energy-service.webp"
             alt="Contact Procura Solar"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover mix-blend-overlay"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60" />
+          {/* Multiple overlay layers for depth */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/40" />
+          <div className="absolute inset-0 bg-gradient-to-t from-teal-900/20 via-transparent to-blue-900/20" />
         </div>
         
-        {/* Animated background elements */}
+        {/* Enhanced animated background elements */}
         <div className="absolute inset-0">
           {[
-            { width: 80, height: 80, left: 10, top: 20, duration: 3 },
-            { width: 60, height: 60, left: 70, top: 60, duration: 4 },
-            { width: 100, height: 100, left: 30, top: 80, duration: 5 },
-            { width: 50, height: 50, left: 85, top: 15, duration: 3.5 }
+            { width: 125, height: 125, left: 10, top: 20, duration: 4, color: 'from-teal-400 to-cyan-400' },
+            { width: 80, height: 80, left: 70, top: 60, duration: 5, color: 'from-blue-400 to-indigo-400' },
+            { width: 145, height: 145, left: 30, top: 80, duration: 6, color: 'from-cyan-400 to-teal-400' },
+            { width: 60, height: 60, left: 85, top: 15, duration: 3.5, color: 'from-indigo-400 to-purple-400' },
+            { width: 100, height: 100, left: 50, top: 40, duration: 4.5, color: 'from-green-400 to-teal-400' }
           ].map((style, i) => (
             <motion.div
               key={i}
-              className="absolute bg-white rounded-full opacity-5"
+              className={`absolute bg-gradient-to-br ${style.color} rounded-full opacity-10 blur-xl`}
               style={{
                 width: style.width + 'px',
                 height: style.height + 'px',
@@ -96,8 +106,10 @@ export default function Contact() {
                 top: style.top + '%'
               }}
               animate={{
-                y: [0, -20, 0],
-                x: [0, 15, 0],
+                y: [0, -32, 0],
+                x: [0, 20, 0],
+                scale: [1, 1.2, 1],
+                rotate: [0, 180, 360],
               }}
               transition={{
                 duration: style.duration,
@@ -108,89 +120,98 @@ export default function Contact() {
             />
           ))}
         </div>
-        <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-transparent bg-opacity-20"></div>
-        <div className="relative container mx-auto px-4">
+        
+        <div className="relative container mx-auto px-4 z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-center text-white"
+            className="text-center text-white max-w-5xl mx-auto"
           >
+            {/* Trust badge */}
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="w-20 h-20 bg-white bg-opacity-10 backdrop-blur-sm border-2 border-white border-opacity-30 rounded-full flex items-center justify-center mx-auto mb-6"
-              whileHover={{ scale: 1.1, rotate: 5 }}
+              className="mb-8"
+            >
+              <div className="inline-flex items-center bg-white/10 backdrop-blur-md rounded-full px-6 py-3 border border-white/20">
+                <Phone className="w-5 h-5 text-teal-300 mr-2" />
+                <span className="text-white text-sm font-medium">We're Here to Help You Go Solar</span>
+              </div>
+            </motion.div>
+            
+            {/* Icon */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="w-24 h-24 bg-gradient-to-br from-teal-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-8 shadow-2xl border-2 border-white/20"
+              whileHover={{ scale: 1.05, rotate: 5 }}
             >
               <motion.div
                 animate={{ rotate: 360 }}
                 transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
               >
-                <Phone className="w-10 h-10 text-white" />
+                <Phone className="w-12 h-12 text-white" />
               </motion.div>
             </motion.div>
+            
+            {/* Main heading */}
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="text-4xl md:text-5xl font-bold mb-4"
-              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="text-6xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight"
             >
-              <motion.span
-                animate={{ backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }}
-                transition={{ duration: 5, repeat: Infinity }}
-                className="bg-gradient-to-r from-white via-green-200 to-white bg-clip-text text-transparent"
-              >
-                Contact Us
-              </motion.span>
+              <span className="bg-gradient-to-r from-white via-teal-100 to-white bg-clip-text text-transparent">
+                Contact
+              </span>
+              <br />
+              <span className="bg-gradient-to-r from-teal-300 to-blue-300 bg-clip-text text-transparent">
+                Us
+              </span>
             </motion.h1>
+            
+            {/* Description */}
             <motion.p
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-lg max-w-3xl mx-auto leading-relaxed"
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="text-xl md:text-2xl lg:text-3xl text-white/90 mb-12 leading-relaxed max-w-4xl mx-auto font-light"
             >
-              Get in touch with our solar energy experts for consultation and quotes
+              Get in touch with our solar experts for a free consultation
+              <span className="block text-teal-200 font-medium mt-3">Let's discuss how we can help you save money and protect the environment</span>
             </motion.p>
-          </motion.div>
-        </div>
-      </section>
 
-      {/* Contact Info Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {officeLocations.map((info: any, index: number) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
-                className="text-center"
-                whileHover={{ scale: 1.05, y: -5 }}
+            {/* CTA Buttons */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
+              className="flex flex-col sm:flex-row gap-6 justify-center"
+            >
+              <motion.button
+                whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(20, 184, 166, 0.4)" }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-gradient-to-r from-teal-500 to-blue-600 text-white px-10 py-5 rounded-full hover:from-teal-600 hover:to-blue-700 transition-all duration-300 font-bold text-lg flex items-center justify-center group shadow-2xl border border-teal-400/20"
+                onClick={() => document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' })}
               >
-                <motion.div 
-                  className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6"
-                  whileHover={{ rotate: 360, scale: 1.1 }}
-                  transition={{ duration: 0.5 }}
-                >
-                  {info.icon && <info.icon className="w-8 h-8 text-green-600" />}
-                </motion.div>
-                <motion.h3 
-                  className="text-lg font-semibold text-gray-900 mb-2"
-                  whileHover={{ scale: 1.1 }}
-                >
-                  {info.title}
-                </motion.h3>
-                <motion.p className="text-green-600 font-medium mb-2">{info.details}</motion.p>
-                <motion.p className="text-gray-600 text-sm">{info.description}</motion.p>
-              </motion.div>
-            ))}
-          </div>
+                Get Quote
+                <ArrowRight className="w-6 h-6 ml-3 group-hover:translate-x-2 transition-transform" />
+              </motion.button>
+              
+              <motion.button
+                whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(255, 255, 255, 0.2)" }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-white/10 backdrop-blur-md border-2 border-white/30 text-white px-10 py-5 rounded-full hover:bg-white/20 transition-all duration-300 font-bold text-lg flex items-center justify-center shadow-2xl"
+                onClick={() => window.location.href = 'tel:+918959890113'}
+              >
+                <Phone className="w-6 h-6 mr-3" />
+                Call Now
+              </motion.button>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
@@ -218,14 +239,31 @@ export default function Contact() {
               transition={{ duration: 0.8 }}
               className="space-y-8"
             >
-              {/* Map Placeholder */}
-              <div className="bg-gray-200 rounded-xl h-96 flex items-center justify-center">
-                <div className="text-gray-500 text-center">
-                  <Home className="w-16 h-16 mx-auto mb-4" />
-                  <p>Interactive Map</p>
-                  <p className="text-sm">Showing office locations</p>
+              {/* Interactive Map */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+                className="relative rounded-xl overflow-hidden shadow-lg"
+              >
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3668.4625147658!2d77.4128!3d23.2599!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x397c428f8fd5a5d5%3A0x0!2zMjPCsDE1JzU5LjYiTiA3N8KwMjQnNDYuNCJF!5e0!3m2!1sen!2sin!4v1234567890"
+                  width="100%"
+                  height="400"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="w-full h-96"
+                />
+                <div className="absolute top-4 left-4 bg-white rounded-lg shadow-lg p-3">
+                  <div className="flex items-center text-green-600 font-semibold">
+                    <MapPin className="w-5 h-5 mr-2" />
+                    Bhopal Office
+                  </div>
                 </div>
-              </div>
+              </motion.div>
 
               {/* Office Hours */}
               <div className="bg-white rounded-xl shadow-lg p-8">
@@ -281,13 +319,20 @@ export default function Contact() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: index * 0.1 }}
-                className="bg-gray-50 rounded-xl p-8"
+                className="bg-gradient-to-br from-white to-gray-50 rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow"
+                whileHover={{ scale: 1.02, y: -5 }}
               >
+                <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mb-4">
+                  <Home className="w-6 h-6 text-green-600" />
+                </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-4">{office.city}</h3>
-                <div className="space-y-3">
+                <div className="space-y-4">
                   <div className="flex items-start">
-                    <Home className="w-5 h-5 text-green-600 mr-3 mt-1 flex-shrink-0" />
-                    <span className="text-gray-600">{office.address}</span>
+                    <MapPin className="w-5 h-5 text-green-600 mr-3 mt-1 flex-shrink-0" />
+                    <div>
+                      <p className="text-gray-600 text-sm">{office.address}</p>
+                      <p className="text-gray-500 text-xs mt-1">{office.coordinates}</p>
+                    </div>
                   </div>
                   <div className="flex items-center">
                     <Phone className="w-5 h-5 text-green-600 mr-3 flex-shrink-0" />
@@ -296,6 +341,10 @@ export default function Contact() {
                   <div className="flex items-center">
                     <Mail className="w-5 h-5 text-green-600 mr-3 flex-shrink-0" />
                     <span className="text-gray-600">{office.email}</span>
+                  </div>
+                  <div className="pt-4 border-t border-gray-200">
+                    <p className="text-xs font-semibold text-green-600 mb-1">Services Available:</p>
+                    <p className="text-xs text-gray-600">{office.services}</p>
                   </div>
                 </div>
               </motion.div>

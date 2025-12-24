@@ -3,7 +3,7 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { motion } from 'framer-motion';
-import { Sun, Battery, Home, Trees, ArrowRight } from 'lucide-react';
+import { Sun, Battery, Home, Trees, ArrowRight, FileText, Settings, Award } from 'lucide-react';
 import Link from 'next/link';
 
 export default function Service() {
@@ -37,7 +37,7 @@ export default function Service() {
       title: 'Solar Maintenance',
       description: 'Comprehensive maintenance and repair services for solar energy systems.',
       features: ['Regular inspections', 'Performance optimization', 'Emergency repairs', 'System upgrades'],
-      image: '/solar-maintainance-service.jpg',
+      image: '/Solar Maintenance Service.jpg',
       href: '/service/maintenance'
     },
     {
@@ -55,28 +55,32 @@ export default function Service() {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative py-32 bg-gradient-to-br from-green-600 via-green-700 to-green-800 overflow-hidden">
-        {/* Background Image */}
+      <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-900 via-green-900 to-emerald-900 overflow-hidden">
+        {/* Background Image with enhanced effects */}
         <div className="absolute inset-0">
           <img
             src="/solar-energy-service.webp"
             alt="Solar Services Hero"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover mix-blend-overlay"
           />
+          {/* Multiple overlay layers for depth */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/40" />
+          <div className="absolute inset-0 bg-gradient-to-t from-blue-900/20 via-transparent to-green-900/20" />
         </div>
         
-        {/* Animated background elements */}
+        {/* Enhanced animated background elements */}
         <div className="absolute inset-0">
           {[
-            { width: 80, height: 80, left: 10, top: 20, duration: 3 },
-            { width: 60, height: 60, left: 70, top: 60, duration: 4 },
-            { width: 100, height: 100, left: 30, top: 80, duration: 5 },
-            { width: 50, height: 50, left: 85, top: 15, duration: 3.5 }
+            { width: 140, height: 140, left: 10, top: 20, duration: 4, color: 'from-yellow-400 to-orange-400' },
+            { width: 90, height: 90, left: 70, top: 60, duration: 5, color: 'from-blue-400 to-cyan-400' },
+            { width: 160, height: 160, left: 30, top: 80, duration: 6, color: 'from-green-400 to-emerald-400' },
+            { width: 70, height: 70, left: 85, top: 15, duration: 3.5, color: 'from-purple-400 to-pink-400' },
+            { width: 110, height: 110, left: 50, top: 40, duration: 4.5, color: 'from-red-400 to-rose-400' }
           ].map((style, i) => (
             <motion.div
               key={i}
-              className="absolute bg-white rounded-full opacity-5"
+              className={`absolute bg-gradient-to-br ${style.color} rounded-full opacity-10 blur-xl`}
               style={{
                 width: style.width + 'px',
                 height: style.height + 'px',
@@ -84,8 +88,10 @@ export default function Service() {
                 top: style.top + '%'
               }}
               animate={{
-                y: [0, -20, 0],
-                x: [0, 15, 0],
+                y: [0, -40, 0],
+                x: [0, 25, 0],
+                scale: [1, 1.3, 1],
+                rotate: [0, 180, 360],
               }}
               transition={{
                 duration: style.duration,
@@ -96,25 +102,92 @@ export default function Service() {
             />
           ))}
         </div>
-        <div className="relative container mx-auto px-4">
+        
+        <div className="relative container mx-auto px-4 z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-center text-white"
+            className="text-center text-white max-w-5xl mx-auto"
           >
+            {/* Trust badge */}
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="w-20 h-20 bg-white bg-opacity-10 backdrop-blur-sm border-2 border-white border-opacity-30 rounded-full flex items-center justify-center mx-auto mb-6"
+              className="mb-8"
             >
-              <Sun className="w-10 h-10 text-white" />
+              <div className="inline-flex items-center bg-white/10 backdrop-blur-md rounded-full px-6 py-3 border border-white/20">
+                <Sun className="w-5 h-5 text-yellow-300 mr-2" />
+                <span className="text-white text-sm font-medium">Complete Solar Solutions Provider</span>
+              </div>
             </motion.div>
-            <h1 className="text-5xl md:text-6xl font-bold mb-4">Our Services</h1>
-            <p className="text-xl max-w-3xl mx-auto leading-relaxed">
-              Comprehensive solar energy solutions tailored to your needs
-            </p>
+            
+            {/* Icon */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="w-24 h-24 bg-gradient-to-br from-yellow-500 to-orange-600 rounded-full flex items-center justify-center mx-auto mb-8 shadow-2xl border-2 border-white/20"
+              whileHover={{ scale: 1.05, rotate: 5 }}
+            >
+              <Sun className="w-12 h-12 text-white" />
+            </motion.div>
+            
+            {/* Main heading */}
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="text-6xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight"
+            >
+              <span className="bg-gradient-to-r from-white via-yellow-100 to-white bg-clip-text text-transparent">
+                Our
+              </span>
+              <br />
+              <span className="bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent">
+                Services
+              </span>
+            </motion.h1>
+            
+            {/* Description */}
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="text-xl md:text-2xl lg:text-3xl text-white/90 mb-12 leading-relaxed max-w-4xl mx-auto font-light"
+            >
+              Comprehensive solar energy solutions tailored to your specific needs
+              <span className="block text-yellow-200 font-medium mt-3">From consultation to installation and ongoing maintenance</span>
+            </motion.p>
+
+            {/* CTA Buttons */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
+              className="flex flex-col sm:flex-row gap-6 justify-center"
+            >
+              <motion.button
+                whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(251, 191, 36, 0.4)" }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-gradient-to-r from-yellow-500 to-orange-600 text-white px-10 py-5 rounded-full hover:from-yellow-600 hover:to-orange-700 transition-all duration-300 font-bold text-lg flex items-center justify-center group shadow-2xl border border-yellow-400/20"
+                onClick={() => window.location.href = '/contact'}
+              >
+                Get Quote
+                <ArrowRight className="w-6 h-6 ml-3 group-hover:translate-x-2 transition-transform" />
+              </motion.button>
+              
+              <motion.button
+                whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(255, 255, 255, 0.2)" }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-white/10 backdrop-blur-md border-2 border-white/30 text-white px-10 py-5 rounded-full hover:bg-white/20 transition-all duration-300 font-bold text-lg flex items-center justify-center shadow-2xl"
+                onClick={() => document.getElementById('services-grid')?.scrollIntoView({ behavior: 'smooth' })}
+              >
+                <Battery className="w-6 h-6 mr-3" />
+                Explore Services
+              </motion.button>
+            </motion.div>
           </motion.div>
         </div>
       </section>
@@ -211,10 +284,133 @@ export default function Service() {
             <p className="text-xl mb-8 max-w-2xl mx-auto">
               Our team of experts can design a tailored solar energy system that meets your specific requirements.
             </p>
-            <button className="bg-white text-green-600 px-8 py-4 rounded-full hover:bg-gray-100 transition-colors font-semibold text-lg">
+            <button 
+              className="bg-white text-green-600 px-8 py-4 rounded-full hover:bg-gray-100 transition-colors font-semibold text-lg"
+              onClick={() => {
+                // Navigate to contact page for consultation
+                window.location.href = '/contact';
+              }}
+            >
               Get a Free Consultation
             </button>
           </motion.div>
+        </div>
+      </section>
+
+      {/* PM Surya Ghar Yojana Section */}
+      <section className="py-20 bg-gradient-to-br from-orange-50 via-white to-green-50 relative overflow-hidden">
+        {/* Background decoration */}
+        <div className="absolute inset-0">
+          <div className="absolute top-10 left-10 w-32 h-32 bg-orange-100 rounded-full blur-3xl opacity-50" />
+          <div className="absolute bottom-10 right-10 w-40 h-40 bg-green-100 rounded-full blur-3xl opacity-50" />
+        </div>
+        
+        <div className="container mx-auto px-4 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="w-20 h-20 bg-gradient-to-br from-orange-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-8 shadow-lg"
+              whileHover={{ scale: 1.1, rotate: 5 }}
+              animate={{ y: [0, -10, 0] }}
+              transition={{ duration: 3, repeat: Infinity }}
+            >
+              <Sun className="w-10 h-10 text-white" />
+            </motion.div>
+            
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              PM <span className="text-orange-600">Surya Ghar</span> Yojana
+            </h2>
+            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed font-light mb-12">
+              Government of India's flagship solar rooftop scheme with maximum subsidies
+              <span className="block text-green-600 font-medium mt-2">Professional assistance for complete application and installation</span>
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Left Side - Image */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="relative"
+            >
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                <img
+                  src="/pm-surya-ghar-yojana.jpg"
+                  alt="PM Surya Ghar Yojana"
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    console.error('PM Surya Ghar image failed to load');
+                    const parent = e.currentTarget.parentElement;
+                    if (parent) {
+                      e.currentTarget.style.display = 'none';
+                      parent.className = 'relative rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-orange-400 to-green-600 flex items-center justify-center h-96';
+                      parent.innerHTML = `
+                        <div class="text-white text-center p-8">
+                          <div class="text-3xl font-bold mb-4">PM Surya Ghar Yojana</div>
+                          <div class="text-lg">Government Solar Rooftop Scheme</div>
+                        </div>
+                      `;
+                    }
+                  }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+              </div>
+            </motion.div>
+
+            {/* Right Side - Content */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="space-y-8"
+            >
+              <div className="bg-white rounded-2xl shadow-xl p-8">
+                <h3 className="text-2xl font-bold text-gray-900 mb-6">Our Services Under PM Surya Ghar</h3>
+                <div className="space-y-4">
+                  <div className="flex items-start">
+                    <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                      <FileText className="w-6 h-6 text-green-600" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-gray-900 mb-1">Application Assistance</h4>
+                      <p className="text-gray-600">Complete documentation and application process support</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start">
+                    <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                      <Settings className="w-6 h-6 text-orange-600" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-gray-900 mb-1">Installation Service</h4>
+                      <p className="text-gray-600">Professional installation with certified technicians</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start">
+                    <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                      <Award className="w-6 h-6 text-blue-600" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-gray-900 mb-1">Subsidy Claims</h4>
+                      <p className="text-gray-600">Complete assistance in claiming government subsidies</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 

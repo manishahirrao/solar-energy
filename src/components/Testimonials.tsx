@@ -104,44 +104,86 @@ const Testimonials = () => {
   };
 
   return (
-    <section className="py-20 bg-gray-50">
-      <div className="container mx-auto px-4">
+    <section className="py-24 bg-gradient-to-br from-blue-50 via-white to-green-50 relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute inset-0">
+        <div className="absolute top-20 left-10 w-32 h-32 bg-blue-100 rounded-full blur-3xl opacity-30" />
+        <div className="absolute bottom-20 right-10 w-40 h-40 bg-green-100 rounded-full blur-3xl opacity-30" />
+        <div className="absolute top-1/2 left-1/3 w-36 h-36 bg-yellow-100 rounded-full blur-3xl opacity-20" />
+      </div>
+      
+      <div className="container mx-auto px-4 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Our customers give love feedback
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          {/* Section badge */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="inline-flex items-center bg-blue-100 rounded-full px-4 py-2 mb-6"
+          >
+            <Star className="w-4 h-4 text-blue-600 mr-2" />
+            <span className="text-blue-700 text-sm font-medium">Customer Success Stories</span>
+          </motion.div>
+          
+          <motion.h2 
+            className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight"
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <span className="bg-gradient-to-r from-gray-900 via-blue-800 to-gray-900 bg-clip-text text-transparent">
+              What Our
+            </span>
+            <br />
+            <span className="bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent">
+              Customers Say
+            </span>
+          </motion.h2>
+          <motion.p 
+            className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed font-light mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
             Hear from our satisfied customers who have made the switch to clean energy
-          </p>
+            <span className="block text-blue-600 font-medium mt-3">Real stories from real people saving money and protecting the environment</span>
+          </motion.p>
         </motion.div>
 
-        <div className="relative max-w-4xl mx-auto">
+        <div className="relative max-w-5xl mx-auto">
           {/* Navigation buttons */}
-          <button
+          <motion.button
             onClick={goToPrevious}
             onMouseEnter={() => setIsAutoPlaying(false)}
             onMouseLeave={() => setIsAutoPlaying(true)}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-20 bg-white/90 backdrop-blur-sm rounded-full p-4 shadow-xl border border-gray-200 hover:bg-white hover:scale-110 transition-all duration-300"
+            whileHover={{ scale: 1.1, rotate: -5 }}
+            whileTap={{ scale: 0.95 }}
           >
-            <ChevronLeft className="w-6 h-6 text-green-600" />
-          </button>
+            <ChevronLeft className="w-6 h-6 text-blue-600" />
+          </motion.button>
           
-          <button
+          <motion.button
             onClick={goToNext}
             onMouseEnter={() => setIsAutoPlaying(false)}
             onMouseLeave={() => setIsAutoPlaying(true)}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-20 bg-white/90 backdrop-blur-sm rounded-full p-4 shadow-xl border border-gray-200 hover:bg-white hover:scale-110 transition-all duration-300"
+            whileHover={{ scale: 1.1, rotate: 5 }}
+            whileTap={{ scale: 0.95 }}
           >
-            <ChevronRight className="w-6 h-6 text-green-600" />
-          </button>
+            <ChevronRight className="w-6 h-6 text-blue-600" />
+          </motion.button>
 
-          {/* Testimonial carousel */}
+          {/* Testimonial Carousel */}
           <div className="overflow-hidden">
             <AnimatePresence mode="wait">
               <motion.div
@@ -150,50 +192,62 @@ const Testimonials = () => {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -100 }}
                 transition={{ duration: 0.5, ease: "easeInOut" }}
-                className="bg-white rounded-2xl shadow-xl p-8 md:p-12"
+                className="bg-white rounded-3xl shadow-2xl p-8 md:p-12 border border-gray-100"
               >
                 {/* Quote icon */}
-                <div className="absolute top-8 right-8 text-green-100">
-                  <Quote className="w-16 h-16" />
+                <div className="absolute top-8 right-8 text-blue-100">
+                  <Quote className="w-20 h-20" />
                 </div>
 
                 {/* Rating */}
-                <div className="flex mb-6">
+                <div className="flex justify-center mb-8">
                   {renderStars(testimonials[currentIndex].rating)}
                 </div>
 
                 {/* Content */}
-                <p className="text-gray-700 mb-8 leading-relaxed text-lg md:text-xl font-light">
+                <motion.p 
+                  className="text-gray-700 mb-12 leading-relaxed text-xl md:text-2xl font-light text-center italic"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.3 }}
+                >
                   "{testimonials[currentIndex].content}"
-                </p>
+                </motion.p>
 
                 {/* Author */}
-                <div className="flex items-center">
-                  <div className="w-16 h-16 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center text-white font-bold text-xl mr-6">
+                <motion.div 
+                  className="flex items-center justify-center"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.4 }}
+                >
+                  <div className="w-20 h-20 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center text-white font-bold text-2xl mr-6 shadow-lg">
                     {testimonials[currentIndex].name.split(' ').map(n => n[0]).join('')}
                   </div>
-                  <div>
-                    <h4 className="font-bold text-gray-900 text-lg">{testimonials[currentIndex].name}</h4>
-                    <p className="text-gray-600">{testimonials[currentIndex].role}</p>
+                  <div className="text-left">
+                    <h4 className="font-bold text-gray-900 text-xl mb-1">{testimonials[currentIndex].name}</h4>
+                    <p className="text-gray-600 text-lg">{testimonials[currentIndex].role}</p>
                   </div>
-                </div>
+                </motion.div>
               </motion.div>
             </AnimatePresence>
           </div>
 
           {/* Dots indicator */}
-          <div className="flex justify-center mt-8 space-x-2">
+          <div className="flex justify-center mt-12 space-x-3">
             {testimonials.map((_, index) => (
-              <button
+              <motion.button
                 key={index}
                 onClick={() => goToSlide(index)}
                 onMouseEnter={() => setIsAutoPlaying(false)}
                 onMouseLeave={() => setIsAutoPlaying(true)}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                className={`h-3 rounded-full transition-all duration-300 ${
                   index === currentIndex
-                    ? 'bg-green-600 w-8'
-                    : 'bg-gray-300 hover:bg-gray-400'
+                    ? 'bg-blue-600 w-10'
+                    : 'bg-gray-300 hover:bg-gray-400 w-3'
                 }`}
+                whileHover={{ scale: 1.2 }}
+                whileTap={{ scale: 0.8 }}
               />
             ))}
           </div>

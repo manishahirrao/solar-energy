@@ -30,9 +30,13 @@ const AboutUs = () => {
   ];
 
   return (
-    <section className="py-20 bg-white relative overflow-hidden">
+    <section className="py-24 bg-gradient-to-br from-purple-50 via-white to-indigo-50 relative overflow-hidden">
       {/* Background decoration */}
-      <div className="absolute inset-0 bg-gradient-to-br from-green-50/50 via-transparent to-emerald-50/50" />
+      <div className="absolute inset-0">
+        <div className="absolute top-20 left-10 w-32 h-32 bg-purple-100 rounded-full blur-3xl opacity-30" />
+        <div className="absolute bottom-20 right-10 w-40 h-40 bg-indigo-100 rounded-full blur-3xl opacity-30" />
+        <div className="absolute top-1/2 left-1/3 w-36 h-36 bg-pink-100 rounded-full blur-3xl opacity-20" />
+      </div>
       
       <div className="container mx-auto px-4 relative z-10">
         <motion.div
@@ -40,44 +44,36 @@ const AboutUs = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
+          {/* Section badge */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="w-20 h-20 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg"
-            whileHover={{ scale: 1.1, rotate: 5 }}
-            animate={{ y: [0, -10, 0] }}
-            transition={{ duration: 3, repeat: Infinity }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="inline-flex items-center bg-purple-100 rounded-full px-4 py-2 mb-6"
           >
-            <motion.div
-              animate={{ rotate: 360 }}
-              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-            >
-              <Sun className="w-10 h-10 text-white" />
-            </motion.div>
+            <Award className="w-4 h-4 text-purple-600 mr-2" />
+            <span className="text-purple-700 text-sm font-medium">About Us</span>
           </motion.div>
+          
           <motion.h2 
-            className="text-4xl md:text-5xl font-bold text-gray-900 mb-6"
+            className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight"
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            whileHover={{ scale: 1.05 }}
+            whileHover={{ scale: 1.02 }}
           >
-            About <span className="text-green-600">Procura Solar</span>
+            <span className="bg-gradient-to-r from-gray-900 via-purple-800 to-gray-900 bg-clip-text text-transparent">
+              About
+            </span>
+            <br />
+            <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
+              Procura Solar
+            </span>
           </motion.h2>
-          <motion.p 
-            className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed font-light mb-8"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            Leading the renewable energy revolution with innovative solar solutions and unwavering commitment to excellence. 
-            <span className="block text-green-600 font-medium mt-2">Transforming homes and businesses across India with sustainable energy solutions.</span>
-          </motion.p>
         </motion.div>
 
         {/* Main Content Section */}

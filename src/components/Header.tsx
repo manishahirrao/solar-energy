@@ -8,6 +8,15 @@ import Link from 'next/link';
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false);
+
+  const services = [
+    { name: 'Solar Energy', href: '/service/solar-energy' },
+    { name: 'Hybrid Energy', href: '/service/hybrid-energy' },
+    { name: 'Energy Storage', href: '/service/energy-storage' },
+    { name: 'Solar Maintenance', href: '/service/maintenance' },
+    { name: 'Solar Consulting', href: '/service/solar-consulting' }
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -57,7 +66,7 @@ const Header = () => {
                 {[
                   { name: 'Home', href: '/' },
                   { name: 'About Us', href: '/about' },
-                  { name: 'Services', href: '/service' },
+                  { name: 'Services', href: '/service', hasDropdown: true },
                   { name: 'Gallery', href: '/gallery' },
                   { name: 'Contact', href: '/contact' }
                 ].map((item, index) => (
@@ -66,17 +75,71 @@ const Header = () => {
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
+                    className="relative"
+                    onMouseEnter={() => item.hasDropdown && setIsServicesDropdownOpen(true)}
+                    onMouseLeave={() => item.hasDropdown && setIsServicesDropdownOpen(false)}
                   >
-                    <Link 
-                      href={item.href} 
-                      className="text-gray-700 hover:text-green-600 transition-colors font-medium relative group"
-                    >
-                      {item.name}
-                      <motion.div
-                        className="absolute bottom-0 left-0 w-0 h-0.5 bg-green-600 group-hover:w-full transition-all duration-300"
-                        layoutId="underline"
-                      />
-                    </Link>
+                    {item.hasDropdown ? (
+                      <div className="relative">
+                        <button 
+                          className="text-gray-700 hover:text-green-600 transition-colors font-medium relative group flex items-center"
+                          onClick={() => setIsServicesDropdownOpen(!isServicesDropdownOpen)}
+                        >
+                          {item.name}
+                          <ChevronDown className={`ml-1 w-4 h-4 transition-transform duration-200 ${isServicesDropdownOpen ? 'rotate-180' : ''}`} />
+                          <motion.div
+                            className="absolute bottom-0 left-0 w-0 h-0.5 bg-green-600 group-hover:w-full transition-all duration-300"
+                            layoutId="underline"
+                          />
+                        </button>
+                        
+                        {/* Dropdown Menu */}
+                        <motion.div
+                          initial={{ opacity: 0, y: -10 }}
+                          animate={{ 
+                            opacity: isServicesDropdownOpen ? 1 : 0,
+                            y: isServicesDropdownOpen ? 0 : -10,
+                            display: isServicesDropdownOpen ? 'block' : 'none'
+                          }}
+                          transition={{ duration: 0.2 }}
+                          className="absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-xl border border-gray-100 overflow-hidden"
+                        >
+                          <div className="py-2">
+                            {services.map((service, serviceIndex) => (
+                              <motion.div
+                                key={service.name}
+                                initial={{ opacity: 0, x: -10 }}
+                                animate={{ 
+                                  opacity: isServicesDropdownOpen ? 1 : 0,
+                                  x: isServicesDropdownOpen ? 0 : -10
+                                }}
+                                transition={{ duration: 0.1, delay: serviceIndex * 0.05 }}
+                                whileHover={{ backgroundColor: '#f0fdf4' }}
+                              >
+                                <Link 
+                                  href={service.href}
+                                  className="block px-4 py-3 text-gray-700 hover:text-green-600 transition-colors text-sm"
+                                  onClick={() => setIsServicesDropdownOpen(false)}
+                                >
+                                  {service.name}
+                                </Link>
+                              </motion.div>
+                            ))}
+                          </div>
+                        </motion.div>
+                      </div>
+                    ) : (
+                      <Link 
+                        href={item.href} 
+                        className="text-gray-700 hover:text-green-600 transition-colors font-medium relative group"
+                      >
+                        {item.name}
+                        <motion.div
+                          className="absolute bottom-0 left-0 w-0 h-0.5 bg-green-600 group-hover:w-full transition-all duration-300"
+                          layoutId="underline"
+                        />
+                      </Link>
+                    )}
                   </motion.li>
                 ))}
               </ul>

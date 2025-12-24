@@ -98,15 +98,15 @@ export default function InquiryForm() {
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
-      className="bg-white rounded-2xl shadow-xl p-8"
+      className="bg-white rounded-2xl shadow-xl p-6 md:p-8"
     >
-      <div className="mb-8">
-        <h2 className="text-3xl font-bold text-gray-900 mb-4">Get Your Free Quote</h2>
-        <p className="text-gray-600">Fill in the details below and our solar experts will get back to you with a customized quote.</p>
+      <div className="mb-6 md:mb-8">
+        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Get Your Free Quote</h2>
+        <p className="text-gray-600 text-sm md:text-base">Fill in the details below and our solar experts will get back to you with a customized quote.</p>
       </div>
 
-      <form onSubmit={handleSubmit} className="space-y-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
           {/* Name Field */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -123,8 +123,8 @@ export default function InquiryForm() {
               value={formData.name}
               onChange={handleInputChange}
               required
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all"
-              placeholder="John Doe"
+              className="w-full px-3 py-2 md:px-4 md:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all text-sm md:text-base placeholder-gray-500 text-gray-900"
+              placeholder="Mahesh rathod"
             />
           </motion.div>
 
@@ -144,13 +144,13 @@ export default function InquiryForm() {
               value={formData.email}
               onChange={handleInputChange}
               required
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all"
-              placeholder="john@example.com"
+              className="w-full px-3 py-2 md:px-4 md:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all text-sm md:text-base placeholder-gray-500 text-gray-900"
+              placeholder="mahesh@example.com"
             />
           </motion.div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
           {/* Phone Field */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -167,7 +167,7 @@ export default function InquiryForm() {
               value={formData.phone}
               onChange={handleInputChange}
               required
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all"
+              className="w-full px-3 py-2 md:px-4 md:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all text-sm md:text-base placeholder-gray-500 text-gray-900"
               placeholder="+91 00000 00000"
             />
           </motion.div>
@@ -187,7 +187,7 @@ export default function InquiryForm() {
               value={formData.service}
               onChange={handleInputChange}
               required
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all"
+              className="w-full px-3 py-2 md:px-4 md:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all text-sm md:text-base placeholder-gray-500 text-gray-900"
             >
               <option value="">Select a service</option>
               {services.map(service => (
@@ -209,11 +209,11 @@ export default function InquiryForm() {
             <Building className="w-4 h-4 inline mr-2" />
             Property Type *
           </label>
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-4">
             {propertyTypes.map(type => (
               <label
                 key={type.value}
-                className="relative flex items-center justify-center p-4 border border-gray-300 rounded-lg cursor-pointer transition-all hover:border-green-500"
+                className="relative flex items-center justify-center p-3 md:p-4 border border-gray-300 rounded-lg cursor-pointer transition-all hover:border-green-500"
               >
                 <input
                   type="radio"
@@ -225,8 +225,8 @@ export default function InquiryForm() {
                   className="sr-only"
                 />
                 <div className={`text-center ${formData.propertyType === type.value ? 'text-green-600' : 'text-gray-600'}`}>
-                  <type.icon className="w-6 h-6 mx-auto mb-2" />
-                  <span className="text-sm font-medium">{type.label}</span>
+                  <type.icon className="w-5 h-5 md:w-6 md:h-6 mx-auto mb-1 md:mb-2" />
+                  <span className="text-xs md:text-sm font-medium">{type.label}</span>
                 </div>
               </label>
             ))}
@@ -247,8 +247,8 @@ export default function InquiryForm() {
             name="message"
             value={formData.message}
             onChange={handleInputChange}
-            rows={4}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all resize-none"
+            rows={3}
+            className="w-full px-3 py-2 md:px-4 md:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all resize-none text-sm md:text-base placeholder-gray-500 text-gray-900"
             placeholder="Tell us about your requirements, property details, or any specific questions..."
           />
         </motion.div>
@@ -262,7 +262,7 @@ export default function InquiryForm() {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full bg-gradient-to-r from-green-600 to-green-700 text-white px-6 py-4 rounded-lg font-semibold hover:from-green-700 hover:to-green-800 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
+            className="w-full bg-gradient-to-r from-green-600 to-green-700 text-white px-4 py-3 md:px-6 md:py-4 rounded-lg font-semibold hover:from-green-700 hover:to-green-800 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center text-sm md:text-base"
           >
             {isSubmitting ? (
               <motion.div

@@ -238,7 +238,7 @@ export default function SolarEnergyService() {
                 <img
                   src="/Rooftop Solar Installation.jpeg"
                   alt="High-Efficiency Panels"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-500"
                   onError={(e) => {
                     console.error('Solar energy image failed to load:', '/Rooftop Solar Installation.jpeg');
                     // Show fallback gradient if local image fails
@@ -274,7 +274,7 @@ export default function SolarEnergyService() {
                 <img
                   src="/Commercial Solar Farm.jpg"
                   alt="Smart Monitoring"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-500"
                   onError={(e) => {
                     console.error('Solar energy image failed to load:', '/Commercial Solar Farm.jpg');
                     // Show fallback gradient if local image fails
@@ -310,7 +310,7 @@ export default function SolarEnergyService() {
                 <img
                   src="/Industrial Solar Setup.jpg"
                   alt="Expert Installation"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-500"
                   onError={(e) => {
                     console.error('Solar energy image failed to load:', '/Industrial Solar Setup.jpg');
                     // Show fallback gradient if local image fails

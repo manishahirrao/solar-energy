@@ -12,13 +12,6 @@ const Footer = () => {
     { name: 'Gallery', href: '/gallery' }
   ];
 
-  const resources = [
-    { name: 'Gallery', href: '/gallery' },
-    { name: 'Team', href: '/team' },
-    { name: 'Blog', href: '/blog' },
-    { name: 'Contact', href: '/contact' }
-  ];
-
   const services = [
     { name: 'Solar Energy', href: '/service/solar-energy' },
     { name: 'Hybrid Energy', href: '/service/hybrid-energy' },
@@ -46,8 +39,8 @@ const Footer = () => {
         ></div>
       </div>
       
-      <div className="container mx-auto px-4 py-12 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+      <div className="container mx-auto px-4 py-16 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 p-8">
           {/* Company Info */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -154,37 +147,6 @@ const Footer = () => {
             </ul>
           </motion.div>
 
-          {/* Resources */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            <motion.h4 
-              className="text-lg font-semibold mb-4"
-              whileHover={{ scale: 1.05 }}
-            >
-              Resources
-            </motion.h4>
-            <ul className="space-y-2">
-              {resources.map((link, index) => (
-                <motion.li 
-                  key={index}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
-                  whileHover={{ x: 5 }}
-                >
-                  <Link href={link.href} className="text-gray-300 hover:text-green-400 transition-colors">
-                    {link.name}
-                  </Link>
-                </motion.li>
-              ))}
-            </ul>
-          </motion.div>
-
           {/* Services */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -199,7 +161,7 @@ const Footer = () => {
               Services
             </motion.h4>
             <ul className="space-y-2">
-              {services.slice(0, 4).map((service, index) => (
+              {services.map((service, index) => (
                 <motion.li 
                   key={index}
                   initial={{ opacity: 0, x: -20 }}
