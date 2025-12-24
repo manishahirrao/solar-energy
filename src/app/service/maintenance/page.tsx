@@ -20,40 +20,9 @@ export default function Maintenance() {
             alt="Solar Maintenance Services"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60" />
-        </div>
+                  </div>
         
-        {/* Animated background elements */}
-        <div className="absolute inset-0">
-          {[
-            { width: 80, height: 80, left: 10, top: 20, duration: 3 },
-            { width: 60, height: 60, left: 70, top: 60, duration: 4 },
-            { width: 100, height: 100, left: 30, top: 80, duration: 5 },
-            { width: 50, height: 50, left: 85, top: 15, duration: 3.5 }
-          ].map((style, i) => (
-            <motion.div
-              key={i}
-              className="absolute bg-white rounded-full opacity-5"
-              style={{
-                width: style.width + 'px',
-                height: style.height + 'px',
-                left: style.left + '%',
-                top: style.top + '%'
-              }}
-              animate={{
-                y: [0, -20, 0],
-                x: [0, 15, 0],
-              }}
-              transition={{
-                duration: style.duration,
-                repeat: Infinity,
-                repeatType: 'reverse',
-                ease: 'easeInOut'
-              }}
-            />
-          ))}
-        </div>
-        
+                
         <div className="relative container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -301,15 +270,33 @@ export default function Maintenance() {
                     </li>
                   ))}
                 </ul>
-                <Link href="/contact">
-                  <button className={`w-full py-3 rounded-lg font-semibold transition-colors ${
-                    plan.highlighted
-                      ? 'bg-white text-green-600 hover:bg-gray-100'
-                      : 'bg-green-600 text-white hover:bg-green-700'
-                  }`}>
-                    Choose Plan
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <button 
+                    onClick={() => {
+                      // Open quote form popup
+                      const popupQuoteForm = document.getElementById('popup-quote-form');
+                      if (popupQuoteForm) {
+                        popupQuoteForm.style.display = 'flex';
+                        document.body.style.overflow = 'hidden';
+                      }
+                    }}
+                    className="bg-green-600 text-white px-6 py-3 rounded-full hover:bg-green-700 transition-colors font-semibold flex items-center"
+                  >
+                    Get Quote
                   </button>
-                </Link>
+                  <button 
+                    onClick={() => {
+                      // Open WhatsApp
+                      window.open('https://wa.me/918959890113', '_blank');
+                    }}
+                    className="bg-green-500 text-white px-6 py-3 rounded-full hover:bg-green-600 transition-colors font-semibold flex items-center"
+                  >
+                    <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 00-2 2v12a2 2 0 002 2M3 19a2 2 0 002-2v-12M3 5a2 2 0 00-2-2z"></path>
+                    </svg>
+                    WhatsApp
+                  </button>
+                </div>
               </motion.div>
             ))}
           </div>
@@ -467,15 +454,25 @@ export default function Maintenance() {
               Schedule professional maintenance and ensure your solar system continues to deliver optimal performance.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/contact">
-                <button className="bg-white text-green-600 px-8 py-4 rounded-full hover:bg-gray-100 transition-colors font-semibold text-lg flex items-center justify-center">
-                  Schedule Maintenance
-                  <ArrowRight className="w-5 h-5 ml-2" />
-                </button>
-              </Link>
+              <button 
+                onClick={() => {
+                  // Open quote form popup
+                  const popupQuoteForm = document.getElementById('popup-quote-form');
+                  if (popupQuoteForm) {
+                    popupQuoteForm.style.display = 'flex';
+                    document.body.style.overflow = 'hidden';
+                  }
+                }}
+                className="bg-white text-green-600 px-8 py-4 rounded-full hover:bg-gray-100 transition-colors font-semibold text-lg flex items-center justify-center"
+              >
+                Get Quote
+              </button>
               <Link href="/contact">
                 <button className="border-2 border-white text-white px-8 py-4 rounded-full hover:bg-white hover:text-green-600 transition-colors font-semibold text-lg">
-                  Get Quote
+                  <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 00-2 2v12a2 2 0 002 2M3 19a2 2 0 002-2v-12M3 5a2 2 0 00-2-2z"></path>
+                  </svg>
+                  WhatsApp
                 </button>
               </Link>
             </div>

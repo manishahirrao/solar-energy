@@ -55,7 +55,7 @@ export default function Service() {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative min-h-[60vh] sm:min-h-[70vh] lg:min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-900 to-emerald-900 overflow-hidden">
+      <section className="relative h-[70vh] sm:h-[80vh] flex items-center justify-center bg-gradient-to-br from-blue-900 to-emerald-900 overflow-hidden">
         {/* Background Image with enhanced effects */}
         <div className="absolute inset-0">
           <img
@@ -65,7 +65,7 @@ export default function Service() {
           />
         </div>
         
-        <div className="relative container mx-auto px-4 z-10">
+        <div className="relative container mx-auto px-4 z-10 pt-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -73,30 +73,6 @@ export default function Service() {
             className="text-center text-white max-w-5xl mx-auto"
           >
             {/* Trust badge */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="mb-8"
-            >
-              <div className="inline-flex items-center bg-white/10 backdrop-blur-md rounded-full px-4 sm:px-6 py-2 sm:py-3 border border-white/20">
-                <Sun className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-300 mr-2" />
-                <span className="text-white text-xs sm:text-sm font-medium">Complete Solar Solutions Provider</span>
-              </div>
-            </motion.div>
-            
-            {/* Icon */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="w-16 h-16 sm:w-20 sm:h-24 bg-gradient-to-br from-yellow-500 to-orange-600 rounded-full flex items-center justify-center mx-auto mb-6 sm:mb-8 shadow-2xl border-2 border-white/20"
-              whileHover={{ scale: 1.05, rotate: 5 }}
-            >
-              <Sun className="w-8 h-8 sm:w-10 sm:h-12 text-white" />
-            </motion.div>
-            
-            {/* Main heading */}
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}

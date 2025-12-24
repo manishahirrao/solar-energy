@@ -133,22 +133,20 @@ export default function Home() {
                   }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                <div className="absolute bottom-6 left-6 right-6">
-                  <div className="bg-white/95 backdrop-blur-md rounded-xl p-4">
+                <div className="absolute bottom-6 left-6 right-6 sm:bottom-6 sm:left-6 sm:right-6">
+                  <div className="bg-white/95 backdrop-blur-md rounded-xl p-4 sm:p-6">
                     <h4 className="text-lg font-bold text-gray-900 mb-2">Apply Now!</h4>
                     <p className="text-gray-600 text-sm mb-3">Limited time offer - Get maximum subsidy</p>
                     <motion.button
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      className="bg-gradient-to-r from-orange-500 to-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg transition-all"
+                      className="bg-gradient-to-r from-orange-500 to-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg transition-all z-50"
                       onClick={() => {
-                        // Scroll to contact section or open contact form
-                        const contactSection = document.getElementById('contact');
-                        if (contactSection) {
-                          contactSection.scrollIntoView({ behavior: 'smooth' });
-                        } else {
-                          // Navigate to contact page
-                          window.location.href = '/contact';
+                        // Open quote form popup
+                        const popupQuoteForm = document.getElementById('popup-quote-form');
+                        if (popupQuoteForm) {
+                          popupQuoteForm.style.display = 'flex';
+                          document.body.style.overflow = 'hidden';
                         }
                       }}
                     >
@@ -166,42 +164,18 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-center mt-16"
+            className="text-center mt-8"
           >
-            <div className="bg-gradient-to-r from-orange-500 to-green-600 rounded-2xl p-8 text-white">
-              <h3 className="text-2xl font-bold mb-4">Ready to Join PM Surya Ghar Yojana?</h3>
-              <p className="text-lg mb-6 opacity-90">We'll help you with the complete application process and installation</p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="bg-white text-orange-600 px-8 py-3 rounded-lg font-semibold hover:shadow-lg transition-all"
-                  onClick={() => {
-                    // Scroll to contact section or open contact form
-                    const contactSection = document.getElementById('contact');
-                    if (contactSection) {
-                      contactSection.scrollIntoView({ behavior: 'smooth' });
-                    } else {
-                      // Navigate to contact page
-                      window.location.href = '/contact';
-                    }
-                  }}
-                >
-                  Apply Now
-                </motion.button>
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="bg-transparent border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-orange-600 transition-all"
-                  onClick={() => {
-                    // Navigate to services page for more information
-                    window.location.href = '/service';
-                  }}
-                >
-                  Learn More
-                </motion.button>
-              </div>
-            </div>
+            <h3 className="text-xl font-bold mb-4 text-gray-900">Ready to Join PM Surya Ghar Yojana?</h3>
+            <button
+              className="bg-green-600 text-white px-6 py-2 rounded font-semibold hover:bg-green-700 transition-colors"
+              onClick={() => {
+                // Navigate to WhatsApp
+                window.open('https://wa.me/918959890113', '_blank');
+              }}
+            >
+              Apply Now
+            </button>
           </motion.div>
         </div>
       </section>
@@ -210,101 +184,30 @@ export default function Home() {
       <FAQ />
       
       {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-br from-gray-50 to-green-50 relative overflow-hidden">
-        {/* Background decoration */}
-        <div className="absolute inset-0 bg-gradient-to-br from-green-100/20 via-transparent to-emerald-100/20" />
-        
-        <div className="container mx-auto px-4 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="text-center"
-          >
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              className="w-20 h-20 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center mx-auto mb-8 shadow-lg"
-              whileHover={{ scale: 1.1, rotate: 5 }}
-              animate={{ y: [0, -10, 0] }}
-              transition={{ duration: 3, repeat: Infinity }}
-            >
-              <motion.div
-                animate={{ rotate: 360 }}
-                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-              >
-                <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                </svg>
-              </motion.div>
-            </motion.div>
-            
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
               Ready to Go <span className="text-green-600">Solar</span>?
             </h2>
-            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed font-light mb-12">
-              Take the first step towards sustainable energy and significant savings
-              <span className="block text-green-600 font-medium mt-2">Join thousands of satisfied customers saving money with clean energy</span>
+            <p className="text-lg text-gray-600 mb-8">
+              Take the first step towards sustainable energy
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/contact">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="bg-gradient-to-r from-green-600 to-green-700 text-white px-8 py-4 rounded-full hover:from-green-700 hover:to-green-800 transition-all duration-300 font-semibold text-lg flex items-center justify-center shadow-2xl"
-                >
+                <button className="bg-green-600 text-white px-6 py-3 rounded-full hover:bg-green-700 transition-colors font-semibold">
                   Get Free Quote
-                  <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
-                  </svg>
-                </motion.button>
+                </button>
               </Link>
               
-              <Link href="/service">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="bg-white text-green-600 border-2 border-green-600 px-8 py-4 rounded-full hover:bg-green-50 transition-all duration-300 font-semibold text-lg flex items-center justify-center shadow-lg"
-                >
-                  Explore Services
-                  <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
-                  </svg>
-                </motion.button>
+              <Link href="/gallery">
+                <button className="bg-white text-green-600 border-2 border-green-600 px-6 py-3 rounded-full hover:bg-green-50 transition-colors font-semibold">
+                  Explore Projects
+                </button>
               </Link>
             </div>
-            
-            {/* Trust indicators */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="flex flex-wrap justify-center gap-8 mt-16 text-gray-600"
-            >
-              <div className="flex items-center gap-3 bg-white px-6 py-3 rounded-full shadow-md">
-                <svg className="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                </svg>
-                <span className="font-medium">Free Consultation</span>
-              </div>
-              <div className="flex items-center gap-3 bg-white px-6 py-3 rounded-full shadow-md">
-                <svg className="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                </svg>
-                <span className="font-medium">Quick Response</span>
-              </div>
-              <div className="flex items-center gap-3 bg-white px-6 py-3 rounded-full shadow-md">
-                <svg className="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                </svg>
-                <span className="font-medium">Expert Guidance</span>
-              </div>
-            </motion.div>
-          </motion.div>
+          </div>
         </div>
       </section>
       

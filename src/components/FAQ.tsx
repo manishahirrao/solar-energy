@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronDown, ChevronUp } from 'lucide-react';
+import Link from 'next/link';
 
 const FAQ = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
@@ -107,9 +108,11 @@ const FAQ = () => {
           <p className="text-gray-600 mb-4">
             Still have questions?
           </p>
-          <button className="bg-green-600 text-white px-8 py-3 rounded-full hover:bg-green-700 transition-colors font-semibold">
-            Contact Support
-          </button>
+          <Link href="/contact">
+            <button className="bg-green-600 text-white px-8 py-3 rounded-full hover:bg-green-700 transition-colors font-semibold">
+              Contact Support
+            </button>
+          </Link>
         </motion.div>
       </div>
     </section>

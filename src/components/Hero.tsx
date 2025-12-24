@@ -13,7 +13,7 @@ const Hero = () => {
   ];
 
   return (
-    <section className="relative h-screen overflow-hidden">
+    <section className="relative h-[80vh] sm:h-[85vh] overflow-hidden">
       {/* Video Background */}
       <div className="absolute inset-0 z-0">
         <div className="w-full h-full">
@@ -32,21 +32,9 @@ const Hero = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 h-full flex items-center justify-center">
+      <div className="relative z-10 h-full flex items-center justify-center pt-8">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8 }}
-              className="mb-8"
-            >
-              <div className="inline-flex items-center bg-white/10 backdrop-blur-md rounded-full px-4 sm:px-6 py-2 sm:py-3 border border-white/20">
-                <Sun className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-300 mr-2" />
-                <span className="text-white text-xs sm:text-sm font-medium">Trusted by 1000+ Happy Customers</span>
-              </div>
-            </motion.div>
-            
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -84,7 +72,7 @@ const Hero = () => {
                   whileTap={{ scale: 0.95 }}
                   className="bg-gradient-to-r from-green-500 to-green-600 text-white px-6 sm:px-10 py-3 sm:py-5 rounded-full hover:from-green-600 hover:to-green-700 transition-all duration-300 font-bold text-base sm:text-lg flex items-center justify-center group shadow-2xl border border-green-400/20"
                 >
-                  Get Started
+                  Get Quote
                   <ArrowRight className="w-6 h-6 ml-3 group-hover:translate-x-2 transition-transform" />
                 </motion.button>
               </Link>
@@ -99,32 +87,6 @@ const Hero = () => {
                   View Projects
                 </motion.button>
               </Link>
-            </motion.div>
-
-            {/* Trust Indicators */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.8 }}
-              className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8 max-w-3xl mx-auto"
-            >
-              {features.map((feature, index) => (
-                <motion.div
-                  key={feature.label}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
-                  className="flex flex-col items-center text-center"
-                >
-                  <motion.div
-                    whileHover={{ scale: 1.1, rotate: 5 }}
-                    className="w-12 h-12 sm:w-16 sm:h-16 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center mb-2 sm:mb-3 border border-white/20"
-                  >
-                    <feature.icon className="w-6 h-6 sm:w-8 sm:h-8 text-green-300" />
-                  </motion.div>
-                  <span className="text-white/90 text-xs sm:text-sm font-medium">{feature.label}</span>
-                </motion.div>
-              ))}
             </motion.div>
           </div>
         </div>

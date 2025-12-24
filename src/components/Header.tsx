@@ -9,6 +9,7 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false);
+  const [isMobileServicesDropdownOpen, setIsMobileServicesDropdownOpen] = useState(false);
 
   const services = [
     { name: 'Solar Energy', href: '/service/solar-energy' },
@@ -202,7 +203,7 @@ const Header = () => {
                   {[
                     { name: 'Home', href: '/', icon: null },
                     { name: 'About Us', href: '/about', icon: null },
-                    { name: 'Services', href: '/service', icon: null },
+                    { name: 'Services', href: '/service', icon: ChevronDown, hasDropdown: true },
                     { name: 'Gallery', href: '/gallery', icon: null },
                     { name: 'Contact', href: '/contact', icon: null }
                   ].map((item, index) => (
@@ -211,14 +212,64 @@ const Header = () => {
                       initial={{ x: -50, opacity: 0 }}
                       animate={{ x: 0, opacity: 1 }}
                       transition={{ duration: 0.3, delay: 0.1 + index * 0.05 }}
+                      className="relative"
+                      onMouseEnter={() => item.hasDropdown && setIsMobileServicesDropdownOpen(true)}
+                      onMouseLeave={() => item.hasDropdown && setIsMobileServicesDropdownOpen(false)}
                     >
-                      <Link 
-                        href={item.href} 
-                        className="block py-3 px-4 text-gray-700 hover:text-green-600 hover:bg-green-50 transition-all duration-200 font-medium rounded-lg"
-                        onClick={() => setIsMenuOpen(false)}
-                      >
-                        {item.name}
-                      </Link>
+                      {item.hasDropdown ? (
+                        <div className="relative">
+                          <button 
+                            className="text-gray-700 hover:text-green-600 transition-colors font-medium relative group flex items-center w-full justify-between"
+                            onClick={() => setIsMobileServicesDropdownOpen(!isMobileServicesDropdownOpen)}
+                          >
+                            <span>{item.name}</span>
+                            <ChevronDown className={`ml-1 w-4 h-4 transition-transform duration-200 ${isMobileServicesDropdownOpen ? 'rotate-180' : ''}`} />
+                          </button>
+                          
+                          {/* Mobile Dropdown Menu */}
+                          <motion.div
+                            initial={{ opacity: 0, y: -10 }}
+                            animate={{ 
+                              opacity: isMobileServicesDropdownOpen ? 1 : 0,
+                              y: isMobileServicesDropdownOpen ? 0 : -10,
+                              display: isMobileServicesDropdownOpen ? 'block' : 'none'
+                            }}
+                            transition={{ duration: 0.2 }}
+                            className="absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-xl border border-gray-100 overflow-hidden z-50"
+                          >
+                            <div className="py-2">
+                              {services.map((service, serviceIndex) => (
+                                <motion.div
+                                  key={service.name}
+                                  initial={{ opacity: 0, x: -10 }}
+                                  animate={{ 
+                                    opacity: isMobileServicesDropdownOpen ? 1 : 0,
+                                    x: isMobileServicesDropdownOpen ? 0 : -10
+                                  }}
+                                  transition={{ duration: 0.1, delay: serviceIndex * 0.05 }}
+                                  whileHover={{ backgroundColor: '#f0fdf4' }}
+                                >
+                                  <Link 
+                                    href={service.href}
+                                    className="block px-4 py-3 text-gray-700 hover:text-green-600 transition-colors text-sm"
+                                    onClick={() => setIsMobileServicesDropdownOpen(false)}
+                                  >
+                                    {service.name}
+                                  </Link>
+                                </motion.div>
+                              ))}
+                            </div>
+                          </motion.div>
+                        </div>
+                      ) : (
+                        <Link 
+                          href={item.href} 
+                          className="block py-3 px-4 text-gray-700 hover:text-green-600 hover:bg-green-50 transition-all duration-200 font-medium rounded-lg"
+                          onClick={() => setIsMenuOpen(false)}
+                        >
+                          {item.name}
+                        </Link>
+                      )}
                     </motion.li>
                   ))}
                   <motion.li

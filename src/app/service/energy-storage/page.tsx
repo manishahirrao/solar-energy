@@ -433,15 +433,25 @@ export default function EnergyStorage() {
               Get a customized energy storage solution and take control of your power supply today.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/contact">
-                <button className="bg-white text-green-600 px-8 py-4 rounded-full hover:bg-gray-100 transition-colors font-semibold text-lg flex items-center justify-center">
-                  Get Free Quote
-                  <ArrowRight className="w-5 h-5 ml-2" />
-                </button>
-              </Link>
+              <button 
+                onClick={() => {
+                  // Open quote form popup
+                  const popupQuoteForm = document.getElementById('popup-quote-form');
+                  if (popupQuoteForm) {
+                    popupQuoteForm.style.display = 'flex';
+                    document.body.style.overflow = 'hidden';
+                  }
+                }}
+                className="bg-white text-green-600 px-8 py-4 rounded-full hover:bg-gray-100 transition-colors font-semibold text-lg flex items-center justify-center"
+              >
+                Get Quote
+              </button>
               <Link href="/contact">
                 <button className="border-2 border-white text-white px-8 py-4 rounded-full hover:bg-white hover:text-green-600 transition-colors font-semibold text-lg">
-                  Learn More
+                  <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 00-2 2v12a2 2 0 002 2M3 19a2 2 0 002-2v-12M3 5a2 2 0 00-2-2z"></path>
+                  </svg>
+                  WhatsApp
                 </button>
               </Link>
             </div>

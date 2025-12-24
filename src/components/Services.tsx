@@ -84,7 +84,7 @@ const Services = () => {
           </motion.p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10">
           {services.map((service, index) => (
             <motion.div
               key={index}
@@ -97,7 +97,7 @@ const Services = () => {
             >
               <div className="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden h-full border border-gray-100">
                 {/* Image Section */}
-                <div className="relative h-40 sm:h-48 md:h-56 overflow-hidden bg-gradient-to-br from-green-50 to-emerald-50">
+                <div className="relative h-48 sm:h-56 md:h-64 overflow-hidden bg-gradient-to-br from-green-50 to-emerald-50">
                   <img
                     src={service.image}
                     alt={service.title}
@@ -124,13 +124,13 @@ const Services = () => {
                 </div>
 
                 {/* Content Section */}
-                <div className="p-4 sm:p-6 lg:p-8">
+                <div className="p-6 sm:p-8 lg:p-10">
                   <motion.h3
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
-                    className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 mb-3 sm:mb-4 group-hover:text-green-600 transition-colors duration-300"
+                    className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 mb-4 sm:mb-6 group-hover:text-green-600 transition-colors duration-300"
                     whileHover={{ scale: 1.05 }}
                   >
                     {service.title}
@@ -141,7 +141,7 @@ const Services = () => {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
-                    className="text-gray-600 text-sm sm:text-base lg:text-lg leading-relaxed mb-6 sm:mb-8"
+                    className="text-gray-600 text-base sm:text-lg lg:text-xl leading-relaxed mb-8 sm:mb-10"
                   >
                     {service.description}
                   </motion.p>
@@ -152,7 +152,7 @@ const Services = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
-                    className="flex items-center text-green-600 font-semibold text-sm sm:text-base hover:text-green-700 transition-colors group"
+                    className="flex items-center text-green-600 font-semibold text-base sm:text-lg hover:text-green-700 transition-colors group"
                     whileHover={{ x: 8 }}
                   >
                     <span>Explore Service</span>

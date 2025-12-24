@@ -93,7 +93,7 @@ export default function PopupQuoteForm() {
   return (
     <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4">
+        <div id="popup-quote-form" className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4">
           {/* Backdrop */}
           <motion.div
             initial={{ opacity: 0 }}
@@ -130,7 +130,7 @@ export default function PopupQuoteForm() {
                   <img 
                     src="/procura logo.png" 
                     alt="Procura Solar"
-                    className="w-12 h-12 sm:w-16 sm:h-16 object-contain"
+                    className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 object-contain"
                   />
                 </div>
                 <h3 className="text-lg sm:text-2xl font-bold mb-1 sm:mb-2">Get Your Free Quote</h3>
@@ -196,10 +196,10 @@ export default function PopupQuoteForm() {
                     <div>
                       <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1">
                         <img 
-                        src="/procura logo.png" 
-                        alt="Procura Solar"
-                        className="w-3 h-3 sm:w-4 sm:h-4 inline mr-1 object-contain"
-                      />
+                          src="/procura logo.png" 
+                          alt="Procura Solar"
+                          className="w-2 h-2 sm:w-3 sm:h-3 md:w-4 md:h-4 inline mr-1 object-contain"
+                        />
                         Service Type
                       </label>
                       <select
@@ -211,6 +211,7 @@ export default function PopupQuoteForm() {
                         <option value="solar-energy">Solar Energy</option>
                         <option value="hybrid-energy">Hybrid Energy</option>
                         <option value="solar-consulting">Solar Consulting</option>
+                        <option value="pm-surya-ghar">PM Surya Ghar Yojana</option>
                         <option value="solar-maintenance">Solar Maintenance</option>
                         <option value="energy-storage">Energy Storage</option>
                       </select>

@@ -2,7 +2,6 @@
 
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import InquiryForm from '@/components/InquiryForm';
 import { motion } from 'framer-motion';
 import { Sun, CheckCircle, ArrowRight, Phone, Mail } from 'lucide-react';
 
@@ -44,7 +43,7 @@ export default function SolarEnergyService() {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-green-600 via-green-700 to-green-800 overflow-hidden">
+      <section className="relative h-[70vh] sm:h-[80vh] flex items-center justify-center bg-gradient-to-br from-green-600 via-green-700 to-green-800 overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0">
           <img
@@ -52,41 +51,10 @@ export default function SolarEnergyService() {
             alt="Solar Energy Service"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60" />
         </div>
         
-        {/* Animated background elements */}
-        <div className="absolute inset-0">
-          {[
-            { width: 80, height: 80, left: 10, top: 20, duration: 3 },
-            { width: 60, height: 60, left: 70, top: 60, duration: 4 },
-            { width: 100, height: 100, left: 30, top: 80, duration: 5 },
-            { width: 50, height: 50, left: 85, top: 15, duration: 3.5 }
-          ].map((style, i) => (
-            <motion.div
-              key={i}
-              className="absolute bg-white rounded-full opacity-5"
-              style={{
-                width: style.width + 'px',
-                height: style.height + 'px',
-                left: style.left + '%',
-                top: style.top + '%'
-              }}
-              animate={{
-                y: [0, -20, 0],
-                x: [0, 15, 0],
-              }}
-              transition={{
-                duration: style.duration,
-                repeat: Infinity,
-                repeatType: 'reverse',
-                ease: 'easeInOut'
-              }}
-            />
-          ))}
-        </div>
-
-        <div className="relative container mx-auto px-4">
+        
+        <div className="relative container mx-auto px-4 z-10 pt-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -157,17 +125,26 @@ export default function SolarEnergyService() {
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="w-20 h-20 bg-white bg-opacity-10 backdrop-blur-sm border-2 border-white border-opacity-30 rounded-full flex items-center justify-center mx-auto mb-6"
-              whileHover={{ scale: 1.1, rotate: 5 }}
-              animate={{ y: [0, -10, 0] }}
-              transition={{ duration: 3, repeat: Infinity }}
+              className="relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
             >
-              <motion.div
-                animate={{ rotate: 360 }}
-                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-              >
-                <Sun className="w-10 h-10 text-white" />
-              </motion.div>
+              <img
+                src="/Industrial Solar Setup.jpg"
+                alt="Solar Installation"
+                className="w-full h-64 object-cover object-center group-hover:scale-110 transition-transform duration-500"
+                onError={(e) => {
+                  console.error('Solar solution image failed to load:', '/Industrial Solar Setup.jpg');
+                  const parent = e.currentTarget.parentElement;
+                  if (parent) {
+                    e.currentTarget.style.display = 'none';
+                    parent.className = 'relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center h-64';
+                    parent.innerHTML = `
+                      <div class="text-white text-center">
+                        <div class="text-lg font-bold">Solar Installation</div>
+                      </div>
+                    `;
+                  }
+                }}
+              />
             </motion.div>
           </div>
         </div>
@@ -358,42 +335,42 @@ export default function SolarEnergyService() {
             {[
               {
                 title: 'Residential Rooftop',
-                location: 'Mumbai, Maharashtra',
+                location: 'Bhopal, Madhya Pradesh',
                 image: '/Rooftop Solar Installation.jpeg',
                 capacity: '5kW System',
                 description: 'Complete rooftop solar installation with net metering'
               },
               {
                 title: 'Agricultural Solar Pump',
-                location: 'Punjab',
+                location: 'Sehore, Madhya Pradesh',
                 image: '/Agricultural Solar Pump.jpg',
                 capacity: '10HP Pump',
                 description: 'Solar-powered irrigation system for farming'
               },
               {
                 title: 'School Installation',
-                location: 'Hyderabad',
+                location: 'Indore, Madhya Pradesh',
                 image: '/School Solar Installation.avif',
                 capacity: '50kW System',
                 description: 'Educational institution with solar learning center'
               },
               {
                 title: 'Hospital Backup',
-                location: 'Chennai',
+                location: 'Vidisha, Madhya Pradesh',
                 image: '/Hospital Solar System.jpg',
                 capacity: '200kW System',
                 description: 'Critical power backup for healthcare facility'
               },
               {
                 title: 'Solar Carport',
-                location: 'Pune',
+                location: 'Jabalpur, Madhya Pradesh',
                 image: '/Solar Carport.webp',
                 capacity: '20kW System',
                 description: 'EV charging station with solar carport'
               },
               {
                 title: 'Industrial Setup',
-                location: 'Delhi',
+                location: 'Gwalior, Madhya Pradesh',
                 image: '/Industrial Solar Setup.jpg',
                 capacity: '100kW System',
                 description: 'Large-scale industrial solar installation'
@@ -408,12 +385,25 @@ export default function SolarEnergyService() {
                 className="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
               >
                 <div className="relative h-64 overflow-hidden">
-                  <div 
-                    className="w-full h-full bg-cover bg-center group-hover:scale-110 transition-transform duration-500"
-                    style={{ backgroundImage: `url(${project.image})` }}
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-500"
+                    onError={(e) => {
+                      console.error('Project image failed to load:', project.image);
+                      const parent = e.currentTarget.parentElement;
+                      if (parent) {
+                        e.currentTarget.style.display = 'none';
+                        parent.className = 'relative h-64 overflow-hidden bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center';
+                        parent.innerHTML = `
+                          <div class="text-white text-center">
+                            <div class="text-lg font-bold">${project.title}</div>
+                          </div>
+                        `;
+                      }
+                    }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
-                  <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
+                                    <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
                     <h3 className="text-lg font-semibold mb-1">{project.title}</h3>
                     <p className="text-sm text-gray-200 mb-2">{project.location}</p>
                     <div className="flex items-center text-xs bg-green-600 px-2 py-1 rounded-full inline-block">
@@ -446,37 +436,27 @@ export default function SolarEnergyService() {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <button className="bg-white text-green-600 px-8 py-4 rounded-full hover:bg-gray-100 transition-colors font-semibold flex items-center">
-                <Phone className="w-5 h-5 mr-2" />
-                Call +91 004-9985-484-44
+              <button 
+                onClick={() => {
+                  // Open quote form popup
+                  const popupQuoteForm = document.getElementById('popup-quote-form');
+                  if (popupQuoteForm) {
+                    popupQuoteForm.style.display = 'flex';
+                    document.body.style.overflow = 'hidden';
+                  }
+                }}
+                className="bg-white text-green-600 px-8 py-4 rounded-full hover:bg-gray-100 transition-colors font-semibold flex items-center"
+              >
+                Get Quote
               </button>
               <button className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full hover:bg-white hover:text-green-600 transition-colors font-semibold flex items-center">
-                <Mail className="w-5 h-5 mr-2" />
-                Email Us
+                <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 00-2 2v12a2 2 0 002 2M3 19a2 2 0 002-2v-12M3 5a2 2 0 00-2-2z"></path>
+                </svg>
+                WhatsApp
               </button>
             </div>
           </motion.div>
-        </div>
-      </section>
-
-      {/* Inquiry Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Ready to Go Solar?</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Get a personalized quote for your solar energy installation. Our experts will help you every step of the way.
-            </p>
-          </motion.div>
-          <div className="max-w-4xl mx-auto">
-            <InquiryForm />
-          </div>
         </div>
       </section>
 

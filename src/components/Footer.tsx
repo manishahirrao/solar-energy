@@ -8,7 +8,7 @@ const Footer = () => {
   const usefulLinks = [
     { name: 'Home', href: '/' },
     { name: 'About Us', href: '/about' },
-    { name: 'Services', href: '/service' },
+    { name: 'Contact', href: '/contact' },
     { name: 'Gallery', href: '/gallery' }
   ];
 
