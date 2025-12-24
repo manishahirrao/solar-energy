@@ -34,6 +34,30 @@ export default function PopupQuoteForm() {
     return () => clearTimeout(timer);
   }, []);
 
+  // Prevent body scroll when popup is open
+  useEffect(() => {
+    if (isOpen) {
+      // Save current scroll position
+      const scrollY = window.scrollY;
+      
+      // Prevent body scroll
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = '100%';
+      document.body.style.overflow = 'hidden';
+      
+      return () => {
+        // Restore body scroll
+        const scrollY = document.body.style.top;
+        document.body.style.position = '';
+        document.body.style.top = '';
+        document.body.style.width = '';
+        document.body.style.overflow = '';
+        window.scrollTo(0, parseInt(scrollY || '0') * -1);
+      };
+    }
+  }, [isOpen]);
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({
       ...formData,
@@ -85,15 +109,15 @@ export default function PopupQuoteForm() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
             transition={{ type: "spring", damping: 25, stiffness: 400 }}
-            className="relative bg-white rounded-3xl shadow-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto"
+            className="relative bg-white rounded-3xl shadow-2xl max-w-lg w-full max-h-[100vh] overflow-hidden flex flex-col"
           >
             {/* Header */}
-            <div className="bg-gradient-to-r from-green-600 via-green-700 to-emerald-600 text-white p-4 sm:p-6 rounded-t-3xl relative">
+            <div className="bg-gradient-to-r from-green-600 via-green-700 to-emerald-600 text-white p-3 sm:p-4 rounded-t-3xl relative flex-shrink-0">
               <button
                 onClick={handleClose}
-                className="absolute top-4 right-4 text-white/80 hover:text-white transition-all hover:rotate-90 duration-300"
+                className="absolute top-4 right-4 text-white/80 hover:text-white transition-all hover:rotate-90 duration-300 z-10"
               >
-                <X className="w-6 h-6" />
+                <X className="w-5 h-5 sm:w-6 sm:h-6" />
               </button>
               
               <motion.div
@@ -105,23 +129,23 @@ export default function PopupQuoteForm() {
                 <motion.div
                   animate={{ rotate: 360 }}
                   transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                  className="w-12 h-12 sm:w-16 sm:h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-2 sm:mb-4 shadow-lg"
+                  className="w-10 h-10 sm:w-16 sm:h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-2 sm:mb-4 shadow-lg"
                 >
-                  <Sun className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
+                  <Sun className="w-5 h-5 sm:w-8 sm:h-8 text-white" />
                 </motion.div>
-                <h3 className="text-xl sm:text-2xl font-bold mb-2">Get Your Free Quote</h3>
+                <h3 className="text-lg sm:text-2xl font-bold mb-1 sm:mb-2">Get Your Free Quote</h3>
                 <p className="text-green-100 text-xs sm:text-sm">Save up to 70% on electricity bills</p>
               </motion.div>
             </div>
 
-            {/* Form Content */}
-            <div className="p-4 sm:p-6">
+            {/* Form Content - Scrollable */}
+            <div className="flex-1 p-3 sm:p-4">
               {!isSubmitted ? (
-                <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
+                <form onSubmit={handleSubmit} className="space-y-2 sm:space-y-3">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                     <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-1">
-                        <User className="w-4 h-4 inline mr-1 text-green-600" />
+                      <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1">
+                        <User className="w-3 h-3 sm:w-4 sm:h-4 inline mr-1 text-green-600" />
                         Full Name
                       </label>
                       <input
@@ -130,14 +154,14 @@ export default function PopupQuoteForm() {
                         value={formData.name}
                         onChange={handleInputChange}
                         required
-                        className="w-full px-3 py-2 sm:px-3 sm:py-2 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-300 hover:border-gray-300 text-sm placeholder-gray-500 text-gray-900"
-                        placeholder="John Doe"
+                        className="w-full px-3 py-2 sm:px-3 sm:py-2 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-300 hover:border-gray-300 text-xs sm:text-sm placeholder-gray-500 text-gray-900"
+                        placeholder="Mahesh Kumar"
                       />
                     </div>
                     
                     <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-1">
-                        <Phone className="w-4 h-4 inline mr-1 text-green-600" />
+                      <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1">
+                        <Phone className="w-3 h-3 sm:w-4 sm:h-4 inline mr-1 text-green-600" />
                         Phone Number
                       </label>
                       <input
@@ -146,15 +170,15 @@ export default function PopupQuoteForm() {
                         value={formData.phone}
                         onChange={handleInputChange}
                         required
-                        className="w-full px-3 py-2 sm:px-3 sm:py-2 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-300 hover:border-gray-300 text-sm placeholder-gray-500 text-gray-900"
-                        placeholder="+91 98765 43210"
+                        className="w-full px-3 py-2 sm:px-3 sm:py-2 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-300 hover:border-gray-300 text-xs sm:text-sm placeholder-gray-500 text-gray-900"
+                        placeholder="+91 00000 00000"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-1">
-                      <Mail className="w-4 h-4 inline mr-1 text-green-600" />
+                    <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1">
+                      <Mail className="w-3 h-3 sm:w-4 sm:h-4 inline mr-1 text-green-600" />
                       Email Address
                     </label>
                     <input
@@ -163,22 +187,22 @@ export default function PopupQuoteForm() {
                       value={formData.email}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-3 py-2 sm:px-3 sm:py-2 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-300 hover:border-gray-300 text-sm placeholder-gray-500 text-gray-900"
-                      placeholder="john@example.com"
+                      className="w-full px-3 py-2 sm:px-3 sm:py-2 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-300 hover:border-gray-300 text-xs sm:text-sm placeholder-gray-500 text-gray-900"
+                      placeholder="mahesh@example.com"
                     />
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                     <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-1">
-                        <Sun className="w-4 h-4 inline mr-1 text-green-600" />
+                      <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1">
+                        <Sun className="w-3 h-3 sm:w-4 sm:h-4 inline mr-1 text-green-600" />
                         Service Type
                       </label>
                       <select
                         name="service"
                         value={formData.service}
                         onChange={handleInputChange}
-                        className="w-full px-3 py-2 sm:px-3 sm:py-2 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-300 hover:border-gray-300 text-sm placeholder-gray-500 text-gray-900"
+                        className="w-full px-3 py-2 sm:px-3 sm:py-2 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-300 hover:border-gray-300 text-xs sm:text-sm placeholder-gray-500 text-gray-900"
                       >
                         <option value="solar-energy">Solar Energy</option>
                         <option value="hybrid-energy">Hybrid Energy</option>
@@ -189,15 +213,15 @@ export default function PopupQuoteForm() {
                     </div>
                     
                     <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-1">
-                        <Building className="w-4 h-4 inline mr-1 text-green-600" />
+                      <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1">
+                        <Building className="w-3 h-3 sm:w-4 sm:h-4 inline mr-1 text-green-600" />
                         Property Type
                       </label>
                       <select
                         name="propertyType"
                         value={formData.propertyType}
                         onChange={handleInputChange}
-                        className="w-full px-3 py-2 sm:px-3 sm:py-2 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-300 hover:border-gray-300 text-sm placeholder-gray-500 text-gray-900"
+                        className="w-full px-3 py-2 sm:px-3 sm:py-2 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-300 hover:border-gray-300 text-xs sm:text-sm placeholder-gray-500 text-gray-900"
                       >
                         <option value="residential">Residential</option>
                         <option value="commercial">Commercial</option>
@@ -208,8 +232,8 @@ export default function PopupQuoteForm() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-1">
-                      <MessageSquare className="w-4 h-4 inline mr-1 text-green-600" />
+                    <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1">
+                      <MessageSquare className="w-3 h-3 sm:w-4 sm:h-4 inline mr-1 text-green-600" />
                       Message (Optional)
                     </label>
                     <textarea
@@ -217,7 +241,7 @@ export default function PopupQuoteForm() {
                       value={formData.message}
                       onChange={handleInputChange}
                       rows={2}
-                      className="w-full px-3 py-2 sm:px-3 sm:py-2 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-300 hover:border-gray-300 resize-none text-sm placeholder-gray-500 text-gray-900"
+                      className="w-full px-3 py-2 sm:px-3 sm:py-2 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-300 hover:border-gray-300 resize-none text-xs sm:text-sm placeholder-gray-500 text-gray-900"
                       placeholder="Tell us about your requirements..."
                     />
                   </div>
@@ -226,9 +250,9 @@ export default function PopupQuoteForm() {
                     type="submit"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className="w-full bg-gradient-to-r from-green-600 to-green-700 text-white py-2 sm:py-3 rounded-xl font-semibold hover:from-green-700 hover:to-green-800 transition-all duration-300 flex items-center justify-center shadow-lg text-sm sm:text-base"
+                    className="w-full bg-gradient-to-r from-green-600 to-green-700 text-white py-2.5 sm:py-2.5 rounded-xl font-semibold hover:from-green-700 hover:to-green-800 transition-all duration-300 flex items-center justify-center shadow-lg text-sm sm:text-base"
                   >
-                    <Send className="w-5 h-5 mr-2" />
+                    <Send className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
                     Get Free Quote
                   </motion.button>
                 </form>

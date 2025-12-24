@@ -62,10 +62,6 @@ const Hero = () => {
             Your browser does not support the video tag.
           </video>
         </div>
-        {/* Enhanced overlay with gradient */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60"></div>
-        {/* Additional overlay for better text contrast */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-black/30"></div>
       </div>
 
       {/* Content */}

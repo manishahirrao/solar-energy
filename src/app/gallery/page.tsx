@@ -150,12 +150,8 @@ export default function Gallery() {
           <img
             src="/solar-energy-service.webp"
             alt="Gallery Hero"
-            className="w-full h-full object-cover mix-blend-overlay"
+            className="w-full h-full object-cover"
           />
-          {/* Multiple overlay layers for depth */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/40" />
-          <div className="absolute inset-0 bg-gradient-to-t from-purple-900/20 via-transparent to-pink-900/20" />
         </div>
         
         {/* Enhanced animated background elements */}
