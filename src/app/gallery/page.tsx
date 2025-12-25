@@ -144,7 +144,7 @@ export default function Gallery() {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative h-[70vh] sm:h-[80vh] flex items-center justify-center bg-gradient-to-br from-purple-900 via-pink-900 to-indigo-900 overflow-hidden">
+      <section className="relative h-[70vh] sm:h-[80vh] flex items-center justify-center bg-gradient-to-br from-green-900 via-emerald-900 to-green-800 overflow-hidden">
         {/* Background Image with enhanced effects */}
         <div className="absolute inset-0">
           <img
@@ -168,11 +168,11 @@ export default function Gallery() {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-4 sm:mb-6 leading-tight"
             >
-              <span className="bg-gradient-to-r from-white via-purple-100 to-white bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-white via-green-100 to-white bg-clip-text text-transparent">
                 Our
               </span>
               <br />
-              <span className="bg-gradient-to-r from-purple-300 to-pink-300 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-green-300 to-emerald-300 bg-clip-text text-transparent">
                 Gallery
               </span>
             </motion.h1>
@@ -185,7 +185,7 @@ export default function Gallery() {
               className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-white/90 mb-8 sm:mb-12 leading-relaxed max-w-4xl mx-auto font-light"
             >
               Explore our portfolio of successful solar installations and renewable energy projects
-              <span className="block text-purple-200 font-medium mt-3">Transforming homes and businesses with sustainable energy solutions</span>
+              <span className="block text-green-200 font-medium mt-3">Transforming homes and businesses with sustainable energy solutions</span>
             </motion.p>
 
             {/* CTA Buttons */}
@@ -196,9 +196,9 @@ export default function Gallery() {
               className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center"
             >
               <motion.button
-                whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(168, 85, 247, 0.4)" }}
+                whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(16, 185, 129, 0.4)" }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-gradient-to-r from-purple-500 to-pink-600 text-white px-6 sm:px-10 py-3 sm:py-5 rounded-full hover:from-purple-600 hover:to-pink-700 transition-all duration-300 font-bold text-base sm:text-lg flex items-center justify-center group shadow-2xl border border-purple-400/20"
+                className="bg-gradient-to-r from-green-500 to-emerald-600 text-white px-6 sm:px-10 py-3 sm:py-5 rounded-full hover:from-green-600 hover:to-emerald-700 transition-all duration-300 font-bold text-base sm:text-lg flex items-center justify-center group shadow-2xl border border-green-400/20"
                 onClick={() => document.getElementById('gallery-grid')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 View Projects

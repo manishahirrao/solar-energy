@@ -112,7 +112,7 @@ export default function PopupQuoteForm() {
             className="relative bg-white rounded-3xl shadow-2xl max-w-lg w-full max-h-[100vh] overflow-hidden flex flex-col"
           >
             {/* Header */}
-            <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-600 text-white p-3 sm:p-4 rounded-t-3xl relative flex-shrink-0">
+            <div className="bg-gradient-to-r from-green-600 via-green-700 to-emerald-600 text-white p-3 sm:p-4 rounded-t-3xl relative flex-shrink-0">
               <button
                 onClick={handleClose}
                 className="absolute top-4 right-4 text-white/80 hover:text-white transition-all hover:rotate-90 duration-300 z-10"

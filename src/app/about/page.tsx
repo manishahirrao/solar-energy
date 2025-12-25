@@ -3,7 +3,7 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { motion } from 'framer-motion';
-import { Award, Leaf, Target, Sun, Zap, Shield, Clock, Globe, CheckCircle, TrendingUp, Lightbulb, Wrench, ArrowRight } from 'lucide-react';
+import { Award, Leaf, Target, Sun, Zap, Shield, Clock, Globe, CheckCircle, TrendingUp, Lightbulb, Wrench, ArrowRight, Phone } from 'lucide-react';
 
 export default function About() {
   const stats = [
@@ -431,101 +431,107 @@ export default function About() {
         </div>
       </section>
 
-      
-      {/* Technology Partners Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
+      {/* CTA Section */}
+      <section className="py-20 bg-gradient-to-br from-green-600 via-green-700 to-emerald-600 relative overflow-hidden">
+        {/* Background decoration */}
+        <div className="absolute inset-0">
+          <div className="absolute top-10 left-10 w-32 h-32 bg-white/10 rounded-full blur-2xl" />
+          <div className="absolute bottom-10 right-10 w-40 h-40 bg-white/10 rounded-full blur-3xl" />
+          <div className="absolute top-1/2 left-1/4 w-24 h-24 bg-white/5 rounded-full blur-xl" />
+        </div>
+        
+        <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="text-center mb-16"
+            className="text-center mb-12"
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Technology Partners</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Partnering with industry leaders for the best solar solutions
-            </p>
+            <motion.h2 
+              className="text-4xl md:text-5xl font-bold text-white mb-6"
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              Ready to Join Our Solar Journey?
+            </motion.h2>
+            <motion.p 
+              className="text-xl text-green-100 max-w-3xl mx-auto mb-8"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              Partner with Procura Solar and experience the difference of working with industry leaders committed to excellence and sustainability.
+            </motion.p>
           </motion.div>
 
-          <div className="overflow-hidden">
-            <motion.div 
-              className="flex gap-8 min-w-max px-4"
-              animate={{ x: [0, -1000] }}
-              transition={{ 
-                duration: 20, 
-                repeat: Infinity, 
-                ease: "linear",
-                repeatType: "loop"
-              }}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-center"
             >
-              {[
-                { name: 'Tata Power Solar', image: '/Tata Power Solar.jpeg' },
-                { name: 'Adani Solar', image: '/Adani Solar.png' },
-                { name: 'Vikram Solar', image: '/Vikram Solar.jpeg' },
-                { name: 'Suntech Power Systems', image: '/Suntech Power Systems.png' },
-                { name: 'Moser Baer Solar', image: '/Moser Baer Solar.png' },
-                { name: 'Navitas Solar', image: '/Navitas Solar.jpg' },
-                { name: 'Websol Energy System', image: '/Websol Energy System.jpeg' }
-              ].map((partner, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  whileHover={{ scale: 1.1, y: -5 }}
-                  className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow text-center flex-shrink-0"
-                >
-                  <div className="w-16 h-16 bg-white rounded-lg flex items-center justify-center mx-auto mb-3 overflow-hidden">
-                    <img 
-                      src={partner.image} 
-                      alt={partner.name}
-                      className="w-full h-full object-contain p-2"
-                      onError={(e) => {
-                        console.log(`Failed to load image for ${partner.name}`);
-                        e.currentTarget.style.display = 'none';
-                      }}
-                    />
-                  </div>
-                  <div className="text-sm font-medium text-gray-900 whitespace-nowrap">{partner.name}</div>
-                </motion.div>
-              ))}
-              {/* Duplicate partners for seamless loop */}
-              {[
-                { name: 'Tata Power Solar', image: '/Tata Power Solar.jpeg' },
-                { name: 'Adani Solar', image: '/Adani Solar.png' },
-                { name: 'Vikram Solar', image: '/Vikram Solar.jpeg' },
-                { name: 'Suntech Power Systems', image: '/Suntech Power Systems.png' },
-                { name: 'Moser Baer Solar', image: '/Moser Baer Solar.png' },
-                { name: 'Navitas Solar', image: '/Navitas Solar.jpg' },
-                { name: 'Websol Energy System', image: '/Websol Energy System.jpeg' }
-              ].map((partner, index) => (
-                <motion.div
-                  key={`duplicate-${index}`}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  whileHover={{ scale: 1.1, y: -5 }}
-                  className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow text-center flex-shrink-0"
-                >
-                  <div className="w-16 h-16 bg-white rounded-lg flex items-center justify-center mx-auto mb-3 overflow-hidden">
-                    <img 
-                      src={partner.image} 
-                      alt={partner.name}
-                      className="w-full h-full object-contain p-2"
-                      onError={(e) => {
-                        console.log(`Failed to load image for ${partner.name}`);
-                        e.currentTarget.style.display = 'none';
-                      }}
-                    />
-                  </div>
-                  <div className="text-sm font-medium text-gray-900 whitespace-nowrap">{partner.name}</div>
-                </motion.div>
-              ))}
+              <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Sun className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-xl font-semibold text-white mb-2">Free Consultation</h3>
+              <p className="text-green-100">Get expert advice tailored to your energy needs</p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-center"
+            >
+              <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                <TrendingUp className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-xl font-semibold text-white mb-2">Save 90% on Bills</h3>
+              <p className="text-green-100">Reduce electricity costs significantly</p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="text-center"
+            >
+              <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Shield className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-xl font-semibold text-white mb-2">25 Year Warranty</h3>
+              <p className="text-green-100">Long-term reliability and peace of mind</p>
             </motion.div>
           </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="text-center"
+          >
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-white text-green-600 px-8 py-4 rounded-full font-bold text-lg hover:shadow-2xl transition-all duration-300 inline-flex items-center"
+              onClick={() => window.location.href = '/contact'}
+            >
+              <Phone className="w-5 h-5 mr-2" />
+              Get Your Free Quote Now
+            </motion.button>
+            <p className="text-green-100 mt-4 text-sm">
+              No obligation • Free site assessment • Instant quote
+            </p>
+          </motion.div>
         </div>
       </section>
 

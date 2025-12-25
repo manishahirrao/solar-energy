@@ -73,7 +73,7 @@ export default function Contact() {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative h-[70vh] sm:h-[80vh] flex items-center justify-center bg-gradient-to-br from-teal-900 via-blue-900 to-cyan-900 overflow-hidden">
+      <section className="relative h-[70vh] sm:h-[80vh] flex items-center justify-center bg-gradient-to-br from-green-900 via-emerald-900 to-green-800 overflow-hidden">
         {/* Background Image with enhanced effects */}
         <div className="absolute inset-0">
           <img
@@ -97,11 +97,11 @@ export default function Contact() {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-4 sm:mb-6 leading-tight"
             >
-              <span className="bg-gradient-to-r from-white via-teal-100 to-white bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-white via-green-100 to-white bg-clip-text text-transparent">
                 Contact
               </span>
               <br />
-              <span className="bg-gradient-to-r from-teal-300 to-blue-300 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-green-300 to-emerald-300 bg-clip-text text-transparent">
                 Us
               </span>
             </motion.h1>
@@ -125,9 +125,9 @@ export default function Contact() {
               className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center"
             >
               <motion.button
-                whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(20, 184, 166, 0.4)" }}
+                whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(16, 185, 129, 0.4)" }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-gradient-to-r from-teal-500 to-blue-600 text-white px-6 sm:px-10 py-3 sm:py-5 rounded-full hover:from-teal-600 hover:to-blue-700 transition-all duration-300 font-bold text-base sm:text-lg flex items-center justify-center group shadow-2xl border border-teal-400/20"
+                className="bg-gradient-to-r from-green-500 to-emerald-600 text-white px-6 sm:px-10 py-3 sm:py-5 rounded-full hover:from-green-600 hover:to-emerald-700 transition-all duration-300 font-bold text-base sm:text-lg flex items-center justify-center group shadow-2xl border border-green-400/20"
                 onClick={() => document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 Get Quote

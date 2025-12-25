@@ -4,12 +4,13 @@ import { motion } from 'framer-motion';
 
 const TechnologyPartners = () => {
   const partners = [
-    { name: 'Partner 1', logo: '/partner1.png' },
-    { name: 'Partner 2', logo: '/partner2.png' },
-    { name: 'Partner 3', logo: '/partner3.png' },
-    { name: 'Partner 4', logo: '/partner4.png' },
-    { name: 'Partner 5', logo: '/partner5.png' },
-    { name: 'Partner 6', logo: '/partner6.png' }
+    { name: 'Tata Power Solar', logo: '/Tata Power Solar.jpeg' },
+    { name: 'Adani Solar', logo: '/Adani Solar.png' },
+    { name: 'Vikram Solar', logo: '/Vikram Solar.jpeg' },
+    { name: 'Suntech Power Systems', logo: '/Suntech Power Systems.png' },
+    { name: 'Moser Baer Solar', logo: '/Moser Baer Solar.png' },
+    { name: 'Navitas Solar', logo: '/Navitas Solar.jpg' },
+    { name: 'Websol Energy System', logo: '/Websol Energy System.jpeg' }
   ];
 
   return (
@@ -30,18 +31,27 @@ const TechnologyPartners = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center">
-          {partners.map((partner, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="flex items-center justify-center"
-              whileHover={{ scale: 1.1 }}
-            >
-              <div className="bg-gray-50 rounded-lg p-4 w-full h-24 flex items-center justify-center border border-gray-200 hover:border-green-300 transition-colors">
+        <div className="overflow-hidden">
+          <motion.div 
+            className="flex gap-8 min-w-max px-4"
+            animate={{ x: [0, -1000] }}
+            transition={{ 
+              duration: 20, 
+              repeat: Infinity, 
+              ease: "linear",
+              repeatType: "loop"
+            }}
+          >
+            {partners.map((partner, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                whileHover={{ scale: 1.1, y: -5 }}
+                className="bg-white rounded-lg p-4 w-40 h-24 flex items-center justify-center border border-gray-200 hover:border-green-300 transition-colors flex-shrink-0 shadow-md"
+              >
                 <img
                   src={partner.logo}
                   alt={partner.name}
@@ -57,9 +67,37 @@ const TechnologyPartners = () => {
                     }
                   }}
                 />
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            ))}
+            {/* Duplicate partners for seamless loop */}
+            {partners.map((partner, index) => (
+              <motion.div
+                key={`duplicate-${index}`}
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                whileHover={{ scale: 1.1, y: -5 }}
+                className="bg-white rounded-lg p-4 w-40 h-24 flex items-center justify-center border border-gray-200 hover:border-green-300 transition-colors flex-shrink-0 shadow-md"
+              >
+                <img
+                  src={partner.logo}
+                  alt={partner.name}
+                  className="max-w-full max-h-full object-contain"
+                  onError={(e) => {
+                    e.currentTarget.style.display = 'none';
+                    if (e.currentTarget.parentElement) {
+                      e.currentTarget.parentElement.innerHTML = `
+                        <div class="text-gray-400 text-sm text-center">
+                          ${partner.name}
+                        </div>
+                      `;
+                    }
+                  }}
+                />
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
       </div>
     </section>
