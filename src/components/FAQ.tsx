@@ -10,24 +10,24 @@ const FAQ = () => {
 
   const faqs = [
     {
-      question: "What is Solar Energy?",
-      answer: "Solar energy is radiation from the Sun that is capable of producing heat, causing chemical reactions, or generating electricity. The total amount of solar energy incident on Earth is vastly in excess of the world's current and anticipated energy requirements."
+      question: "01 What is Solar Energy?",
+      answer: "Solar Energy refers to energy obtained from sun through use of photovoltaic cells or solar panels."
     },
     {
-      question: "How does Solar Energy work?",
-      answer: "Solar panels work by absorbing sunlight with photovoltaic cells, generating direct current (DC) energy and then converting it to usable alternating current (AC) energy with the help of inverter technology. AC energy then flows through the home's electrical panel and is distributed accordingly."
+      question: "02 How does Solar Energy work?",
+      answer: "Solar Energy refers to energy obtained from sun through use of photovoltaic cells or solar panels."
     },
     {
-      question: "What is Renewable Energy?",
-      answer: "Renewable energy is energy derived from natural sources that are replenished on a human timescale. Examples include solar, wind, hydro, geothermal, and biomass. Unlike fossil fuels, these sources are not depleted when used."
+      question: "03 What is Renewable Energy?",
+      answer: "Solar Energy refers to energy obtained from sun through use of photovoltaic cells or solar panels."
     },
     {
-      question: "I have a bigger project. Can you handle it?",
-      answer: "Absolutely! We have extensive experience with large-scale commercial and industrial solar installations. Our team can handle projects of any size, from small residential systems to multi-megawatt commercial installations."
+      question: "04 I have a bigger project. Can you handle it?",
+      answer: "Solar Energy refers to energy obtained from sun through use of photovoltaic cells or solar panels."
     },
     {
-      question: "How do you communicate?",
-      answer: "We maintain clear communication throughout your project. You'll have a dedicated project manager, regular updates via email and phone, and 24/7 support for any urgent matters. We believe in transparency and keeping you informed every step of the way."
+      question: "05 How do you communicate?",
+      answer: "Solar Energy refers to energy obtained from sun through use of photovoltaic cells or solar panels."
     }
   ];
 
@@ -45,10 +45,10 @@ const FAQ = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-12 sm:mb-16"
         >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 mb-4">
             Frequently Asked Questions
           </h2>
-          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed font-light mb-8 sm:mb-12">
             Find answers to common questions about solar energy and our services
           </p>
         </motion.div>

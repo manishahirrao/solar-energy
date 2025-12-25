@@ -24,7 +24,7 @@ const WhyChooseUs = () => {
   ];
 
   return (
-    <section className="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-emerald-50 via-white to-green-50 relative overflow-hidden">
+    <section className="py-16 sm:py-20 lg:py-24 bg-white relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-10 w-32 h-32 bg-emerald-100 rounded-full blur-3xl opacity-30" />
@@ -48,11 +48,11 @@ const WhyChooseUs = () => {
             transition={{ duration: 0.6 }}
             whileHover={{ scale: 1.02 }}
           >
-            <span className="bg-gradient-to-r from-gray-900 via-emerald-800 to-gray-900 bg-clip-text text-transparent">
+            <span className="text-gray-900">
               Why Choose
             </span>
             <br />
-            <span className="bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent">
+            <span className="text-green-600">
               Procura Solar
             </span>
           </motion.h2>
@@ -92,7 +92,7 @@ const WhyChooseUs = () => {
                   animate={{ y: [0, -8, 0] }}
                   transition={{ duration: 3, repeat: Infinity, delay: index * 0.5 }}
                 >
-                  <div className="absolute inset-0 bg-gradient-to-br from-emerald-600/20 via-green-600/20 to-emerald-700/20" />
+                  <div className="absolute inset-0 bg-emerald-600/10" />
                   <img
                     src={feature.image}
                     alt={feature.title}
@@ -123,7 +123,7 @@ const WhyChooseUs = () => {
                   className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 sm:mb-6"
                   whileHover={{ scale: 1.02, x: 5 }}
                 >
-                  <span className="bg-gradient-to-r from-gray-900 to-emerald-700 bg-clip-text text-transparent">
+                  <span className="text-gray-900">
                     {feature.title}
                   </span>
                 </motion.h3>
@@ -145,7 +145,7 @@ const WhyChooseUs = () => {
                   whileHover={{ scale: 1.05, boxShadow: "0 10px 30px rgba(16, 185, 129, 0.2)" }}
                 >
                   <motion.div 
-                    className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-green-600 rounded-full flex items-center justify-center shadow-lg"
+                    className="w-12 h-12 bg-emerald-500 rounded-full flex items-center justify-center shadow-lg"
                     whileHover={{ rotate: 360, scale: 1.2 }}
                     transition={{ duration: 0.5 }}
                   >

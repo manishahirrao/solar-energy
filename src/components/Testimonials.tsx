@@ -8,57 +8,22 @@ const Testimonials = () => {
   const testimonials = [
     {
       name: 'Boy Williamson',
-      role: 'CEO, Tech Company',
-      content: 'SolarBright transformed our energy costs completely. The installation was professional and the results exceeded our expectations.',
+      role: 'Food Entrepreneur',
+      content: 'For adding learning references, it\'s really good, because clients often study here too',
       rating: 5,
       image: '/api/placeholder/80/80'
     },
     {
       name: 'Marvin McKinney',
-      role: 'Homeowner',
-      content: 'I\'m saving 70% on my electricity bills! The team was knowledgeable and guided me through the entire process.',
+      role: 'Senior Freelancer',
+      content: 'For adding learning references, it\'s really good, because clients often study here too',
       rating: 5,
       image: '/api/placeholder/80/80'
     },
     {
       name: 'Courtney Henry',
-      role: 'Factory Manager',
-      content: 'Best investment we made for our manufacturing unit. The solar system has been running flawlessly since installation.',
-      rating: 5,
-      image: '/api/placeholder/80/80'
-    },
-    {
-      name: 'Raj Patel',
-      role: 'Restaurant Owner',
-      content: 'Our monthly energy bill went from ₹50,000 to ₹15,000. The ROI was achieved in just 18 months. Highly recommended!',
-      rating: 5,
-      image: '/api/placeholder/80/80'
-    },
-    {
-      name: 'Anita Sharma',
-      role: 'School Principal',
-      content: 'The solar installation has helped us save significantly on operational costs. We can now invest more in educational resources.',
-      rating: 5,
-      image: '/api/placeholder/80/80'
-    },
-    {
-      name: 'Michael Chen',
-      role: 'Software Developer',
-      content: 'Professional team, excellent service, and great after-sales support. The monitoring app is very helpful.',
-      rating: 5,
-      image: '/api/placeholder/80/80'
-    },
-    {
-      name: 'Priya Nair',
-      role: 'Hotel Manager',
-      content: 'Our guests love that we use green energy. The system has reduced our operational costs by 60%.',
-      rating: 5,
-      image: '/api/placeholder/80/80'
-    },
-    {
-      name: 'David Kumar',
-      role: 'Agricultural Business Owner',
-      content: 'Perfect for our irrigation systems. Reliable power even in remote areas. Excellent investment.',
+      role: 'Creative Director',
+      content: 'For adding learning references, it\'s really good, because clients often study here too',
       rating: 5,
       image: '/api/placeholder/80/80'
     }
@@ -104,7 +69,7 @@ const Testimonials = () => {
   };
 
   return (
-    <section className="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-blue-50 via-white to-green-50 relative overflow-hidden">
+    <section className="py-16 sm:py-20 lg:py-24 bg-white relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-10 w-32 h-32 bg-blue-100 rounded-full blur-3xl opacity-30" />
@@ -127,12 +92,12 @@ const Testimonials = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <span className="bg-gradient-to-r from-gray-900 via-blue-800 to-gray-900 bg-clip-text text-transparent">
-              What Our
+            <span className="text-gray-900">
+              Our Costumers
             </span>
             <br />
-            <span className="bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent">
-              Customers Say
+            <span className="text-blue-600">
+              Give Love Feedback
             </span>
           </motion.h2>
           <motion.p 

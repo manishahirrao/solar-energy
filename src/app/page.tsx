@@ -2,9 +2,11 @@
 
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
+import TechnologyPartners from '@/components/TechnologyPartners';
 import AboutUs from '@/components/AboutUs';
-import WhyChooseUs from '@/components/WhyChooseUs';
 import Services from '@/components/Services';
+import WhyChooseUs from '@/components/WhyChooseUs';
+import OurProjects from '@/components/OurProjects';
 import Testimonials from '@/components/Testimonials';
 import FAQ from '@/components/FAQ';
 import Footer from '@/components/Footer';
@@ -18,12 +20,12 @@ export default function Home() {
     <div className="min-h-screen">
       <Header />
       <Hero />
+      <TechnologyPartners />
       <AboutUs />
-      <WhyChooseUs />
       <Services />
       
       {/* PM Surya Ghar Yojana Section */}
-      <section className="py-20 bg-gradient-to-br from-orange-50 via-white to-green-50 relative overflow-hidden">
+      <section className="py-20 bg-white relative overflow-hidden">
         {/* Background decoration */}
         <div className="absolute inset-0">
           <div className="absolute top-10 left-10 w-32 h-32 bg-orange-100 rounded-full blur-3xl opacity-50" />
@@ -42,7 +44,7 @@ export default function Home() {
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="w-20 h-20 bg-gradient-to-br from-orange-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-8 shadow-lg"
+              className="w-20 h-20 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-8 shadow-lg"
               whileHover={{ scale: 1.1, rotate: 5 }}
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 3, repeat: Infinity }}
@@ -50,10 +52,10 @@ export default function Home() {
               <Sun className="w-10 h-10 text-white" />
             </motion.div>
             
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 mb-6 sm:mb-8 leading-tight">
               PM <span className="text-orange-600">Surya Ghar</span> Yojana
             </h2>
-            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed font-light mb-12">
+            <p className="text-lg sm:text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed font-light mb-8 sm:mb-12">
               Government of India's flagship solar rooftop scheme
               <span className="block text-green-600 font-medium mt-2">Get subsidies up to ₹78,000 for residential solar installations</span>
             </p>
@@ -180,8 +182,80 @@ export default function Home() {
         </div>
       </section>
       
+      <WhyChooseUs />
+      <OurProjects />
       <Testimonials />
       <FAQ />
+      
+      {/* Latest Posts Section */}
+      <section className="py-16 sm:py-20 lg:py-24 bg-white">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-12 sm:mb-16"
+          >
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 mb-6 sm:mb-8 leading-tight">
+              Read Our Latest <span className="text-green-600">Solar Insights</span>
+            </h2>
+            <p className="text-lg sm:text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed font-light mb-8 sm:mb-12">
+              Stay updated with the latest trends, technologies, and news in the solar energy industry
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <motion.article
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+              className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
+            >
+              <div className="h-48 bg-green-100"></div>
+              <div className="p-6">
+                <div className="text-sm text-green-600 font-medium mb-2">Solar Education</div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">How Many Solar Panels Do You Need for Your Business?</h3>
+                <p className="text-gray-600 mb-4">Learn how to calculate the optimal number of solar panels for your commercial property...</p>
+                <a href="#" className="text-green-600 font-semibold hover:text-green-700">Read More →</a>
+              </div>
+            </motion.article>
+
+            <motion.article
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
+            >
+              <div className="h-48 bg-blue-100"></div>
+              <div className="p-6">
+                <div className="text-sm text-green-600 font-medium mb-2">Financial Tips</div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">Understanding Tax Deductions for Small Businesses</h3>
+                <p className="text-gray-600 mb-4">Discover the tax benefits and deductions available for businesses investing in solar energy...</p>
+                <a href="#" className="text-green-600 font-semibold hover:text-green-700">Read More →</a>
+              </div>
+            </motion.article>
+
+            <motion.article
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
+            >
+              <div className="h-48 bg-yellow-100"></div>
+              <div className="p-6">
+                <div className="text-sm text-green-600 font-medium mb-2">Industry News</div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">The Future of Solar Energy in India</h3>
+                <p className="text-gray-600 mb-4">Explore the latest developments and future prospects of solar energy in the Indian market...</p>
+                <a href="#" className="text-green-600 font-semibold hover:text-green-700">Read More →</a>
+              </div>
+            </motion.article>
+          </div>
+        </div>
+      </section>
       
       {/* CTA Section */}
       <section className="py-16 bg-white">

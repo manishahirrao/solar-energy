@@ -5,7 +5,7 @@ import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import InquiryForm from '@/components/InquiryForm';
 import { motion } from 'framer-motion';
-import { Phone, Mail, MapPin, Send, Clock, Home, ArrowRight } from 'lucide-react';
+import { Phone, Mail, MapPin, Send, Clock, Home, ArrowRight, Sun, Battery, Zap, Trees } from 'lucide-react';
 
 export default function Contact() {
   const contactDetails = [
@@ -30,7 +30,7 @@ export default function Contact() {
     {
       icon: MapPin,
       title: 'Visit Us',
-      details: 'E-3/114, 2nd Floor, Anera Colony, Bhopal',
+      details: 'E-3/114, 2nd Floor, Arera Colony, Bhopal',
       description: 'Our office location'
     },
     {
@@ -44,7 +44,7 @@ export default function Contact() {
   const officeLocations = [
     {
       city: 'Bhopal Head Office',
-      address: 'E-3/114, 2nd Floor, Anera Colony, Bhopal, Madhya Pradesh 462022',
+      address: 'E-3/114, 2nd Floor, Arera Colony, Bhopal, Madhya Pradesh 462022',
       phone: '+91 8959890113',
       email: 'sales.procura@gmail.com',
       coordinates: '23.2599° N, 77.4128° E',
@@ -60,7 +60,7 @@ export default function Contact() {
     },
     {
       city: 'Alternate Contact',
-      address: 'E-3/114, 2nd Floor, Anera Colony, Bhopal, Madhya Pradesh 462022',
+      address: 'E-3/114, 2nd Floor, Arera Colony, Bhopal, Madhya Pradesh 462022',
       phone: '+91 7415550210',
       email: 'sales.procura@gmail.com',
       coordinates: '23.2599° N, 77.4128° E',
@@ -148,7 +148,68 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* Contact Form & Map Section */}
+      {/* Services Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              Best Offer for <span className="text-green-600">Renewable Energy</span>
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              At Mentary, we believe in the power of renewable energy to create a more sustainable future. With a passion for clean energy and a commitment to our customers, we are dedicated to delivering the best possible solutions.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              {
+                icon: Sun,
+                title: 'Solar Energy',
+                description: 'Aenean mattis mauris turpis, quis porta magna aliquam.'
+              },
+              {
+                icon: Battery,
+                title: 'Hybrid Energy',
+                description: 'Aenean mattis mauris turpis, quis porta magna aliquam.'
+              },
+              {
+                icon: Zap,
+                title: 'Wind Energy',
+                description: 'Aenean mattis mauris turpis, quis porta magna aliquam.'
+              },
+              {
+                icon: Trees,
+                title: 'Renewable Energy',
+                description: 'Aenean mattis mauris turpis, quis porta magna aliquam.'
+              }
+            ].map((service, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: index * 0.1 }}
+                className="text-center"
+              >
+                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <service.icon className="w-8 h-8 text-green-600" />
+                </div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">{service.title}</h3>
+                <p className="text-gray-600 mb-4">{service.description}</p>
+                <button className="text-green-600 font-semibold hover:text-green-700 transition-colors">
+                  Learn More
+                </button>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">

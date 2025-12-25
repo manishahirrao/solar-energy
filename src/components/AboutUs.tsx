@@ -30,7 +30,7 @@ const AboutUs = () => {
   ];
 
   return (
-    <section className="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-purple-50 via-white to-indigo-50 relative overflow-hidden">
+    <section className="py-16 sm:py-20 lg:py-24 bg-white relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-10 w-32 h-32 bg-purple-100 rounded-full blur-3xl opacity-30" />

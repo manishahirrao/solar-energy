@@ -9,38 +9,32 @@ const Services = () => {
   const services = [
     {
       icon: Sun,
-      title: 'Solar Energy',
-      description: 'Harness the power of the sun with our cutting-edge solar panel technology and installation services.',
+      title: 'Solar Panel Installation',
+      description: 'Professional installation of high-quality solar panels for residential and commercial properties.',
       image: '/solar-energy-service.webp'
     },
     {
       icon: Battery,
-      title: 'Hybrid Energy',
-      description: 'Combine solar with battery storage for maximum energy independence and reliability.',
+      title: 'Solar Battery Storage',
+      description: 'Store excess solar energy with advanced battery systems for 24/7 power availability.',
       image: '/solar-storage-services.webp'
     },
     {
-      icon: Trees,
-      title: 'Solar Consulting',
-      description: 'Expert consultation services to help you make informed decisions about solar energy solutions.',
+      icon: Zap,
+      title: 'Solar Maintenance',
+      description: 'Comprehensive maintenance and cleaning services to keep your solar system operating at peak efficiency.',
       image: '/solar-consulting-service.webp'
     },
     {
       icon: Wrench,
-      title: 'Solar Maintenance',
-      description: 'Professional maintenance services to keep your solar system operating at peak efficiency.',
+      title: 'Solar System Design',
+      description: 'Custom solar system design and consultation to maximize your energy savings and ROI.',
       image: '/Solar Maintenance Service.jpg'
-    },
-    {
-      icon: Zap,
-      title: 'Energy Storage',
-      description: 'Advanced energy storage solutions for reliable power backup and grid independence.',
-      image: '/solar-storage-services.webp'
     }
   ];
 
   return (
-    <section className="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-gray-50 via-white to-green-50 relative overflow-hidden">
+    <section className="py-16 sm:py-20 lg:py-24 bg-white relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-10 w-32 h-32 bg-green-100 rounded-full blur-3xl opacity-30" />
@@ -64,12 +58,12 @@ const Services = () => {
             transition={{ duration: 0.6 }}
             whileHover={{ scale: 1.02 }}
           >
-            <span className="bg-gradient-to-r from-gray-900 via-green-800 to-gray-900 bg-clip-text text-transparent">
-              Comprehensive
+            <span className="text-gray-900">
+              We are the best of
             </span>
             <br />
-            <span className="bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
-              Solar Solutions
+            <span className="text-green-600">
+              Renewable Energy
             </span>
           </motion.h2>
           <motion.p 
@@ -97,7 +91,7 @@ const Services = () => {
             >
               <div className="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden h-full border border-gray-100">
                 {/* Image Section */}
-                <div className="relative h-48 sm:h-56 md:h-64 overflow-hidden bg-gradient-to-br from-green-50 to-emerald-50">
+                <div className="relative h-48 sm:h-56 md:h-64 overflow-hidden bg-green-50">
                   <img
                     src={service.image}
                     alt={service.title}
@@ -110,7 +104,7 @@ const Services = () => {
                       console.log('Image loaded successfully:', service.image);
                     }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-br from-green-600/10 via-emerald-600/10 to-green-700/10" />
+                  <div className="absolute inset-0 bg-green-600/5" />
                   <motion.div
                     initial={{ opacity: 0, scale: 0.8 }}
                     whileInView={{ opacity: 1, scale: 1 }}

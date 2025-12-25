@@ -41,11 +41,11 @@ const Hero = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 sm:mb-6 leading-tight"
             >
-              <span className="bg-gradient-to-r from-white via-green-100 to-white bg-clip-text text-transparent">
+              <span className="text-white">
                 Empowering Your Future
               </span>
               <br />
-              <span className="bg-gradient-to-r from-green-300 to-yellow-300 bg-clip-text text-transparent">
+              <span className="text-white">
                 with Solar Energy
               </span>
             </motion.h1>
@@ -56,8 +56,8 @@ const Hero = () => {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-white/90 mb-8 sm:mb-12 leading-relaxed max-w-4xl mx-auto font-light"
             >
-              Transform your energy consumption with cutting-edge solar solutions. 
-              <span className="block text-green-200 font-medium mt-3">Save up to 70% on electricity bills while protecting our planet.</span>
+              A positive impact for your home and the planet
+              <span className="block text-green-200 font-medium mt-3">Save up to 90% on electricity bills while protecting our planet.</span>
             </motion.p>
 
             <motion.div
@@ -70,7 +70,7 @@ const Hero = () => {
                 <motion.button
                   whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(34, 197, 94, 0.4)" }}
                   whileTap={{ scale: 0.95 }}
-                  className="bg-gradient-to-r from-green-500 to-green-600 text-white px-6 sm:px-10 py-3 sm:py-5 rounded-full hover:from-green-600 hover:to-green-700 transition-all duration-300 font-bold text-base sm:text-lg flex items-center justify-center group shadow-2xl border border-green-400/20"
+                  className="bg-green-600 text-white px-6 sm:px-10 py-3 sm:py-5 rounded-full hover:bg-green-700 transition-all duration-300 font-bold text-base sm:text-lg flex items-center justify-center group shadow-2xl border border-green-400/20"
                 >
                   Get Quote
                   <ArrowRight className="w-6 h-6 ml-3 group-hover:translate-x-2 transition-transform" />
