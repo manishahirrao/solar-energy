@@ -62,9 +62,9 @@ export default function About() {
         {/* Background Image with enhanced effects */}
         <div className="absolute inset-0">
           <img
-            src="/about-hero.avif"
+            src="/Commercial Solar Farm.jpg"
             alt="About Procura Solar"
-            className="w-full h-full object-cover blur-sm"
+            className="w-full h-full object-cover blur-md"
           />
         </div>
         
@@ -82,11 +82,11 @@ export default function About() {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-8 sm:mb-10 leading-tight"
             >
-              <span className="bg-gradient-to-r from-white via-green-100 to-white bg-clip-text text-transparent">
+              <span className="text-black">
                 About
               </span>
               <br />
-              <span className="bg-gradient-to-r from-green-300 to-emerald-300 bg-clip-text text-transparent">
+              <span className="text-black">
                 Procura Solar
               </span>
             </motion.h1>
@@ -96,10 +96,9 @@ export default function About() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-white/90 mb-10 sm:mb-12 leading-relaxed max-w-4xl mx-auto font-light"
+              className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-black mb-10 sm:mb-12 leading-relaxed max-w-4xl mx-auto font-light"
             >
-              Pioneering excellence in renewable energy solutions, 
-              <span className="block text-green-200 font-medium mt-3">committed to transforming the way India powers its future through sustainable innovation.</span>
+              Pioneering excellence in renewable energy solutions, committed to transforming the way India powers its future through sustainable innovation.
             </motion.p>
 
             {/* CTA Buttons */}
@@ -123,7 +122,7 @@ export default function About() {
                 whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(255, 255, 255, 0.2)" }}
                 whileTap={{ scale: 0.95 }}
                 className="bg-white/10 backdrop-blur-md border-2 border-white/30 text-white px-6 sm:px-10 py-3 sm:py-5 rounded-full hover:bg-white/20 transition-all duration-300 font-bold text-base sm:text-lg flex items-center justify-center shadow-2xl"
-                onClick={() => window.location.href = '/gallery'}
+                onClick={() => window.location.href = '/project'}
               >
                 <Sun className="w-5 h-5 sm:w-6 sm:h-6 mr-3" />
                 Our Projects
@@ -507,7 +506,7 @@ export default function About() {
               <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Shield className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-xl font-semibold text-white mb-2">25 Year Warranty</h3>
+              <h3 className="text-xl font-semibold text-white mb-2">30 Year Warranty</h3>
               <p className="text-green-100">Long-term reliability and peace of mind</p>
             </motion.div>
           </div>

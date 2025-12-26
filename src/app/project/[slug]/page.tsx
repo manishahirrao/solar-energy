@@ -63,7 +63,7 @@ export default function ProjectDetails() {
       inverters: "Advanced string inverters with monitoring",
       mounting: "Custom-designed industrial mounting structures",
       monitoring: "IoT-enabled real-time monitoring system",
-      warranty: "25-year performance warranty on panels"
+      warranty: "30-year performance warranty on panels"
     },
     images: [
       "/api/placeholder/800/500",
@@ -154,7 +154,7 @@ export default function ProjectDetails() {
                         className="relative overflow-hidden rounded-xl"
                       >
                         <div className="w-full h-64 bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center">
-                          <div className="text-white text-opacity-50 font-semibold">
+                          <div className="text-white font-semibold">
                             Project Image {index + 1}
                           </div>
                         </div>

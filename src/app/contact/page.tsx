@@ -34,7 +34,13 @@ export default function Contact() {
       description: 'Our office location'
     },
     {
-      icon: Phone,
+      icon: () => (
+        <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+          <circle cx="12" cy="12" r="10" fill="currentColor"/>
+          <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01C17.18 3.04 14.69 2 12.04 2zm0 17.75c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.11.82.83-3.04-.2-.31c-.81-1.32-1.24-2.84-1.24-4.39 0-4.54 3.7-8.23 8.23-8.23 2.2 0 4.27.86 5.82 2.42 1.56 1.56 2.41 3.63 2.41 5.83 0 4.54-3.7 8.23-8.24 8.23z" fill="white"/>
+          <path d="M9.03 7.5c-.2-.45-.41-.45-.6-.45-.19 0-.41 0-.62 0s-.57.09-.87.41c-.3.32-1.15 1.12-1.15 2.73s1.18 3.16 1.34 3.38c.16.22 2.3 3.52 5.58 4.94.77.33 1.37.53 1.84.68.77.24 1.47.21 2.03.13.62-.09 1.9-.78 2.17-1.53.27-.75.27-1.39.19-1.53-.08-.14-.3-.22-.62-.38s-1.9-.94-2.2-1.05c-.3-.11-.52-.17-.74.17s-.83 1.05-1.02 1.27c-.19.22-.38.25-.7.09s-1.36-.5-2.59-1.6c-.96-.85-1.6-1.9-1.79-2.22-.19-.32-.02-.49.14-.65.14-.14.3-.37.45-.55s.22-.33.33-.55c.11-.22.05-.41-.03-.55s-.6-1.45-.82-1.98z" fill="white"/>
+        </svg>
+      ),
       title: 'WhatsApp',
       details: '+91 8959890113',
       description: 'Chat with us on WhatsApp'
@@ -97,12 +103,12 @@ export default function Contact() {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold mb-4 sm:mb-6 leading-tight"
             >
-              <span className="bg-gradient-to-r from-white via-green-100 to-white bg-clip-text text-transparent">
+              <span className="text-black">
                 Contact
               </span>
               <br />
-              <span className="bg-gradient-to-r from-green-300 to-emerald-300 bg-clip-text text-transparent">
-                Us
+              <span className="text-black">
+                Procura Solar
               </span>
             </motion.h1>
             
@@ -111,10 +117,9 @@ export default function Contact() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-white/90 mb-8 sm:mb-12 leading-relaxed max-w-4xl mx-auto font-light"
+              className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-black mb-8 sm:mb-12 leading-relaxed max-w-4xl mx-auto font-light"
             >
-              Get in touch with our solar experts for a free consultation
-              <span className="block text-teal-200 font-medium mt-3">Let's discuss how we can help you save money and protect the environment</span>
+              Get in touch with our solar experts for a free consultation - Let's discuss how we can help you save money and protect the environment
             </motion.p>
 
             {/* CTA Buttons */}

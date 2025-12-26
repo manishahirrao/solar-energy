@@ -68,7 +68,8 @@ const Header = () => {
                   { name: 'Home', href: '/' },
                   { name: 'About Us', href: '/about' },
                   { name: 'Services', href: '/service', hasDropdown: true },
-                  { name: 'Projects', href: '/gallery' },
+                  { name: 'Projects', href: '/project' },
+                  { name: 'Gallery', href: '/gallery' },
                   { name: 'Contact', href: '/contact' }
                 ].map((item, index) => (
                   <motion.li
@@ -234,7 +235,8 @@ const Header = () => {
                     { name: 'Home', href: '/', icon: null },
                     { name: 'About Us', href: '/about', icon: null },
                     { name: 'Services', href: '/service', icon: ChevronDown, hasDropdown: true },
-                    { name: 'Projects', href: '/gallery', icon: null },
+                    { name: 'Projects', href: '/project', icon: null },
+                    { name: 'Gallery', href: '/gallery', icon: null },
                     { name: 'Contact', href: '/contact', icon: null }
                   ].map((item, index) => (
                     <motion.li

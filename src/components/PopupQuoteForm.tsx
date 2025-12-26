@@ -112,10 +112,10 @@ export default function PopupQuoteForm() {
             className="relative bg-white rounded-3xl shadow-2xl max-w-lg w-full max-h-[100vh] overflow-hidden flex flex-col"
           >
             {/* Header */}
-            <div className="bg-gradient-to-r from-green-600 via-green-700 to-emerald-600 text-white p-3 sm:p-4 rounded-t-3xl relative flex-shrink-0">
+            <div className="bg-white text-gray-900 p-3 sm:p-4 rounded-t-3xl relative flex-shrink-0">
               <button
                 onClick={handleClose}
-                className="absolute top-4 right-4 text-white/80 hover:text-white transition-all hover:rotate-90 duration-300 z-10"
+                className="absolute top-4 right-4 text-gray-600 hover:text-gray-900 transition-all hover:rotate-90 duration-300 z-10"
               >
                 <X className="w-5 h-5 sm:w-6 sm:h-6" />
               </button>
@@ -130,13 +130,16 @@ export default function PopupQuoteForm() {
                   <img 
                     src="/procura logo.png" 
                     alt="Procura Solar"
-                    className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 object-contain"
+                    className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain"
                   />
                 </div>
-                <h3 className="text-lg sm:text-2xl font-bold mb-1 sm:mb-2">Get Your Free Quote</h3>
-                <p className="text-green-100 text-xs sm:text-sm">Save up to 90% on electricity bills</p>
+                <h3 className="text-lg sm:text-2xl font-bold mb-1 sm:mb-2 text-gray-900">Get Your Free Quote</h3>
+                <p className="text-black text-xs sm:text-sm">Save up to 90% on electricity bills</p>
               </motion.div>
             </div>
+
+            {/* Partition Divider */}
+            <div className="border-t border-gray-200"></div>
 
             {/* Form Content - Scrollable */}
             <div className="flex-1 p-3 sm:p-4">
@@ -198,7 +201,7 @@ export default function PopupQuoteForm() {
                         <img 
                           src="/procura logo.png" 
                           alt="Procura Solar"
-                          className="w-2 h-2 sm:w-3 sm:h-3 md:w-4 md:h-4 inline mr-1 object-contain"
+                          className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 inline mr-1 object-contain"
                         />
                         Service Type
                       </label>

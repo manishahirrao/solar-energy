@@ -165,7 +165,7 @@ export default function BlogDetails() {
               className="mb-12"
             >
               <div className="w-full h-96 bg-gradient-to-br from-green-400 to-green-600 rounded-xl flex items-center justify-center">
-                <div className="text-white text-opacity-50 text-xl font-semibold">
+                <div className="text-white text-xl font-semibold">
                   Featured Image
                 </div>
               </div>
@@ -260,7 +260,7 @@ export default function BlogDetails() {
                 className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow cursor-pointer"
               >
                 <div className="h-48 bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center">
-                  <div className="text-white text-opacity-50 font-semibold">
+                  <div className="text-white font-semibold">
                     Post Image
                   </div>
                 </div>

@@ -54,11 +54,11 @@ const AboutUs = () => {
             transition={{ duration: 0.6 }}
             whileHover={{ scale: 1.02 }}
           >
-            <span className="bg-gradient-to-r from-gray-900 via-green-800 to-gray-900 bg-clip-text text-transparent">
+            <span className="text-gray-900">
               About
             </span>
             <br />
-            <span className="bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
+            <span className="text-green-600">
               Procura Solar
             </span>
           </motion.h2>
@@ -201,7 +201,7 @@ const AboutUs = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 1 }}
         >
-          <h3 className="text-3xl sm:text-xl font-bold text-gray-900 mb-6 sm:mb-8 text-center font-serif">Why Choose Us</h3>
+          <h3 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-8 sm:mb-10 text-center text-gray-900">Why Choose Us</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
             {highlights.map((highlight, index) => (
               <motion.div

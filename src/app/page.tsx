@@ -98,7 +98,7 @@ export default function Home() {
                       <Shield className="w-6 h-6 text-blue-600" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-gray-900 mb-1">25 Year Warranty</h4>
+                      <h4 className="font-semibold text-gray-900 mb-1">30 Year Warranty</h4>
                       <p className="text-gray-600">Long-term performance guarantee with manufacturer warranty</p>
                     </div>
                   </div>
@@ -170,12 +170,17 @@ export default function Home() {
           >
             <h3 className="text-xl font-bold mb-4 text-gray-900">Ready to Join PM Surya Ghar Yojana?</h3>
             <button
-              className="bg-green-600 text-white px-6 py-2 rounded font-semibold hover:bg-green-700 transition-colors"
+              className="bg-green-600 text-white px-6 py-2 rounded font-semibold hover:bg-green-700 transition-colors flex items-center"
               onClick={() => {
                 // Navigate to WhatsApp
                 window.open('https://wa.me/918959890113', '_blank');
               }}
             >
+              <svg className="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="currentColor">
+                <circle cx="12" cy="12" r="10" fill="currentColor"/>
+                <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01C17.18 3.04 14.69 2 12.04 2zm0 17.75c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.11.82.83-3.04-.2-.31c-.81-1.32-1.24-2.84-1.24-4.39 0-4.54 3.7-8.23 8.23-8.23 2.2 0 4.27.86 5.82 2.42 1.56 1.56 2.41 3.63 2.41 5.83 0 4.54-3.7 8.23-8.24 8.23z" fill="white"/>
+                <path d="M9.03 7.5c-.2-.45-.41-.45-.6-.45-.19 0-.41 0-.62 0s-.57.09-.87.41c-.3.32-1.15 1.12-1.15 2.73s1.18 3.16 1.34 3.38c.16.22 2.3 3.52 5.58 4.94.77.33 1.37.53 1.84.68.77.24 1.47.21 2.03.13.62-.09 1.9-.78 2.17-1.53.27-.75.27-1.39.19-1.53-.08-.14-.3-.22-.62-.38s-1.9-.94-2.2-1.05c-.3-.11-.52-.17-.74.17s-.83 1.05-1.02 1.27c-.19.22-.38.25-.7.09s-1.36-.5-2.59-1.6c-.96-.85-1.6-1.9-1.79-2.22-.19-.32-.02-.49.14-.65.14-.14.3-.37.45-.55s.22-.33.33-.55c.11-.22.05-.41-.03-.55s-.6-1.45-.82-1.98z" fill="white"/>
+              </svg>
               Apply Now
             </button>
           </motion.div>
@@ -205,7 +210,7 @@ export default function Home() {
                 </button>
               </Link>
               
-              <Link href="/gallery">
+              <Link href="/project">
                 <button className="bg-white text-green-600 border-2 border-green-600 px-6 py-3 rounded-full hover:bg-green-50 transition-colors font-semibold">
                   Explore Projects
                 </button>

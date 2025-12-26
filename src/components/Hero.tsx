@@ -9,7 +9,7 @@ const Hero = () => {
     { icon: Sun, label: 'Solar Panels' },
     { icon: Battery, label: 'Energy Storage' },
     { icon: Trees, label: 'Eco Friendly' },
-    { icon: Wrench, label: '25 Year Warranty' }
+    { icon: Wrench, label: '30 Year Warranty' }
   ];
 
   return (
@@ -56,8 +56,7 @@ const Hero = () => {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-white/90 mb-10 sm:mb-12 leading-relaxed max-w-4xl mx-auto font-light"
             >
-              A positive impact for your home and the planet
-              <span className="block text-green-200 font-medium mt-3">Save up to 90% on electricity bills while protecting our planet.</span>
+              A positive impact for your home and the planet - Save up to 90% on electricity bills while protecting our planet.
             </motion.p>
 
             <motion.div
@@ -77,7 +76,7 @@ const Hero = () => {
                 </motion.button>
               </Link>
               
-              <Link href="/gallery">
+              <Link href="/project">
                 <motion.button
                   whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(255, 255, 255, 0.2)" }}
                   whileTap={{ scale: 0.95 }}

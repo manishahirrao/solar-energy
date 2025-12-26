@@ -46,7 +46,7 @@ const Projects = () => {
           className="text-center mb-16"
         >
           <motion.h2 
-            className="text-4xl md:text-5xl font-bold text-gray-900 mb-4"
+            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-8 sm:mb-10"
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}

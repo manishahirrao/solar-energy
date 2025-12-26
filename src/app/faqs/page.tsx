@@ -40,7 +40,7 @@ export default function FAQs() {
     },
     {
       question: "What maintenance do solar panels require?",
-      answer: "Solar panels require minimal maintenance. Regular cleaning to remove dust and debris, typically 2-4 times per year, is usually sufficient. We recommend annual professional inspections to check connections, inverters, and overall system performance. Most solar panels come with a 25-year performance warranty and require very little attention beyond basic cleaning. Our maintenance packages include regular inspections, cleaning, and performance optimization."
+      answer: "Solar panels require minimal maintenance. Regular cleaning to remove dust and debris, typically 2-4 times per year, is usually sufficient. We recommend annual professional inspections to check connections, inverters, and overall system performance. Most solar panels come with a 30-year performance warranty and require very little attention beyond basic cleaning. Our maintenance packages include regular inspections, cleaning, and performance optimization."
     },
     {
       question: "What government subsidies are available for solar installation?",

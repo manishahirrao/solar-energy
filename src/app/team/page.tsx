@@ -161,7 +161,7 @@ export default function Team() {
                   {/* Image */}
                   <div className="relative h-64 overflow-hidden">
                     <div className="w-full h-full bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center">
-                      <div className="text-white text-opacity-50 text-3xl font-bold">
+                      <div className="text-white text-3xl font-bold">
                         {member.name.split(' ').map(n => n[0]).join('')}
                       </div>
                     </div>

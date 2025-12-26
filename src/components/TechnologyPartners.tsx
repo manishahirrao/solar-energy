@@ -23,8 +23,8 @@ const TechnologyPartners = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 mb-6 sm:mb-8 leading-tight">
-            Technology <span className="text-green-600">Partners</span>
+          <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-8 sm:mb-10 leading-tight">
+            <span className="text-gray-900">Technology</span> <span className="text-green-600">Partners</span>
           </h2>
           <p className="text-lg sm:text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed font-light mb-8 sm:mb-12">
             Partnering with industry leaders to deliver cutting-edge solar solutions

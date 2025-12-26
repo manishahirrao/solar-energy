@@ -12,7 +12,7 @@ export default function Service() {
       icon: Sun,
       title: 'Solar Energy',
       description: 'Complete solar panel installation and maintenance services for residential and commercial properties.',
-      features: ['High-efficiency solar panels', '25-year warranty', 'Smart monitoring systems', 'Grid-tie and off-grid solutions'],
+      features: ['High-efficiency solar panels', '30-year warranty', 'Smart monitoring systems', 'Grid-tie and off-grid solutions'],
       image: '/solar-energy-service.webp',
       href: '/service/solar-energy'
     },
@@ -79,11 +79,11 @@ export default function Service() {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-8 sm:mb-10 leading-tight"
             >
-              <span className="bg-gradient-to-r from-white via-yellow-100 to-white bg-clip-text text-transparent">
-                Our
+              <span className="text-white">
+                Our Solar
               </span>
               <br />
-              <span className="bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent">
+              <span className="text-yellow-300">
                 Services
               </span>
             </motion.h1>

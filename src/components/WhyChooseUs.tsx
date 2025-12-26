@@ -157,7 +157,7 @@ const WhyChooseUs = () => {
                     className="text-gray-800 font-semibold text-lg"
                     whileHover={{ x: 5 }}
                   >
-                    {index === 0 && '25 Year Warranty'}
+                    {index === 0 && '30 Year Warranty'}
                     {index === 1 && 'Guaranteed Savings'}
                     {index === 2 && 'Expert Support'}
                   </motion.span>
