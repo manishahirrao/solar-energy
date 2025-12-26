@@ -77,7 +77,7 @@ export default function Contact() {
         {/* Background Image with enhanced effects */}
         <div className="absolute inset-0">
           <img
-            src="/solar-energy-service.webp"
+            src="/Rooftop Solar Installation.jpeg"
             alt="Contact Procura Solar"
             className="w-full h-full object-cover"
           />

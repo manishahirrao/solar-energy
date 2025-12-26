@@ -105,7 +105,7 @@ const Footer = () => {
                 whileHover={{ x: 5 }}
               >
                 <MapPin className="w-4 h-4 mr-2" />
-                <span className="text-xs sm:text-sm">E-3/114, 2nd Floor, Anera Colony, Bhopal</span>
+                <span className="text-xs sm:text-sm">E-3/114, 2nd Floor, Arera Colony, Bhopal</span>
               </motion.div>
               <motion.div
                 className="flex items-center text-gray-300 hover:text-white transition-colors"

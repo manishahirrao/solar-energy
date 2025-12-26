@@ -6,36 +6,36 @@ import { MapPin, Zap, Users } from 'lucide-react';
 const OurProjects = () => {
   const projects = [
     {
-      title: 'adani plant - gujarat',
-      location: 'Gujarat',
-      capacity: 'power plant',
-      clients: 'Commercial',
-      description: 'Successfully commissioned a 10MW commercial solar power plant for Adani Enterprises in Gujarat. This flagship project features state-of-the-art monocrystalline solar panels with 22% efficiency, advanced tracking systems, and smart grid integration. The plant generates approximately 16,000 MWh annually, offsetting 12,000 metric tons of CO2 emissions and powering over 2,500 commercial establishments.',
-      image: '/adani-plant-gujarat.jpg'
+      title: 'Rooftop Solar Installation',
+      location: 'Bhopal',
+      capacity: '5kW',
+      clients: 'Residential',
+      description: 'Successfully completed a 5kW residential rooftop solar installation with advanced lithium-ion battery backup system. This project features high-efficiency monocrystalline panels, smart inverter technology, and real-time monitoring via mobile app. The system generates approximately 7,500 kWh annually, reducing household electricity costs by 85% and carbon footprint by 4.5 metric tons per year.',
+      image: '/Rooftop Solar Installation.jpeg'
     },
     {
-      title: 'goldi plant - gujarat',
-      location: 'Gujarat', 
-      capacity: 'solar plant',
+      title: 'Commercial Solar Farm',
+      location: 'Mandideep',
+      capacity: '50MW',
+      clients: 'Commercial',
+      description: 'Developed a 50MW commercial solar power plant with cutting-edge dual-axis tracking technology and AI-powered predictive maintenance systems. This flagship project spans 250 acres, incorporates 150,000 bifacial solar panels, and includes a 10MWh energy storage system. Generates 85,000 MWh annually, powering 15,000+ commercial establishments.',
+      image: '/Commercial Solar Farm.jpg'
+    },
+    {
+      title: 'Industrial Solar Plant',
+      location: 'Bhopal',
+      capacity: '25MW',
       clients: 'Industrial',
-      description: 'Designed and implemented a cutting-edge 5MW industrial solar facility for Goldi Solar Manufacturing Unit. This project incorporates bifacial solar panels, AI-powered monitoring systems, and automated cleaning mechanisms. The installation achieved grid parity within 18 months and delivers consistent power for 24/7 industrial operations with 98% uptime.',
-      image: '/goldi-plant-gujarat.jpg'
+      description: 'Designed and implemented a comprehensive 25MW industrial solar facility with advanced energy management and grid integration systems. Features state-of-the-art solar panels, automated monitoring, and backup power systems for continuous operations.',
+      image: '/Industrial Solar Setup.jpg'
     },
     {
-      title: 'adani plant - gujarat',
-      location: 'Gujarat',
-      capacity: 'mega plant', 
-      clients: 'Commercial',
-      description: 'Led the development of a 50MW mega solar power plant featuring advanced energy storage solutions and predictive maintenance systems. This project spans 200 acres with over 150,000 high-efficiency solar panels, includes a 10MWh battery storage system, and supplies clean energy to multiple industrial zones through a dedicated transmission infrastructure.',
-      image: '/tata-plant-gujarat.jpg'
-    },
-    {
-      title: 'tata plant - gujarat',
-      location: 'Gujarat',
-      capacity: 'power plant',
+      title: 'Government Solar Initiative',
+      location: 'Bhopal',
+      capacity: '10MW',
       clients: 'Government',
-      description: 'Executed a prestigious government-backed 25MW solar initiative under the National Solar Mission. This project serves rural electrification programs across 150 villages, includes community solar pumps for agriculture, and features a hybrid solar-wind configuration. Successfully completed 3 months ahead of schedule with zero safety incidents.',
-      image: '/solar-park-rajasthan.jpg'
+      description: 'Executed a prestigious government-backed solar initiative under the National Solar Mission. This project serves rural electrification programs across 150 villages and includes community solar pumps for agricultural applications.',
+      image: '/Industrial Solar Setup.jpg'
     }
   ];
 
@@ -103,35 +103,8 @@ const OurProjects = () => {
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                     onError={(e) => {
                       e.currentTarget.style.display = 'none';
-                      if (e.currentTarget.parentElement) {
-                        e.currentTarget.parentElement.className = 'relative h-48 sm:h-56 overflow-hidden bg-gradient-to-br from-green-400 to-emerald-600';
-                      }
                     }}
                   />
-                  <div className="absolute inset-0 bg-black/60" />
-                  
-                  {/* Overlay Content */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileHover={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.3 }}
-                    className="absolute inset-0 bg-black/70 flex flex-col justify-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  >
-                    <div className="space-y-2">
-                      <div className="flex items-center text-white text-sm">
-                        <MapPin className="w-4 h-4 mr-1" />
-                        {project.location}
-                      </div>
-                      <div className="flex items-center text-white text-sm">
-                        <Zap className="w-4 h-4 mr-1" />
-                        {project.capacity}
-                      </div>
-                      <div className="flex items-center text-white text-sm">
-                        <Users className="w-4 h-4 mr-1" />
-                        {project.clients}
-                      </div>
-                    </div>
-                  </motion.div>
                 </div>
 
                 {/* Content Section */}

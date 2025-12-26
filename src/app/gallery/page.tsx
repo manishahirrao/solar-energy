@@ -148,7 +148,7 @@ export default function Gallery() {
         {/* Background Image with enhanced effects */}
         <div className="absolute inset-0">
           <img
-            src="/solar-energy-service.webp"
+            src="/Commercial Solar Farm.jpg"
             alt="Gallery Hero"
             className="w-full h-full object-cover"
           />

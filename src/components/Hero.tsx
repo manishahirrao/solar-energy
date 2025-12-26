@@ -42,7 +42,7 @@ const Hero = () => {
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 sm:mb-6 leading-tight"
             >
               <span className="text-white">
-                Empowering Your Future
+                Empowering your future
               </span>
               <br />
               <span className="text-white">

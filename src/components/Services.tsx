@@ -9,27 +9,33 @@ const Services = () => {
   const services = [
     {
       icon: Sun,
-      title: 'Solar Panel Installation',
-      description: 'Professional installation of high-quality solar panels for residential and commercial properties.',
-      image: '/solar-energy-service.webp'
+      title: 'Solar Energy',
+      description: 'Complete solar panel installation and maintenance services for residential and commercial properties.',
+      image: '/Rooftop Solar Installation.jpeg'
     },
     {
       icon: Battery,
-      title: 'Solar Battery Storage',
-      description: 'Store excess solar energy with advanced battery systems for 24/7 power availability.',
-      image: '/solar-storage-services.webp'
+      title: 'Hybrid Energy',
+      description: 'Integrated solar and battery storage systems for maximum energy independence and reliability.',
+      image: '/Commercial Solar Farm.jpg'
+    },
+    {
+      icon: Home,
+      title: 'Energy Storage',
+      description: 'Advanced battery storage solutions for solar energy independence and grid stability.',
+      image: '/Industrial Solar Setup.jpg'
     },
     {
       icon: Zap,
       title: 'Solar Maintenance',
       description: 'Comprehensive maintenance and cleaning services to keep your solar system operating at peak efficiency.',
-      image: '/solar-consulting-service.webp'
+      image: '/Solar Maintenance Service.jpg'
     },
     {
-      icon: Wrench,
-      title: 'Solar System Design',
-      description: 'Custom solar system design and consultation to maximize your energy savings and ROI.',
-      image: '/Solar Maintenance Service.jpg'
+      icon: Trees,
+      title: 'Solar Consulting',
+      description: 'Expert consulting services to help you choose the best solar energy solutions.',
+      image: '/School Solar Installation.avif'
     }
   ];
 

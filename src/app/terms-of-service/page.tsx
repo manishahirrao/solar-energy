@@ -256,7 +256,7 @@ export default function TermsOfService() {
                   <p>For questions about these Terms of Service, please contact us:</p>
                   <p>
                     <strong>Procura Solar</strong><br />
-                    E-3/114, 2nd Floor, Anera Colony, Bhopal<br />
+                    E-3/114, 2nd Floor, Arera Colony, Bhopal<br />
                     Email: sales.procura@gmail.com<br />
                     Phone: +91 8959890113, +91 7415550210<br />
                     Website: www.procurasolar.com<br />
