@@ -172,23 +172,7 @@ const Header = () => {
             </motion.div>
 
             {/* Mobile menu button */}
-            <div className="md:hidden flex items-center space-x-3">
-              {/* Mobile CTA Button */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.3, delay: 0.2 }}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Link 
-                  href="tel:+918959890113" 
-                  className="bg-green-600 text-white p-2 rounded-full hover:bg-green-700 transition-colors shadow-lg"
-                >
-                  <Phone className="w-4 h-4" />
-                </Link>
-              </motion.div>
-              
+            <div className="md:hidden">
               {/* Menu Toggle Button */}
               <motion.button
                 onClick={toggleMenu}

@@ -374,7 +374,7 @@ export default function Gallery() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-8 sm:mb-10">Project Statistics</h2>
+            <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-8 sm:mb-10 text-black">Project Statistics</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Our diverse portfolio across different sectors and regions
             </p>

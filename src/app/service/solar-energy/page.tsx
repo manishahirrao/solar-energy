@@ -96,7 +96,7 @@ export default function SolarEnergyService() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-8 sm:mb-10">
+              <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-8 sm:mb-10 text-black">
                 Complete Solar Energy Solutions
               </h2>
               <p className="text-xl md:text-2xl text-gray-600 mb-6 leading-relaxed">
