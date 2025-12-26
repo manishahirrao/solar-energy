@@ -150,7 +150,7 @@ export default function Gallery() {
           <img
             src="/Commercial Solar Farm.jpg"
             alt="Gallery Hero"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover blur-sm"
           />
         </div>
         
@@ -173,7 +173,7 @@ export default function Gallery() {
               </span>
               <br />
               <span className="bg-gradient-to-r from-green-300 to-emerald-300 bg-clip-text text-transparent">
-                Gallery
+                Projects
               </span>
             </motion.h1>
             
@@ -184,8 +184,8 @@ export default function Gallery() {
               transition={{ duration: 0.8, delay: 0.6 }}
               className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-white/90 mb-8 sm:mb-12 leading-relaxed max-w-4xl mx-auto font-light"
             >
-              Explore our portfolio of successful solar installations and renewable energy projects
-              <span className="block text-green-200 font-medium mt-3">Transforming homes and businesses with sustainable energy solutions</span>
+              Explore our portfolio of successful solar energy projects and renewable energy installations
+              <span className="block text-green-200 font-medium mt-3">Delivering innovative solar solutions for homes, businesses, and industries</span>
             </motion.p>
 
             {/* CTA Buttons */}
@@ -375,7 +375,7 @@ export default function Gallery() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Gallery Statistics</h2>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Project Statistics</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Our diverse portfolio across different sectors and regions
             </p>

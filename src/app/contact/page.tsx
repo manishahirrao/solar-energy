@@ -24,13 +24,13 @@ export default function Contact() {
     {
       icon: Mail,
       title: 'Email Us',
-      details: 'sales.procura@gmail.com',
+      details: 'sale.procura@gmail.com',
       description: 'Get in touch via email'
     },
     {
       icon: MapPin,
       title: 'Visit Us',
-      details: 'E-3/114, 2nd Floor, Arera Colony, Bhopal',
+      details: 'E-3/114, 2nd Floor, 10 No. Market, Arera Colony, Bhopal',
       description: 'Our office location'
     },
     {
@@ -44,9 +44,9 @@ export default function Contact() {
   const officeLocations = [
     {
       city: 'Bhopal Head Office',
-      address: 'E-3/114, 2nd Floor, Arera Colony, Bhopal, Madhya Pradesh 462022',
+      address: 'E-3/114, 2nd Floor, 10 No. Market, Arera Colony, Bhopal, Madhya Pradesh 462022',
       phone: '+91 8959890113',
-      email: 'sales.procura@gmail.com',
+      email: 'sale.procura@gmail.com',
       coordinates: '23.2599° N, 77.4128° E',
       services: 'All solar solutions, consultation, installation, maintenance'
     },
@@ -54,15 +54,15 @@ export default function Contact() {
       city: 'WhatsApp Support',
       address: 'Available 24/7 for instant support and queries',
       phone: '+91 8959890113',
-      email: 'sales.procura@gmail.com',
+      email: 'sale.procura@gmail.com',
       coordinates: 'Online Support',
       services: 'Quick quotes, emergency support, general inquiries'
     },
     {
       city: 'Alternate Contact',
-      address: 'E-3/114, 2nd Floor, Arera Colony, Bhopal, Madhya Pradesh 462022',
+      address: 'E-3/114, 2nd Floor, 10 No. Market, Arera Colony, Bhopal, Madhya Pradesh 462022',
       phone: '+91 7415550210',
-      email: 'sales.procura@gmail.com',
+      email: 'sale.procura@gmail.com',
       coordinates: '23.2599° N, 77.4128° E',
       services: 'Backup contact, technical support, service requests'
     }
@@ -79,7 +79,7 @@ export default function Contact() {
           <img
             src="/Rooftop Solar Installation.jpeg"
             alt="Contact Procura Solar"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover blur-sm"
           />
         </div>
         
@@ -95,7 +95,7 @@ export default function Contact() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-4 sm:mb-6 leading-tight"
+              className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold mb-4 sm:mb-6 leading-tight"
             >
               <span className="bg-gradient-to-r from-white via-green-100 to-white bg-clip-text text-transparent">
                 Contact
@@ -111,7 +111,7 @@ export default function Contact() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-white/90 mb-8 sm:mb-12 leading-relaxed max-w-4xl mx-auto font-light"
+              className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-white/90 mb-8 sm:mb-12 leading-relaxed max-w-4xl mx-auto font-light"
             >
               Get in touch with our solar experts for a free consultation
               <span className="block text-teal-200 font-medium mt-3">Let's discuss how we can help you save money and protect the environment</span>
@@ -158,11 +158,11 @@ export default function Contact() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-8">
               Best Offer for <span className="text-green-600">Renewable Energy</span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              At Mentary, we believe in the power of renewable energy to create a more sustainable future. With a passion for clean energy and a commitment to our customers, we are dedicated to delivering the best possible solutions.
+            <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto">
+              At Procura, we believe in the power of renewable energy to create a more sustainable future. With a passion for clean energy and a commitment to our customers, we are dedicated to delivering the best possible solutions.
             </p>
           </motion.div>
 
@@ -261,7 +261,7 @@ export default function Contact() {
 
               {/* Office Hours */}
               <div className="bg-white rounded-xl shadow-lg p-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Office Hours</h3>
+                <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">Office Hours</h3>
                 <div className="space-y-3">
                   <div className="flex justify-between items-center">
                     <span className="text-gray-600">Monday - Friday</span>
@@ -299,8 +299,8 @@ export default function Contact() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Office Locations</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-8">Our Office Locations</h2>
+            <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto">
               Visit us at any of our conveniently located offices across India
             </p>
           </motion.div>
@@ -319,7 +319,7 @@ export default function Contact() {
                 <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mb-4">
                   <Home className="w-6 h-6 text-green-600" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-4">{office.city}</h3>
+                <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">{office.city}</h3>
                 <div className="space-y-4">
                   <div className="flex items-start">
                     <MapPin className="w-5 h-5 text-green-600 mr-3 mt-1 flex-shrink-0" />

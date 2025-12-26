@@ -70,8 +70,8 @@ export default function FAQs() {
             transition={{ duration: 0.8 }}
             className="text-center text-white"
           >
-            <h1 className="text-5xl md:text-6xl font-bold mb-4">Frequently Asked Questions</h1>
-            <p className="text-xl max-w-3xl mx-auto">
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-8 sm:mb-10">Frequently Asked Questions</h1>
+            <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl max-w-3xl mx-auto">
               Find answers to common questions about solar energy and our services
             </p>
           </motion.div>
@@ -96,7 +96,7 @@ export default function FAQs() {
                   className="w-full text-left p-6 bg-gray-50 hover:bg-gray-100 rounded-xl transition-colors focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-opacity-50"
                 >
                   <div className="flex justify-between items-center">
-                    <h3 className="text-lg font-semibold text-gray-900 pr-8">
+                    <h3 className="text-2xl md:text-3xl lg:text-4xl font-semibold text-gray-900 pr-8">
                       {index + 1}. {faq.question}
                     </h3>
                     <div className="flex-shrink-0">
@@ -138,7 +138,7 @@ export default function FAQs() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Still Have Questions?</h2>
+            <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-gray-900 mb-8 sm:mb-10">Still Have Questions?</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Our solar energy experts are here to help you with any queries
             </p>
@@ -213,7 +213,7 @@ export default function FAQs() {
             transition={{ duration: 0.8 }}
             className="bg-gradient-to-r from-green-600 to-green-700 rounded-2xl p-12 text-center text-white"
           >
-            <h2 className="text-4xl font-bold mb-4">Request a Free Consultation</h2>
+            <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-8 sm:mb-10">Request a Free Consultation</h2>
             <p className="text-xl mb-8 max-w-2xl mx-auto">
               Get personalized advice and quotes from our solar energy experts
             </p>

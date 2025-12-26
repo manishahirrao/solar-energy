@@ -18,7 +18,7 @@ export default function HybridEnergy() {
           <img
             src="/solar-storage-services.webp"
             alt="Hybrid Energy System"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover blur-sm"
           />
                   </div>
         
@@ -38,8 +38,8 @@ export default function HybridEnergy() {
             >
               <Battery className="w-10 h-10 text-white" />
             </motion.div>
-            <h1 className="text-5xl md:text-6xl font-bold mb-4">Hybrid Energy Solutions</h1>
-            <p className="text-xl max-w-3xl mx-auto leading-relaxed">
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-8 sm:mb-10">Hybrid Energy Solutions</h1>
+            <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl max-w-3xl mx-auto leading-relaxed">
               Combine solar power with advanced battery storage for maximum energy independence and reliability.
             </p>
           </motion.div>
@@ -56,8 +56,8 @@ export default function HybridEnergy() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-4xl font-bold text-gray-900 mb-6">What is Hybrid Energy?</h2>
-              <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+              <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-gray-900 mb-8 sm:mb-10">What is Hybrid Energy?</h2>
+              <p className="text-xl md:text-2xl text-gray-600 mb-6 leading-relaxed">
                 Hybrid energy systems combine solar panels with battery storage to provide continuous power 
                 supply, day and night. These intelligent systems store excess solar energy during the day 
                 and use it when needed, ensuring you never run out of power.
@@ -128,8 +128,8 @@ export default function HybridEnergy() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Key Benefits</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-gray-900 mb-8 sm:mb-10">Key Benefits</h2>
+            <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto">
               Why choose hybrid energy solutions for your home or business
             </p>
           </motion.div>
@@ -178,7 +178,7 @@ export default function HybridEnergy() {
                 <div className="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center mb-4">
                   <benefit.icon className="w-7 h-7 text-green-600" />
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">{benefit.title}</h3>
+                <h3 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-4">{benefit.title}</h3>
                 <p className="text-gray-600 leading-relaxed">{benefit.description}</p>
               </motion.div>
             ))}
@@ -196,8 +196,8 @@ export default function HybridEnergy() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">How It Works</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-gray-900 mb-8 sm:mb-10">How It Works</h2>
+            <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto">
               Simple and efficient process for hybrid energy system installation
             </p>
           </motion.div>
@@ -254,8 +254,8 @@ export default function HybridEnergy() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Advanced Features</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-gray-900 mb-8 sm:mb-10">Advanced Features</h2>
+            <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto">
               Cutting-edge technology for optimal hybrid energy performance
             </p>
           </motion.div>
@@ -268,7 +268,7 @@ export default function HybridEnergy() {
               transition={{ duration: 0.8 }}
               className="bg-white rounded-xl shadow-lg p-8"
             >
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Smart Inverter Technology</h3>
+              <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Smart Inverter Technology</h3>
               <ul className="space-y-3 text-gray-600">
                 <li className="flex items-center">
                   <CheckCircle className="w-5 h-5 text-green-600 mr-3" />
@@ -296,7 +296,7 @@ export default function HybridEnergy() {
               transition={{ duration: 0.8 }}
               className="bg-white rounded-xl shadow-lg p-8"
             >
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Battery Storage System</h3>
+              <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Battery Storage System</h3>
               <ul className="space-y-3 text-gray-600">
                 <li className="flex items-center">
                   <CheckCircle className="w-5 h-5 text-green-600 mr-3" />
@@ -330,10 +330,10 @@ export default function HybridEnergy() {
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <h2 className="text-4xl font-bold mb-4">
+            <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-8 sm:mb-10">
               Ready for Energy Independence?
             </h2>
-            <p className="text-xl mb-8 max-w-2xl mx-auto">
+            <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">
               Get a customized hybrid energy solution tailored to your specific needs and start saving on electricity bills today.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

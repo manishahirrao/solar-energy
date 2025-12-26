@@ -49,7 +49,7 @@ export default function SolarEnergyService() {
           <img
             src="/solar-energy-service.webp"
             alt="Solar Energy Service"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover blur-sm"
           />
         </div>
         
@@ -62,7 +62,7 @@ export default function SolarEnergyService() {
             className="text-center text-white"
           >
             <motion.h1 
-              className="text-4xl md:text-5xl font-bold mb-4"
+              className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-8 sm:mb-10"
               whileHover={{ scale: 1.05 }}
             >
               <motion.span
@@ -74,7 +74,7 @@ export default function SolarEnergyService() {
               </motion.span>
             </motion.h1>
             <motion.p 
-              className="text-lg max-w-3xl mx-auto leading-relaxed"
+              className="text-lg sm:text-xl md:text-2xl lg:text-3xl max-w-3xl mx-auto leading-relaxed"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -96,13 +96,13 @@ export default function SolarEnergyService() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-4xl font-bold text-gray-900 mb-6">
+              <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-8 sm:mb-10">
                 Complete Solar Energy Solutions
               </h2>
-              <p className="text-gray-600 mb-6 leading-relaxed">
+              <p className="text-xl md:text-2xl text-gray-600 mb-6 leading-relaxed">
                 Our solar energy solutions are designed to provide clean, renewable power for homes and businesses. We use only the highest quality solar panels and equipment to ensure maximum efficiency and longevity.
               </p>
-              <p className="text-gray-600 mb-6 leading-relaxed">
+              <p className="text-xl md:text-2xl text-gray-600 mb-6 leading-relaxed">
                 Whether you're looking to reduce your carbon footprint, save on electricity bills, or achieve energy independence, our solar solutions are tailored to meet your specific needs.
               </p>
               
@@ -160,8 +160,8 @@ export default function SolarEnergyService() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Installation Process</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-gray-900 mb-8 sm:mb-10">Our Installation Process</h2>
+            <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto">
               From consultation to commissioning, we make solar installation simple and hassle-free
             </p>
           </motion.div>
@@ -179,7 +179,7 @@ export default function SolarEnergyService() {
                 <div className="w-16 h-16 bg-green-600 text-white rounded-full flex items-center justify-center mx-auto mb-6 text-2xl font-bold">
                   {item.step}
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">{item.title}</h3>
+                <h3 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-6">{item.title}</h3>
                 <p className="text-gray-600 leading-relaxed">{item.description}</p>
               </motion.div>
             ))}
@@ -197,8 +197,8 @@ export default function SolarEnergyService() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Why Choose Our Solar Solutions?</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-gray-900 mb-8 sm:mb-10">Why Choose Our Solar Solutions?</h2>
+            <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto">
               Industry-leading features and benefits that set us apart
             </p>
           </motion.div>
@@ -233,7 +233,7 @@ export default function SolarEnergyService() {
                 />
               </div>
               <div className="p-6 bg-white">
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">High-Efficiency Panels</h3>
+                <h3 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-6">High-Efficiency Panels</h3>
                 <p className="text-gray-600 leading-relaxed">
                   We use premium solar panels with efficiency ratings above 22%, ensuring maximum power generation from limited roof space.
                 </p>
@@ -269,7 +269,7 @@ export default function SolarEnergyService() {
                 />
               </div>
               <div className="p-6 bg-white">
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">Smart Monitoring</h3>
+                <h3 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-6">Smart Monitoring</h3>
                 <p className="text-gray-600 leading-relaxed">
                   Real-time monitoring system allows you to track energy production and consumption through our mobile app.
                 </p>
@@ -305,7 +305,7 @@ export default function SolarEnergyService() {
                 />
               </div>
               <div className="p-6 bg-white">
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">Expert Installation</h3>
+                <h3 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-6">Expert Installation</h3>
                 <p className="text-gray-600 leading-relaxed">
                   Our certified technicians ensure professional installation following all safety standards and regulations.
                 </p>
@@ -325,8 +325,8 @@ export default function SolarEnergyService() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Solar Projects</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-gray-900 mb-8 sm:mb-10">Our Solar Projects</h2>
+            <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto">
               Explore our successful solar energy installations across different sectors
             </p>
           </motion.div>
@@ -430,8 +430,8 @@ export default function SolarEnergyService() {
             transition={{ duration: 0.8 }}
             className="text-center text-white"
           >
-            <h2 className="text-4xl font-bold mb-4">Ready to Go Solar?</h2>
-            <p className="text-xl mb-8 max-w-2xl mx-auto">
+            <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-8 sm:mb-10">Ready to Go Solar?</h2>
+            <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">
               Contact us today for a free consultation and quote for your solar energy needs
             </p>
             

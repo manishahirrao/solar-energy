@@ -98,7 +98,7 @@ export default function InquiryForm() {
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
-      className="bg-white rounded-2xl shadow-xl p-6 md:p-8"
+      className="p-6 md:p-8"
     >
       <div className="mb-6 md:mb-8">
         <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Get Your Free Quote</h2>

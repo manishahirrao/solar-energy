@@ -136,8 +136,8 @@ export default function Team() {
             >
               <Users className="w-10 h-10 text-white" />
             </motion.div>
-            <h1 className="text-5xl md:text-6xl font-bold mb-4">Our Team</h1>
-            <p className="text-xl max-w-3xl mx-auto leading-relaxed">
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-8 sm:mb-10">Our Team</h1>
+            <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl max-w-3xl mx-auto leading-relaxed">
               Meet the passionate experts driving India's renewable energy revolution
             </p>
           </motion.div>
@@ -193,7 +193,7 @@ export default function Team() {
 
                   {/* Content */}
                   <div className="p-6">
-                    <h3 className="text-xl font-bold text-gray-900 mb-1">{member.name}</h3>
+                    <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">{member.name}</h3>
                     <p className="text-green-600 font-medium mb-3">{member.position}</p>
                     <p className="text-gray-600 text-sm leading-relaxed mb-4">{member.bio}</p>
                     
@@ -228,8 +228,8 @@ export default function Team() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Team Strength</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-gray-900 mb-8 sm:mb-10">Our Team Strength</h2>
+            <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto">
               The numbers that showcase our expertise and dedication
             </p>
           </motion.div>
@@ -242,7 +242,7 @@ export default function Team() {
               transition={{ duration: 0.8, delay: 0.1 }}
               className="text-center"
             >
-              <div className="text-5xl font-bold text-green-600 mb-2">50+</div>
+              <div className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-green-600 mb-4">50+</div>
               <div className="text-gray-600">Team Members</div>
             </motion.div>
 
@@ -253,7 +253,7 @@ export default function Team() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-center"
             >
-              <div className="text-5xl font-bold text-green-600 mb-2">15+</div>
+              <div className="text-6xl md:text-7xl lg:text-8xl font-bold text-green-600 mb-4">15+</div>
               <div className="text-gray-600">Years Average Experience</div>
             </motion.div>
 
@@ -264,7 +264,7 @@ export default function Team() {
               transition={{ duration: 0.8, delay: 0.3 }}
               className="text-center"
             >
-              <div className="text-5xl font-bold text-green-600 mb-2">100%</div>
+              <div className="text-6xl md:text-7xl lg:text-8xl font-bold text-green-600 mb-4">100%</div>
               <div className="text-gray-600">Certified Professionals</div>
             </motion.div>
 
@@ -275,7 +275,7 @@ export default function Team() {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-center"
             >
-              <div className="text-5xl font-bold text-green-600 mb-2">24/7</div>
+              <div className="text-6xl md:text-7xl lg:text-8xl font-bold text-green-600 mb-4">24/7</div>
               <div className="text-gray-600">Support Available</div>
             </motion.div>
           </div>
@@ -292,9 +292,9 @@ export default function Team() {
             transition={{ duration: 0.8 }}
             className="bg-gradient-to-r from-green-600 to-green-700 rounded-2xl p-12 text-center text-white"
           >
-            <h2 className="text-4xl font-bold mb-4">Join Our Team</h2>
-            <p className="text-xl mb-8 max-w-2xl mx-auto">
-              Be part of the renewable energy revolution. We\'re always looking for passionate talent to join our mission.
+            <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-8 sm:mb-10">Join Our Team</h2>
+            <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">
+              Be part of renewable energy revolution. We're always looking for passionate talent to join our mission.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button className="bg-white text-green-600 px-8 py-4 rounded-full hover:bg-gray-100 transition-colors font-semibold">

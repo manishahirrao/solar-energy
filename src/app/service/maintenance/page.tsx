@@ -18,7 +18,7 @@ export default function Maintenance() {
           <img
             src="/Solar Maintenance Service.jpg"
             alt="Solar Maintenance Services"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover blur-sm"
           />
                   </div>
         
@@ -38,8 +38,8 @@ export default function Maintenance() {
             >
               <Wrench className="w-10 h-10 text-white" />
             </motion.div>
-            <h1 className="text-5xl md:text-6xl font-bold mb-4">Solar Maintenance Services</h1>
-            <p className="text-xl max-w-3xl mx-auto leading-relaxed">
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-8 sm:mb-10">Solar Maintenance Services</h1>
+            <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl max-w-3xl mx-auto leading-relaxed">
               Professional maintenance and repair services to keep your solar system operating at peak efficiency.
             </p>
           </motion.div>
@@ -56,8 +56,8 @@ export default function Maintenance() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-4xl font-bold text-gray-900 mb-6">Expert Solar Care</h2>
-              <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+              <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-gray-900 mb-8 sm:mb-10">Expert Solar Care</h2>
+              <p className="text-xl md:text-2xl text-gray-600 mb-6 leading-relaxed">
                 Regular maintenance is essential for optimal solar system performance and longevity. 
                 Our certified technicians provide comprehensive maintenance services to ensure your solar 
                 investment continues to deliver maximum returns year after year.
@@ -129,8 +129,8 @@ export default function Maintenance() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Maintenance Services</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-gray-900 mb-8 sm:mb-10">Our Maintenance Services</h2>
+            <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto">
               Comprehensive care solutions for all types of solar energy systems
             </p>
           </motion.div>
@@ -197,8 +197,8 @@ export default function Maintenance() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Maintenance Plans</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-gray-900 mb-8 sm:mb-10">Maintenance Plans</h2>
+            <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto">
               Flexible maintenance packages to suit your specific needs
             </p>
           </motion.div>
@@ -313,8 +313,8 @@ export default function Maintenance() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Maintenance Process</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-gray-900 mb-8 sm:mb-10">Maintenance Process</h2>
+            <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto">
               Our systematic approach to solar system maintenance
             </p>
           </motion.div>
@@ -371,8 +371,8 @@ export default function Maintenance() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Benefits of Regular Maintenance</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-gray-900 mb-8 sm:mb-10">Benefits of Regular Maintenance</h2>
+            <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto">
               Protect your investment and ensure optimal performance
             </p>
           </motion.div>
@@ -385,7 +385,7 @@ export default function Maintenance() {
               transition={{ duration: 0.8 }}
               className="bg-white rounded-xl shadow-lg p-8"
             >
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Performance Benefits</h3>
+              <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Performance Benefits</h3>
               <ul className="space-y-3 text-gray-600">
                 <li className="flex items-center">
                   <CheckCircle className="w-5 h-5 text-green-600 mr-3" />
@@ -413,7 +413,7 @@ export default function Maintenance() {
               transition={{ duration: 0.8 }}
               className="bg-white rounded-xl shadow-lg p-8"
             >
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Financial Benefits</h3>
+              <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Financial Benefits</h3>
               <ul className="space-y-3 text-gray-600">
                 <li className="flex items-center">
                   <CheckCircle className="w-5 h-5 text-green-600 mr-3" />
@@ -447,10 +447,10 @@ export default function Maintenance() {
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <h2 className="text-4xl font-bold mb-4">
+            <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-8 sm:mb-10">
               Keep Your Solar System Perfect?
             </h2>
-            <p className="text-xl mb-8 max-w-2xl mx-auto">
+            <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">
               Schedule professional maintenance and ensure your solar system continues to deliver optimal performance.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

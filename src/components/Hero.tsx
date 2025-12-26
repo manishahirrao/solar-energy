@@ -19,7 +19,7 @@ const Hero = () => {
         <div className="w-full h-full">
           {/* Video Background */}
           <video
-            className="w-full h-full object-cover mix-blend-overlay"
+            className="w-full h-full object-cover mix-blend-overlay blur-sm"
             autoPlay
             muted
             loop
@@ -39,7 +39,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 sm:mb-6 leading-tight"
+              className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-8 sm:mb-10 leading-tight"
             >
               <span className="text-white">
                 Empowering your future
@@ -54,7 +54,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-white/90 mb-8 sm:mb-12 leading-relaxed max-w-4xl mx-auto font-light"
+              className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-white/90 mb-10 sm:mb-12 leading-relaxed max-w-4xl mx-auto font-light"
             >
               A positive impact for your home and the planet
               <span className="block text-green-200 font-medium mt-3">Save up to 90% on electricity bills while protecting our planet.</span>

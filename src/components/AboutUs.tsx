@@ -47,7 +47,7 @@ const AboutUs = () => {
           className="text-center mb-12 sm:mb-16 lg:mb-20"
         >
           <motion.h2 
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 sm:mb-8 leading-tight"
+            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-8 sm:mb-10 leading-tight"
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -201,7 +201,7 @@ const AboutUs = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 1 }}
         >
-          <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-6 sm:mb-8 text-center font-serif">Why Choose Us</h3>
+          <h3 className="text-3xl sm:text-xl font-bold text-gray-900 mb-6 sm:mb-8 text-center font-serif">Why Choose Us</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
             {highlights.map((highlight, index) => (
               <motion.div

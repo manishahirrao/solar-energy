@@ -16,7 +16,7 @@ export default function Project() {
       type: 'Industrial',
       completed: 'March 2024',
       status: 'Completed',
-      image: '/api/placeholder/400/300',
+      image: '/Adani Solar.png',
       href: '/project/adani-plant'
     },
     {
@@ -28,7 +28,7 @@ export default function Project() {
       type: 'Commercial',
       completed: 'February 2024',
       status: 'Completed',
-      image: '/api/placeholder/400/300',
+      image: '/Agricultural Solar Pump.jpg',
       href: '/project/goldi-plant'
     },
     {
@@ -40,7 +40,7 @@ export default function Project() {
       type: 'Hybrid',
       completed: 'January 2024',
       status: 'Completed',
-      image: '/api/placeholder/400/300',
+      image: '/Tata Power Solar.jpeg',
       href: '/project/tata-plant'
     },
     {
@@ -52,7 +52,7 @@ export default function Project() {
       type: 'Utility',
       completed: 'December 2023',
       status: 'Completed',
-      image: '/api/placeholder/400/300',
+      image: '/Floating Solar Plant.jpeg',
       href: '/project/solar-park'
     },
     {
@@ -64,7 +64,7 @@ export default function Project() {
       type: 'Commercial',
       completed: 'November 2023',
       status: 'Completed',
-      image: '/api/placeholder/400/300',
+      image: '/School Solar Installation.avif',
       href: '/project/tech-campus'
     },
     {
@@ -76,7 +76,7 @@ export default function Project() {
       type: 'Residential',
       completed: 'October 2023',
       status: 'Completed',
-      image: '/api/placeholder/400/300',
+      image: '/Industrial Solar Setup.jpg',
       href: '/project/residential-complex'
     },
     {
@@ -88,7 +88,7 @@ export default function Project() {
       type: 'Healthcare',
       completed: 'September 2023',
       status: 'Completed',
-      image: '/api/placeholder/400/300',
+      image: '/Hospital Solar System.jpg',
       href: '/project/hospital-solar'
     },
     {
@@ -100,7 +100,7 @@ export default function Project() {
       type: 'Agricultural',
       completed: 'August 2023',
       status: 'Completed',
-      image: '/api/placeholder/400/300',
+      image: '/Solar Water Heater.jpg',
       href: '/project/agricultural-farm'
     }
   ];
@@ -121,8 +121,8 @@ export default function Project() {
             transition={{ duration: 0.8 }}
             className="text-center text-white"
           >
-            <h1 className="text-5xl md:text-6xl font-bold mb-4">Our Projects</h1>
-            <p className="text-xl max-w-3xl mx-auto">
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-8 sm:mb-10">Our Projects</h1>
+            <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl max-w-3xl mx-auto">
               Explore our portfolio of successful renewable energy installations across India
             </p>
           </motion.div>
@@ -249,7 +249,7 @@ export default function Project() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Project Statistics</h2>
+            <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-gray-900 mb-8 sm:mb-10">Project Statistics</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Numbers that speak for our success and expertise
             </p>
@@ -263,7 +263,7 @@ export default function Project() {
               transition={{ duration: 0.8, delay: 0.1 }}
               className="text-center"
             >
-              <div className="text-5xl font-bold text-green-600 mb-2">500+</div>
+              <div className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-green-600 mb-2">500+</div>
               <div className="text-gray-600">Projects Completed</div>
             </motion.div>
 

@@ -68,7 +68,7 @@ const Header = () => {
                   { name: 'Home', href: '/' },
                   { name: 'About Us', href: '/about' },
                   { name: 'Services', href: '/service', hasDropdown: true },
-                  { name: 'Gallery', href: '/gallery' },
+                  { name: 'Projects', href: '/gallery' },
                   { name: 'Contact', href: '/contact' }
                 ].map((item, index) => (
                   <motion.li
@@ -171,14 +171,44 @@ const Header = () => {
             </motion.div>
 
             {/* Mobile menu button */}
-            <div className="md:hidden">
+            <div className="md:hidden flex items-center space-x-3">
+              {/* Mobile CTA Button */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.3, delay: 0.2 }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Link 
+                  href="tel:+918959890113" 
+                  className="bg-green-600 text-white p-2 rounded-full hover:bg-green-700 transition-colors shadow-lg"
+                >
+                  <Phone className="w-4 h-4" />
+                </Link>
+              </motion.div>
+              
+              {/* Menu Toggle Button */}
               <motion.button
                 onClick={toggleMenu}
-                className="text-gray-700 hover:text-green-600 transition-colors p-2"
+                className="text-gray-700 hover:text-green-600 transition-colors p-2 rounded-lg hover:bg-green-50 relative"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
               >
-                {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                <div className="relative">
+                  {isMenuOpen ? (
+                    <X className="w-6 h-6" />
+                  ) : (
+                    <Menu className="w-6 h-6" />
+                  )}
+                  {isMenuOpen && (
+                    <motion.div
+                      className="absolute -top-1 -right-1 w-2 h-2 bg-green-600 rounded-full"
+                      animate={{ scale: [1, 1.2, 1] }}
+                      transition={{ duration: 1, repeat: Infinity }}
+                    />
+                  )}
+                </div>
               </motion.button>
             </div>
           </div>
@@ -191,20 +221,20 @@ const Header = () => {
                 animate={{ height: 'auto', opacity: 1 }}
                 exit={{ height: 0, opacity: 0 }}
                 transition={{ duration: 0.3, ease: 'easeInOut' }}
-                className="md:hidden overflow-hidden border-t"
+                className="md:hidden overflow-hidden bg-white border-t border-gray-200 shadow-lg"
               >
                 <motion.ul
                   initial={{ y: -20, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   exit={{ y: -20, opacity: 0 }}
                   transition={{ duration: 0.3, delay: 0.1 }}
-                  className="space-y-1 py-4 px-4"
+                  className="space-y-2 py-6 px-4"
                 >
                   {[
                     { name: 'Home', href: '/', icon: null },
                     { name: 'About Us', href: '/about', icon: null },
                     { name: 'Services', href: '/service', icon: ChevronDown, hasDropdown: true },
-                    { name: 'Gallery', href: '/gallery', icon: null },
+                    { name: 'Projects', href: '/gallery', icon: null },
                     { name: 'Contact', href: '/contact', icon: null }
                   ].map((item, index) => (
                     <motion.li
@@ -219,7 +249,7 @@ const Header = () => {
                       {item.hasDropdown ? (
                         <div className="relative">
                           <button 
-                            className="text-gray-700 hover:text-green-600 transition-colors font-medium relative group flex items-center w-full justify-between"
+                            className="text-gray-700 hover:text-green-600 transition-colors font-medium relative group flex items-center w-full justify-between py-3 px-4 rounded-lg hover:bg-green-50"
                             onClick={() => setIsMobileServicesDropdownOpen(!isMobileServicesDropdownOpen)}
                           >
                             <span>{item.name}</span>
@@ -227,39 +257,40 @@ const Header = () => {
                           </button>
                           
                           {/* Mobile Dropdown Menu */}
-                          <motion.div
-                            initial={{ opacity: 0, y: -10 }}
-                            animate={{ 
-                              opacity: isMobileServicesDropdownOpen ? 1 : 0,
-                              y: isMobileServicesDropdownOpen ? 0 : -10,
-                              display: isMobileServicesDropdownOpen ? 'block' : 'none'
-                            }}
-                            transition={{ duration: 0.2 }}
-                            className="absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-xl border border-gray-100 overflow-hidden z-50"
-                          >
-                            <div className="py-2">
-                              {services.map((service, serviceIndex) => (
-                                <motion.div
-                                  key={service.name}
-                                  initial={{ opacity: 0, x: -10 }}
-                                  animate={{ 
-                                    opacity: isMobileServicesDropdownOpen ? 1 : 0,
-                                    x: isMobileServicesDropdownOpen ? 0 : -10
-                                  }}
-                                  transition={{ duration: 0.1, delay: serviceIndex * 0.05 }}
-                                  whileHover={{ backgroundColor: '#f0fdf4' }}
-                                >
-                                  <Link 
-                                    href={service.href}
-                                    className="block px-4 py-3 text-gray-700 hover:text-green-600 transition-colors text-sm"
-                                    onClick={() => setIsMobileServicesDropdownOpen(false)}
-                                  >
-                                    {service.name}
-                                  </Link>
-                                </motion.div>
-                              ))}
-                            </div>
-                          </motion.div>
+                          <AnimatePresence>
+                            {isMobileServicesDropdownOpen && (
+                              <motion.div
+                                initial={{ opacity: 0, height: 0 }}
+                                animate={{ opacity: 1, height: 'auto' }}
+                                exit={{ opacity: 0, height: 0 }}
+                                transition={{ duration: 0.2 }}
+                                className="mt-2 bg-white rounded-lg shadow-xl border border-gray-100 overflow-hidden"
+                              >
+                                <div className="py-2">
+                                  {services.map((service, serviceIndex) => (
+                                    <motion.div
+                                      key={service.name}
+                                      initial={{ opacity: 0, x: -10 }}
+                                      animate={{ opacity: 1, x: 0 }}
+                                      transition={{ duration: 0.1, delay: serviceIndex * 0.05 }}
+                                      whileHover={{ backgroundColor: '#f0fdf4' }}
+                                    >
+                                      <Link 
+                                        href={service.href}
+                                        className="block px-4 py-3 text-gray-700 hover:text-green-600 transition-colors text-sm"
+                                        onClick={() => {
+                                          setIsMobileServicesDropdownOpen(false);
+                                          setIsMenuOpen(false);
+                                        }}
+                                      >
+                                        {service.name}
+                                      </Link>
+                                    </motion.div>
+                                  ))}
+                                </div>
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
                         </div>
                       ) : (
                         <Link 

@@ -52,12 +52,12 @@ export default function Home() {
               <Sun className="w-10 h-10 text-white" />
             </motion.div>
             
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 mb-6 sm:mb-8 leading-tight">
+            <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-gray-900 mb-8 sm:mb-10 leading-tight">
               PM <span className="text-orange-600">Surya Ghar</span> Yojana
             </h2>
-            <p className="text-lg sm:text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed font-light mb-8 sm:mb-12">
+            <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-600 max-w-4xl mx-auto leading-relaxed font-light mb-10 sm:mb-12">
               Government of India's flagship solar rooftop scheme
-              <span className="block text-green-600 font-medium mt-2">Get subsidies up to ₹78,000 for residential solar installations</span>
+              <span className="block text-green-600 font-medium mt-3">Get subsidies up to ₹78,000 for residential solar installations</span>
             </p>
           </motion.div>
 
@@ -71,7 +71,7 @@ export default function Home() {
               className="space-y-8"
             >
               <div className="bg-white rounded-2xl shadow-xl p-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">Scheme Benefits</h3>
+                <h3 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-gray-900 mb-8 sm:mb-10">Scheme Benefits</h3>
                 <div className="space-y-4">
                   <div className="flex items-start">
                     <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
@@ -127,7 +127,7 @@ export default function Home() {
                       parent.className = 'relative rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-orange-400 to-green-600 flex items-center justify-center h-96';
                       parent.innerHTML = `
                         <div class="text-white text-center p-8">
-                          <div class="text-3xl font-bold mb-4">PM Surya Ghar Yojana</div>
+                          <div class="text-4xl font-bold mb-4">PM Surya Ghar Yojana</div>
                           <div class="text-lg">Government Solar Rooftop Scheme</div>
                         </div>
                       `;
@@ -142,7 +142,7 @@ export default function Home() {
                     <motion.button
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      className="bg-gradient-to-r from-orange-500 to-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg transition-all z-50"
+                      className="bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg transition-all z-50"
                       onClick={() => {
                         // Open quote form popup
                         const popupQuoteForm = document.getElementById('popup-quote-form');
@@ -191,10 +191,10 @@ export default function Home() {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+            <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-gray-900 mb-8 sm:mb-10">
               Ready to Go <span className="text-green-600">Solar</span>?
             </h2>
-            <p className="text-lg text-gray-600 mb-8">
+            <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-600 mb-10 sm:mb-12">
               Take the first step towards sustainable energy
             </p>
             

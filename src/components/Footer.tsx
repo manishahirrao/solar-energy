@@ -9,7 +9,7 @@ const Footer = () => {
     { name: 'Home', href: '/' },
     { name: 'About Us', href: '/about' },
     { name: 'Contact', href: '/contact' },
-    { name: 'Gallery', href: '/gallery' }
+    { name: 'Projects', href: '/gallery' }
   ];
 
   const services = [
@@ -98,14 +98,14 @@ const Footer = () => {
                 whileHover={{ x: 5 }}
               >
                 <Mail className="w-4 h-4 mr-2" />
-                <span className="text-sm">sales.procura@gmail.com</span>
+                <span className="text-sm">sale.procura@gmail.com</span>
               </motion.div>
               <motion.div
                 className="flex items-center text-gray-300 hover:text-white transition-colors"
                 whileHover={{ x: 5 }}
               >
                 <MapPin className="w-4 h-4 mr-2" />
-                <span className="text-xs sm:text-sm">E-3/114, 2nd Floor, Arera Colony, Bhopal</span>
+                <span className="text-xs sm:text-sm">E-3/114, 2nd Floor, 10 No. Market, Arera Colony, Bhopal</span>
               </motion.div>
               <motion.div
                 className="flex items-center text-gray-300 hover:text-white transition-colors"

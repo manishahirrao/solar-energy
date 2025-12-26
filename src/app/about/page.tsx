@@ -64,7 +64,7 @@ export default function About() {
           <img
             src="/about-hero.avif"
             alt="About Procura Solar"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover blur-sm"
           />
         </div>
         
@@ -80,7 +80,7 @@ export default function About() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-4 sm:mb-6 leading-tight"
+              className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-8 sm:mb-10 leading-tight"
             >
               <span className="bg-gradient-to-r from-white via-green-100 to-white bg-clip-text text-transparent">
                 About
@@ -96,7 +96,7 @@ export default function About() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-white/90 mb-8 sm:mb-12 leading-relaxed max-w-4xl mx-auto font-light"
+              className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-white/90 mb-10 sm:mb-12 leading-relaxed max-w-4xl mx-auto font-light"
             >
               Pioneering excellence in renewable energy solutions, 
               <span className="block text-green-200 font-medium mt-3">committed to transforming the way India powers its future through sustainable innovation.</span>
@@ -143,7 +143,7 @@ export default function About() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-4xl font-bold text-gray-900 mb-6">
+              <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-gray-900 mb-8 sm:mb-10">
                 Empowering India with Clean Solar Energy
               </h2>
               <p className="text-gray-600 mb-6 leading-relaxed">
@@ -216,7 +216,7 @@ export default function About() {
                 <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <stat.icon className="w-8 h-8 text-green-600" />
                 </div>
-                <div className="text-4xl font-bold text-gray-900 mb-2">{stat.number}</div>
+                <div className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-gray-900 mb-6">{stat.number}</div>
                 <div className="text-gray-600">{stat.label}</div>
               </motion.div>
             ))}
@@ -234,7 +234,7 @@ export default function About() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Values</h2>
+            <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-gray-900 mb-8 sm:mb-10">Our Values</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               The principles that guide everything we do
             </p>
@@ -271,7 +271,7 @@ export default function About() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Journey</h2>
+            <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-gray-900 mb-8 sm:mb-10">Our Journey</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               From a small vision to a leading solar energy provider
             </p>
@@ -359,7 +359,7 @@ export default function About() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Expertise</h2>
+            <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-gray-900 mb-8 sm:mb-10">Our Expertise</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Comprehensive solar solutions backed by technical excellence
             </p>
@@ -449,7 +449,7 @@ export default function About() {
             className="text-center mb-12"
           >
             <motion.h2 
-              className="text-4xl md:text-5xl font-bold text-white mb-6"
+              className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-8 sm:mb-10"
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}

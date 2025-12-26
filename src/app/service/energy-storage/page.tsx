@@ -18,7 +18,7 @@ export default function EnergyStorage() {
           <img
             src="/solar-storage-services.webp"
             alt="Energy Storage Solutions"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover blur-sm"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60" />
         </div>
@@ -69,8 +69,8 @@ export default function EnergyStorage() {
             >
               <Battery className="w-10 h-10 text-white" />
             </motion.div>
-            <h1 className="text-5xl md:text-6xl font-bold mb-4">Energy Storage Solutions</h1>
-            <p className="text-xl max-w-3xl mx-auto leading-relaxed">
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-8 sm:mb-10">Energy Storage Solutions</h1>
+            <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl max-w-3xl mx-auto leading-relaxed">
               Advanced battery storage systems for solar energy independence and grid stability.
             </p>
           </motion.div>
@@ -87,8 +87,8 @@ export default function EnergyStorage() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-4xl font-bold text-gray-900 mb-6">Smart Energy Storage</h2>
-              <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+              <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-gray-900 mb-8 sm:mb-10">Smart Energy Storage</h2>
+              <p className="text-xl md:text-2xl text-gray-600 mb-6 leading-relaxed">
                 Our advanced energy storage solutions capture and store excess solar energy for use 
                 when you need it most. These intelligent systems provide power security, reduce 
                 electricity costs, and increase your energy independence.
@@ -160,8 +160,8 @@ export default function EnergyStorage() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Key Benefits</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-gray-900 mb-8 sm:mb-10">Key Benefits</h2>
+            <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto">
               Why energy storage is essential for modern solar systems
             </p>
           </motion.div>
@@ -210,7 +210,7 @@ export default function EnergyStorage() {
                 <div className="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center mb-4">
                   <benefit.icon className="w-7 h-7 text-green-600" />
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">{benefit.title}</h3>
+                <h3 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-4">{benefit.title}</h3>
                 <p className="text-gray-600 leading-relaxed">{benefit.description}</p>
               </motion.div>
             ))}
@@ -228,8 +228,8 @@ export default function EnergyStorage() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Advanced Technology</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-gray-900 mb-8 sm:mb-10">Advanced Technology</h2>
+            <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto">
               Cutting-edge battery technology for superior performance
             </p>
           </motion.div>
@@ -242,7 +242,7 @@ export default function EnergyStorage() {
               transition={{ duration: 0.8 }}
               className="bg-white rounded-xl shadow-lg p-8"
             >
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Battery Technology</h3>
+              <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Battery Technology</h3>
               <ul className="space-y-3 text-gray-600">
                 <li className="flex items-center">
                   <CheckCircle className="w-5 h-5 text-green-600 mr-3" />
@@ -270,7 +270,7 @@ export default function EnergyStorage() {
               transition={{ duration: 0.8 }}
               className="bg-white rounded-xl shadow-lg p-8"
             >
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Smart Features</h3>
+              <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Smart Features</h3>
               <ul className="space-y-3 text-gray-600">
                 <li className="flex items-center">
                   <CheckCircle className="w-5 h-5 text-green-600 mr-3" />
@@ -304,7 +304,7 @@ export default function EnergyStorage() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Applications</h2>
+            <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-gray-900 mb-8 sm:mb-10">Applications</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Versatile energy storage solutions for every need
             </p>
@@ -368,7 +368,7 @@ export default function EnergyStorage() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Installation Process</h2>
+            <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-gray-900 mb-8 sm:mb-10">Installation Process</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Professional installation for optimal performance and safety
             </p>
@@ -426,10 +426,10 @@ export default function EnergyStorage() {
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <h2 className="text-4xl font-bold mb-4">
+            <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-8 sm:mb-10">
               Ready for Energy Independence?
             </h2>
-            <p className="text-xl mb-8 max-w-2xl mx-auto">
+            <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">
               Get a customized energy storage solution and take control of your power supply today.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

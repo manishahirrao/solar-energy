@@ -18,7 +18,7 @@ export default function SolarConsulting() {
           <img
             src="/solar-consulting-service.webp"
             alt="Solar Consulting Services"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover blur-sm"
           />
                   </div>
         
@@ -38,8 +38,8 @@ export default function SolarConsulting() {
             >
               <Users className="w-10 h-10 text-white" />
             </motion.div>
-            <h1 className="text-5xl md:text-6xl font-bold mb-4">Solar Consulting Services</h1>
-            <p className="text-xl max-w-3xl mx-auto leading-relaxed">
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-8 sm:mb-10">Solar Consulting Services</h1>
+            <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl max-w-3xl mx-auto leading-relaxed">
               Expert guidance and comprehensive analysis to help you make informed solar energy decisions.
             </p>
           </motion.div>
@@ -56,8 +56,8 @@ export default function SolarConsulting() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-4xl font-bold text-gray-900 mb-6">Expert Solar Guidance</h2>
-              <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+              <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-gray-900 mb-8 sm:mb-10">Expert Solar Guidance</h2>
+              <p className="text-xl md:text-2xl text-gray-600 mb-6 leading-relaxed">
                 Our certified solar consultants provide comprehensive analysis and strategic planning to ensure 
                 you make the best solar energy investment decisions. We combine technical expertise with 
                 financial insight to deliver customized solutions.
@@ -129,8 +129,8 @@ export default function SolarConsulting() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Consulting Services</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-gray-900 mb-8 sm:mb-10">Our Consulting Services</h2>
+            <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto">
               Comprehensive consulting solutions for all your solar energy needs
             </p>
           </motion.div>
@@ -179,7 +179,7 @@ export default function SolarConsulting() {
                 <div className="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center mb-4">
                   <service.icon className="w-7 h-7 text-green-600" />
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">{service.title}</h3>
+                <h3 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-4">{service.title}</h3>
                 <p className="text-gray-600 leading-relaxed">{service.description}</p>
               </motion.div>
             ))}
@@ -197,8 +197,8 @@ export default function SolarConsulting() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Consulting Process</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-gray-900 mb-8 sm:mb-10">Consulting Process</h2>
+            <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto">
               Our systematic approach to delivering optimal solar solutions
             </p>
           </motion.div>
@@ -255,8 +255,8 @@ export default function SolarConsulting() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Why Choose Our Consulting?</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-gray-900 mb-8 sm:mb-10">Why Choose Our Consulting?</h2>
+            <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto">
               Professional guidance that ensures optimal solar investment decisions
             </p>
           </motion.div>
@@ -269,7 +269,7 @@ export default function SolarConsulting() {
               transition={{ duration: 0.8 }}
               className="bg-white rounded-xl shadow-lg p-8"
             >
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Expert Insights</h3>
+              <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Expert Insights</h3>
               <ul className="space-y-3 text-gray-600">
                 <li className="flex items-center">
                   <CheckCircle className="w-5 h-5 text-green-600 mr-3" />
@@ -297,7 +297,7 @@ export default function SolarConsulting() {
               transition={{ duration: 0.8 }}
               className="bg-white rounded-xl shadow-lg p-8"
             >
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Value Delivered</h3>
+              <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Value Delivered</h3>
               <ul className="space-y-3 text-gray-600">
                 <li className="flex items-center">
                   <CheckCircle className="w-5 h-5 text-green-600 mr-3" />
@@ -331,10 +331,10 @@ export default function SolarConsulting() {
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <h2 className="text-4xl font-bold mb-4">
+            <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-8 sm:mb-10">
               Ready for Expert Solar Guidance?
             </h2>
-            <p className="text-xl mb-8 max-w-2xl mx-auto">
+            <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">
               Schedule a consultation with our certified experts and take the first step toward optimal solar solutions.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

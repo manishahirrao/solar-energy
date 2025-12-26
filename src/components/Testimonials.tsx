@@ -7,23 +7,37 @@ import { useState, useEffect } from 'react';
 const Testimonials = () => {
   const testimonials = [
     {
-      name: 'Boy Williamson',
-      role: 'Food Entrepreneur',
-      content: 'For adding learning references, it\'s really good, because clients often study here too',
+      name: 'Rajesh Kumar',
+      role: 'Factory Owner',
+      content: 'Procura Solar installed a 500kW system at our manufacturing unit. We reduced electricity costs by 60% and the ROI was achieved in just 3 years. Excellent professional service and support.',
       rating: 5,
       image: '/api/placeholder/80/80'
     },
     {
-      name: 'Marvin McKinney',
-      role: 'Senior Freelancer',
-      content: 'For adding learning references, it\'s really good, because clients often study here too',
+      name: 'Priya Sharma',
+      role: 'Homeowner',
+      content: 'Our 5kW rooftop installation has been running flawlessly for 2 years. We save ₹8,000 monthly on electricity bills. The team was professional and installation was completed on time.',
       rating: 5,
       image: '/api/placeholder/80/80'
     },
     {
-      name: 'Courtney Henry',
-      role: 'Creative Director',
-      content: 'For adding learning references, it\'s really good, because clients often study here too',
+      name: 'Amit Patel',
+      role: 'Farm Owner',
+      content: 'The solar water pump system has transformed our farming. We now have reliable irrigation throughout the year and our diesel costs have dropped to zero. Best investment we ever made.',
+      rating: 5,
+      image: '/api/placeholder/80/80'
+    },
+    {
+      name: 'Sunita Reddy',
+      role: 'Hospital Administrator',
+      content: 'Our 100kW hospital solar system ensures uninterrupted power supply for critical medical equipment. The backup system has been a lifesaver during power outages.',
+      rating: 5,
+      image: '/api/placeholder/80/80'
+    },
+    {
+      name: 'Vikram Singh',
+      role: 'School Principal',
+      content: 'The 50kW solar installation powers our entire school campus. We save significant funds on electricity and can invest more in educational resources.',
       rating: 5,
       image: '/api/placeholder/80/80'
     }
@@ -93,7 +107,7 @@ const Testimonials = () => {
             transition={{ duration: 0.6 }}
           >
             <span className="text-gray-900">
-              Our Costumers
+              Our Customers
             </span>
             <br />
             <span className="text-blue-600">
