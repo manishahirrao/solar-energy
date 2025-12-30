@@ -3,50 +3,34 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { motion } from 'framer-motion';
-import { Sun, Battery, Home, Trees, ArrowRight, FileText, Settings, Award } from 'lucide-react';
+import { Sun, Battery, Home, Trees, ArrowRight, FileText, Settings, Award, Wrench } from 'lucide-react';
 import Link from 'next/link';
 
 export default function Service() {
   const services = [
     {
-      icon: Sun,
-      title: 'Solar Energy',
-      description: 'Complete solar panel installation and maintenance services for residential and commercial properties.',
-      features: ['High-efficiency solar panels', '30-year warranty', 'Smart monitoring systems', 'Grid-tie and off-grid solutions'],
-      image: '/solar-energy-service.webp',
-      href: '/service/solar-energy'
-    },
-    {
-      icon: Battery,
-      title: 'Hybrid Energy',
-      description: 'Integrated solar and battery storage systems for maximum energy independence and reliability.',
-      features: ['Battery backup systems', 'Smart energy management', 'Load optimization', 'Emergency power backup'],
-      image: '/solar-storage-services.webp',
-      href: '/service/hybrid-energy'
-    },
-    {
-      icon: Trees,
-      title: 'Solar Consulting',
-      description: 'Expert consulting services to help you choose the best solar energy solutions.',
-      features: ['Energy audit', 'System design', 'Financial analysis', 'Regulatory compliance'],
-      image: '/solar-consulting-service.webp',
-      href: '/service/solar-consulting'
+      icon: Settings,
+      title: 'Solar EPC',
+      description: 'End-to-end Engineering, Procurement, and Construction services for turnkey solar power projects with guaranteed performance.',
+      features: ['Project planning & design', 'Equipment procurement', 'Installation & commissioning', 'Performance guarantees'],
+      image: '/solar-epc-service.jpg',
+      href: '/service/solar-epc'
     },
     {
       icon: Sun,
+      title: 'Solar Installation',
+      description: 'Professional installation of high-quality solar panel systems for residential, commercial, and industrial properties.',
+      features: ['Residential installations', 'Commercial projects', 'Industrial solutions', 'Custom system design'],
+      image: '/solar-installation-service.jpg',
+      href: '/service/solar-installation'
+    },
+    {
+      icon: Wrench,
       title: 'Solar Maintenance',
-      description: 'Comprehensive maintenance and repair services for solar energy systems.',
-      features: ['Regular inspections', 'Performance optimization', 'Emergency repairs', 'System upgrades'],
-      image: '/Solar Maintenance Service.jpg',
-      href: '/service/maintenance'
-    },
-    {
-      icon: Battery,
-      title: 'Energy Storage',
-      description: 'Advanced battery storage solutions for solar energy independence and grid stability.',
-      features: ['Lithium-ion batteries', 'Smart charging', 'Peak shaving', 'Demand response'],
-      image: '/solar-energy-service.webp',
-      href: '/service/energy-storage'
+      description: 'Comprehensive maintenance and repair services to keep your solar energy system operating at peak efficiency.',
+      features: ['Preventive maintenance', 'Performance monitoring', 'System cleaning', '24/7 emergency support'],
+      image: '/solar-maintenance-service.jpg',
+      href: '/service/solar-maintenance'
     }
   ];
 

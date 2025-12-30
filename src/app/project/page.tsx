@@ -388,8 +388,8 @@ export default function Gallery() {
               transition={{ duration: 0.8, delay: 0.1 }}
               className="text-center"
             >
-              <div className="text-5xl font-bold text-green-600 mb-2">500+</div>
-              <div className="text-gray-600">Completed Projects</div>
+              <div className="text-5xl font-bold text-green-600 mb-2">250+</div>
+              <div className="text-gray-600">Projects Completed</div>
             </motion.div>
 
             <motion.div
@@ -399,8 +399,8 @@ export default function Gallery() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-center"
             >
-              <div className="text-5xl font-bold text-green-600 mb-2">10+</div>
-              <div className="text-gray-600">Project Categories</div>
+              <div className="text-5xl font-bold text-green-600 mb-2">240+</div>
+              <div className="text-gray-600">Happy Customers</div>
             </motion.div>
 
             <motion.div
@@ -410,8 +410,8 @@ export default function Gallery() {
               transition={{ duration: 0.8, delay: 0.3 }}
               className="text-center"
             >
-              <div className="text-5xl font-bold text-green-600 mb-2">15+</div>
-              <div className="text-gray-600">States Covered</div>
+              <div className="text-5xl font-bold text-green-600 mb-2">10+</div>
+              <div className="text-gray-600">Years Experience</div>
             </motion.div>
 
             <motion.div
@@ -421,8 +421,8 @@ export default function Gallery() {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-center"
             >
-              <div className="text-5xl font-bold text-green-600 mb-2">1GW+</div>
-              <div className="text-gray-600">Total Capacity</div>
+              <div className="text-5xl font-bold text-green-600 mb-2">30+</div>
+              <div className="text-gray-600">Years Warranty</div>
             </motion.div>
           </div>
         </div>

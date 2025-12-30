@@ -8,34 +8,22 @@ import { ArrowRight } from 'lucide-react';
 const Services = () => {
   const services = [
     {
-      icon: Sun,
-      title: 'Solar Energy',
-      description: 'Complete solar panel installation and maintenance services for residential and commercial properties.',
+      icon: Wrench,
+      title: 'Solar EPC',
+      description: 'End-to-end Engineering, Procurement, and Construction services for turnkey solar power projects with guaranteed performance.',
       image: '/Rooftop Solar Installation.jpeg'
     },
     {
-      icon: Battery,
-      title: 'Hybrid Energy',
-      description: 'Integrated solar and battery storage systems for maximum energy independence and reliability.',
+      icon: Sun,
+      title: 'Solar Installation',
+      description: 'Professional installation of high-quality solar panel systems for residential, commercial, and industrial properties.',
       image: '/Commercial Solar Farm.jpg'
-    },
-    {
-      icon: Home,
-      title: 'Energy Storage',
-      description: 'Advanced battery storage solutions for solar energy independence and grid stability.',
-      image: '/Industrial Solar Setup.jpg'
     },
     {
       icon: Zap,
       title: 'Solar Maintenance',
       description: 'Comprehensive maintenance and cleaning services to keep your solar system operating at peak efficiency.',
       image: '/Solar Maintenance Service.jpg'
-    },
-    {
-      icon: Trees,
-      title: 'Solar Consulting',
-      description: 'Expert consulting services to help you choose the best solar energy solutions.',
-      image: '/School Solar Installation.avif'
     }
   ];
 

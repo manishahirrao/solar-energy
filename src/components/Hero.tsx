@@ -56,7 +56,7 @@ const Hero = () => {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-white/90 mb-10 sm:mb-12 leading-relaxed max-w-4xl mx-auto font-light"
             >
-              A positive impact for your home and the planet - Save up to 90% on electricity bills while protecting our planet.
+              A positive impact for your home and the planet - Save up to 95% on electricity bills while protecting our planet.
             </motion.p>
 
             <motion.div

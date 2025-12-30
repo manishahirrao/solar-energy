@@ -106,13 +106,29 @@ const Footer = () => {
                 whileHover={{ x: 5 }}
               >
                 <MapPin className="w-4 h-4 mr-2" />
-                <span className="text-xs sm:text-sm">E-3/114, 2nd Floor, 10 No. Market, Arera Colony, Bhopal</span>
+                <span className="text-xs sm:text-sm">E-3/114, 2nd Floor, 10 No. Market, Arera Colony, Bhopal, Madhya Pradesh 462016</span>
               </motion.div>
               <motion.div
                 className="flex items-center text-gray-300 hover:text-white transition-colors"
                 whileHover={{ x: 5 }}
               >
                 <span className="text-sm font-medium">GST: 23GLBPS2222E12J</span>
+              </motion.div>
+              <motion.div
+                className="flex items-center text-gray-300 hover:text-white transition-colors"
+                whileHover={{ x: 5 }}
+              >
+                <Shield className="w-4 h-4 mr-2" />
+                <span className="text-xs sm:text-sm">Govt. Approved & Registered Vendor</span>
+              </motion.div>
+              <motion.div
+                className="flex items-start text-gray-300 hover:text-white transition-colors"
+                whileHover={{ x: 5 }}
+              >
+                <MapPin className="w-4 h-4 mr-2 mt-1 flex-shrink-0" />
+                <span className="text-xs sm:text-sm">
+                  <span className="font-semibold">Serviceable Areas:</span> Bhopal, Mandideep, Hoshangabad, Raisen, Vidisha, Sehore, and nearby areas in Madhya Pradesh.
+                </span>
               </motion.div>
             </motion.div>
           </motion.div>

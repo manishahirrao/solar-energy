@@ -6,32 +6,32 @@ import { MapPin, ExternalLink } from 'lucide-react';
 const Projects = () => {
   const projects = [
     {
-      title: 'Adani Plant',
-      location: 'Gujarat',
-      description: 'Large-scale solar installation for industrial power generation',
-      capacity: '50MW',
-      image: '/api/placeholder/400/300'
+      title: 'Bhopal Solar Farm',
+      location: 'Bhopal, MP',
+      description: '5MW commercial solar farm with battery storage system',
+      capacity: '5MW',
+      image: '/Commercial Solar Farm.jpg'
     },
     {
-      title: 'Goldi Plant',
-      location: 'Gujarat',
-      description: 'Commercial solar solution for manufacturing facility',
-      capacity: '25MW',
-      image: '/api/placeholder/400/300'
+      title: 'Mandideep Industrial Park',
+      location: 'Mandideep, MP',
+      description: 'Rooftop solar installation for industrial complex',
+      capacity: '2.5MW',
+      image: '/Industrial Solar Setup.jpg'
     },
     {
-      title: 'Tata Plant',
-      location: 'Gujarat',
-      description: 'Integrated solar and wind hybrid power system',
-      capacity: '75MW',
-      image: '/api/placeholder/400/300'
+      title: 'Hoshangabad Agri Project',
+      location: 'Hoshangabad, MP',
+      description: 'Solar-powered irrigation system for agricultural land',
+      capacity: '1MW',
+      image: '/Agricultural Solar Pump.jpg'
     },
     {
-      title: 'Solar Park',
-      location: 'Rajasthan',
-      description: 'Community solar project serving 10,000+ homes',
-      capacity: '100MW',
-      image: '/api/placeholder/400/300'
+      title: 'Vidisha Community Solar',
+      location: 'Vidisha, MP',
+      description: 'Community solar project serving 500+ households',
+      capacity: '2MW',
+      image: '/Rooftop Solar Installation.jpeg'
     }
   ];
 
