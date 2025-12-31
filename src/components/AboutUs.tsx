@@ -5,10 +5,10 @@ import { Sun, Users, Award, Globe, CheckCircle, TrendingUp, Wrench } from 'lucid
 
 const AboutUs = () => {
   const stats = [
-    { icon: Sun, label: 'Solar Projects', value: 'Many', description: 'Completed installations' },
-    { icon: Users, label: 'Happy Customers', value: 'Many', description: 'Satisfied clients' },
-    { icon: Award, label: 'Expert Team', value: 'Experienced', description: 'Solar professionals' },
-    { icon: Globe, label: 'Service Area', value: 'Wide', description: 'Coverage region' }
+    { icon: Award, label: 'Warranty', value: '30+ Years', description: 'Comprehensive coverage' },
+    { icon: Users, label: 'Experience', value: '10+ Years', description: 'Industry expertise' },
+    { icon: Sun, label: 'Projects', value: '250+', description: 'Successfully completed' },
+    { icon: CheckCircle, label: 'Happy Customers', value: '240+', description: 'Satisfied clients' }
   ];
 
   const highlights = [

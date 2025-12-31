@@ -14,11 +14,9 @@ const Footer = () => {
   ];
 
   const services = [
-    { name: 'Solar Energy', href: '/service/solar-energy' },
-    { name: 'Hybrid Energy', href: '/service/hybrid-energy' },
-    { name: 'Energy Storage', href: '/service/energy-storage' },
-    { name: 'Solar Maintenance', href: '/service/maintenance' },
-    { name: 'Solar Consulting', href: '/service/solar-consulting' }
+    { name: 'Solar EPC', href: '/service/solar-epc' },
+    { name: 'Solar Installation', href: '/service/solar-installation' },
+    { name: 'Solar Maintenance', href: '/service/solar-maintenance' }
   ];
 
   const support = [

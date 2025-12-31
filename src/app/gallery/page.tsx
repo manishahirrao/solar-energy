@@ -11,18 +11,42 @@ export default function Gallery() {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
 
   const galleryImages = [
-    '/Rooftop Solar Installation.jpeg',
-    '/Commercial Solar Farm.jpg',
-    '/Agricultural Solar Pump.jpg',
-    '/Industrial Solar Setup.jpg',
-    '/Floating Solar Plant.jpeg',
-    '/Hospital Solar System.jpg',
-    '/School Solar Installation.avif',
-    '/Solar Carport.webp',
-    '/Solar Maintenance Service.jpg',
-    '/Solar Street Lighting.jpg',
-    '/Solar Water Heater.jpg',
-   
+    {
+      image: '/Rooftop Solar Installation.jpeg',
+      category: 'Solar EPC',
+      title: 'Residential Solar EPC',
+      description: 'End-to-end Engineering, Procurement, and Construction of residential solar systems.'
+    },
+    {
+      image: '/Commercial Solar Farm.jpg',
+      category: 'Solar Installation',
+      title: 'Commercial Solar Installation',
+      description: 'Professional installation of commercial solar systems with battery backup.'
+    },
+    {
+      image: '/Solar Maintenance Service.jpg',
+      category: 'Solar Maintenance',
+      title: 'Comprehensive Maintenance',
+      description: 'Regular maintenance and monitoring for optimal solar system performance.'
+    },
+    {
+      image: '/School Solar Installation.avif',
+      category: 'Solar EPC',
+      title: 'Institutional Solar Solutions',
+      description: 'Complete solar solutions for educational institutions and government buildings.'
+    },
+    {
+      image: '/Industrial Solar Setup.jpg',
+      category: 'Solar Installation',
+      title: 'Industrial Solar Systems',
+      description: 'Custom solar solutions for industrial facilities and manufacturing units.'
+    },
+    {
+      image: '/Solar Maintenance Service.jpg',
+      category: 'Solar Maintenance',
+      title: 'Performance Optimization',
+      description: 'Advanced monitoring and optimization services for existing solar installations.'
+    }
   ];
 
   const filteredImages = galleryImages;
@@ -70,7 +94,7 @@ export default function Gallery() {
               transition={{ duration: 0.8, delay: 0.6 }}
               className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-black mb-8 sm:mb-12 leading-relaxed max-w-4xl mx-auto font-light"
             >
-              Explore our stunning solar energy installations and successful projects across India
+              Explore our expertise in Solar EPC, Installation, and Maintenance through our project gallery
             </motion.p>
             
             <motion.div
@@ -112,11 +136,11 @@ export default function Gallery() {
             transition={{ duration: 0.8 }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 sm:mb-6">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-4 sm:mb-6 leading-tight">
               <span className="text-black">Our Solar</span>
               <br />
-              <span className="text-green-600">Project Gallery</span>
-            </h2>
+              <span className="text-black">Service Gallery</span>
+            </h1>
             <p className="text-lg sm:text-xl md:text-2xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
               Browse through our completed solar installations and witness the transformation of properties across India with clean, renewable energy solutions.
             </p>
@@ -159,64 +183,57 @@ export default function Gallery() {
       <section className="py-12 sm:py-16 px-4 bg-gray-50">
         <div className="container mx-auto">
           {viewMode === 'grid' ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8">
-              {filteredImages.map((image, index) => (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+              {galleryImages.map((item, index) => (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, y: 30, scale: 0.9 }}
-                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer bg-white"
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="relative group overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 bg-white"
                   onClick={() => setSelectedImage(index)}
                 >
-                  <div className="aspect-square overflow-hidden">
+                  <div className="h-64 overflow-hidden">
                     <img
-                      src={image}
-                      alt={`Solar project ${index + 1}`}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                      src={item.image}
+                      alt={item.title}
+                      className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
                     />
                   </div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="absolute bottom-4 left-4 right-4">
-                      <h3 className="text-white font-bold text-lg mb-1">
-                        Solar Project {index + 1}
-                      </h3>
-                      <p className="text-white/90 text-sm">
-                        Click to view details
-                      </p>
-                    </div>
+                  <div className="p-5">
+                    <span className="inline-block px-3 py-1 text-xs font-semibold text-green-700 bg-green-100 rounded-full mb-2">
+                      {item.category}
+                    </span>
+                    <h3 className="text-xl font-semibold text-gray-900 mb-2">{item.title}</h3>
+                    <p className="text-gray-600 text-sm">{item.description}</p>
                   </div>
                 </motion.div>
               ))}
             </div>
           ) : (
-            <div className="space-y-6 max-w-4xl mx-auto">
-              {filteredImages.map((image, index) => (
+            <div className="space-y-6">
+              {galleryImages.map((item, index) => (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, x: -30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="flex gap-6 p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer border border-gray-100"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col sm:flex-row"
                   onClick={() => setSelectedImage(index)}
                 >
-                  <div className="w-32 h-32 flex-shrink-0 overflow-hidden rounded-xl">
+                  <div className="w-full sm:w-64 h-48 sm:h-auto">
                     <img
-                      src={image}
-                      alt={`Solar project ${index + 1}`}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      src={item.image}
+                      alt={item.title}
+                      className="w-full h-full object-cover"
                     />
                   </div>
-                  <div className="flex-1">
-                    <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                      Solar Project {index + 1}
-                    </h3>
-                    <p className="text-gray-600 leading-relaxed">
-                      Professional solar installation showcasing our expertise in renewable energy solutions. Click to view full image and explore the details of this successful project.
-                    </p>
-                    <button className="mt-4 text-green-600 font-semibold hover:text-green-700 transition-colors">
-                      View Full Image →
-                    </button>
+                  <div className="p-6 flex-1">
+                    <span className="inline-block px-3 py-1 text-xs font-semibold text-green-700 bg-green-100 rounded-full mb-3">
+                      {item.category}
+                    </span>
+                    <h3 className="text-xl font-semibold text-gray-900 mb-3">{item.title}</h3>
+                    <p className="text-gray-600">{item.description}</p>
                   </div>
                 </motion.div>
               ))}
@@ -246,8 +263,8 @@ export default function Gallery() {
             </button>
             <div className="aspect-video bg-gray-100">
               <img
-                src={filteredImages[selectedImage]}
-                alt={`Solar project ${selectedImage + 1}`}
+                src={filteredImages[selectedImage]?.image}
+                alt={filteredImages[selectedImage]?.title || `Solar project ${selectedImage + 1}`}
                 className="w-full h-full object-contain"
               />
             </div>

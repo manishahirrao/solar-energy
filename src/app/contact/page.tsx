@@ -5,7 +5,7 @@ import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import InquiryForm from '@/components/InquiryForm';
 import { motion } from 'framer-motion';
-import { Phone, Mail, MapPin, Send, Clock, Home, ArrowRight, Sun, Battery, Zap, Trees } from 'lucide-react';
+import { Phone, Mail, MapPin, Send, Clock, Home, ArrowRight, Sun, Wrench, Zap, Check, Battery } from 'lucide-react';
 
 export default function Contact() {
   const contactDetails = [
@@ -47,30 +47,93 @@ export default function Contact() {
     }
   ];
 
+  const services = [
+    {
+      icon: Sun,
+      title: 'Solar Panel Installation',
+      description: 'Professional installation of high-efficiency solar panels for homes and businesses.',
+      features: [
+        'Residential & commercial installations',
+        'Custom system design',
+        'High-efficiency panels',
+        'Grid-tie & hybrid systems'
+      ]
+    },
+    {
+      icon: Zap,
+      title: 'Solar Water Heater',
+      description: 'Energy-efficient solar water heating solutions for your home or business.',
+      features: [
+        'Flat plate collectors',
+        'Evacuated tube systems',
+        'Thermal storage tanks',
+        'Low maintenance design'
+      ]
+    },
+    {
+      icon: Wrench,
+      title: 'Solar Inverter Systems',
+      description: 'High-performance inverters to maximize your solar energy production.',
+      features: [
+        'String inverters',
+        'Microinverters',
+        'Hybrid systems',
+        'Battery backup solutions'
+      ]
+    },
+    {
+      icon: Battery,
+      title: 'Solar Water Pumps',
+      description: 'Reliable solar-powered water pumping solutions for agriculture and homes.',
+      features: [
+        'Submersible pumps',
+        'Surface pumps',
+        'Irrigation systems',
+        'Remote monitoring'
+      ]
+    },
+    {
+      icon: Wrench,
+      title: 'Solar System Maintenance',
+      description: 'Keep your solar system running at peak efficiency with our maintenance services.',
+      features: [
+        'Regular cleaning',
+        'Performance checks',
+        'Fault detection',
+        'Warranty support'
+      ]
+    },
+    {
+      icon: Home,
+      title: 'Rooftop Solar Solutions',
+      description: 'Custom rooftop solar solutions for residential and commercial properties.',
+      features: [
+        'Net metering setup',
+        'Custom mounting solutions',
+        'Shade analysis',
+        'ROI consultation'
+      ]
+    }
+  ];
+
   const officeLocations = [
     {
-      city: 'Bhopal Head Office',
-      address: 'E-3/114, 2nd Floor, 10 No. Market, Arera Colony, Bhopal, Madhya Pradesh 462022',
+      icon: Home,
+      title: 'Head Office',
+      address: 'E-3/114, 2nd Floor, 10 No. Market, Arera Colony, Bhopal, Madhya Pradesh 462016',
       phone: '+91 8959890113',
       email: 'sale.procura@gmail.com',
-      coordinates: '23.2599° N, 77.4128° E',
-      services: 'All solar solutions, consultation, installation, maintenance'
+      hours: 'Mon-Sat: 9:00 AM - 7:00 PM',
+      isMain: true
     },
     {
-      city: 'WhatsApp Support',
-      address: 'Available 24/7 for instant support and queries',
-      phone: '+91 8959890113',
-      email: 'sale.procura@gmail.com',
-      coordinates: 'Online Support',
-      services: 'Quick quotes, emergency support, general inquiries'
-    },
-    {
-      city: 'Alternate Contact',
-      address: 'E-3/114, 2nd Floor, 10 No. Market, Arera Colony, Bhopal, Madhya Pradesh 462022',
+      icon: MapPin,
+      title: 'Service Areas',
+      address: 'Bhopal, Mandideep, Hoshangabad, Raisen, Vidisha, Sehore, and nearby areas in Madhya Pradesh',
       phone: '+91 7415550210',
-      email: 'sale.procura@gmail.com',
-      coordinates: '23.2599° N, 77.4128° E',
-      services: 'Backup contact, technical support, service requests'
+      email: 'info@procurasolar.com',
+      hours: 'Mon-Sat: 10:00 AM - 6:00 PM',
+      isMain: false
     }
   ];
 
@@ -101,15 +164,11 @@ export default function Contact() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold mb-4 sm:mb-6 leading-tight"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-4 sm:mb-6 leading-tight"
             >
-              <span className="text-black">
-                Contact
-              </span>
+              <span className="text-black">Solar Solutions</span>
               <br />
-              <span className="text-black">
-                Procura Solar
-              </span>
+              <span className="text-black">for Your Needs</span>
             </motion.h1>
             
             {/* Description */}
@@ -119,7 +178,7 @@ export default function Contact() {
               transition={{ duration: 0.8, delay: 0.6 }}
               className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-black mb-8 sm:mb-12 leading-relaxed max-w-4xl mx-auto font-light"
             >
-              Get in touch with our solar experts for a free consultation - Let's discuss how we can help you save money and protect the environment
+              Get expert consultation for Solar EPC, Installation, and Maintenance services. Our team is ready to provide customized solar solutions for your home or business.
             </motion.p>
 
             {/* CTA Buttons */}
@@ -153,201 +212,81 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* Services Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-8">
-              Best Offer for <span className="text-green-600">Renewable Energy</span>
-            </h2>
-            <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto">
-              At Procura, we believe in the power of renewable energy to create a more sustainable future. With a passion for clean energy and a commitment to our customers, we are dedicated to delivering the best possible solutions.
+     
+
+      {/* Contact Form Section */}
+      <section id="contact-form" className="py-16 sm:py-20 px-4 bg-gray-50">
+        <div className="container mx-auto max-w-6xl">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Get Your Free Solar Consultation</h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Fill out the form and our solar experts will contact you within 24 hours to discuss your project requirements.
             </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              {
-                icon: Sun,
-                title: 'Solar Energy',
-                description: 'Aenean mattis mauris turpis, quis porta magna aliquam.'
-              },
-              {
-                icon: Battery,
-                title: 'Hybrid Energy',
-                description: 'Aenean mattis mauris turpis, quis porta magna aliquam.'
-              },
-              {
-                icon: Zap,
-                title: 'Wind Energy',
-                description: 'Aenean mattis mauris turpis, quis porta magna aliquam.'
-              },
-              {
-                icon: Trees,
-                title: 'Renewable Energy',
-                description: 'Aenean mattis mauris turpis, quis porta magna aliquam.'
-              }
-            ].map((service, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
-                className="text-center"
-              >
-                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <service.icon className="w-8 h-8 text-green-600" />
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">{service.title}</h3>
-                <p className="text-gray-600 mb-4">{service.description}</p>
-                <button className="text-green-600 font-semibold hover:text-green-700 transition-colors">
-                  Learn More
-                </button>
-              </motion.div>
-            ))}
           </div>
-        </div>
-      </section>
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Contact Form */}
-                <motion.div
-                  initial={{ opacity: 0, x: -30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8 }}
-                  className="bg-white rounded-xl shadow-lg p-8"
-                  whileHover={{ scale: 1.02, y: -5 }}
-                >
-                <InquiryForm />
-            </motion.div>
-
-            {/* Map & Office Info */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="space-y-8"
-            >
-              {/* Interactive Map */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8 }}
-                className="relative rounded-xl overflow-hidden shadow-lg"
-              >
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3668.4625147658!2d77.4128!3d23.2599!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x397c428f8fd5a5d5%3A0x0!2zMjPCsDE1JzU5LjYiTiA3N8KwMjQnNDYuNCJF!5e0!3m2!1sen!2sin!4v1234567890"
-                  width="100%"
-                  height="400"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  className="w-full h-96"
-                />
-                <div className="absolute top-4 left-4 bg-white rounded-lg shadow-lg p-3">
-                  <div className="flex items-center text-green-600 font-semibold">
-                    <MapPin className="w-5 h-5 mr-2" />
-                    Bhopal Office
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Office Hours */}
-              <div className="bg-white rounded-xl shadow-lg p-8">
-                <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">Office Hours</h3>
-                <div className="space-y-3">
-                  <div className="flex justify-between items-center">
-                    <span className="text-gray-600">Monday - Friday</span>
-                    <span className="font-medium text-gray-900">9:00 AM - 6:00 PM</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-gray-600">Saturday</span>
-                    <span className="font-medium text-gray-900">10:00 AM - 4:00 PM</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-gray-600">Sunday</span>
-                    <span className="font-medium text-gray-900">Closed</span>
-                  </div>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+            <div className="bg-white p-8 rounded-2xl shadow-lg">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">Send us a Message</h3>
+              <InquiryForm />
+            </div>
+            
+            <div className="space-y-8">
+              <div className="bg-white p-8 rounded-2xl shadow-lg">
+                <h3 className="text-2xl font-bold text-gray-900 mb-6">Contact Information</h3>
+                
+                <div className="space-y-6">
+                  {contactDetails.map((item, index) => (
+                    <div key={index} className="flex items-start gap-4">
+                      <div className="bg-green-100 p-3 rounded-full text-green-600 flex-shrink-0">
+                        <item.icon className="w-5 h-5" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-gray-900">{item.title}</h4>
+                        <p className="text-gray-600">{item.details}</p>
+                        <p className="text-sm text-gray-500">{item.description}</p>
+                      </div>
+                    </div>
+                  ))}
                 </div>
                 
-                <div className="mt-6 p-4 bg-green-50 rounded-lg">
-                  <div className="flex items-center text-green-700">
-                    <Clock className="w-5 h-5 mr-2" />
-                    <span className="font-medium">Emergency support available 24/7</span>
+                <div className="mt-8 pt-6 border-t border-gray-200">
+                  <h4 className="font-semibold text-gray-900 mb-4">Office Hours</h4>
+                  <div className="flex items-start gap-3 text-gray-600">
+                    <Clock className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+                    <div>
+                      <p>Monday - Saturday: 9:00 AM - 7:00 PM</p>
+                      <p>Sunday: Closed</p>
+                    </div>
                   </div>
                 </div>
               </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Office Locations */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-8">Our Office Locations</h2>
-            <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto">
-              Visit us at any of our conveniently located offices across India
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {officeLocations.map((office, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
-                className="bg-gradient-to-br from-white to-gray-50 rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow"
-                whileHover={{ scale: 1.02, y: -5 }}
-              >
-                <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mb-4">
-                  <Home className="w-6 h-6 text-green-600" />
-                </div>
-                <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">{office.city}</h3>
-                <div className="space-y-4">
-                  <div className="flex items-start">
-                    <MapPin className="w-5 h-5 text-green-600 mr-3 mt-1 flex-shrink-0" />
-                    <div>
-                      <p className="text-gray-600 text-sm">{office.address}</p>
-                      <p className="text-gray-500 text-xs mt-1">{office.coordinates}</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center">
-                    <Phone className="w-5 h-5 text-green-600 mr-3 flex-shrink-0" />
-                    <span className="text-gray-600">{office.phone}</span>
-                  </div>
-                  <div className="flex items-center">
-                    <Mail className="w-5 h-5 text-green-600 mr-3 flex-shrink-0" />
-                    <span className="text-gray-600">{office.email}</span>
-                  </div>
-                  <div className="pt-4 border-t border-gray-200">
-                    <p className="text-xs font-semibold text-green-600 mb-1">Services Available:</p>
-                    <p className="text-xs text-gray-600">{office.services}</p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
+              
+              <div className="bg-gradient-to-r from-green-600 to-emerald-700 p-8 rounded-2xl shadow-lg text-white">
+                <h3 className="text-2xl font-bold mb-4">Service Areas</h3>
+                <p className="mb-6 text-green-100">We provide our solar solutions across Madhya Pradesh, including:</p>
+                <ul className="grid grid-cols-2 gap-2 text-green-100">
+                  <li className="flex items-center gap-2">
+                    <Check className="w-5 h-5 text-white" /> Bhopal
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Check className="w-5 h-5 text-white" /> Mandideep
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Check className="w-5 h-5 text-white" /> Hoshangabad
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Check className="w-5 h-5 text-white" /> Raisen
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Check className="w-5 h-5 text-white" /> Vidisha
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Check className="w-5 h-5 text-white" /> Sehore
+                  </li>
+                </ul>
+                <p className="mt-4 text-green-100">And surrounding areas in Madhya Pradesh</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>

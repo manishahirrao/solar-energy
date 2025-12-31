@@ -105,14 +105,14 @@ export default function PopupQuoteForm() {
           
           {/* Modal */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9, y: 20 }}
+            initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.9, y: 20 }}
+            exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ type: "spring", damping: 25, stiffness: 400 }}
-            className="relative bg-white rounded-3xl shadow-2xl max-w-lg w-full max-h-[100vh] overflow-hidden flex flex-col"
+            className="relative bg-white rounded-2xl sm:rounded-3xl shadow-2xl w-[90%] max-w-md overflow-hidden flex flex-col"
           >
             {/* Header */}
-            <div className="bg-white text-gray-900 p-3 sm:p-4 rounded-t-3xl relative flex-shrink-0">
+            <div className="bg-white text-gray-900 p-4 sm:p-5 rounded-t-2xl sm:rounded-t-3xl relative flex-shrink-0">
               <button
                 onClick={handleClose}
                 className="absolute top-4 right-4 text-gray-600 hover:text-gray-900 transition-all hover:rotate-90 duration-300 z-10"
@@ -126,26 +126,31 @@ export default function PopupQuoteForm() {
                 transition={{ delay: 0.2 }}
                 className="text-center"
               >
-                <div className="flex justify-center items-center mb-2 sm:mb-4">
-                  <img 
-                    src="/procura logo.png" 
-                    alt="Procura Solar"
-                    className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain"
-                  />
+                <div className="flex flex-col items-center">
+                  <div className="mb-2 sm:mb-3">
+                    <img 
+                      src="/procura logo.png" 
+                      alt="Procura Solar"
+                      className="w-14 h-14 sm:w-16 sm:h-16 object-contain"
+                    />
+                  </div>
+                  <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-1 sm:mb-2 text-gray-900">Get Your Free Quote</h3>
+                  <div className="bg-green-50 border border-green-100 text-green-700 text-xs sm:text-sm px-3 py-1.5 rounded-full font-medium flex items-center">
+                    <Zap className="w-3 h-3 sm:w-4 sm:h-4 mr-1.5 text-green-600" />
+                    Save up to 95% on electricity bills
+                  </div>
                 </div>
-                <h3 className="text-lg sm:text-2xl font-bold mb-1 sm:mb-2 text-gray-900">Get Your Free Quote</h3>
-                <p className="text-black text-xs sm:text-sm">Save up to 90% on electricity bills</p>
               </motion.div>
             </div>
 
             {/* Partition Divider */}
             <div className="border-t border-gray-200"></div>
 
-            {/* Form Content - Scrollable */}
-            <div className="flex-1 p-3 sm:p-4">
+            {/* Form Content */}
+            <div className="p-3 sm:p-4 overflow-hidden">
               {!isSubmitted ? (
-                <form onSubmit={handleSubmit} className="space-y-2 sm:space-y-3">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                <form onSubmit={handleSubmit} className="space-y-1.5 text-xs">
+                  <div className="space-y-1.5">
                     <div>
                       <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1">
                         <User className="w-3 h-3 sm:w-4 sm:h-4 inline mr-1 text-green-600" />
@@ -157,7 +162,7 @@ export default function PopupQuoteForm() {
                         value={formData.name}
                         onChange={handleInputChange}
                         required
-                        className="w-full px-3 py-2 sm:px-3 sm:py-2 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-300 hover:border-gray-300 text-xs sm:text-sm placeholder-gray-500 text-gray-900"
+                        className="w-full px-2 py-1.5 border border-gray-200 rounded-lg focus:ring-1 focus:ring-green-500 focus:border-transparent transition-all duration-200 hover:border-gray-300 text-xs placeholder-gray-400 text-gray-900"
                         placeholder="Mahesh Kumar"
                       />
                     </div>
@@ -173,7 +178,7 @@ export default function PopupQuoteForm() {
                         value={formData.phone}
                         onChange={handleInputChange}
                         required
-                        className="w-full px-3 py-2 sm:px-3 sm:py-2 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-300 hover:border-gray-300 text-xs sm:text-sm placeholder-gray-500 text-gray-900"
+                        className="w-full px-2 py-1.5 border border-gray-200 rounded-lg focus:ring-1 focus:ring-green-500 focus:border-transparent transition-all duration-200 hover:border-gray-300 text-xs placeholder-gray-400 text-gray-900"
                         placeholder="+91 00000 00000"
                       />
                     </div>
@@ -190,12 +195,12 @@ export default function PopupQuoteForm() {
                       value={formData.email}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-3 py-2 sm:px-3 sm:py-2 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-300 hover:border-gray-300 text-xs sm:text-sm placeholder-gray-500 text-gray-900"
+                      className="w-full px-2 py-1.5 border border-gray-200 rounded-lg focus:ring-1 focus:ring-green-500 focus:border-transparent transition-all duration-200 hover:border-gray-300 text-xs placeholder-gray-400 text-gray-900"
                       placeholder="mahesh@example.com"
                     />
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                  <div className="space-y-1.5">
                     <div>
                       <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1">
                         <img 
@@ -209,14 +214,14 @@ export default function PopupQuoteForm() {
                         name="service"
                         value={formData.service}
                         onChange={handleInputChange}
-                        className="w-full px-3 py-2 sm:px-3 sm:py-2 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-300 hover:border-gray-300 text-xs sm:text-sm placeholder-gray-500 text-gray-900"
+                        className="w-full px-2 py-1.5 border border-gray-200 rounded-lg focus:ring-1 focus:ring-green-500 focus:border-transparent transition-all duration-200 hover:border-gray-300 text-xs placeholder-gray-400 text-gray-900"
                       >
-                        <option value="solar-energy">Solar Energy</option>
-                        <option value="hybrid-energy">Hybrid Energy</option>
-                        <option value="solar-consulting">Solar Consulting</option>
-                        <option value="pm-surya-ghar">PM Surya Ghar Yojana</option>
-                        <option value="solar-maintenance">Solar Maintenance</option>
-                        <option value="energy-storage">Energy Storage</option>
+                        <option value="solar-panels">Solar Panel Installation</option>
+                        <option value="solar-water-heater">Solar Water Heater</option>
+                        <option value="solar-inverter">Solar Inverter Systems</option>
+                        <option value="solar-pumps">Solar Water Pumps</option>
+                        <option value="solar-maintenance">Solar System Maintenance</option>
+                        <option value="solar-rooftop">Rooftop Solar Solutions</option>
                       </select>
                     </div>
                     
@@ -229,7 +234,7 @@ export default function PopupQuoteForm() {
                         name="propertyType"
                         value={formData.propertyType}
                         onChange={handleInputChange}
-                        className="w-full px-3 py-2 sm:px-3 sm:py-2 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-300 hover:border-gray-300 text-xs sm:text-sm placeholder-gray-500 text-gray-900"
+                        className="w-full px-2 py-1.5 border border-gray-200 rounded-lg focus:ring-1 focus:ring-green-500 focus:border-transparent transition-all duration-200 hover:border-gray-300 text-xs placeholder-gray-400 text-gray-900"
                       >
                         <option value="residential">Residential</option>
                         <option value="commercial">Commercial</option>
@@ -248,21 +253,21 @@ export default function PopupQuoteForm() {
                       name="message"
                       value={formData.message}
                       onChange={handleInputChange}
-                      rows={2}
+                      rows={1}
                       className="w-full px-3 py-2 sm:px-3 sm:py-2 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-300 hover:border-gray-300 resize-none text-xs sm:text-sm placeholder-gray-500 text-gray-900"
                       placeholder="Tell us about your requirements..."
                     />
                   </div>
 
-                  <motion.button
-                    type="submit"
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="w-full bg-gradient-to-r from-green-600 to-green-700 text-white py-2.5 sm:py-2.5 rounded-xl font-semibold hover:from-green-700 hover:to-green-800 transition-all duration-300 flex items-center justify-center shadow-lg text-sm sm:text-base"
-                  >
-                    <Send className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
-                    Get Free Quote
-                  </motion.button>
+                  <div className="pt-1">
+                    <button
+                      type="submit"
+                      className="w-full bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white font-medium py-2 px-4 rounded-lg transition-all duration-200 flex items-center justify-center gap-1.5 text-sm"
+                    >
+                      <Send className="w-3.5 h-3.5" />
+                      Get Free Quote
+                    </button>
+                  </div>
                 </form>
               ) : (
                 <motion.div
@@ -270,16 +275,20 @@ export default function PopupQuoteForm() {
                   animate={{ opacity: 1, scale: 1 }}
                   className="text-center py-8"
                 >
-                  <motion.div
-                    animate={{ scale: [1, 1.1, 1] }}
-                    transition={{ duration: 0.5, repeat: 2 }}
-                    className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4"
-                  >
-                    <CheckCircle className="w-8 h-8 text-green-600" />
-                  </motion.div>
-                  <h4 className="text-xl font-bold text-gray-900 mb-2">Thank You!</h4>
-                  <p className="text-gray-600 mb-3">Your quote request has been submitted successfully.</p>
-                  <p className="text-sm text-gray-500">Our team will contact you within 24 hours.</p>
+                  <div className="text-center p-6 sm:p-8">
+                    <div className="mx-auto flex items-center justify-center h-20 w-20 sm:h-24 sm:w-24 rounded-full bg-green-50 mb-4">
+                      <CheckCircle className="h-10 w-10 sm:h-12 sm:w-12 text-green-600" />
+                    </div>
+                    <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">Thank you!</h3>
+                    <p className="text-gray-600 mb-6 max-w-md mx-auto">Our solar expert will contact you within 24 hours to discuss your requirements.</p>
+                    <button
+                      type="button"
+                      className="inline-flex items-center justify-center rounded-xl bg-green-600 hover:bg-green-700 text-white font-medium py-3 px-6 text-base sm:text-lg transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
+                      onClick={handleClose}
+                    >
+                      Close Window
+                    </button>
+                  </div>
                 </motion.div>
               )}
             </div>

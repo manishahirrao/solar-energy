@@ -57,9 +57,22 @@ export default function SolarInstallation() {
     <div className="min-h-screen">
       <Header />
       
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-20 md:pt-40 md:pb-32 bg-gradient-to-br from-blue-900 to-emerald-900">
-        <div className="container mx-auto px-4">
+      {/* Hero Section with Background Image */}
+      <section className="relative pt-32 pb-20 md:pt-40 md:pb-32 bg-gradient-to-br from-blue-900/90 to-emerald-900/90 overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0 -z-10">
+          <Image
+            src="/Solar Installation Services.webp"
+            alt="Solar Installation"
+            fill
+            className="object-cover"
+            priority
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 to-emerald-900/80 mix-blend-multiply" />
+        </div>
+        
+        <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <motion.h1 
               className="text-4xl md:text-6xl font-bold text-white mb-6"
@@ -81,33 +94,49 @@ export default function SolarInstallation() {
         </div>
       </section>
 
-      {/* Installation Types */}
+      {/* Installation Types with Images */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-              Our Installation Services
-            </h2>
-            <p className="text-xl text-gray-600">
-              Tailored solar solutions for every type of property
-            </p>
+          <div className="max-w-3xl mx-auto text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Installation Services</h2>
+            <p className="text-lg text-gray-600">Professional solar panel installation for all types of properties</p>
           </div>
           
           <div className="grid md:grid-cols-3 gap-8">
             {installationTypes.map((type, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 30 }}
+                className="bg-white border border-gray-100 rounded-xl overflow-hidden hover:shadow-xl transition-all duration-300"
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow border border-gray-100"
               >
-                <div className="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mb-6 mx-auto">
-                  <type.icon className="w-6 h-6 text-blue-600" />
+                <div className="h-48 bg-gray-100 relative overflow-hidden">
+                  <Image
+                    src={index === 0 ? '/Rooftop Solar Installation.jpeg' : 
+                          index === 1 ? '/Commercial Solar Farm.jpg' : 
+                          '/Industrial Solar Setup.jpg'}
+                    alt={`${type.title} Installation`}
+                    fill
+                    className="object-cover transition-transform duration-500 hover:scale-105"
+                    priority={index === 0}
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{type.title}</h3>
-                <p className="text-gray-600">{type.description}</p>
+                <div className="p-6">
+                  <div className="w-14 h-14 -mt-12 mb-4 bg-gradient-to-br from-blue-600 to-emerald-600 text-white rounded-xl flex items-center justify-center relative z-10 shadow-lg">
+                    <type.icon className="w-6 h-6" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-3">{type.title}</h3>
+                  <p className="text-gray-600 mb-4">{type.description}</p>
+                  <div className="flex items-center text-blue-600 font-medium">
+                    <span>View Projects</span>
+                    <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                  </div>
+                </div>
               </motion.div>
             ))}
           </div>
@@ -205,36 +234,40 @@ export default function SolarInstallation() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 to-green-600">
-        <div className="container mx-auto px-4 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Ready to Go Solar?
-            </h2>
-            <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-              Get a free, no-obligation quote for your solar installation today.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link 
-                href="/contact" 
-                className="inline-block bg-white text-green-700 hover:bg-gray-100 font-semibold px-8 py-4 rounded-full transition-colors duration-300"
-              >
-                Request a Quote
-              </Link>
-              <Link 
-                href="tel:+918959890113" 
-                className="inline-block border-2 border-white text-white hover:bg-white/10 font-semibold px-8 py-4 rounded-full transition-colors duration-300"
-              >
-                Call Now: 89598 90113
-              </Link>
+      {/* Simple CTA Section */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="w-20 h-20 bg-yellow-100 rounded-full flex items-center justify-center mb-6 mx-auto">
+              <svg className="w-10 h-10 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+              </svg>
             </div>
-          </motion.div>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Ready to Go Solar?</h2>
+            <p className="text-gray-600 mb-8 max-w-2xl mx-auto">Take the first step towards energy independence with our expert solar installation services.</p>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a 
+                href="/contact" 
+                className="px-8 py-3 bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white font-semibold rounded-lg transition-colors duration-300"
+              >
+                Get a Free Quote
+              </a>
+              <a 
+                href="tel:+918959890113" 
+                className="px-8 py-3 flex items-center justify-center gap-2 bg-white border border-gray-200 text-gray-700 font-semibold rounded-lg hover:bg-gray-50 transition-colors"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                </svg>
+                Call Now
+              </a>
+            </div>
+            
+            <div className="mt-8 text-sm text-gray-500">
+              <p>Need immediate assistance? <a href="tel:+918959890113" className="text-blue-600 font-medium hover:underline">Call our 24/7 support</a></p>
+            </div>
+          </div>
         </div>
       </section>
 

@@ -13,41 +13,41 @@ export default function Gallery() {
   const galleryItems = [
     {
       id: 1,
-      title: 'Rooftop Solar Installation',
-      category: 'Residential',
+      title: 'Residential Solar EPC',
+      category: 'Solar EPC',
       location: 'Bhopal',
-      description: 'Successfully completed a 5kW residential rooftop solar installation with advanced lithium-ion battery backup system. This project features high-efficiency monocrystalline panels, smart inverter technology, and real-time monitoring via mobile app. The system generates approximately 7,500 kWh annually, reducing household electricity costs by 85% and carbon footprint by 4.5 metric tons per year.',
+      description: 'End-to-end Engineering, Procurement, and Construction of a 5kW residential solar system. This turnkey solution includes site assessment, system design, equipment procurement, installation, and commissioning. The system features high-efficiency monocrystalline panels, smart inverter technology, and real-time monitoring via mobile app, reducing electricity costs by up to 95%.',
       image: '/Rooftop Solar Installation.jpeg',
       capacity: '5kW',
       year: '2024'
     },
     {
       id: 2,
-      title: 'Commercial Solar Farm',
-      category: 'Commercial',
+      title: 'Commercial Solar Installation',
+      category: 'Solar Installation',
       location: 'Mandideep',
-      description: 'Developed a 50MW commercial solar power plant with cutting-edge dual-axis tracking technology and AI-powered predictive maintenance systems. This flagship project spans 250 acres, incorporates 150,000 bifacial solar panels, and includes a 10MWh energy storage system. Generates 85,000 MWh annually, powering 15,000+ commercial establishments.',
+      description: 'Professional installation of a 50kW commercial solar system with battery backup. Our expert team handled the complete installation process, including structural assessment, mounting, electrical connections, and grid integration. The system includes bifacial solar panels and a 10kWh battery bank for uninterrupted power supply.',
       image: '/Commercial Solar Farm.jpg',
-      capacity: '50MW',
+      capacity: '50kW',
       year: '2024'
     },
     {
       id: 3,
-      title: 'Agricultural Solar Pump',
-      category: 'Agricultural',
-      location: 'Sehore',
-      description: 'Installed innovative solar-powered water pumping system with 10HP capacity for agricultural irrigation. Features include variable frequency drives, remote monitoring, and automatic weather-based operation. This system irrigates 50 acres of farmland, reduces diesel consumption by 12,000 liters annually, and provides consistent water supply for 3 cropping seasons.',
-      image: '/Agricultural Solar Pump.jpg',
-      capacity: '10HP',
+      title: 'Solar Maintenance Program',
+      category: 'Solar Maintenance',
+      location: 'Bhopal',
+      description: 'Comprehensive maintenance program for a 100kW industrial solar plant. Our services include regular cleaning, performance monitoring, preventive maintenance, and 24/7 emergency support. The maintenance program ensures optimal system performance, extends equipment lifespan, and maintains maximum energy production.',
+      image: '/Solar Maintenance Service.jpg',
+      capacity: '100kW',
       year: '2023'
     },
     {
       id: 4,
-      title: 'Industrial Solar Setup',
-      category: 'Industrial',
-      location: 'Govindpura',
-      description: 'Engineered and deployed a 100kW industrial solar installation with comprehensive SCADA monitoring and load management system. This project powers critical manufacturing equipment 24/7 with 99.9% uptime, includes automated panel cleaning, and features real-time performance analytics. Achieved ROI within 3 years with 75% energy cost reduction.',
-      image: '/Industrial Solar Setup.jpg',
+      title: 'Solar EPC - Educational Institute',
+      category: 'Solar EPC',
+      location: 'Vidisha',
+      description: 'Complete turnkey solar solution for a leading educational institute. The project included detailed energy audit, custom system design, government approvals, installation of 25kW solar panels, and integration with the existing electrical infrastructure. The system now meets 80% of the institute\'s energy needs.',
+      image: '/School Solar Installation.avif',
       capacity: '100kW',
       year: '2024'
     },
@@ -133,7 +133,7 @@ export default function Gallery() {
     }
   ];
 
-  const categories = ['All', 'Residential', 'Commercial', 'Industrial', 'Agricultural', 'Hybrid', 'Infrastructure', 'Healthcare', 'Educational', 'Innovative', 'Maintenance'];
+  const categories = ['All', 'Solar EPC', 'Solar Installation', 'Solar Maintenance'];
 
   const filteredItems = selectedCategory === 'All' 
     ? galleryItems 
@@ -162,20 +162,15 @@ export default function Gallery() {
             className="text-center text-white max-w-5xl mx-auto"
           >
             {/* Trust badge */}
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-4 sm:mb-6 leading-tight"
-            >
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-4 sm:mb-6 leading-tight">
               <span className="text-black">
-                Our
+                Our Solar
               </span>
               <br />
               <span className="text-black">
-                Projects
+                Service Projects
               </span>
-            </motion.h1>
+            </h1>
             
             {/* Description */}
             <motion.p
@@ -184,7 +179,7 @@ export default function Gallery() {
               transition={{ duration: 0.8, delay: 0.6 }}
               className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-black mb-8 sm:mb-12 leading-relaxed max-w-4xl mx-auto font-light"
             >
-              Explore our portfolio of successful solar energy projects and renewable energy installations - Delivering innovative solar solutions for homes, businesses, and industries
+              Discover our expertise in Solar EPC, Installation, and Maintenance services through these successful projects across Madhya Pradesh
             </motion.p>
 
             {/* CTA Buttons */}
