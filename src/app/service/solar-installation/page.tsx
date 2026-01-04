@@ -94,6 +94,94 @@ export default function SolarInstallation() {
         </div>
       </section>
 
+      {/* Subsidy Section */}
+      <section className="py-20 bg-gradient-to-br from-blue-50 to-emerald-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-7xl mx-auto">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              {/* Left Content */}
+              <motion.div
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+              >
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                  Avail Subsidy of <span className="text-blue-600">₹78,000</span> for solar in Bhopal
+                </h2>
+                <p className="text-gray-600 mb-8 leading-relaxed">
+                  From Habib Ganj to MP Nagar, families across Bhopal have trusted Solarium for rooftop solar solutions for their homes under the PM Surya Ghar Yojana.
+                </p>
+
+                {/* Subsidy Table */}
+                <div className="mb-8 overflow-hidden rounded-lg shadow-md">
+                  <table className="w-full">
+                    <thead>
+                      <tr className="bg-blue-900 text-white">
+                        <th className="py-3 px-6 text-left font-semibold">Capacity</th>
+                        <th className="py-3 px-6 text-left font-semibold">Subsidy</th>
+                      </tr>
+                    </thead>
+                    <tbody className="bg-white">
+                      <tr className="border-b border-gray-200">
+                        <td className="py-3 px-6 text-gray-900">1 kW</td>
+                        <td className="py-3 px-6 text-gray-900">₹30,000</td>
+                      </tr>
+                      <tr className="border-b border-gray-200">
+                        <td className="py-3 px-6 text-gray-900">2 kW</td>
+                        <td className="py-3 px-6 text-gray-900">₹60,000</td>
+                      </tr>
+                      <tr className="border-b border-gray-200">
+                        <td className="py-3 px-6 text-gray-900">3 kW</td>
+                        <td className="py-3 px-6 text-gray-900">₹78,000</td>
+                      </tr>
+                      <tr>
+                        <td className="py-3 px-6 text-gray-900">Above 3kW</td>
+                        <td className="py-3 px-6 text-gray-900">₹78,000</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <Link 
+                  href="/contact" 
+                  className="inline-block bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-lg transition-colors duration-300 shadow-lg"
+                >
+                  Book FREE Site Survey
+                </Link>
+              </motion.div>
+
+              {/* Right Content - Image and Trust Badges */}
+              <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+                className="relative"
+              >
+                {/* Main Image */}
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl mb-6">
+                  <div className="absolute top-4 right-4 bg-blue-600 text-white px-4 py-2 rounded-full font-bold z-10">
+                    <div className="text-2xl">250+</div>
+                    <div className="text-xs">संतुष्ट का परिवार</div>
+                  </div>
+                  <Image
+                    src="/subsidy-bhopal.png"
+                    alt="Happy family with solar panels"
+                    width={600}
+                    height={400}
+                    className="w-full h-auto object-cover"
+                    priority
+                  />
+                </div>
+
+                
+              </motion.div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Installation Types with Images */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
