@@ -234,10 +234,20 @@ const Footer = () => {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="border-t border-gray-700/50 mt-8 pt-6"
         >
-          <div className="flex flex-col lg:flex-row justify-between items-center space-y-4 lg:space-y-0">
-            <div className="text-center lg:text-left">
+          <div className="flex flex-col items-center space-y-4">
+            <div className="text-center space-y-2">
               <p className="text-gray-400 text-xs sm:text-sm">
                 © 2024 Procura Solar. All rights reserved.
+              </p>
+              <p className="text-gray-400 text-xs sm:text-sm">
+                <a 
+                  href="https://adwikindia.com/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="hover:text-green-400 transition-colors"
+                >
+                  Design and Develop by AdwikIndia
+                </a>
               </p>
             </div>
             
