@@ -126,18 +126,6 @@ export default function NotFound() {
                 </Link>
 
                 <Link
-                  href="/blog"
-                  className="bg-gray-50 rounded-xl p-6 hover:bg-gray-100 transition-colors group"
-                >
-                  <h4 className="font-semibold text-gray-900 mb-2 group-hover:text-green-600 transition-colors">
-                    Blog
-                  </h4>
-                  <p className="text-gray-600 text-sm">
-                    Read the latest insights on solar energy and sustainability
-                  </p>
-                </Link>
-
-                <Link
                   href="/contact"
                   className="bg-gray-50 rounded-xl p-6 hover:bg-gray-100 transition-colors group"
                 >
