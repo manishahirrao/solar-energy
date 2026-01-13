@@ -27,11 +27,13 @@ export default function InquiryForm() {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const services = [
-    { value: 'solar-energy', label: 'Solar Energy Installation', icon: Sun },
-    { value: 'hybrid-energy', label: 'Hybrid Energy Systems', icon: Battery },
-    { value: 'solar-consulting', label: 'Solar Consulting', icon: Trees },
-    { value: 'solar-maintenance', label: 'Solar Maintenance', icon: Zap },
-    { value: 'energy-storage', label: 'Energy Storage', icon: Battery }
+    { value: 'solar-panels', label: 'Solar Panel Installation', icon: Sun },
+    { value: 'solar-water-heater', label: 'Solar Water Heater', icon: Sun },
+    { value: 'solar-inverter', label: 'Solar Inverter Systems', icon: Zap },
+    { value: 'solar-pumps', label: 'Solar Water Pumps', icon: Zap },
+    { value: 'solar-maintenance', label: 'Solar System Maintenance', icon: Zap },
+    { value: 'solar-rooftop', label: 'Rooftop Solar Solutions', icon: Sun },
+    { value: 'solar-epc', label: 'Solar EPC Solutions', icon: Sun }
   ];
 
   const propertyTypes = [

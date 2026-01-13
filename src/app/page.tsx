@@ -23,6 +23,140 @@ export default function Home() {
       <TechnologyPartners />
       <AboutUs />
       <Services />
+
+      {/* Rooftop Solar Services in Bhopal */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="space-y-6"
+            >
+              <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 leading-tight">
+                Our Rooftop Solar Services in Bhopal
+              </h2>
+              <p className="text-lg sm:text-xl text-gray-600 leading-relaxed">
+                Whether you’re a homeowner or running a business, our tailored solar services cover everything:
+              </p>
+              <ul className="space-y-3 text-gray-700 text-base sm:text-lg">
+                <li className="flex items-start">
+                  <span className="mt-2 mr-3 h-2 w-2 rounded-full bg-green-600 flex-shrink-0" />
+                  <span>Free rooftop inspection and solar feasibility analysis</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="mt-2 mr-3 h-2 w-2 rounded-full bg-green-600 flex-shrink-0" />
+                  <span>Custom system design based on roof size, shadow, and tilt</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="mt-2 mr-3 h-2 w-2 rounded-full bg-green-600 flex-shrink-0" />
+                  <span>Fast, secure installation using pre-fabricated structures</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="mt-2 mr-3 h-2 w-2 rounded-full bg-green-600 flex-shrink-0" />
+                  <span>Full assistance with subsidy applications and net metering</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="mt-2 mr-3 h-2 w-2 rounded-full bg-green-600 flex-shrink-0" />
+                  <span>Maintenance contracts to ensure long-term system performance</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="mt-2 mr-3 h-2 w-2 rounded-full bg-green-600 flex-shrink-0" />
+                  <span>Easy financing plans with zero down payment and EMI options</span>
+                </li>
+              </ul>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.15 }}
+              className="relative"
+            >
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                <img
+                  src="/solar-roof.jpeg"
+                  alt="Rooftop Solar Services in Bhopal"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+
+                <div className="hidden sm:block absolute bottom-6 left-6 w-40 md:w-48 lg:w-56 rounded-2xl overflow-hidden shadow-2xl border border-white/60 bg-white/10 backdrop-blur-sm">
+                  <img
+                    src="/solar-roof1.jpeg"
+                    alt="Solar Installation"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Video Showcase */}
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 mb-4">
+              See Our Work in Action
+            </h2>
+            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
+              A quick look at how our team delivers safe, clean, and professional rooftop solar installations.
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.98 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+            className="max-w-5xl mx-auto"
+          >
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
+              <div className="lg:col-span-2">
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-black max-w-3xl mx-auto">
+                  <div className="absolute inset-0 bg-gradient-to-tr from-green-600/15 via-transparent to-orange-500/15" />
+                  <video
+                    className="relative w-full h-auto aspect-video object-cover"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    preload="metadata"
+                  >
+                    <source src="/video.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+              </div>
+
+              <div className="lg:col-span-1">
+                <div className="bg-white rounded-2xl shadow-xl p-6 text-center">
+                  <div className="text-lg font-bold text-gray-900 mb-2">Scan Our Google Business Profile</div>
+                  <div className="text-gray-600 text-sm mb-5">Scan this QR code to view our Google profile</div>
+                  <div className="mx-auto w-52 sm:w-56 rounded-xl overflow-hidden border border-gray-200 bg-white">
+                    <img
+                      src="/qr.png"
+                      alt="Google Business Profile QR Code"
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
       
       {/* PM Surya Ghar Yojana Section */}
       <section className="py-20 bg-white relative overflow-hidden">

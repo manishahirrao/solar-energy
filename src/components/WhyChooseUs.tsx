@@ -1,25 +1,45 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { CheckCircle, TrendingUp, Shield, Clock, Users, Award, Sun, Battery, Wrench } from 'lucide-react';
-import Link from 'next/link';
+import { CheckCircle, FileText, Leaf, Shield, Wrench, Zap } from 'lucide-react';
 
 const WhyChooseUs = () => {
-  const features = [
+  const points = [
     {
       title: 'Quality Assurance',
-      description: 'Premium solar panels with long-term warranty and certified installation. Our rigorous quality control ensures every system meets the highest standards.',
-      image: '/quality-why-us.webp'
+      description: 'Premium components, tested installation practices, and strict checks.',
+      icon: Shield,
+      image: '/quality.jpeg'
     },
     {
-      title: 'Cost Effective',
-      description: 'Significantly reduce electricity bills with competitive pricing. We help you achieve maximum ROI with smart financing options.',
-      image: '/cost-effective-why-us.jpeg'
+      title: 'HDGI 80 Micron',
+      description: 'Heavy-duty galvanized structures for strength and durability.',
+      icon: CheckCircle,
+      image: '/hdgi.jpg'
     },
     {
-      title: 'Expert Team',
-      description: 'Certified professionals with extensive solar installation experience. Our engineers bring expertise and precision to every project.',
-      image: '/expert-team-why-us.jpeg'
+      title: 'Fast Installation',
+      description: 'Quick and secure installation with minimal disruption.',
+      icon: Zap,
+      image: '/fast-installation.jpeg'
+    },
+    {
+      title: 'End-to-End Document Support',
+      description: 'Paperless work — we handle everything from start to finish.',
+      icon: FileText,
+      image: '/document.webp'
+    },
+    {
+      title: 'Environment Friendly',
+      description: 'Clean energy that reduces your carbon footprint.',
+      icon: Leaf,
+      image: '/environment-friendly.jpg'
+    },
+    {
+      title: 'Low Maintenance & Long Lifespan',
+      description: 'Designed for long-term performance with minimal upkeep.',
+      icon: Wrench,
+      image: '/longlifespan.webp'
     }
   ];
 
@@ -68,103 +88,61 @@ const WhyChooseUs = () => {
           </motion.p>
         </motion.div>
 
-        <div className="space-y-12 sm:space-y-16 lg:space-y-24">
-          {features.map((feature, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: index * 0.3 }}
-              className={`grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center ${
-                index % 2 === 1 ? 'lg:flex-row-reverse' : ''
-              }`}
-              whileHover={{ scale: 1.01 }}
-            >
-              {/* Image Section */}
-              <div className={`relative ${index % 2 === 0 ? 'order-2 lg:order-1' : 'order-2'}`}>
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  className="relative rounded-3xl overflow-hidden shadow-2xl bg-gray-100 h-60 sm:h-72 lg:h-80 w-full max-w-lg mx-auto lg:mx-0 border border-gray-200"
-                  whileHover={{ rotate: 2, scale: 1.03 }}
-                  animate={{ y: [0, -8, 0] }}
-                  transition={{ duration: 3, repeat: Infinity, delay: index * 0.5 }}
-                >
-                  <div className="absolute inset-0 bg-emerald-600/10" />
-                  <img
-                    src={feature.image}
-                    alt={feature.title}
-                    className="w-full h-full object-cover relative z-10"
-                  />
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.7, delay: index * 0.2 + 0.4 }}
-                    className="absolute top-4 left-4 sm:top-6 sm:left-6 bg-white/95 backdrop-blur-md rounded-2xl p-3 sm:p-4 z-20 shadow-lg border border-emerald-200"
-                    whileHover={{ scale: 1.05, rotate: -1 }}
-                  >
-                    <p className="text-sm font-bold text-emerald-700 uppercase tracking-wide">
-                      {feature.title}
-                    </p>
-                  </motion.div>
-                </motion.div>
-              </div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="relative"
+          >
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl bg-gray-100 h-72 sm:h-96 w-full max-w-xl mx-auto lg:mx-0 border border-gray-200">
+              <div className="absolute inset-0 bg-emerald-600/10" />
+              <img
+                src="/solar-roof.jpeg"
+                alt="Why Choose Procura Solar"
+                className="w-full h-full object-cover relative z-10"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/35 to-transparent" />
+            </div>
+          </motion.div>
 
-              {/* Content Section */}
-              <div className={`space-y-6 sm:space-y-8 ${index % 2 === 0 ? 'order-1 lg:order-2' : 'order-1'}`}>
-                <motion.h3
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.2 + 0.3 }}
-                  className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 sm:mb-6"
-                  whileHover={{ scale: 1.02, x: 5 }}
-                >
-                  <span className="text-gray-900">
-                    {feature.title}
-                  </span>
-                </motion.h3>
-                <motion.p
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.2 + 0.4 }}
-                  className="text-lg sm:text-xl text-gray-600 leading-relaxed mb-6 sm:mb-8"
-                >
-                  {feature.description}
-                </motion.p>
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.2 + 0.5 }}
-                  className="flex items-center gap-3 sm:gap-4 bg-emerald-50 px-4 sm:px-6 py-3 sm:py-4 rounded-2xl inline-flex border border-emerald-200"
-                  whileHover={{ scale: 1.05, boxShadow: "0 10px 30px rgba(16, 185, 129, 0.2)" }}
-                >
-                  <motion.div 
-                    className="w-12 h-12 bg-emerald-500 rounded-full flex items-center justify-center shadow-lg"
-                    whileHover={{ rotate: 360, scale: 1.2 }}
-                    transition={{ duration: 0.5 }}
-                  >
-                    {index === 0 && <Sun className="w-6 h-6 text-white" />}
-                    {index === 1 && <TrendingUp className="w-6 h-6 text-white" />}
-                    {index === 2 && <Users className="w-6 h-6 text-white" />}
-                  </motion.div>
-                  <motion.span 
-                    className="text-gray-800 font-semibold text-lg"
-                    whileHover={{ x: 5 }}
-                  >
-                    {index === 0 && '30 Year Warranty'}
-                    {index === 1 && 'Guaranteed Savings'}
-                    {index === 2 && 'Expert Support'}
-                  </motion.span>
-                </motion.div>
-              </div>
-            </motion.div>
-          ))}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+            className="grid grid-cols-1 sm:grid-cols-2 gap-4"
+          >
+            {points.map((p, idx) => (
+              <motion.div
+                key={p.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.05 * idx }}
+                whileHover={{ y: -4, scale: 1.01 }}
+                className="bg-white rounded-2xl border border-gray-200 shadow-md hover:shadow-xl transition-all duration-300 p-4 flex gap-4"
+              >
+                <div className="w-14 h-14 rounded-xl overflow-hidden border border-gray-200 bg-gray-50 flex-shrink-0">
+                  <img src={p.image} alt={p.title} className="w-full h-full object-cover" />
+                </div>
+                <div className="min-w-0">
+                  <div className="flex items-center gap-2 mb-1">
+                    <div className="w-7 h-7 rounded-full bg-emerald-50 flex items-center justify-center border border-emerald-200 flex-shrink-0">
+                      <p.icon className="w-4 h-4 text-emerald-700" />
+                    </div>
+                    <div className="font-bold text-gray-900 text-sm sm:text-base leading-snug">
+                      {p.title}
+                    </div>
+                  </div>
+                  <div className="text-gray-600 text-xs sm:text-sm leading-relaxed">
+                    {p.description}
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
       </div>
     </section>

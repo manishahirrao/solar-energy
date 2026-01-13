@@ -222,6 +222,7 @@ export default function PopupQuoteForm() {
                         <option value="solar-pumps">Solar Water Pumps</option>
                         <option value="solar-maintenance">Solar System Maintenance</option>
                         <option value="solar-rooftop">Rooftop Solar Solutions</option>
+                        <option value="solar-epc">Solar EPC Solutions</option>
                       </select>
                     </div>
                     
@@ -239,7 +240,6 @@ export default function PopupQuoteForm() {
                         <option value="residential">Residential</option>
                         <option value="commercial">Commercial</option>
                         <option value="industrial">Industrial</option>
-                        <option value="agricultural">Agricultural</option>
                       </select>
                     </div>
                   </div>
