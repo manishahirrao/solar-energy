@@ -2,6 +2,7 @@
 
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import PopupQuoteForm from '@/components/PopupQuoteForm';
 import { motion } from 'framer-motion';
 import { Search, Filter, Grid, List, Sun, TrendingUp, Shield, Phone, ArrowRight, Camera } from 'lucide-react';
 import { useState } from 'react';
@@ -163,11 +164,11 @@ export default function Gallery() {
           >
             {/* Trust badge */}
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-4 sm:mb-6 leading-tight">
-              <span className="text-black">
+              <span className="text-white">
                 Our Solar
               </span>
               <br />
-              <span className="text-black">
+              <span className="text-white">
                 Service Projects
               </span>
             </h1>
@@ -177,7 +178,7 @@ export default function Gallery() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-black mb-8 sm:mb-12 leading-relaxed max-w-4xl mx-auto font-light"
+              className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-white mb-8 sm:mb-12 leading-relaxed max-w-4xl mx-auto font-light"
             >
               Discover our expertise in Solar EPC, Installation, and Maintenance services through these successful projects across Madhya Pradesh
             </motion.p>
@@ -515,6 +516,12 @@ export default function Gallery() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="bg-white text-green-600 px-8 py-4 rounded-full font-bold text-lg hover:shadow-2xl transition-all duration-300 inline-flex items-center"
+              onClick={() => {
+                // Open quote form popup using global function
+                if (typeof window !== 'undefined') {
+                  (window as any).openQuoteForm();
+                }
+              }}
             >
               <Phone className="w-5 h-5 mr-2" />
               Get Your Free Quote Now
@@ -527,6 +534,9 @@ export default function Gallery() {
       </section>
 
       <Footer />
+      
+      {/* Popup Quote Form */}
+      <PopupQuoteForm />
     </div>
   );
 }

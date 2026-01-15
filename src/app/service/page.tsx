@@ -2,6 +2,7 @@
 
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import PopupQuoteForm from '@/components/PopupQuoteForm';
 import { motion } from 'framer-motion';
 import { Sun, Battery, Home, Trees, ArrowRight, FileText, Settings, Award, Wrench } from 'lucide-react';
 import Link from 'next/link';
@@ -94,7 +95,12 @@ export default function Service() {
                 whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(251, 191, 36, 0.4)" }}
                 whileTap={{ scale: 0.95 }}
                 className="bg-gradient-to-r from-yellow-500 to-orange-600 text-white px-6 sm:px-10 py-3 sm:py-5 rounded-full hover:from-yellow-600 hover:to-orange-700 transition-all duration-300 font-bold text-base sm:text-lg flex items-center justify-center group shadow-2xl border border-yellow-400/20"
-                onClick={() => window.location.href = '/contact'}
+                onClick={() => {
+                  // Open quote form popup using global function
+                  if (typeof window !== 'undefined') {
+                    (window as any).openQuoteForm();
+                  }
+                }}
               >
                 Get Quote
                 <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 ml-3 group-hover:translate-x-2 transition-transform" />
@@ -337,6 +343,9 @@ export default function Service() {
       </section>
 
       <Footer />
+      
+      {/* Popup Quote Form */}
+      <PopupQuoteForm />
     </div>
   );
 }

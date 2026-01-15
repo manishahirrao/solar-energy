@@ -65,16 +65,20 @@ const Hero = () => {
               transition={{ duration: 0.8, delay: 0.6 }}
               className="flex flex-col sm:flex-row gap-4 sm:gap-6 mb-8 sm:mb-12 justify-center"
             >
-              <Link href="/contact">
-                <motion.button
-                  whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(34, 197, 94, 0.4)" }}
-                  whileTap={{ scale: 0.95 }}
-                  className="bg-green-600 text-white px-6 sm:px-10 py-3 sm:py-5 rounded-full hover:bg-green-700 transition-all duration-300 font-bold text-base sm:text-lg flex items-center justify-center group shadow-2xl border border-green-400/20"
-                >
-                  Get Quote
-                  <ArrowRight className="w-6 h-6 ml-3 group-hover:translate-x-2 transition-transform" />
-                </motion.button>
-              </Link>
+              <motion.button
+                whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(34, 197, 94, 0.4)" }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-green-600 text-white px-6 sm:px-10 py-3 sm:py-5 rounded-full hover:bg-green-700 transition-all duration-300 font-bold text-base sm:text-lg flex items-center justify-center group shadow-2xl border border-green-400/20"
+                onClick={() => {
+                  // Open quote form popup using global function
+                  if (typeof window !== 'undefined') {
+                    (window as any).openQuoteForm();
+                  }
+                }}
+              >
+                Get Quote
+                <ArrowRight className="w-6 h-6 ml-3 group-hover:translate-x-2 transition-transform" />
+              </motion.button>
               
               <Link href="/project">
                 <motion.button

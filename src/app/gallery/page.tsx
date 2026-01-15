@@ -71,7 +71,7 @@ export default function Gallery() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-center max-w-4xl mx-auto"
+            className="text-center text-white max-w-4xl mx-auto"
           >
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
@@ -79,11 +79,11 @@ export default function Gallery() {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-4 sm:mb-6 leading-tight"
             >
-              <span className="text-black">
+              <span className="text-white">
                 Solar
               </span>
               <br />
-              <span className="text-gray-900">
+              <span className="text-white">
                 Gallery
               </span>
             </motion.h1>
@@ -92,7 +92,7 @@ export default function Gallery() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-black mb-8 sm:mb-12 leading-relaxed max-w-4xl mx-auto font-light"
+              className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-white mb-8 sm:mb-12 leading-relaxed max-w-4xl mx-auto font-light"
             >
               Explore our expertise in Solar EPC, Installation, and Maintenance through our project gallery
             </motion.p>

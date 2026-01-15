@@ -4,6 +4,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import InquiryForm from '@/components/InquiryForm';
+import PopupQuoteForm from '@/components/PopupQuoteForm';
 import { motion } from 'framer-motion';
 import { Phone, Mail, MapPin, Send, Clock, Home, ArrowRight, Sun, Wrench, Zap, Check, Battery } from 'lucide-react';
 
@@ -166,9 +167,9 @@ export default function Contact() {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-4 sm:mb-6 leading-tight"
             >
-              <span className="text-black">Solar Solutions</span>
+              <span className="text-white">Solar Solutions</span>
               <br />
-              <span className="text-black">for Your Needs</span>
+              <span className="text-white">for Your Needs</span>
             </motion.h1>
             
             {/* Description */}
@@ -176,7 +177,7 @@ export default function Contact() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-black mb-8 sm:mb-12 leading-relaxed max-w-4xl mx-auto font-light"
+              className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-white mb-8 sm:mb-12 leading-relaxed max-w-4xl mx-auto font-light"
             >
               Get expert consultation for Solar EPC, Installation, and Maintenance services. Our team is ready to provide customized solar solutions for your home or business.
             </motion.p>
@@ -188,16 +189,6 @@ export default function Contact() {
               transition={{ duration: 0.8, delay: 0.8 }}
               className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center"
             >
-              <motion.button
-                whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(16, 185, 129, 0.4)" }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-gradient-to-r from-green-500 to-emerald-600 text-white px-6 sm:px-10 py-3 sm:py-5 rounded-full hover:from-green-600 hover:to-emerald-700 transition-all duration-300 font-bold text-base sm:text-lg flex items-center justify-center group shadow-2xl border border-green-400/20"
-                onClick={() => document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' })}
-              >
-                Get Quote
-                <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 ml-3 group-hover:translate-x-2 transition-transform" />
-              </motion.button>
-              
               <motion.button
                 whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(255, 255, 255, 0.2)" }}
                 whileTap={{ scale: 0.95 }}
@@ -293,6 +284,9 @@ export default function Contact() {
 
       <Footer />
       <WhatsAppButton />
+      
+      {/* Popup Quote Form */}
+      <PopupQuoteForm />
     </div>
   );
 }

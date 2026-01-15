@@ -2,6 +2,7 @@
 
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import PopupQuoteForm from '@/components/PopupQuoteForm';
 import { motion } from 'framer-motion';
 import { Settings, Check, Calendar, Shield, Zap } from 'lucide-react';
 import Image from 'next/image';
@@ -183,12 +184,7 @@ export default function SolarEPC() {
                   </div>
                   <h3 className="text-xl font-semibold text-gray-900 mb-3">{feature.title}</h3>
                   <p className="text-gray-600 mb-4">{feature.description}</p>
-                  <div className="flex items-center text-blue-600 font-medium">
-                    <span>Learn more</span>
-                    <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
-                    </svg>
-                  </div>
+                  
                 </div>
               </motion.div>
             ))}
@@ -209,12 +205,17 @@ export default function SolarEPC() {
             <p className="text-gray-600 mb-8 max-w-2xl mx-auto">Ready to switch to clean, renewable energy? Get started with our expert EPC services today.</p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a 
-                href="/contact" 
+              <button 
                 className="px-8 py-3 bg-gradient-to-r from-blue-600 to-emerald-600 hover:from-blue-700 hover:to-emerald-700 text-white font-semibold rounded-lg transition-colors duration-300"
+                onClick={() => {
+                  // Open quote form popup using global function
+                  if (typeof window !== 'undefined') {
+                    (window as any).openQuoteForm();
+                  }
+                }}
               >
                 Get a Free Quote
-              </a>
+              </button>
               <a 
                 href="tel:+918959890113" 
                 className="px-8 py-3 flex items-center justify-center gap-2 bg-white border border-gray-200 text-gray-700 font-semibold rounded-lg hover:bg-gray-50 transition-colors"
@@ -234,6 +235,9 @@ export default function SolarEPC() {
       </section>
 
       <Footer />
+      
+      {/* Popup Quote Form */}
+      <PopupQuoteForm />
     </div>
   );
 }

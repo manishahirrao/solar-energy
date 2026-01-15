@@ -34,6 +34,19 @@ export default function PopupQuoteForm() {
     return () => clearTimeout(timer);
   }, []);
 
+  // Global function to open popup
+  useEffect(() => {
+    // @ts-ignore
+    window.openQuoteForm = () => {
+      setIsOpen(true);
+    };
+    
+    return () => {
+      // @ts-ignore
+      delete window.openQuoteForm;
+    };
+  }, []);
+
   // Prevent body scroll when popup is open
   useEffect(() => {
     if (isOpen) {
@@ -67,11 +80,17 @@ export default function PopupQuoteForm() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Simulate form submission
-    console.log('Form submitted:', formData);
+    
+    // Navigate to WhatsApp with form data
+    const whatsappMessage = `Hello! I'm interested in your solar services.%0A%0AName: ${formData.name}%0A%0APhone: ${formData.phone}%0A%0AEmail: ${formData.email}%0A%0AService: ${formData.service}%0A%0AProperty Type: ${formData.propertyType}%0A%0AMessage: ${formData.message || 'No additional message'}`;
+    
+    const whatsappUrl = `https://wa.me/918959890113?text=${encodeURIComponent(whatsappMessage)}`;
+    window.open(whatsappUrl, '_blank');
+    
+    // Show success message briefly before closing
     setIsSubmitted(true);
     
-    // Reset form after 3 seconds and close popup
+    // Reset form and close popup after 2 seconds
     setTimeout(() => {
       setIsSubmitted(false);
       setFormData({
@@ -83,7 +102,7 @@ export default function PopupQuoteForm() {
         message: ''
       });
       setIsOpen(false);
-    }, 3000);
+    }, 2000);
   };
 
   const handleClose = () => {

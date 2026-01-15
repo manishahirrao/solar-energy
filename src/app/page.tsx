@@ -278,12 +278,8 @@ export default function Home() {
                       whileTap={{ scale: 0.95 }}
                       className="bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg transition-all z-50"
                       onClick={() => {
-                        // Open quote form popup
-                        const popupQuoteForm = document.getElementById('popup-quote-form');
-                        if (popupQuoteForm) {
-                          popupQuoteForm.style.display = 'flex';
-                          document.body.style.overflow = 'hidden';
-                        }
+                        // Navigate to WhatsApp
+                        window.open('https://wa.me/918959890113', '_blank');
                       }}
                     >
                       Check Eligibility
@@ -304,7 +300,7 @@ export default function Home() {
           >
             <h3 className="text-xl font-bold mb-4 text-gray-900">Ready to Join PM Surya Ghar Yojana?</h3>
             <button
-              className="bg-green-600 text-white px-6 py-2 rounded font-semibold hover:bg-green-700 transition-colors flex items-center"
+              className="bg-green-600 text-white px-6 py-2 rounded font-semibold hover:bg-green-700 transition-colors inline-flex items-center justify-center mx-auto"
               onClick={() => {
                 // Navigate to WhatsApp
                 window.open('https://wa.me/918959890113', '_blank');
@@ -338,11 +334,17 @@ export default function Home() {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/contact">
-                <button className="bg-green-600 text-white px-6 py-3 rounded-full hover:bg-green-700 transition-colors font-semibold">
-                  Get Free Quote
-                </button>
-              </Link>
+              <button 
+                className="bg-green-600 text-white px-6 py-3 rounded-full hover:bg-green-700 transition-colors font-semibold"
+                onClick={() => {
+                  // Open quote form popup using global function
+                  if (typeof window !== 'undefined') {
+                    (window as any).openQuoteForm();
+                  }
+                }}
+              >
+                Get Free Quote
+              </button>
               
               <Link href="/project">
                 <button className="bg-white text-green-600 border-2 border-green-600 px-6 py-3 rounded-full hover:bg-green-50 transition-colors font-semibold">

@@ -2,6 +2,7 @@
 
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import PopupQuoteForm from '@/components/PopupQuoteForm';
 import { motion } from 'framer-motion';
 import { Award, Leaf, Target, Sun, Zap, Shield, Clock, Globe, CheckCircle, TrendingUp, Lightbulb, Wrench, ArrowRight, Phone } from 'lucide-react';
 
@@ -82,11 +83,11 @@ export default function About() {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-8 sm:mb-10 leading-tight"
             >
-              <span className="text-black">
+              <span className="text-white">
                 About
               </span>
               <br />
-              <span className="text-black">
+              <span className="text-white">
                 Procura Solar
               </span>
             </motion.h1>
@@ -96,7 +97,7 @@ export default function About() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-black mb-10 sm:mb-12 leading-relaxed max-w-4xl mx-auto font-light"
+              className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-white mb-10 sm:mb-12 leading-relaxed max-w-4xl mx-auto font-light"
             >
               Pioneering excellence in renewable energy solutions, committed to transforming the way India powers its future through sustainable innovation.
             </motion.p>
@@ -112,7 +113,12 @@ export default function About() {
                 whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(34, 197, 94, 0.4)" }}
                 whileTap={{ scale: 0.95 }}
                 className="bg-gradient-to-r from-green-500 to-emerald-600 text-white px-6 sm:px-10 py-3 sm:py-5 rounded-full hover:from-green-600 hover:to-emerald-700 transition-all duration-300 font-bold text-base sm:text-lg flex items-center justify-center group shadow-2xl border border-green-400/20"
-                onClick={() => window.location.href = '/contact'}
+                onClick={() => {
+                  // Open quote form popup using global function
+                  if (typeof window !== 'undefined') {
+                    (window as any).openQuoteForm();
+                  }
+                }}
               >
                 Get Quote
                 <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 ml-3 group-hover:translate-x-2 transition-transform" />
@@ -522,7 +528,12 @@ export default function About() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="bg-white text-green-600 px-8 py-4 rounded-full font-bold text-lg hover:shadow-2xl transition-all duration-300 inline-flex items-center"
-              onClick={() => window.location.href = '/contact'}
+              onClick={() => {
+                  // Open quote form popup using global function
+                  if (typeof window !== 'undefined') {
+                    (window as any).openQuoteForm();
+                  }
+                }}
             >
               <Phone className="w-5 h-5 mr-2" />
               Get Your Free Quote Now
@@ -535,6 +546,9 @@ export default function About() {
       </section>
 
       <Footer />
+      
+      {/* Popup Quote Form */}
+      <PopupQuoteForm />
     </div>
   );
 }
