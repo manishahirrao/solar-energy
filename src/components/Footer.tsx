@@ -224,6 +224,34 @@ const Footer = () => {
             </ul>
           </motion.div>
 
+          {/* Social Icons - Compact and Inline with Support Section */}
+          <motion.div 
+            className="flex items-center justify-center sm:justify-end space-x-2 mt-4 sm:mt-2"
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: 0.3 }}
+          >
+            <span className="text-sm text-gray-400 mr-2">Follow us:</span>
+            {[
+              { icon: Facebook, href: '#', label: 'Facebook' },
+              { icon: Twitter, href: '#', label: 'Twitter' },
+              { icon: Linkedin, href: '#', label: 'LinkedIn' },
+              { icon: Instagram, href: '#', label: 'Instagram' }
+            ].map((social, index) => (
+              <motion.a
+                key={social.label}
+                href={social.href}
+                className="text-gray-400 hover:text-green-400 transition-colors"
+                whileHover={{ scale: 1.2, rotate: 5 }}
+                whileTap={{ scale: 0.9 }}
+                aria-label={social.label}
+              >
+                <social.icon className="w-4 h-4" />
+              </motion.a>
+            ))}
+          </motion.div>
+
         </div>
 
         {/* Bottom Footer */}
@@ -231,52 +259,23 @@ const Footer = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.4 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
           className="border-t border-gray-700/50 mt-8 pt-6"
         >
-          <div className="flex flex-col items-center space-y-4">
-            <div className="text-center space-y-2">
-              <p className="text-gray-400 text-xs sm:text-sm">
-                © 2024 Procura Solar. All rights reserved.
-              </p>
-              <p className="text-gray-400 text-xs sm:text-sm">
-                <a 
-                  href="https://adwikindia.com/" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="hover:text-green-400 transition-colors"
-                >
-                  Design and Develop by AdwikIndia
-                </a>
-              </p>
-            </div>
-            
-            {/* Social Media Links */}
-            <motion.div 
-              className="flex space-x-4"
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-            >
-              {[
-                { icon: Facebook, href: '#', label: 'Facebook' },
-                { icon: Twitter, href: '#', label: 'Twitter' },
-                { icon: Linkedin, href: '#', label: 'LinkedIn' },
-                { icon: Instagram, href: '#', label: 'Instagram' }
-              ].map((social, index) => (
-                <motion.a
-                  key={social.label}
-                  href={social.href}
-                  className="text-gray-400 hover:text-green-400 transition-colors"
-                  whileHover={{ scale: 1.2, rotate: 5 }}
-                  whileTap={{ scale: 0.9 }}
-                  aria-label={social.label}
-                >
-                  <social.icon className="w-5 h-5" />
-                </motion.a>
-              ))}
-            </motion.div>
+          <div className="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
+            <p className="text-gray-400 text-xs sm:text-sm">
+              © 2024 Procura Solar. All rights reserved.
+            </p>
+            <p className="text-gray-400 text-xs sm:text-sm">
+              <a 
+                href="https://adwikindia.com/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="hover:text-green-400 transition-colors"
+              >
+                Design and Develop by AdwikIndia
+              </a>
+            </p>
           </div>
         </motion.div>
       </div>
