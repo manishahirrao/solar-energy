@@ -10,6 +10,11 @@ import { useState } from 'react';
 export default function Gallery() {
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
   const [selectedCategory, setSelectedCategory] = useState('All');
+  const [expandedItems, setExpandedItems] = useState<{ [key: number]: boolean }>({});
+
+  const toggleReadMore = (id: number) => {
+    setExpandedItems(prev => ({ ...prev, [id]: !prev[id] }));
+  };
 
   const galleryItems = [
     {
@@ -17,99 +22,99 @@ export default function Gallery() {
       title: 'Residential Solar EPC',
       category: 'Solar EPC',
       location: 'Bhopal',
-      description: 'End-to-end Engineering, Procurement, and Construction of a 5kW residential solar system. This turnkey solution includes site assessment, system design, equipment procurement, installation, and commissioning. The system features high-efficiency monocrystalline panels, smart inverter technology, and real-time monitoring via mobile app, reducing electricity costs by up to 95%.',
+      description: 'End-to-end Engineering, Procurement, and Construction of a 3kW residential solar system. This turnkey solution includes detailed site assessment and customized system design using high-efficiency panels. Our process ensures maximum sunlight harvesting with smart inverter technology. This system reduces electricity costs significantly for the homeowner.',
       image: '/Rooftop Solar Installation.jpeg',
-      capacity: '5kW',
+      capacity: '3kW',
       year: '2024'
     },
     {
       id: 2,
-      title: 'Commercial Solar Installation',
+      title: 'Commercial Rooftop Solar',
       category: 'Solar Installation',
       location: 'Mandideep',
-      description: 'Professional installation of a 50kW commercial solar system with battery backup. Our expert team handled the complete installation process, including structural assessment, mounting, electrical connections, and grid integration. The system includes bifacial solar panels and a 10kWh battery bank for uninterrupted power supply.',
+      description: 'Professional installation of a 10kW commercial rooftop solar system. Our expert team handled the complete installation process, including mounting and electrical connections. The system features high-quality panels to offset energy usage for the office.',
       image: '/Commercial Solar Farm.jpg',
-      capacity: '50kW',
+      capacity: '10kW',
       year: '2024'
     },
     {
       id: 3,
-      title: 'Solar Maintenance Program',
+      title: 'Solar Maintenance Check',
       category: 'Solar Maintenance',
       location: 'Bhopal',
-      description: 'Comprehensive maintenance program for a 100kW industrial solar plant. Our services include regular cleaning, performance monitoring, preventive maintenance, and 24/7 emergency support. The maintenance program ensures optimal system performance, extends equipment lifespan, and maintains maximum energy production.',
-      image: '/Solar Maintenance Service.jpg',
-      capacity: '100kW',
+      description: 'Maintenance service for a 20kW residential solar array. Our service includes comprehensive cleaning and electrical health checks to ensure the system operates at peak efficiency for years to come.',
+      image: '/solar-cleaning-brush.jpeg',
+      capacity: '20kW',
       year: '2023'
     },
     {
       id: 4,
-      title: 'Solar EPC - Educational Institute',
+      title: 'Institute Rooftop Solar',
       category: 'Solar EPC',
       location: 'Vidisha',
-      description: 'Complete turnkey solar solution for a leading educational institute. The project included detailed energy audit, custom system design, government approvals, installation of 25kW solar panels, and integration with the existing electrical infrastructure. The system now meets 80% of the institute\'s energy needs.',
+      description: 'Turnkey solar solution for a local educational institute. We installed a 15kW rooftop system, integrated with the existing electrical grid. The institution now meets a significant portion of its energy needs using clean energy.',
       image: '/School Solar Installation.avif',
-      capacity: '100kW',
+      capacity: '15kW',
       year: '2024'
     },
     {
       id: 5,
-      title: 'Hybrid Solar-Wind System',
+      title: 'Hybrid Solar System',
       category: 'Hybrid',
       location: 'Raisen',
-      description: 'Pioneered an integrated 25MW hybrid solar-wind power generation system with advanced energy management and grid synchronization. Features include 15MW solar capacity, 10MW wind turbines, 5MWh battery storage, and AI-based load forecasting. Provides consistent power output 24/7 with 92% capacity factor and zero carbon emissions.',
+      description: 'Integrated 5kW hybrid solar power system with battery storage. This project provides consistent power output and backup during outages, ensuring energy reliability for the household.',
       image: '/Floating Solar Plant.jpeg',
-      capacity: '25MW',
+      capacity: '5kW',
       year: '2023'
     },
     {
       id: 6,
-      title: 'Solar Street Lighting',
+      title: 'Solar Street Lights',
       category: 'Infrastructure',
       location: 'Bhopal',
-      description: 'Implemented smart solar street lighting network with motion sensors and IoT-based central monitoring. This project covers 200+ street lights with adaptive brightness control, remote fault detection, and automatic dusk-to-dawn operation. Reduces municipal electricity costs by 100% and improves public safety with 99.8% operational reliability.',
+      description: 'Installation of 50 standalone solar street lights in a residential colony. These lights utilize automatic dusk-to-dawn operation to improve safety and reduce common area electricity costs.',
       image: '/Solar Street Lighting.jpg',
-      capacity: '100W',
+      capacity: '50 Units',
       year: '2024'
     },
     {
       id: 7,
-      title: 'Hospital Solar System',
+      title: 'Clinic Power Backup',
       category: 'Healthcare',
       location: 'Bhopal',
-      description: 'Designed and installed critical 200kW solar power backup system for hospital with medical-grade UPS integration. Features include redundant power supply, zero-downtime switchover, and real-time health monitoring. Ensures uninterrupted power for life-saving equipment, reduces operational costs by 90%, and provides 48-hour backup during grid failures.',
+      description: 'Designed and installed a 10kW solar power backup system for a small clinic. The system ensures critical equipment remains operational during power cuts, reducing dependency on diesel generators.',
       image: '/Hospital Solar System.jpg',
-      capacity: '200kW',
+      capacity: '10kW',
       year: '2023'
     },
     {
       id: 8,
-      title: 'School Solar Installation',
+      title: 'School Lab Solar',
       category: 'Educational',
       location: 'Bhopal',
-      description: 'Established 50kW educational institution solar system with interactive learning center and STEM curriculum integration. Features include real-time energy monitoring dashboard, student learning modules, and renewable energy laboratory. Powers entire campus including labs and computer centers, saving 60% on electricity costs while providing practical education.',
+      description: 'Established a 8kW solar system for a school computer lab. This installation serves as a power source and an educational tool for students learning about renewable energy.',
       image: '/School Solar Installation.avif',
-      capacity: '50kW',
+      capacity: '8kW',
       year: '2024'
     },
     {
       id: 9,
-      title: 'Solar Carport',
+      title: 'Solar Car Shed',
       category: 'Commercial',
       location: 'Bhopal',
-      description: 'Constructed innovative 20kW solar carport structure with integrated EV charging stations. Features include weather-protected parking, vehicle-to-grid capability, and smart charging management. Generates 28,000 kWh annually while providing shade for 50 vehicles and charging infrastructure for 20 electric vehicles simultaneously.',
+      description: 'Constructed a 5kW solar carport structure. This dual-purpose facility provides shade for vehicles while generating clean energy for the property.',
       image: '/Solar Carport.webp',
-      capacity: '20kW',
+      capacity: '5kW',
       year: '2024'
     },
     {
       id: 10,
-      title: 'Floating Solar Plant',
+      title: 'Small Floating Solar',
       category: 'Innovative',
       location: 'Bhopal',
-      description: 'Deployed groundbreaking 10MW floating solar installation on water reservoir with specialized anchoring systems. Features include water-cooled panels for increased efficiency, reduced algae growth, and minimal water evaporation. Generates 15% more power than land-based systems while preserving water resources and supporting aquatic ecosystem.',
+      description: 'Deployed a pilot 5kW floating solar installation on a farm pond. This efficient design reduces water evaporation and utilizes water surface area for energy generation.',
       image: '/Floating Solar Plant.jpeg',
-      capacity: '10MW',
+      capacity: '5kW',
       year: '2023'
     },
     {
@@ -117,18 +122,18 @@ export default function Gallery() {
       title: 'Solar Water Heater',
       category: 'Residential',
       location: 'Kolar',
-      description: 'Installed advanced 300L residential solar water heating system with heat pump integration and smart temperature control. Features include freeze protection, backup heating element, and mobile app monitoring. Provides hot water 24/7 with 80% energy savings compared to conventional geysers and 15-year system lifespan.',
+      description: 'Installed 300L residential solar water heating systems. These systems utilize evacuated tube collectors to provide hot water efficiently, saving on electric heating costs.',
       image: '/Solar Water Heater.jpg',
       capacity: '300L',
       year: '2024'
     },
     {
       id: 12,
-      title: 'Solar Maintenance Service',
+      title: 'System Optimization',
       category: 'Maintenance',
       location: 'Bhopal',
-      description: 'Comprehensive solar panel maintenance and cleaning service with drone-based inspection and AI-powered diagnostics. Services include panel efficiency testing, inverter optimization, performance monitoring, and preventive maintenance. Maintains 98% system efficiency, extends equipment lifespan by 25%, and ensures maximum energy production.',
-      image: '/Solar Maintenance Service.jpg',
+      description: 'Performance optimization service for home solar installations. We clean panels and check connections to restore systems to their maximum rated efficiency.',
+      image: '/solar-cleaning-brush.jpeg',
       capacity: 'Service',
       year: '2024'
     }
@@ -136,14 +141,16 @@ export default function Gallery() {
 
   const categories = ['All', 'Solar EPC', 'Solar Installation', 'Solar Maintenance'];
 
-  const filteredItems = selectedCategory === 'All' 
-    ? galleryItems 
+  const filteredItems = selectedCategory === 'All'
+    ? galleryItems
     : galleryItems.filter(item => item.category === selectedCategory);
+
+  const whatsappLink = (title: string) => `https://wa.me/918959890113?text=Hi, I am interested in knowing more about the ${title} project I saw on your website.`;
 
   return (
     <div className="min-h-screen">
       <Header />
-      
+
       {/* Hero Section */}
       <section className="relative h-[70vh] sm:h-[80vh] flex items-center justify-center bg-gradient-to-br from-green-900 via-emerald-900 to-green-800 overflow-hidden">
         {/* Background Image with enhanced effects */}
@@ -151,10 +158,10 @@ export default function Gallery() {
           <img
             src="/Rooftop Solar Installation.jpeg"
             alt="Gallery Hero"
-            className="w-full h-full object-cover blur-sm"
+            className="w-full h-full object-cover blur-[2px]"
           />
         </div>
-        
+
         <div className="relative container mx-auto px-4 z-10 pt-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -163,16 +170,16 @@ export default function Gallery() {
             className="text-center text-white max-w-5xl mx-auto"
           >
             {/* Trust badge */}
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-4 sm:mb-6 leading-tight">
+            <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-4 sm:mb-6 leading-tight">
               <span className="text-white">
-                Our Solar
+                Humari Safalta,
               </span>
               <br />
               <span className="text-white">
-                Service Projects
+                Aapka Bharosa
               </span>
             </h1>
-            
+
             {/* Description */}
             <motion.p
               initial={{ opacity: 0, y: 30 }}
@@ -180,7 +187,7 @@ export default function Gallery() {
               transition={{ duration: 0.8, delay: 0.6 }}
               className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-white mb-8 sm:mb-12 leading-relaxed max-w-4xl mx-auto font-light"
             >
-              Discover our expertise in Solar EPC, Installation, and Maintenance services through these successful projects across Madhya Pradesh
+              Bhopal aur MP mein humari safalta ki kahaniyan. Janiye kaise humne badla hai logon ka energy consumption.
             </motion.p>
 
             {/* CTA Buttons */}
@@ -199,7 +206,7 @@ export default function Gallery() {
                 Call Now
                 <Phone className="w-5 h-5 sm:w-6 sm:h-6 ml-3 group-hover:translate-x-2 transition-transform" />
               </motion.button>
-              
+
               <motion.button
                 whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(255, 255, 255, 0.2)" }}
                 whileTap={{ scale: 0.95 }}
@@ -230,11 +237,10 @@ export default function Gallery() {
                 <button
                   key={index}
                   onClick={() => setSelectedCategory(category)}
-                  className={`px-6 py-2 rounded-full font-medium transition-colors ${
-                    selectedCategory === category
-                      ? 'bg-green-600 text-white'
-                      : 'bg-white text-gray-600 hover:bg-green-50 hover:text-green-600'
-                  }`}
+                  className={`px-6 py-2 rounded-full font-medium transition-colors ${selectedCategory === category
+                    ? 'bg-green-600 text-white'
+                    : 'bg-white text-gray-600 hover:bg-green-50 hover:text-green-600'
+                    }`}
                 >
                   {category}
                 </button>
@@ -247,17 +253,15 @@ export default function Gallery() {
               <div className="flex bg-white rounded-lg border border-gray-200">
                 <button
                   onClick={() => setViewMode('grid')}
-                  className={`p-2 rounded-l-lg transition-colors ${
-                    viewMode === 'grid' ? 'bg-green-600 text-white' : 'text-gray-600 hover:bg-gray-100'
-                  }`}
+                  className={`p-2 rounded-l-lg transition-colors ${viewMode === 'grid' ? 'bg-green-600 text-white' : 'text-gray-600 hover:bg-gray-100'
+                    }`}
                 >
                   <Grid className="w-5 h-5" />
                 </button>
                 <button
                   onClick={() => setViewMode('list')}
-                  className={`p-2 rounded-r-lg transition-colors ${
-                    viewMode === 'list' ? 'bg-green-600 text-white' : 'text-gray-600 hover:bg-gray-100'
-                  }`}
+                  className={`p-2 rounded-r-lg transition-colors ${viewMode === 'list' ? 'bg-green-600 text-white' : 'text-gray-600 hover:bg-gray-100'
+                    }`}
                 >
                   <List className="w-5 h-5" />
                 </button>
@@ -287,7 +291,7 @@ export default function Gallery() {
           {viewMode === 'grid' && (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
               {filteredItems.map((item, index) => (
-                <div key={item.id} className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group">
+                <div key={item.id} className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group flex flex-col">
                   <div className="relative h-48 overflow-hidden">
                     <img
                       src={item.image}
@@ -306,13 +310,32 @@ export default function Gallery() {
                       </span>
                     </div>
                   </div>
-                  <div className="p-4">
+                  <div className="p-4 flex flex-col flex-grow">
                     <h3 className="text-lg font-semibold text-gray-900 group-hover:text-green-600 transition-colors">
                       {item.title}
                     </h3>
                     <p className="text-sm text-gray-600">{item.location}</p>
-                    <p className="text-xs text-gray-500 mt-2">{item.capacity} • {item.year}</p>
-                    <p className="text-sm text-gray-600 mt-2">{item.description}</p>
+                    <p className="text-xs text-gray-500 mt-1 mb-2">{item.capacity} • {item.year}</p>
+                    <div className="text-sm text-gray-600 mb-4 flex-grow">
+                      {expandedItems[item.id] ? item.description : `${item.description.substring(0, 100)}...`}
+                      <button
+                        onClick={(e) => { e.stopPropagation(); toggleReadMore(item.id); }}
+                        className="text-green-600 font-semibold ml-1 hover:underline"
+                      >
+                        {expandedItems[item.id] ? 'Read Less' : 'Read More'}
+                      </button>
+                    </div>
+                    <a
+                      href={whatsappLink(item.title)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-2 w-full bg-green-500 hover:bg-green-600 text-white py-2 rounded-lg text-center font-semibold text-sm transition-colors flex items-center justify-center gap-2"
+                    >
+                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+                      </svg>
+                      Request Details
+                    </a>
                   </div>
                 </div>
               ))}
@@ -324,32 +347,48 @@ export default function Gallery() {
             <div className="space-y-6">
               {filteredItems.map((item, index) => (
                 <div key={item.id} className="bg-gray-50 rounded-xl p-6 flex flex-col md:flex-row gap-6 hover:shadow-lg transition-shadow">
-                  <div className="relative md:w-48 h-32 overflow-hidden rounded-lg">
+                  <div className="relative md:w-48 h-32 overflow-hidden rounded-lg flex-shrink-0">
                     <img
                       src={item.image}
                       alt={item.title}
                       className="w-full h-full object-cover"
-                      onError={(e) => {
-                        console.error('List image failed to load:', item.image);
-                        // Try alternative path
-                        e.currentTarget.src = item.image.replace(/^\//, '');
-                      }}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
                   </div>
-                  
-                  <div className="flex-1">
+
+                  <div className="flex-1 flex flex-col">
                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
                       <h3 className="text-xl font-semibold text-gray-900 mb-2 sm:mb-0">{item.title}</h3>
-                      <span className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-medium">
-                        {item.category}
-                      </span>
+                      <div className="flex items-center gap-3 text-sm">
+                        <span className="bg-green-100 text-green-700 px-3 py-1 rounded-full font-medium">
+                          {item.category}
+                        </span>
+                        <a
+                          href={whatsappLink(item.title)}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="bg-green-500 hover:bg-green-600 text-white px-4 py-1 rounded-full font-semibold transition-colors flex items-center gap-1"
+                        >
+                          <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+                          </svg>
+                          WhatsApp
+                        </a>
+                      </div>
                     </div>
-                    
-                    <p className="text-gray-600 mb-2">{item.description}</p>
-                    <p className="text-sm text-gray-500">
-                      <span className="font-medium">Location:</span> {item.location} • 
-                      <span className="font-medium"> Capacity:</span> {item.capacity} • 
+
+                    <div className="text-gray-600 mb-2 text-sm leading-relaxed">
+                      {expandedItems[item.id] ? item.description : `${item.description.substring(0, 150)}...`}
+                      <button
+                        onClick={() => toggleReadMore(item.id)}
+                        className="text-green-600 font-semibold ml-1 hover:underline text-sm"
+                      >
+                        {expandedItems[item.id] ? 'Read Less' : 'Read More'}
+                      </button>
+                    </div>
+                    <p className="text-xs text-gray-500 mt-auto">
+                      <span className="font-medium">Location:</span> {item.location} •
+                      <span className="font-medium"> Capacity:</span> {item.capacity} •
                       <span className="font-medium"> Year:</span> {item.year}
                     </p>
                   </div>
@@ -432,7 +471,7 @@ export default function Gallery() {
           <div className="absolute bottom-10 right-10 w-40 h-40 bg-white/10 rounded-full blur-3xl" />
           <div className="absolute top-1/2 left-1/4 w-24 h-24 bg-white/5 rounded-full blur-xl" />
         </div>
-        
+
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -441,7 +480,7 @@ export default function Gallery() {
             transition={{ duration: 0.8 }}
             className="text-center mb-12"
           >
-            <motion.h2 
+            <motion.h2
               className="text-4xl md:text-5xl font-bold text-white mb-6"
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -450,7 +489,7 @@ export default function Gallery() {
             >
               Inspired by Our Solar Projects?
             </motion.h2>
-            <motion.p 
+            <motion.p
               className="text-xl text-green-100 max-w-3xl mx-auto mb-8"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -534,7 +573,7 @@ export default function Gallery() {
       </section>
 
       <Footer />
-      
+
       {/* Popup Quote Form */}
       <PopupQuoteForm />
     </div>

@@ -53,11 +53,11 @@ export default function About() {
     { title: 'Consultation', description: 'Expert energy consulting and feasibility studies', icon: CheckCircle }
   ];
 
-  
+
   return (
     <div className="min-h-screen">
       <Header />
-      
+
       {/* Hero Section */}
       <section className="relative h-[70vh] sm:h-[80vh] flex items-center justify-center bg-gradient-to-br from-slate-900 to-slate-900 overflow-hidden">
         {/* Background Image with enhanced effects */}
@@ -65,10 +65,10 @@ export default function About() {
           <img
             src="/Commercial Solar Farm.jpg"
             alt="About Procura Solar"
-            className="w-full h-full object-cover blur-md"
+            className="w-full h-full object-cover blur-[2px]"
           />
         </div>
-        
+
         <div className="relative container mx-auto px-4 z-10 pt-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -81,17 +81,17 @@ export default function About() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-8 sm:mb-10 leading-tight"
+              className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-8 sm:mb-10 leading-tight"
             >
               <span className="text-white">
-                About
+                Humara Sapna,
               </span>
               <br />
               <span className="text-white">
-                Procura Solar
+                Har Ghar Solar
               </span>
             </motion.h1>
-            
+
             {/* Description */}
             <motion.p
               initial={{ opacity: 0, y: 30 }}
@@ -99,7 +99,7 @@ export default function About() {
               transition={{ duration: 0.8, delay: 0.6 }}
               className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-white mb-10 sm:mb-12 leading-relaxed max-w-4xl mx-auto font-light"
             >
-              Pioneering excellence in renewable energy solutions, committed to transforming the way India powers its future through sustainable innovation.
+              Procura Solar ke saath janiye kaise hum badal rahe hain energy ka future, ek waqt mein ek ghar. Sustainable innovation ki ore ek kadam.
             </motion.p>
 
             {/* CTA Buttons */}
@@ -123,7 +123,7 @@ export default function About() {
                 Get Quote
                 <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 ml-3 group-hover:translate-x-2 transition-transform" />
               </motion.button>
-              
+
               <motion.button
                 whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(255, 255, 255, 0.2)" }}
                 whileTap={{ scale: 0.95 }}
@@ -161,7 +161,7 @@ export default function About() {
                 We believe solar energy is not just about lowering bills – it is about building a sustainable future for generations to come. Every installation moves us closer to a cleaner, more resilient energy landscape.
               </p>
             </motion.div>
-            
+
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -325,7 +325,7 @@ export default function About() {
                 </div>
               </div>
             </motion.div>
-            
+
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -396,7 +396,7 @@ export default function About() {
                 ))}
               </div>
             </motion.div>
-            
+
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -444,7 +444,7 @@ export default function About() {
           <div className="absolute bottom-10 right-10 w-40 h-40 bg-white/10 rounded-full blur-3xl" />
           <div className="absolute top-1/2 left-1/4 w-24 h-24 bg-white/5 rounded-full blur-xl" />
         </div>
-        
+
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -453,7 +453,7 @@ export default function About() {
             transition={{ duration: 0.8 }}
             className="text-center mb-12"
           >
-            <motion.h2 
+            <motion.h2
               className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-8 sm:mb-10"
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -462,7 +462,7 @@ export default function About() {
             >
               Ready to Join Our Solar Journey?
             </motion.h2>
-            <motion.p 
+            <motion.p
               className="text-xl text-green-100 max-w-3xl mx-auto mb-8"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -529,11 +529,11 @@ export default function About() {
               whileTap={{ scale: 0.95 }}
               className="bg-white text-green-600 px-8 py-4 rounded-full font-bold text-lg hover:shadow-2xl transition-all duration-300 inline-flex items-center"
               onClick={() => {
-                  // Open quote form popup using global function
-                  if (typeof window !== 'undefined') {
-                    (window as any).openQuoteForm();
-                  }
-                }}
+                // Open quote form popup using global function
+                if (typeof window !== 'undefined') {
+                  (window as any).openQuoteForm();
+                }
+              }}
             >
               <Phone className="w-5 h-5 mr-2" />
               Get Your Free Quote Now
@@ -546,7 +546,7 @@ export default function About() {
       </section>
 
       <Footer />
-      
+
       {/* Popup Quote Form */}
       <PopupQuoteForm />
     </div>

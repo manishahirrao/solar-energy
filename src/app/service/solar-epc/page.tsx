@@ -40,7 +40,7 @@ export default function SolarEPC() {
   return (
     <div className="min-h-screen">
       <Header />
-      
+
       {/* Hero Section with Background Image */}
       <section className="relative pt-32 pb-20 md:pt-40 md:pb-32 bg-gradient-to-br from-blue-900/90 to-emerald-900/90 overflow-hidden">
         {/* Background Image */}
@@ -50,28 +50,28 @@ export default function SolarEPC() {
             alt="Complete Solar EPC Solutions"
             fill
             priority
-            className="object-cover"
+            className="object-cover blur-[2px]"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 to-emerald-900/80 mix-blend-multiply" />
         </div>
-        
+
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <motion.h1 
+            <motion.h1
               className="text-4xl md:text-6xl font-bold text-white mb-6"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              Solar EPC Services
+              Chinta Chhodiye, Solar Lagwayein
             </motion.h1>
-            <motion.p 
+            <motion.p
               className="text-xl text-gray-200 mb-8 max-w-3xl mx-auto"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
             >
-              End-to-end Engineering, Procurement, and Construction services for turnkey solar power projects with guaranteed performance.
+              Design se lekar execution tak, hum samhalte hain sab kuch. Aap bas clean energy ka aanand lijiye.
             </motion.p>
           </div>
         </div>
@@ -117,8 +117,8 @@ export default function SolarEPC() {
                   We work with commercial, industrial, and utility-scale clients to design and build solar power plants that maximize energy production and return on investment. Our team of certified engineers and project managers ensure that every project is completed on time, within budget, and to the highest quality standards.
                 </p>
                 <div className="mt-8">
-                  <Link 
-                    href="/contact" 
+                  <Link
+                    href="/contact"
                     className="inline-block bg-green-600 hover:bg-green-700 text-white font-semibold px-8 py-4 rounded-full transition-colors duration-300"
                   >
                     Get a Free Consultation
@@ -137,7 +137,7 @@ export default function SolarEPC() {
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our EPC Process</h2>
             <p className="text-lg text-gray-600">End-to-end engineering solutions for your solar power projects</p>
           </div>
-          
+
           {/* Process Visualization */}
           <div className="relative mb-20">
             <div className="hidden md:flex justify-between items-center mb-12">
@@ -153,7 +153,7 @@ export default function SolarEPC() {
               <div className="h-full bg-gradient-to-r from-blue-600 to-emerald-600 rounded-full" style={{ width: '100%' }}></div>
             </div>
           </div>
-          
+
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {features.map((feature, index) => (
               <motion.div
@@ -168,10 +168,10 @@ export default function SolarEPC() {
                   <Image
                     src={
                       index === 0 ? '/Project Planning & Design.jpg' :
-                      index === 1 ? '/Equipment Procurement.webp' :
-                      index === 2 ? '/Installation & Commissioning.jpeg' :
-                      index === 3 ? '/Performance Guarantees.jpg' :
-                      '/Grid Integration.jpg'
+                        index === 1 ? '/Equipment Procurement.webp' :
+                          index === 2 ? '/Installation & Commissioning.jpeg' :
+                            index === 3 ? '/Performance Guarantees.jpg' :
+                              '/Grid Integration.jpg'
                     }
                     alt={feature.title}
                     fill
@@ -184,7 +184,7 @@ export default function SolarEPC() {
                   </div>
                   <h3 className="text-xl font-semibold text-gray-900 mb-3">{feature.title}</h3>
                   <p className="text-gray-600 mb-4">{feature.description}</p>
-                  
+
                 </div>
               </motion.div>
             ))}
@@ -203,9 +203,9 @@ export default function SolarEPC() {
             </div>
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Power Your Future with Solar</h2>
             <p className="text-gray-600 mb-8 max-w-2xl mx-auto">Ready to switch to clean, renewable energy? Get started with our expert EPC services today.</p>
-            
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button 
+              <button
                 className="px-8 py-3 bg-gradient-to-r from-blue-600 to-emerald-600 hover:from-blue-700 hover:to-emerald-700 text-white font-semibold rounded-lg transition-colors duration-300"
                 onClick={() => {
                   // Open quote form popup using global function
@@ -216,8 +216,8 @@ export default function SolarEPC() {
               >
                 Get a Free Quote
               </button>
-              <a 
-                href="tel:+918959890113" 
+              <a
+                href="tel:+918959890113"
                 className="px-8 py-3 flex items-center justify-center gap-2 bg-white border border-gray-200 text-gray-700 font-semibold rounded-lg hover:bg-gray-50 transition-colors"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -226,7 +226,7 @@ export default function SolarEPC() {
                 Call Now
               </a>
             </div>
-            
+
             <div className="mt-8 text-sm text-gray-500">
               <p>Need immediate assistance? <a href="tel:+918959890113" className="text-blue-600 font-medium hover:underline">Call our 24/7 support</a></p>
             </div>
@@ -235,7 +235,7 @@ export default function SolarEPC() {
       </section>
 
       <Footer />
-      
+
       {/* Popup Quote Form */}
       <PopupQuoteForm />
     </div>

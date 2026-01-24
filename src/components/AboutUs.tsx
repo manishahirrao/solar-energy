@@ -30,14 +30,14 @@ const AboutUs = () => {
   ];
 
   return (
-    <section className="py-16 sm:py-20 lg:py-24 bg-white relative overflow-hidden">
+    <section className=" bg-white relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-10 w-32 h-32 bg-purple-100 rounded-full blur-3xl opacity-30" />
         <div className="absolute bottom-20 right-10 w-40 h-40 bg-indigo-100 rounded-full blur-3xl opacity-30" />
         <div className="absolute top-1/2 left-1/3 w-36 h-36 bg-pink-100 rounded-full blur-3xl opacity-20" />
       </div>
-      
+
       <div className="container mx-auto px-4 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -46,8 +46,8 @@ const AboutUs = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-12 sm:mb-16 lg:mb-20"
         >
-          <motion.h2 
-            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-8 sm:mb-10 leading-tight"
+          <motion.h2
+            className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-8 sm:mb-10 leading-tight"
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -73,7 +73,7 @@ const AboutUs = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="space-y-6"
           >
-            <motion.h3 
+            <motion.h3
               className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 leading-tight font-serif"
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -83,7 +83,7 @@ const AboutUs = () => {
             >
               Pioneering Solar Excellence with Innovation and Trust
             </motion.h3>
-            
+
             <div className="space-y-4 text-gray-600 leading-relaxed">
               <p className="text-gray-600 leading-relaxed">
                 At Procura Solar, we are committed to transforming India's energy landscape through cutting-edge solar technology. Our mission is to make clean, renewable energy accessible to everyone while reducing carbon footprints and energy costs.
@@ -105,7 +105,7 @@ const AboutUs = () => {
                 { value: "98%", label: "Customer Satisfaction" },
                 { value: "24/7", label: "Support Available" }
               ].map((stat, index) => (
-                <motion.div 
+                <motion.div
                   key={index}
                   className="text-center"
                   initial={{ opacity: 0, scale: 0.8 }}
@@ -114,7 +114,7 @@ const AboutUs = () => {
                   transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
                   whileHover={{ scale: 1.1, y: -5 }}
                 >
-                  <motion.div 
+                  <motion.div
                     className="text-2xl sm:text-3xl font-bold text-green-600 mb-2 font-serif"
                     animate={{ scale: [1, 1.1, 1] }}
                     transition={{ duration: 2, repeat: Infinity, delay: index * 0.3 }}
@@ -135,13 +135,13 @@ const AboutUs = () => {
             className="relative"
             whileHover={{ scale: 1.02 }}
           >
-            <motion.div 
+            <motion.div
               className="relative rounded-2xl overflow-hidden shadow-2xl"
               animate={{ y: [0, -15, 0] }}
               transition={{ duration: 4, repeat: Infinity }}
             >
               <img
-                src="/about.jpg"
+                src="/Commercial Solar Farm.jpg"
                 alt="About Procura Solar"
                 className="w-full h-64 sm:h-80 md:h-96 object-cover"
                 onError={(e) => {
@@ -194,35 +194,7 @@ const AboutUs = () => {
           ))}
         </motion.div>
 
-        {/* Highlights Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 1 }}
-        >
-          <h3 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-8 sm:mb-10 text-center text-gray-900">Why Choose Us</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
-            {highlights.map((highlight, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 1.2 + index * 0.1 }}
-                className="flex items-start space-x-4 p-6 rounded-xl bg-white border border-gray-100 hover:border-green-200 hover:shadow-md transition-all"
-              >
-                <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
-                  <highlight.icon className="w-6 h-6 text-green-600" />
-                </div>
-                <div>
-                  <h4 className="font-bold text-gray-900 mb-2 font-serif">{highlight.title}</h4>
-                  <p className="text-gray-600 text-sm leading-relaxed">{highlight.description}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
+
       </div>
     </section>
   );

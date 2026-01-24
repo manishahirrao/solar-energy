@@ -38,7 +38,7 @@ export default function Service() {
   return (
     <div className="min-h-screen">
       <Header />
-      
+
       {/* Hero Section */}
       <section className="relative h-[70vh] sm:h-[80vh] flex items-center justify-center bg-gradient-to-br from-blue-900 to-emerald-900 overflow-hidden">
         {/* Background Image with enhanced effects */}
@@ -46,10 +46,10 @@ export default function Service() {
           <img
             src="/solar-energy-service.webp"
             alt="Solar Services Hero"
-            className="w-full h-full object-cover blur-sm"
+            className="w-full h-full object-cover blur-[2px]"
           />
         </div>
-        
+
         <div className="relative container mx-auto px-4 z-10 pt-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -62,17 +62,17 @@ export default function Service() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-8 sm:mb-10 leading-tight"
+              className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-8 sm:mb-10 leading-tight"
             >
               <span className="text-white">
-                Our Solar
+                Humari Solar
               </span>
               <br />
               <span className="text-yellow-300">
                 Services
               </span>
             </motion.h1>
-            
+
             {/* Description */}
             <motion.p
               initial={{ opacity: 0, y: 30 }}
@@ -80,8 +80,8 @@ export default function Service() {
               transition={{ duration: 0.8, delay: 0.6 }}
               className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-white/90 mb-8 sm:mb-12 leading-relaxed max-w-4xl mx-auto font-light"
             >
-              Comprehensive solar energy solutions tailored to your specific needs
-              <span className="block text-yellow-200 font-medium mt-3">From consultation to installation and ongoing maintenance</span>
+              Apki zaroorat ke hisaab se tailor-made solar solutions.
+              <span className="block text-yellow-200 font-medium mt-3">Consultation se lekar installation aur maintenance tak, hum hain aapke saath.</span>
             </motion.p>
 
             {/* CTA Buttons */}
@@ -105,7 +105,7 @@ export default function Service() {
                 Get Quote
                 <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 ml-3 group-hover:translate-x-2 transition-transform" />
               </motion.button>
-              
+
               <motion.button
                 whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(255, 255, 255, 0.2)" }}
                 whileTap={{ scale: 0.95 }}
@@ -140,20 +140,20 @@ export default function Service() {
                     alt={service.title}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     onError={(e) => {
-                    console.error('Service image failed to load:', service.image);
-                    // Show fallback gradient if local image fails
-                    const parent = e.currentTarget.parentElement;
-                    if (parent) {
-                      e.currentTarget.style.display = 'none';
-                      parent.className = 'relative h-48 overflow-hidden bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center';
-                      parent.innerHTML = `
+                      console.error('Service image failed to load:', service.image);
+                      // Show fallback gradient if local image fails
+                      const parent = e.currentTarget.parentElement;
+                      if (parent) {
+                        e.currentTarget.style.display = 'none';
+                        parent.className = 'relative h-48 overflow-hidden bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center';
+                        parent.innerHTML = `
                         <div class="text-white text-center">
                           <div class="text-2xl font-bold mb-2">${service.title}</div>
                           <div class="text-sm opacity-75">Service Image</div>
                         </div>
                       `;
-                    }
-                  }}
+                      }
+                    }}
                   />
                   <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <span className="text-xs font-semibold text-green-700">View Details</span>
@@ -165,15 +165,15 @@ export default function Service() {
                   <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mb-4">
                     <service.icon className="w-6 h-6 text-green-600" />
                   </div>
-                  
+
                   <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
                     {service.title}
                   </h3>
-                  
+
                   <p className="text-gray-600 mb-4 leading-relaxed">
                     {service.description}
                   </p>
-                  
+
                   <ul className="space-y-2 mb-6">
                     {service.features.slice(0, 3).map((feature, featureIndex) => (
                       <li key={featureIndex} className="flex items-center text-sm text-gray-600">
@@ -182,7 +182,7 @@ export default function Service() {
                       </li>
                     ))}
                   </ul>
-                  
+
                   <Link href={service.href}>
                     <button className="w-full bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition-colors font-semibold flex items-center justify-center group">
                       Learn More
@@ -212,7 +212,7 @@ export default function Service() {
             <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">
               Our team of experts can design a tailored solar energy system that meets your specific requirements.
             </p>
-            <button 
+            <button
               className="bg-white text-green-600 px-8 py-4 rounded-full hover:bg-gray-100 transition-colors font-semibold text-lg"
               onClick={() => {
                 // Navigate to contact page for consultation
@@ -232,7 +232,7 @@ export default function Service() {
           <div className="absolute top-10 left-10 w-32 h-32 bg-orange-100 rounded-full blur-3xl opacity-50" />
           <div className="absolute bottom-10 right-10 w-40 h-40 bg-green-100 rounded-full blur-3xl opacity-50" />
         </div>
-        
+
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -252,7 +252,7 @@ export default function Service() {
             >
               <Sun className="w-10 h-10 text-white" />
             </motion.div>
-            
+
             <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-8">
               PM <span className="text-orange-600">Surya Ghar</span> Yojana
             </h2>
@@ -315,7 +315,7 @@ export default function Service() {
                       <p className="text-gray-600">Complete documentation and application process support</p>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-start">
                     <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
                       <Settings className="w-6 h-6 text-orange-600" />
@@ -325,7 +325,7 @@ export default function Service() {
                       <p className="text-gray-600">Professional installation with certified technicians</p>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-start">
                     <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
                       <Award className="w-6 h-6 text-blue-600" />
@@ -343,7 +343,7 @@ export default function Service() {
       </section>
 
       <Footer />
-      
+
       {/* Popup Quote Form */}
       <PopupQuoteForm />
     </div>

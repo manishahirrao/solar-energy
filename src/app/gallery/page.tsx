@@ -42,7 +42,7 @@ export default function Gallery() {
       description: 'Custom solar solutions for industrial facilities and manufacturing units.'
     },
     {
-      image: '/Solar Maintenance Service.jpg',
+      image: '/solar-cleaning-brush.jpeg',
       category: 'Solar Maintenance',
       title: 'Performance Optimization',
       description: 'Advanced monitoring and optimization services for existing solar installations.'
@@ -54,7 +54,7 @@ export default function Gallery() {
   return (
     <div className="min-h-screen">
       <Header />
-      
+
       {/* Hero Section */}
       <section className="relative h-[70vh] sm:h-[80vh] flex items-center justify-center bg-gradient-to-br from-green-900 via-emerald-900 to-green-800 overflow-hidden">
         {/* Background Image with enhanced effects */}
@@ -62,10 +62,10 @@ export default function Gallery() {
           <img
             src="/Commercial Solar Farm.jpg"
             alt="Gallery Hero"
-            className="w-full h-full object-cover blur-sm"
+            className="w-full h-full object-cover blur-[2px]"
           />
         </div>
-        
+
         <div className="relative container mx-auto px-4 z-10 pt-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -77,26 +77,26 @@ export default function Gallery() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-4 sm:mb-6 leading-tight"
+              className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-4 sm:mb-6 leading-tight"
             >
               <span className="text-white">
-                Solar
+                Tasveeron Mein
               </span>
               <br />
               <span className="text-white">
-                Gallery
+                Humari Kahani
               </span>
             </motion.h1>
-            
+
             <motion.p
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
               className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-white mb-8 sm:mb-12 leading-relaxed max-w-4xl mx-auto font-light"
             >
-              Explore our expertise in Solar EPC, Installation, and Maintenance through our project gallery
+              Humare projects ki ek jhalak. Quality aur perfection jo dikhta hai.
             </motion.p>
-            
+
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -112,7 +112,7 @@ export default function Gallery() {
                 Call Now
                 <Phone className="w-6 h-6 ml-3" />
               </motion.button>
-              
+
               <motion.button
                 whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(34, 197, 94, 0.4)" }}
                 whileTap={{ scale: 0.95 }}
@@ -145,33 +145,31 @@ export default function Gallery() {
               Browse through our completed solar installations and witness the transformation of properties across India with clean, renewable energy solutions.
             </p>
           </motion.div>
-          
+
           <div className="flex flex-col sm:flex-row justify-between items-center mb-8 gap-4">
             <div className="flex items-center gap-4">
               <button
                 onClick={() => setViewMode('grid')}
-                className={`flex items-center gap-2 px-6 py-3 rounded-full transition-all duration-300 font-semibold ${
-                  viewMode === 'grid' 
-                    ? 'bg-green-600 text-white shadow-lg shadow-green-600/30' 
-                    : 'bg-white text-gray-700 border-2 border-gray-300 hover:border-green-600 hover:text-green-600'
-                }`}
+                className={`flex items-center gap-2 px-6 py-3 rounded-full transition-all duration-300 font-semibold ${viewMode === 'grid'
+                  ? 'bg-green-600 text-white shadow-lg shadow-green-600/30'
+                  : 'bg-white text-gray-700 border-2 border-gray-300 hover:border-green-600 hover:text-green-600'
+                  }`}
               >
                 <Grid className="w-5 h-5" />
                 Grid View
               </button>
               <button
                 onClick={() => setViewMode('list')}
-                className={`flex items-center gap-2 px-6 py-3 rounded-full transition-all duration-300 font-semibold ${
-                  viewMode === 'list' 
-                    ? 'bg-green-600 text-white shadow-lg shadow-green-600/30' 
-                    : 'bg-white text-gray-700 border-2 border-gray-300 hover:border-green-600 hover:text-green-600'
-                }`}
+                className={`flex items-center gap-2 px-6 py-3 rounded-full transition-all duration-300 font-semibold ${viewMode === 'list'
+                  ? 'bg-green-600 text-white shadow-lg shadow-green-600/30'
+                  : 'bg-white text-gray-700 border-2 border-gray-300 hover:border-green-600 hover:text-green-600'
+                  }`}
               >
                 <List className="w-5 h-5" />
                 List View
               </button>
             </div>
-            
+
             <div className="text-gray-600 font-medium">
               <span className="text-green-600 font-bold">{filteredImages.length}</span> Solar Projects
             </div>
@@ -244,7 +242,7 @@ export default function Gallery() {
 
       {/* Image Modal */}
       {selectedImage !== null && (
-        <div 
+        <div
           className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4 backdrop-blur-sm"
           onClick={() => setSelectedImage(null)}
         >

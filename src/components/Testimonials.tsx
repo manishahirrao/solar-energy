@@ -49,7 +49,7 @@ const Testimonials = () => {
   // Auto-rotate functionality
   useEffect(() => {
     if (!isAutoPlaying) return;
-    
+
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
     }, 4000); // Change testimonial every 4 seconds
@@ -58,7 +58,7 @@ const Testimonials = () => {
   }, [isAutoPlaying, testimonials.length]);
 
   const goToPrevious = () => {
-    setCurrentIndex((prevIndex) => 
+    setCurrentIndex((prevIndex) =>
       prevIndex === 0 ? testimonials.length - 1 : prevIndex - 1
     );
   };
@@ -75,9 +75,8 @@ const Testimonials = () => {
     return Array.from({ length: 5 }, (_, i) => (
       <Star
         key={i}
-        className={`w-4 h-4 sm:w-5 sm:h-5 ${
-          i < rating ? 'text-yellow-400 fill-current' : 'text-gray-300'
-        }`}
+        className={`w-4 h-4 sm:w-5 sm:h-5 ${i < rating ? 'text-yellow-400 fill-current' : 'text-gray-300'
+          }`}
       />
     ));
   };
@@ -90,7 +89,7 @@ const Testimonials = () => {
         <div className="absolute bottom-20 right-10 w-40 h-40 bg-green-100 rounded-full blur-3xl opacity-30" />
         <div className="absolute top-1/2 left-1/3 w-36 h-36 bg-yellow-100 rounded-full blur-3xl opacity-20" />
       </div>
-      
+
       <div className="container mx-auto px-4 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -99,8 +98,8 @@ const Testimonials = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-12 sm:mb-16 lg:mb-20"
         >
-          <motion.h2 
-            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-8 sm:mb-10 leading-tight"
+          <motion.h2
+            className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-8 sm:mb-10 leading-tight"
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -114,7 +113,7 @@ const Testimonials = () => {
               Give Love Feedback
             </span>
           </motion.h2>
-          <motion.p 
+          <motion.p
             className="text-lg sm:text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed font-light mb-8 sm:mb-12"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -124,6 +123,28 @@ const Testimonials = () => {
             Hear from our satisfied customers who have made the switch to clean energy
             <span className="block text-blue-600 font-medium mt-3">Real stories from real people saving money and protecting the environment</span>
           </motion.p>
+        </motion.div>
+
+        {/* Video Testimonial Section */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="max-w-5xl mx-auto mb-16 rounded-2xl overflow-hidden shadow-2xl bg-black aspect-video relative group"
+        >
+          <video
+            className="w-full h-full object-cover"
+            controls
+            playsInline
+            poster="/about.jpg"
+          >
+            <source src="/testimonial-video-showing-work.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+          <div className="absolute top-4 left-4 bg-black/50 backdrop-blur-md px-4 py-2 rounded-lg text-white font-medium text-sm">
+            Featured Story
+          </div>
         </motion.div>
 
         <div className="relative max-w-5xl mx-auto">
@@ -138,7 +159,7 @@ const Testimonials = () => {
           >
             <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 text-blue-600" />
           </motion.button>
-          
+
           <motion.button
             onClick={goToNext}
             onMouseEnter={() => setIsAutoPlaying(false)}
@@ -172,7 +193,7 @@ const Testimonials = () => {
                 </div>
 
                 {/* Content */}
-                <motion.p 
+                <motion.p
                   className="text-gray-700 mb-8 sm:mb-12 leading-relaxed text-lg sm:text-xl md:text-2xl font-light text-center italic"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -182,7 +203,7 @@ const Testimonials = () => {
                 </motion.p>
 
                 {/* Author */}
-                <motion.div 
+                <motion.div
                   className="flex items-center justify-center"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -208,11 +229,10 @@ const Testimonials = () => {
                 onClick={() => goToSlide(index)}
                 onMouseEnter={() => setIsAutoPlaying(false)}
                 onMouseLeave={() => setIsAutoPlaying(true)}
-                className={`h-3 rounded-full transition-all duration-300 ${
-                  index === currentIndex
-                    ? 'bg-blue-600 w-10'
-                    : 'bg-gray-300 hover:bg-gray-400 w-3'
-                }`}
+                className={`h-3 rounded-full transition-all duration-300 ${index === currentIndex
+                  ? 'bg-blue-600 w-10'
+                  : 'bg-gray-300 hover:bg-gray-400 w-3'
+                  }`}
                 whileHover={{ scale: 1.2 }}
                 whileTap={{ scale: 0.8 }}
               />
@@ -220,7 +240,7 @@ const Testimonials = () => {
           </div>
         </div>
       </div>
-    </section>
+    </section >
   );
 };
 

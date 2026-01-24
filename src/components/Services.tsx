@@ -11,19 +11,19 @@ const Services = () => {
       icon: Wrench,
       title: 'Solar EPC',
       description: 'End-to-end Engineering, Procurement, and Construction services for turnkey solar power projects with guaranteed performance.',
-      image: '/Rooftop Solar Installation.jpeg'
+      image: '/Complete Solar EPC Solutions.jpg'
     },
     {
       icon: Sun,
       title: 'Solar Installation',
       description: 'Professional installation of high-quality solar panel systems for residential, commercial, and industrial properties.',
-      image: '/Commercial Solar Farm.jpg'
+      image: '/Rooftop Solar Installation.jpeg'
     },
     {
       icon: Zap,
       title: 'Solar Maintenance',
       description: 'Comprehensive maintenance and cleaning services to keep your solar system operating at peak efficiency.',
-      image: '/Solar Maintenance Service.jpg'
+      image: '/solar-maintainance-service.jpg'
     }
   ];
 
@@ -35,7 +35,7 @@ const Services = () => {
         <div className="absolute bottom-20 right-10 w-40 h-40 bg-yellow-100 rounded-full blur-3xl opacity-30" />
         <div className="absolute top-1/2 left-1/3 w-36 h-36 bg-blue-100 rounded-full blur-3xl opacity-20" />
       </div>
-      
+
       <div className="container mx-auto px-4 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -44,8 +44,8 @@ const Services = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-12 sm:mb-16 lg:mb-20"
         >
-          <motion.h2 
-            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-8 sm:mb-10 leading-tight"
+          <motion.h2
+            className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-8 sm:mb-10 leading-tight"
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -60,7 +60,7 @@ const Services = () => {
               Renewable Energy
             </span>
           </motion.h2>
-          <motion.p 
+          <motion.p
             className="text-lg sm:text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed font-light mb-8 sm:mb-12"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -123,7 +123,7 @@ const Services = () => {
                   >
                     {service.title}
                   </motion.h3>
-                  
+
                   <motion.p
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
@@ -133,26 +133,26 @@ const Services = () => {
                   >
                     {service.description}
                   </motion.p>
-                  
+
                   <Link href={`/service/${service.title.toLowerCase().replace(/\s+/g, '-')}`}>
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
-                    className="flex items-center text-green-600 font-semibold text-base sm:text-lg hover:text-green-700 transition-colors group"
-                    whileHover={{ x: 8 }}
-                  >
-                    <span>Explore Service</span>
                     <motion.div
-                      animate={{ x: [0, 5, 0] }}
-                      transition={{ duration: 2, repeat: Infinity }}
-                      className="ml-3"
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
+                      className="flex items-center text-green-600 font-semibold text-base sm:text-lg hover:text-green-700 transition-colors group"
+                      whileHover={{ x: 8 }}
                     >
-                      <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
+                      <span>Explore Service</span>
+                      <motion.div
+                        animate={{ x: [0, 5, 0] }}
+                        transition={{ duration: 2, repeat: Infinity }}
+                        className="ml-3"
+                      >
+                        <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
+                      </motion.div>
                     </motion.div>
-                  </motion.div>
-                </Link>
+                  </Link>
                 </div>
               </div>
             </motion.div>

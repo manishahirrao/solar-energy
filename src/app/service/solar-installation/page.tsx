@@ -57,7 +57,7 @@ export default function SolarInstallation() {
   return (
     <div className="min-h-screen">
       <Header />
-      
+
       {/* Hero Section with Background Image */}
       <section className="relative pt-32 pb-20 md:pt-40 md:pb-32 bg-gradient-to-br from-blue-900/90 to-emerald-900/90 overflow-hidden">
         {/* Background Image */}
@@ -66,30 +66,30 @@ export default function SolarInstallation() {
             src="/Solar Installation Services.webp"
             alt="Solar Installation"
             fill
-            className="object-cover"
+            className="object-cover blur-[2px]"
             priority
             sizes="100vw"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 to-emerald-900/80 mix-blend-multiply" />
         </div>
-        
+
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <motion.h1 
-              className="text-4xl md:text-6xl font-bold text-white mb-6"
+            <motion.h1
+              className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-6"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              Solar Installation Services
+              Sahi Tarika, Behtar Result
             </motion.h1>
-            <motion.p 
+            <motion.p
               className="text-xl text-gray-200 mb-8 max-w-3xl mx-auto"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
             >
-              Professional installation of high-quality solar panel systems for residential, commercial, and industrial properties.
+              Ghar ho ya office, humari expert team karegi installation bina kisi pareshani ke.
             </motion.p>
           </div>
         </div>
@@ -115,37 +115,37 @@ export default function SolarInstallation() {
                 </p>
 
                 {/* Subsidy Table */}
-                <div className="mb-8 overflow-hidden rounded-lg shadow-md">
-                  <table className="w-full">
+                <div className="mb-8 overflow-x-auto rounded-lg shadow-md">
+                  <table className="w-full min-w-[300px]">
                     <thead>
                       <tr className="bg-blue-900 text-white">
-                        <th className="py-3 px-6 text-left font-semibold">Capacity</th>
-                        <th className="py-3 px-6 text-left font-semibold">Subsidy</th>
+                        <th className="py-3 px-6 text-left font-semibold whitespace-nowrap">Capacity</th>
+                        <th className="py-3 px-6 text-left font-semibold whitespace-nowrap">Subsidy</th>
                       </tr>
                     </thead>
                     <tbody className="bg-white">
                       <tr className="border-b border-gray-200">
-                        <td className="py-3 px-6 text-gray-900">1 kW</td>
-                        <td className="py-3 px-6 text-gray-900">₹30,000</td>
+                        <td className="py-3 px-6 text-gray-900 whitespace-nowrap">1 kW</td>
+                        <td className="py-3 px-6 text-gray-900 whitespace-nowrap">₹30,000</td>
                       </tr>
                       <tr className="border-b border-gray-200">
-                        <td className="py-3 px-6 text-gray-900">2 kW</td>
-                        <td className="py-3 px-6 text-gray-900">₹60,000</td>
+                        <td className="py-3 px-6 text-gray-900 whitespace-nowrap">2 kW</td>
+                        <td className="py-3 px-6 text-gray-900 whitespace-nowrap">₹60,000</td>
                       </tr>
                       <tr className="border-b border-gray-200">
-                        <td className="py-3 px-6 text-gray-900">3 kW</td>
-                        <td className="py-3 px-6 text-gray-900">₹78,000</td>
+                        <td className="py-3 px-6 text-gray-900 whitespace-nowrap">3 kW</td>
+                        <td className="py-3 px-6 text-gray-900 whitespace-nowrap">₹78,000</td>
                       </tr>
                       <tr>
-                        <td className="py-3 px-6 text-gray-900">Above 3kW</td>
-                        <td className="py-3 px-6 text-gray-900">₹78,000</td>
+                        <td className="py-3 px-6 text-gray-900 whitespace-nowrap">Above 3kW</td>
+                        <td className="py-3 px-6 text-gray-900 whitespace-nowrap">₹78,000</td>
                       </tr>
                     </tbody>
                   </table>
                 </div>
 
-                <Link 
-                  href="/contact" 
+                <Link
+                  href="/contact"
                   className="inline-block bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-lg transition-colors duration-300 shadow-lg"
                 >
                   Book FREE Site Survey
@@ -176,7 +176,7 @@ export default function SolarInstallation() {
                   />
                 </div>
 
-                
+
               </motion.div>
             </div>
           </div>
@@ -190,7 +190,7 @@ export default function SolarInstallation() {
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Installation Services</h2>
             <p className="text-lg text-gray-600">Professional solar panel installation for all types of properties</p>
           </div>
-          
+
           <div className="grid md:grid-cols-3 gap-8">
             {installationTypes.map((type, index) => (
               <motion.div
@@ -203,9 +203,9 @@ export default function SolarInstallation() {
               >
                 <div className="h-48 bg-gray-100 relative overflow-hidden">
                   <Image
-                    src={index === 0 ? '/Rooftop Solar Installation.jpeg' : 
-                          index === 1 ? '/Commercial Solar Farm.jpg' : 
-                          '/Industrial Solar Setup.jpg'}
+                    src={index === 0 ? '/Rooftop Solar Installation.jpeg' :
+                      index === 1 ? '/Commercial Solar Farm.jpg' :
+                        '/Industrial Solar Setup.jpg'}
                     alt={`${type.title} Installation`}
                     fill
                     className="object-cover transition-transform duration-500 hover:scale-105"
@@ -249,9 +249,9 @@ export default function SolarInstallation() {
                 <p className="text-lg text-gray-600 mb-8 leading-relaxed">
                   We make going solar simple and stress-free with our streamlined installation process. Our team of certified professionals handles every step, from initial consultation to system activation, ensuring a seamless experience from start to finish.
                 </p>
-                
+
                 <div className="mt-8">
-                  <button 
+                  <button
                     className="inline-block bg-green-600 hover:bg-green-700 text-white font-semibold px-8 py-4 rounded-full transition-colors duration-300"
                     onClick={() => {
                       // Open quote form popup using global function
@@ -265,7 +265,7 @@ export default function SolarInstallation() {
                 </div>
               </motion.div>
             </div>
-            
+
             <div className="lg:w-1/2">
               <div className="space-y-8">
                 {processSteps.map((step, index) => (
@@ -302,7 +302,7 @@ export default function SolarInstallation() {
               Why Choose Our Installation Services?
             </h2>
           </div>
-          
+
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               'Certified and experienced installers',
@@ -339,9 +339,9 @@ export default function SolarInstallation() {
             </div>
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Ready to Go Solar?</h2>
             <p className="text-gray-600 mb-8 max-w-2xl mx-auto">Take the first step towards energy independence with our expert solar installation services.</p>
-            
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button 
+              <button
                 className="px-8 py-3 bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white font-semibold rounded-lg transition-colors duration-300"
                 onClick={() => {
                   // Open quote form popup using global function
@@ -352,8 +352,8 @@ export default function SolarInstallation() {
               >
                 Get a Free Quote
               </button>
-              <a 
-                href="tel:+918959890113" 
+              <a
+                href="tel:+918959890113"
                 className="px-8 py-3 flex items-center justify-center gap-2 bg-white border border-gray-200 text-gray-700 font-semibold rounded-lg hover:bg-gray-50 transition-colors"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -362,7 +362,7 @@ export default function SolarInstallation() {
                 Call Now
               </a>
             </div>
-            
+
             <div className="mt-8 text-sm text-gray-500">
               <p>Need immediate assistance? <a href="tel:+918959890113" className="text-blue-600 font-medium hover:underline">Call our 24/7 support</a></p>
             </div>
@@ -371,7 +371,7 @@ export default function SolarInstallation() {
       </section>
 
       <Footer />
-      
+
       {/* Popup Quote Form */}
       <PopupQuoteForm />
     </div>

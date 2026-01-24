@@ -30,11 +30,11 @@ const Header = () => {
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-lg' : 'bg-transparent'}`}>
       {/* Main navigation */}
-      <nav className={`transition-all duration-300 w-full ${isScrolled ? 'bg-white shadow-none' : 'bg-white bg-opacity-95 backdrop-blur-sm shadow-lg'}`}>
-        <div className="w-full px-4 sm:px-6 lg:px-8">
+      <nav className={`transition-all duration-300 w-full ${isScrolled ? 'bg-white shadow-lg' : 'bg-transparent'}`}>
+        <div className="w-full px-6 sm:px-12 lg:px-24">
           <div className="flex justify-between items-center h-16 sm:h-20">
             {/* Logo */}
-            <motion.div 
+            <motion.div
               className="flex-shrink-0"
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
@@ -45,17 +45,17 @@ const Header = () => {
                   whileHover={{ scale: 1.1, rotate: 5 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <img 
-                    src="/procura logo.png" 
-                    alt="Procura Solar" 
-                    className="w-12 h-12 sm:w-16 sm:h-16 transition-transform duration-300"
+                  <img
+                    src="/procura logo.png"
+                    alt="Procura Solar"
+                    className="h-14 w-auto sm:h-16 lg:h-20 transition-transform duration-300"
                   />
                 </motion.div>
               </Link>
             </motion.div>
 
             {/* Desktop menu */}
-            <motion.div 
+            <motion.div
               className="hidden md:block"
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -81,7 +81,7 @@ const Header = () => {
                   >
                     {item.hasDropdown ? (
                       <div className="relative">
-                        <button 
+                        <button
                           className="text-gray-700 hover:text-green-600 transition-colors font-medium relative group flex items-center"
                           onClick={() => setIsServicesDropdownOpen(!isServicesDropdownOpen)}
                         >
@@ -92,11 +92,11 @@ const Header = () => {
                             layoutId="underline"
                           />
                         </button>
-                        
+
                         {/* Dropdown Menu */}
                         <motion.div
                           initial={{ opacity: 0, y: -10 }}
-                          animate={{ 
+                          animate={{
                             opacity: isServicesDropdownOpen ? 1 : 0,
                             y: isServicesDropdownOpen ? 0 : -10,
                             display: isServicesDropdownOpen ? 'block' : 'none'
@@ -109,14 +109,14 @@ const Header = () => {
                               <motion.div
                                 key={service.name}
                                 initial={{ opacity: 0, x: -10 }}
-                                animate={{ 
+                                animate={{
                                   opacity: isServicesDropdownOpen ? 1 : 0,
                                   x: isServicesDropdownOpen ? 0 : -10
                                 }}
                                 transition={{ duration: 0.1, delay: serviceIndex * 0.05 }}
                                 whileHover={{ backgroundColor: '#f0fdf4' }}
                               >
-                                <Link 
+                                <Link
                                   href={service.href}
                                   className="block px-4 py-3 text-gray-700 hover:text-green-600 transition-colors text-sm"
                                   onClick={() => setIsServicesDropdownOpen(false)}
@@ -129,8 +129,8 @@ const Header = () => {
                         </motion.div>
                       </div>
                     ) : (
-                      <Link 
-                        href={item.href} 
+                      <Link
+                        href={item.href}
                         className="text-gray-700 hover:text-green-600 transition-colors font-medium relative group"
                       >
                         {item.name}
@@ -156,7 +156,15 @@ const Header = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Link href="tel:+918959890113" className="bg-green-600 text-white px-4 py-2 rounded-full hover:bg-green-700 transition-colors font-medium flex items-center text-sm">
+                <button
+                  onClick={() => {
+                    // Open quote form popup using global function
+                    if (typeof window !== 'undefined') {
+                      (window as any).openQuoteForm();
+                    }
+                  }}
+                  className="bg-green-600 text-white px-4 py-2 rounded-full hover:bg-green-700 transition-colors font-medium flex items-center text-sm"
+                >
                   <motion.div
                     animate={{ x: [0, 3, 0] }}
                     transition={{ duration: 2, repeat: Infinity }}
@@ -164,8 +172,8 @@ const Header = () => {
                   >
                     <Sun className="w-4 h-4" />
                   </motion.div>
-                  Call: 8959890113
-                </Link>
+                  Get Free Consultation
+                </button>
               </motion.div>
             </motion.div>
 
@@ -232,14 +240,14 @@ const Header = () => {
                     >
                       {item.hasDropdown ? (
                         <div className="relative">
-                          <button 
+                          <button
                             className="text-gray-700 hover:text-green-600 transition-colors font-medium relative group flex items-center w-full justify-between py-3 px-4 rounded-lg hover:bg-green-50"
                             onClick={() => setIsMobileServicesDropdownOpen(!isMobileServicesDropdownOpen)}
                           >
                             <span>{item.name}</span>
                             <ChevronDown className={`ml-1 w-4 h-4 transition-transform duration-200 ${isMobileServicesDropdownOpen ? 'rotate-180' : ''}`} />
                           </button>
-                          
+
                           {/* Mobile Dropdown Menu */}
                           <AnimatePresence>
                             {isMobileServicesDropdownOpen && (
@@ -259,7 +267,7 @@ const Header = () => {
                                       transition={{ duration: 0.1, delay: serviceIndex * 0.05 }}
                                       whileHover={{ backgroundColor: '#f0fdf4' }}
                                     >
-                                      <Link 
+                                      <Link
                                         href={service.href}
                                         className="block px-4 py-3 text-gray-700 hover:text-green-600 transition-colors text-sm"
                                         onClick={() => {
@@ -277,8 +285,8 @@ const Header = () => {
                           </AnimatePresence>
                         </div>
                       ) : (
-                        <Link 
-                          href={item.href} 
+                        <Link
+                          href={item.href}
                           className="block py-3 px-4 text-gray-700 hover:text-green-600 hover:bg-green-50 transition-all duration-200 font-medium rounded-lg"
                           onClick={() => setIsMenuOpen(false)}
                         >
@@ -297,14 +305,19 @@ const Header = () => {
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                     >
-                      <Link 
-                        href="tel:+918959890113" 
+                      <button
+                        onClick={() => {
+                          // Open quote form popup using global function
+                          if (typeof window !== 'undefined') {
+                            (window as any).openQuoteForm();
+                          }
+                          setIsMenuOpen(false);
+                        }}
                         className="w-full bg-green-600 text-white px-6 py-3 rounded-full hover:bg-green-700 transition-all duration-200 font-medium block text-center shadow-lg"
-                        onClick={() => setIsMenuOpen(false)}
                       >
                         <Sun className="w-4 h-4 inline mr-2" />
-                        Call: 8959890113
-                      </Link>
+                        Get Free Consultation
+                      </button>
                     </motion.div>
                   </motion.li>
                 </motion.ul>

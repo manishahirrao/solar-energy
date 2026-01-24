@@ -10,7 +10,7 @@ const TechnologyPartners = () => {
   ];
 
   return (
-    <section className="py-16 bg-white">
+    <section className="pt-4 pb-12 bg-white">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -19,7 +19,7 @@ const TechnologyPartners = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-12"
         >
-          <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-8 sm:mb-10 leading-tight">
+          <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-8 sm:mb-10 leading-tight">
             <span className="text-gray-900">Technology</span> <span className="text-green-600">Partners</span>
           </h2>
           <p className="text-lg sm:text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed font-light mb-8 sm:mb-12">
@@ -36,7 +36,7 @@ const TechnologyPartners = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               whileHover={{ scale: 1.05, y: -5 }}
-              className="bg-white rounded-2xl p-8 h-32 flex items-center justify-center border border-gray-200 hover:border-green-300 hover:shadow-xl transition-all duration-300 shadow-lg"
+              className="bg-white rounded-2xl p-2 h-32 flex items-center justify-center border border-gray-200 hover:border-green-300 hover:shadow-xl transition-all duration-300 shadow-lg"
             >
               <img
                 src={partner.logo}
