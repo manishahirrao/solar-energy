@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Phone, Mail, Sun, ChevronDown } from 'lucide-react';
+import { Menu, X, Sun, ChevronDown, Phone, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
 const Header = () => {
@@ -12,9 +12,18 @@ const Header = () => {
   const [isMobileServicesDropdownOpen, setIsMobileServicesDropdownOpen] = useState(false);
 
   const services = [
-    { name: 'Solar EPC', href: '/service/solar-epc' },
-    { name: 'Solar Installation', href: '/service/solar-installation' },
-    { name: 'Solar Maintenance', href: '/service/solar-maintenance' }
+    { name: 'Solar EPC', href: '/service/solar-epc', desc: 'End-to-end solutions' },
+    { name: 'Solar Installation', href: '/service/solar-installation', desc: 'Professional setup' },
+    { name: 'Solar Maintenance', href: '/service/solar-maintenance', desc: 'Ongoing support' }
+  ];
+
+  const navLinks = [
+    { name: 'Home', href: '/' },
+    { name: 'About Us', href: '/about' },
+    { name: 'Services', href: '/service', hasDropdown: true },
+    { name: 'Projects', href: '/project' },
+    { name: 'Gallery', href: '/gallery' },
+    { name: 'Contact', href: '/contact' }
   ];
 
   useEffect(() => {
@@ -25,306 +34,240 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
-
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-lg' : 'bg-transparent'}`}>
-      {/* Main navigation */}
-      <nav className={`transition-all duration-300 w-full ${isScrolled ? 'bg-white shadow-lg' : 'bg-transparent'}`}>
-        <div className="w-full px-6 sm:px-12 lg:px-24">
-          <div className="flex justify-between items-center h-16 sm:h-20">
-            {/* Logo */}
-            <motion.div
-              className="flex-shrink-0"
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-            >
-              <Link href="/" className="flex items-center group">
-                <motion.div
-                  whileHover={{ scale: 1.1, rotate: 5 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <img
-                    src="/procura logo.png"
-                    alt="Procura Solar"
-                    className="h-14 w-auto sm:h-16 lg:h-20 transition-transform duration-300"
-                  />
-                </motion.div>
-              </Link>
-            </motion.div>
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
+          ? 'py-3 bg-white/90 backdrop-blur-xl shadow-lg shadow-slate-900/5 border-b border-slate-200/50'
+          : 'py-4 bg-transparent'
+        }`}
+    >
+      <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center">
+          {/* Logo */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <Link href="/" className="flex items-center group">
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.3 }}
+                className="relative"
+              >
+                <img
+                  src="/procura logo.png"
+                  alt="Procura Solar"
+                  className="h-12 sm:h-14 lg:h-16 w-auto transition-all duration-300"
+                />
+              </motion.div>
+            </Link>
+          </motion.div>
 
-            {/* Desktop menu */}
-            <motion.div
-              className="hidden md:block"
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-            >
-              <ul className="flex space-x-8">
-                {[
-                  { name: 'Home', href: '/' },
-                  { name: 'About Us', href: '/about' },
-                  { name: 'Services', href: '/service', hasDropdown: true },
-                  { name: 'Projects', href: '/project' },
-                  { name: 'Gallery', href: '/gallery' },
-                  { name: 'Contact', href: '/contact' }
-                ].map((item, index) => (
-                  <motion.li
-                    key={item.name}
-                    initial={{ opacity: 0, y: -20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
-                    className="relative"
-                    onMouseEnter={() => item.hasDropdown && setIsServicesDropdownOpen(true)}
-                    onMouseLeave={() => item.hasDropdown && setIsServicesDropdownOpen(false)}
-                  >
-                    {item.hasDropdown ? (
-                      <div className="relative">
-                        <button
-                          className="text-gray-700 hover:text-green-600 transition-colors font-medium relative group flex items-center"
-                          onClick={() => setIsServicesDropdownOpen(!isServicesDropdownOpen)}
-                        >
-                          {item.name}
-                          <ChevronDown className={`ml-1 w-4 h-4 transition-transform duration-200 ${isServicesDropdownOpen ? 'rotate-180' : ''}`} />
-                          <motion.div
-                            className="absolute bottom-0 left-0 w-0 h-0.5 bg-green-600 group-hover:w-full transition-all duration-300"
-                            layoutId="underline"
-                          />
-                        </button>
+          {/* Desktop Navigation */}
+          <motion.div
+            className="hidden lg:flex items-center gap-1"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            {navLinks.map((item, index) => (
+              <div
+                key={item.name}
+                className="relative"
+                onMouseEnter={() => item.hasDropdown && setIsServicesDropdownOpen(true)}
+                onMouseLeave={() => item.hasDropdown && setIsServicesDropdownOpen(false)}
+              >
+                {item.hasDropdown ? (
+                  <div className="relative">
+                    <button
+                      className={`flex items-center gap-1 px-4 py-2 rounded-full font-medium transition-all ${isScrolled
+                          ? 'text-slate-700 hover:text-emerald-600 hover:bg-emerald-50'
+                          : 'text-white/90 hover:text-white hover:bg-white/10'
+                        }`}
+                    >
+                      {item.name}
+                      <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isServicesDropdownOpen ? 'rotate-180' : ''}`} />
+                    </button>
 
-                        {/* Dropdown Menu */}
+                    {/* Dropdown Menu */}
+                    <AnimatePresence>
+                      {isServicesDropdownOpen && (
                         <motion.div
-                          initial={{ opacity: 0, y: -10 }}
-                          animate={{
-                            opacity: isServicesDropdownOpen ? 1 : 0,
-                            y: isServicesDropdownOpen ? 0 : -10,
-                            display: isServicesDropdownOpen ? 'block' : 'none'
-                          }}
+                          initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                          animate={{ opacity: 1, y: 0, scale: 1 }}
+                          exit={{ opacity: 0, y: 10, scale: 0.95 }}
                           transition={{ duration: 0.2 }}
-                          className="absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-xl border border-gray-100 overflow-hidden"
+                          className="absolute top-full left-0 mt-2 w-64 bg-white rounded-2xl shadow-2xl shadow-slate-900/10 border border-slate-100 overflow-hidden"
                         >
-                          <div className="py-2">
-                            {services.map((service, serviceIndex) => (
-                              <motion.div
+                          <div className="p-2">
+                            {services.map((service) => (
+                              <Link
                                 key={service.name}
-                                initial={{ opacity: 0, x: -10 }}
-                                animate={{
-                                  opacity: isServicesDropdownOpen ? 1 : 0,
-                                  x: isServicesDropdownOpen ? 0 : -10
-                                }}
-                                transition={{ duration: 0.1, delay: serviceIndex * 0.05 }}
-                                whileHover={{ backgroundColor: '#f0fdf4' }}
+                                href={service.href}
+                                className="block p-3 rounded-xl hover:bg-gradient-to-r hover:from-emerald-50 hover:to-green-50 transition-all group"
                               >
-                                <Link
-                                  href={service.href}
-                                  className="block px-4 py-3 text-gray-700 hover:text-green-600 transition-colors text-sm"
-                                  onClick={() => setIsServicesDropdownOpen(false)}
-                                >
+                                <div className="font-semibold text-slate-800 group-hover:text-emerald-600 transition-colors">
                                   {service.name}
-                                </Link>
-                              </motion.div>
+                                </div>
+                                <div className="text-sm text-slate-500">{service.desc}</div>
+                              </Link>
                             ))}
                           </div>
                         </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                ) : (
+                  <Link
+                    href={item.href}
+                    className={`px-4 py-2 rounded-full font-medium transition-all ${isScrolled
+                        ? 'text-slate-700 hover:text-emerald-600 hover:bg-emerald-50'
+                        : 'text-white/90 hover:text-white hover:bg-white/10'
+                      }`}
+                  >
+                    {item.name}
+                  </Link>
+                )}
+              </div>
+            ))}
+          </motion.div>
+
+          {/* Desktop CTA */}
+          <motion.div
+            className="hidden lg:flex items-center gap-4"
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            <a
+              href="tel:+918959890113"
+              className={`flex items-center gap-2 font-medium transition-colors ${isScrolled ? 'text-slate-600 hover:text-emerald-600' : 'text-white/80 hover:text-white'
+                }`}
+            >
+              <Phone className="w-4 h-4" />
+              <span className="hidden xl:inline">+91 89598 90113</span>
+            </a>
+            <motion.button
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+              onClick={() => {
+                if (typeof window !== 'undefined') {
+                  (window as any).openQuoteForm();
+                }
+              }}
+              className="relative group px-6 py-2.5 rounded-full font-semibold text-sm overflow-hidden"
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-emerald-500 to-green-600 transition-transform group-hover:scale-105" />
+              <span className="relative flex items-center gap-2 text-white">
+                <Sun className="w-4 h-4" />
+                Get Free Quote
+              </span>
+            </motion.button>
+          </motion.div>
+
+          {/* Mobile Menu Button */}
+          <div className="lg:hidden">
+            <motion.button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className={`p-2 rounded-xl transition-colors ${isScrolled
+                  ? 'text-slate-700 hover:bg-slate-100'
+                  : 'text-white hover:bg-white/10'
+                }`}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </motion.button>
+          </div>
+        </div>
+
+        {/* Mobile Menu */}
+        <AnimatePresence>
+          {isMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3 }}
+              className="lg:hidden mt-4 overflow-hidden"
+            >
+              <div className="bg-white rounded-2xl shadow-2xl border border-slate-100 p-4">
+                {navLinks.map((item, index) => (
+                  <motion.div
+                    key={item.name}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.05 }}
+                  >
+                    {item.hasDropdown ? (
+                      <div>
+                        <button
+                          onClick={() => setIsMobileServicesDropdownOpen(!isMobileServicesDropdownOpen)}
+                          className="w-full flex items-center justify-between p-3 rounded-xl text-slate-700 hover:bg-slate-50 font-medium transition-colors"
+                        >
+                          {item.name}
+                          <ChevronDown className={`w-4 h-4 transition-transform ${isMobileServicesDropdownOpen ? 'rotate-180' : ''}`} />
+                        </button>
+                        <AnimatePresence>
+                          {isMobileServicesDropdownOpen && (
+                            <motion.div
+                              initial={{ opacity: 0, height: 0 }}
+                              animate={{ opacity: 1, height: 'auto' }}
+                              exit={{ opacity: 0, height: 0 }}
+                              className="ml-4 border-l-2 border-emerald-200 pl-4"
+                            >
+                              {services.map((service) => (
+                                <Link
+                                  key={service.name}
+                                  href={service.href}
+                                  onClick={() => setIsMenuOpen(false)}
+                                  className="block p-2 text-slate-600 hover:text-emerald-600 transition-colors"
+                                >
+                                  {service.name}
+                                </Link>
+                              ))}
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
                       </div>
                     ) : (
                       <Link
                         href={item.href}
-                        className="text-gray-700 hover:text-green-600 transition-colors font-medium relative group"
+                        onClick={() => setIsMenuOpen(false)}
+                        className="block p-3 rounded-xl text-slate-700 hover:bg-slate-50 font-medium transition-colors"
                       >
                         {item.name}
-                        <motion.div
-                          className="absolute bottom-0 left-0 w-0 h-0.5 bg-green-600 group-hover:w-full transition-all duration-300"
-                          layoutId="underline"
-                        />
                       </Link>
                     )}
-                  </motion.li>
+                  </motion.div>
                 ))}
-              </ul>
-            </motion.div>
 
-            {/* CTA Button */}
-            <motion.div
-              className="hidden md:block"
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-            >
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <button
-                  onClick={() => {
-                    // Open quote form popup using global function
-                    if (typeof window !== 'undefined') {
-                      (window as any).openQuoteForm();
-                    }
-                  }}
-                  className="bg-green-600 text-white px-4 py-2 rounded-full hover:bg-green-700 transition-colors font-medium flex items-center text-sm"
+                {/* Mobile CTA */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3 }}
+                  className="mt-4 pt-4 border-t border-slate-100"
                 >
-                  <motion.div
-                    animate={{ x: [0, 3, 0] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                    className="mr-2"
+                  <button
+                    onClick={() => {
+                      if (typeof window !== 'undefined') {
+                        (window as any).openQuoteForm();
+                      }
+                      setIsMenuOpen(false);
+                    }}
+                    className="w-full py-3 px-6 bg-gradient-to-r from-emerald-500 to-green-600 text-white rounded-xl font-semibold flex items-center justify-center gap-2"
                   >
                     <Sun className="w-4 h-4" />
-                  </motion.div>
-                  Get Free Consultation
-                </button>
-              </motion.div>
+                    Get Free Quote
+                    <ArrowRight className="w-4 h-4" />
+                  </button>
+                </motion.div>
+              </div>
             </motion.div>
-
-            {/* Mobile menu button */}
-            <div className="md:hidden">
-              {/* Menu Toggle Button */}
-              <motion.button
-                onClick={toggleMenu}
-                className="text-gray-700 hover:text-green-600 transition-colors p-2 rounded-lg hover:bg-green-50 relative"
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <div className="relative">
-                  {isMenuOpen ? (
-                    <X className="w-6 h-6" />
-                  ) : (
-                    <Menu className="w-6 h-6" />
-                  )}
-                  {isMenuOpen && (
-                    <motion.div
-                      className="absolute -top-1 -right-1 w-2 h-2 bg-green-600 rounded-full"
-                      animate={{ scale: [1, 1.2, 1] }}
-                      transition={{ duration: 1, repeat: Infinity }}
-                    />
-                  )}
-                </div>
-              </motion.button>
-            </div>
-          </div>
-
-          {/* Mobile menu with animation */}
-          <AnimatePresence>
-            {isMenuOpen && (
-              <motion.div
-                initial={{ height: 0, opacity: 0 }}
-                animate={{ height: 'auto', opacity: 1 }}
-                exit={{ height: 0, opacity: 0 }}
-                transition={{ duration: 0.3, ease: 'easeInOut' }}
-                className="md:hidden overflow-hidden bg-white border-t border-gray-200 shadow-lg"
-              >
-                <motion.ul
-                  initial={{ y: -20, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  exit={{ y: -20, opacity: 0 }}
-                  transition={{ duration: 0.3, delay: 0.1 }}
-                  className="space-y-2 py-6 px-4"
-                >
-                  {[
-                    { name: 'Home', href: '/', icon: null },
-                    { name: 'About Us', href: '/about', icon: null },
-                    { name: 'Services', href: '/service', icon: ChevronDown, hasDropdown: true },
-                    { name: 'Projects', href: '/project', icon: null },
-                    { name: 'Gallery', href: '/gallery', icon: null },
-                    { name: 'Contact', href: '/contact', icon: null }
-                  ].map((item, index) => (
-                    <motion.li
-                      key={item.name}
-                      initial={{ x: -50, opacity: 0 }}
-                      animate={{ x: 0, opacity: 1 }}
-                      transition={{ duration: 0.3, delay: 0.1 + index * 0.05 }}
-                      className="relative"
-                      onMouseEnter={() => item.hasDropdown && setIsMobileServicesDropdownOpen(true)}
-                      onMouseLeave={() => item.hasDropdown && setIsMobileServicesDropdownOpen(false)}
-                    >
-                      {item.hasDropdown ? (
-                        <div className="relative">
-                          <button
-                            className="text-gray-700 hover:text-green-600 transition-colors font-medium relative group flex items-center w-full justify-between py-3 px-4 rounded-lg hover:bg-green-50"
-                            onClick={() => setIsMobileServicesDropdownOpen(!isMobileServicesDropdownOpen)}
-                          >
-                            <span>{item.name}</span>
-                            <ChevronDown className={`ml-1 w-4 h-4 transition-transform duration-200 ${isMobileServicesDropdownOpen ? 'rotate-180' : ''}`} />
-                          </button>
-
-                          {/* Mobile Dropdown Menu */}
-                          <AnimatePresence>
-                            {isMobileServicesDropdownOpen && (
-                              <motion.div
-                                initial={{ opacity: 0, height: 0 }}
-                                animate={{ opacity: 1, height: 'auto' }}
-                                exit={{ opacity: 0, height: 0 }}
-                                transition={{ duration: 0.2 }}
-                                className="mt-2 bg-white rounded-lg shadow-xl border border-gray-100 overflow-hidden"
-                              >
-                                <div className="py-2">
-                                  {services.map((service, serviceIndex) => (
-                                    <motion.div
-                                      key={service.name}
-                                      initial={{ opacity: 0, x: -10 }}
-                                      animate={{ opacity: 1, x: 0 }}
-                                      transition={{ duration: 0.1, delay: serviceIndex * 0.05 }}
-                                      whileHover={{ backgroundColor: '#f0fdf4' }}
-                                    >
-                                      <Link
-                                        href={service.href}
-                                        className="block px-4 py-3 text-gray-700 hover:text-green-600 transition-colors text-sm"
-                                        onClick={() => {
-                                          setIsMobileServicesDropdownOpen(false);
-                                          setIsMenuOpen(false);
-                                        }}
-                                      >
-                                        {service.name}
-                                      </Link>
-                                    </motion.div>
-                                  ))}
-                                </div>
-                              </motion.div>
-                            )}
-                          </AnimatePresence>
-                        </div>
-                      ) : (
-                        <Link
-                          href={item.href}
-                          className="block py-3 px-4 text-gray-700 hover:text-green-600 hover:bg-green-50 transition-all duration-200 font-medium rounded-lg"
-                          onClick={() => setIsMenuOpen(false)}
-                        >
-                          {item.name}
-                        </Link>
-                      )}
-                    </motion.li>
-                  ))}
-                  <motion.li
-                    initial={{ x: -50, opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
-                    transition={{ duration: 0.3, delay: 0.4 }}
-                    className="pt-2"
-                  >
-                    <motion.div
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                    >
-                      <button
-                        onClick={() => {
-                          // Open quote form popup using global function
-                          if (typeof window !== 'undefined') {
-                            (window as any).openQuoteForm();
-                          }
-                          setIsMenuOpen(false);
-                        }}
-                        className="w-full bg-green-600 text-white px-6 py-3 rounded-full hover:bg-green-700 transition-all duration-200 font-medium block text-center shadow-lg"
-                      >
-                        <Sun className="w-4 h-4 inline mr-2" />
-                        Get Free Consultation
-                      </button>
-                    </motion.div>
-                  </motion.li>
-                </motion.ul>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </div>
+          )}
+        </AnimatePresence>
       </nav>
     </header>
   );
