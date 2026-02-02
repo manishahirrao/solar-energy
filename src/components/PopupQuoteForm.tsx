@@ -40,7 +40,7 @@ export default function PopupQuoteForm() {
     window.openQuoteForm = () => {
       setIsOpen(true);
     };
-    
+
     return () => {
       // @ts-ignore
       delete window.openQuoteForm;
@@ -52,13 +52,13 @@ export default function PopupQuoteForm() {
     if (isOpen) {
       // Save current scroll position
       const scrollY = window.scrollY;
-      
+
       // Prevent body scroll
       document.body.style.position = 'fixed';
       document.body.style.top = `-${scrollY}px`;
       document.body.style.width = '100%';
       document.body.style.overflow = 'hidden';
-      
+
       return () => {
         // Restore body scroll
         const scrollY = document.body.style.top;
@@ -80,16 +80,28 @@ export default function PopupQuoteForm() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     // Navigate to WhatsApp with form data
-    const whatsappMessage = `Hello! I'm interested in your solar services.%0A%0AName: ${formData.name}%0A%0APhone: ${formData.phone}%0A%0AEmail: ${formData.email}%0A%0AService: ${formData.service}%0A%0AProperty Type: ${formData.propertyType}%0A%0AMessage: ${formData.message || 'No additional message'}`;
-    
+    const whatsappMessage = `Hello! I'm interested in your solar services.
+
+Name: ${formData.name}
+
+Phone: ${formData.phone}
+
+Email: ${formData.email}
+
+Service: ${formData.service}
+
+Property Type: ${formData.propertyType}
+
+Message: ${formData.message || 'No additional message'}`;
+
     const whatsappUrl = `https://wa.me/918959890113?text=${encodeURIComponent(whatsappMessage)}`;
     window.open(whatsappUrl, '_blank');
-    
+
     // Show success message briefly before closing
     setIsSubmitted(true);
-    
+
     // Reset form and close popup after 2 seconds
     setTimeout(() => {
       setIsSubmitted(false);
@@ -121,7 +133,7 @@ export default function PopupQuoteForm() {
             className="absolute inset-0 bg-black/60 backdrop-blur-sm"
             onClick={handleClose}
           />
-          
+
           {/* Modal */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
@@ -138,7 +150,7 @@ export default function PopupQuoteForm() {
               >
                 <X className="w-5 h-5 sm:w-6 sm:h-6" />
               </button>
-              
+
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -147,8 +159,8 @@ export default function PopupQuoteForm() {
               >
                 <div className="flex flex-col items-center">
                   <div className="mb-2 sm:mb-3">
-                    <img 
-                      src="/procura logo.png" 
+                    <img
+                      src="/procura logo.png"
                       alt="Procura Solar"
                       className="w-14 h-14 sm:w-16 sm:h-16 object-contain"
                     />
@@ -185,7 +197,7 @@ export default function PopupQuoteForm() {
                         placeholder="Mahesh Kumar"
                       />
                     </div>
-                    
+
                     <div>
                       <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1">
                         <Phone className="w-3 h-3 sm:w-4 sm:h-4 inline mr-1 text-green-600" />
@@ -222,8 +234,8 @@ export default function PopupQuoteForm() {
                   <div className="space-y-1.5">
                     <div>
                       <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1">
-                        <img 
-                          src="/procura logo.png" 
+                        <img
+                          src="/procura logo.png"
                           alt="Procura Solar"
                           className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 inline mr-1 object-contain"
                         />
@@ -244,7 +256,7 @@ export default function PopupQuoteForm() {
                         <option value="solar-epc">Solar EPC Solutions</option>
                       </select>
                     </div>
-                    
+
                     <div>
                       <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1">
                         <Building className="w-3 h-3 sm:w-4 sm:h-4 inline mr-1 text-green-600" />

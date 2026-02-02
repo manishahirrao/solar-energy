@@ -33,16 +33,28 @@ export default function QuoteForm() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     // Navigate to WhatsApp with form data
-    const whatsappMessage = `Hello! I'm interested in your solar services.%0A%0AName: ${formData.name}%0A%0APhone: ${formData.phone}%0A%0AEmail: ${formData.email}%0A%0AService: ${formData.service}%0A%0AProperty Type: ${formData.propertyType}%0A%0AMessage: ${formData.message || 'No additional message'}`;
-    
+    const whatsappMessage = `Hello! I'm interested in your solar services.
+
+Name: ${formData.name}
+
+Phone: ${formData.phone}
+
+Email: ${formData.email}
+
+Service: ${formData.service}
+
+Property Type: ${formData.propertyType}
+
+Message: ${formData.message || 'No additional message'}`;
+
     const whatsappUrl = `https://wa.me/918959890113?text=${encodeURIComponent(whatsappMessage)}`;
     window.open(whatsappUrl, '_blank');
-    
+
     // Show success message
     setIsSubmitted(true);
-    
+
     // Reset form after 3 seconds
     setTimeout(() => {
       setIsSubmitted(false);
@@ -98,7 +110,7 @@ export default function QuoteForm() {
             placeholder="Enter your full name"
           />
         </div>
-        
+
         <div>
           <label className="block text-sm font-semibold text-gray-700 mb-2">
             <Phone className="w-4 h-4 inline mr-2 text-green-600" />
@@ -153,7 +165,7 @@ export default function QuoteForm() {
             <option value="solar-epc">Solar EPC Solutions</option>
           </select>
         </div>
-        
+
         <div>
           <label className="block text-sm font-semibold text-gray-700 mb-2">
             <Building className="w-4 h-4 inline mr-2 text-green-600" />
@@ -192,7 +204,7 @@ export default function QuoteForm() {
           <Battery className="w-4 h-4 mr-2 text-green-600" />
           Save up to 95% on electricity bills
         </div>
-        
+
         <motion.button
           type="submit"
           whileHover={{ scale: 1.02 }}
