@@ -13,79 +13,80 @@ import FAQ from '@/components/FAQ';
 import Footer from '@/components/Footer';
 import PopupQuoteForm from '@/components/PopupQuoteForm';
 import { motion } from 'framer-motion';
-import { Sun, TrendingUp, Zap, Shield, ArrowRight, CheckCircle, Sparkles, Play, Award, Building2 } from 'lucide-react';
+import { Sun, TrendingUp, Zap, Shield } from 'lucide-react';
 import Link from 'next/link';
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen">
       <Header />
       <Hero />
       <TechnologyPartners />
 
       {/* PM Surya Ghar Yojana Section */}
-      <section className="py-20 lg:py-28 bg-gradient-to-br from-slate-50 via-amber-50/30 to-orange-50/20 relative overflow-hidden">
-        {/* Background Elements */}
-        <div className="absolute inset-0">
-          <div className="absolute top-20 right-10 w-80 h-80 bg-orange-200 rounded-full blur-[120px] opacity-30" />
-          <div className="absolute bottom-20 left-10 w-96 h-96 bg-amber-200 rounded-full blur-[150px] opacity-25" />
-        </div>
+      <section className="py-12 bg-white relative overflow-hidden">
+
 
         <div className="container mx-auto px-4 relative z-10">
-          {/* Section Header */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="text-center mb-14"
+            className="text-center mb-16"
           >
 
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-slate-900 mb-4">
-              PM <span className="bg-gradient-to-r from-orange-500 via-amber-500 to-orange-600 bg-clip-text text-transparent">Surya Ghar</span> Yojana
+
+            <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-gray-900 mb-8 sm:mb-10 leading-tight">
+              PM <span className="text-orange-600">Surya Ghar</span> Yojana
             </h2>
-            <p className="text-lg sm:text-xl text-slate-600 max-w-2xl mx-auto">
+            <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-600 max-w-4xl mx-auto leading-relaxed font-light mb-10 sm:mb-12">
               Government of India's flagship solar rooftop scheme
-              <span className="block text-emerald-600 font-medium mt-2">Get subsidies up to ₹78,000 for residential solar installations</span>
+              <span className="block text-green-600 font-medium mt-3">Get subsidies up to ₹78,000 for residential solar installations</span>
             </p>
           </motion.div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Left Side - Benefits */}
+            {/* Left Side - Content */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8/*, delay: 0.2*/ }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="space-y-8"
             >
-              <div className="bg-white rounded-3xl shadow-xl border border-slate-100 p-8">
-                <h3 className="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-3">
-                  <Award className="w-8 h-8 text-amber-500" />
-                  Scheme Benefits
-                </h3>
-                <div className="space-y-5">
-                  {[
-                    { icon: TrendingUp, title: 'Huge Subsidies', desc: 'Get up to ₹78,000 government subsidy for residential solar', color: 'text-emerald-600 bg-emerald-100' },
-                    { icon: Zap, title: 'Free Electricity', desc: 'Generate your own electricity and reduce dependency on grid', color: 'text-orange-600 bg-orange-100' },
-                    { icon: Shield, title: '30 Year Warranty', desc: 'Long-term performance guarantee with manufacturer warranty', color: 'text-blue-600 bg-blue-100' }
-                  ].map((item, i) => (
-                    <motion.div
-                      key={item.title}
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: i * 0.1 }}
-                      className="flex items-start gap-4 group"
-                    >
-                      <div className={`w-12 h-12 rounded-xl ${item.color} flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform`}>
-                        <item.icon className="w-6 h-6" />
-                      </div>
-                      <div>
-                        <h4 className="font-semibold text-slate-900 mb-1">{item.title}</h4>
-                        <p className="text-slate-600 text-sm">{item.desc}</p>
-                      </div>
-                    </motion.div>
-                  ))}
+              <div className="bg-white rounded-2xl shadow-xl p-8">
+                <h3 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-gray-900 mb-8 sm:mb-10">Scheme Benefits</h3>
+                <div className="space-y-4">
+                  <div className="flex items-start">
+                    <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                      <TrendingUp className="w-6 h-6 text-green-600" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-gray-900 mb-1">Huge Subsidies</h4>
+                      <p className="text-gray-600">Get up to ₹78,000 government subsidy for residential solar installations</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start">
+                    <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                      <Zap className="w-6 h-6 text-orange-600" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-gray-900 mb-1">Free Electricity</h4>
+                      <p className="text-gray-600">Generate your own electricity and reduce dependency on grid power</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start">
+                    <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                      <Shield className="w-6 h-6 text-blue-600" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-gray-900 mb-1">30 Year Warranty</h4>
+                      <p className="text-gray-600">Long-term performance guarantee with manufacturer warranty</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </motion.div>
@@ -95,59 +96,138 @@ export default function Home() {
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.3 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
               className="relative"
             >
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <img
                   src="/pm-surya-ghar-yojana.jpg"
                   alt="PM Surya Ghar Yojana"
-                  className="w-full h-[400px] object-cover"
+                  className="w-full h-full object-cover"
                   onError={(e) => {
+                    console.error('PM Surya Ghar image failed to load');
                     const parent = e.currentTarget.parentElement;
                     if (parent) {
                       e.currentTarget.style.display = 'none';
-                      parent.className = 'relative rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br from-orange-400 to-amber-500 flex items-center justify-center h-[400px]';
+                      parent.className = 'relative rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-orange-400 to-green-600 flex items-center justify-center h-96';
                       parent.innerHTML = `
                         <div class="text-white text-center p-8">
                           <div class="text-4xl font-bold mb-4">PM Surya Ghar Yojana</div>
-                          <div class="text-lg opacity-90">Government Solar Rooftop Scheme</div>
+                          <div class="text-lg">Government Solar Rooftop Scheme</div>
                         </div>
                       `;
                     }
                   }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-
-                {/* CTA Overlay */}
-                <div className="absolute bottom-6 left-6 right-6">
-                  <div className="bg-white/95 backdrop-blur-md rounded-2xl p-6 shadow-xl">
-                    <h4 className="text-lg font-bold text-slate-900 mb-2">Apply Now!</h4>
-                    <p className="text-slate-600 text-sm mb-4">Limited time offer - Get maximum subsidy</p>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                <div className="absolute bottom-6 left-6 right-6 sm:bottom-6 sm:left-6 sm:right-6">
+                  <div className="bg-white/95 backdrop-blur-md rounded-xl p-4 sm:p-6">
+                    <h4 className="text-lg font-bold text-gray-900 mb-2">Apply Now!</h4>
+                    <p className="text-gray-600 text-sm mb-3">Limited time offer - Get maximum subsidy</p>
                     <motion.button
-                      whileHover={{ scale: 1.03 }}
-                      whileTap={{ scale: 0.97 }}
-                      className="w-full bg-gradient-to-r from-emerald-500 to-green-600 text-white px-6 py-3 rounded-xl font-semibold flex items-center justify-center gap-2 shadow-lg"
-                      onClick={() => window.open('https://wa.me/918959890113', '_blank')}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg transition-all z-50"
+                      onClick={() => {
+                        // Navigate to WhatsApp
+                        window.open('https://wa.me/918959890113', '_blank');
+                      }}
                     >
                       Check Eligibility
-                      <ArrowRight className="w-4 h-4" />
                     </motion.button>
                   </div>
                 </div>
               </div>
             </motion.div>
           </div>
+
+          {/* CTA for PM Surya Ghar */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="text-center mt-8"
+          >
+            <h3 className="text-xl font-bold mb-4 text-gray-900">Ready to Join PM Surya Ghar Yojana?</h3>
+            <button
+              className="bg-green-600 text-white px-6 py-2 rounded font-semibold hover:bg-green-700 transition-colors inline-flex items-center justify-center mx-auto"
+              onClick={() => {
+                // Navigate to WhatsApp
+                window.open('https://wa.me/918959890113', '_blank');
+              }}
+            >
+              <svg className="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="currentColor">
+                <circle cx="12" cy="12" r="10" fill="currentColor" />
+                <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01C17.18 3.04 14.69 2 12.04 2zm0 17.75c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.11.82.83-3.04-.2-.31c-.81-1.32-1.24-2.84-1.24-4.39 0-4.54 3.7-8.23 8.23-8.23 2.2 0 4.27.86 5.82 2.42 1.56 1.56 2.41 3.63 2.41 5.83 0 4.54-3.7 8.23-8.24 8.23z" fill="white" />
+                <path d="M9.03 7.5c-.2-.45-.41-.45-.6-.45-.19 0-.41 0-.62 0s-.57.09-.87.41c-.3.32-1.15 1.12-1.15 2.73s1.18 3.16 1.34 3.38c.16.22 2.3 3.52 5.58 4.94.77.33 1.37.53 1.84.68.77.24 1.47.21 2.03.13.62-.09 1.9-.78 2.17-1.53.27-.75.27-1.39.19-1.53-.08-.14-.3-.22-.62-.38s-1.9-.94-2.2-1.05c-.3-.11-.52-.17-.74.17s-.83 1.05-1.02 1.27c-.19.22-.38.25-.7.09s-1.36-.5-2.59-1.6c-.96-.85-1.6-1.9-1.79-2.22-.19-.32-.02-.49.14-.65.14-.14.3-.37.45-.55s.22-.33.33-.55c.11-.22.05-.41-.03-.55s-.6-1.45-.82-1.98z" fill="white" />
+              </svg>
+              Apply Now
+            </button>
+          </motion.div>
         </div>
       </section>
-
       <AboutUs />
       <Services />
 
+      {/* Quote Form Section */}
+      <section className="py-12 bg-gradient-to-br from-green-50 to-emerald-50 relative overflow-hidden">
+        {/* Background decoration */}
+        <div className="absolute inset-0">
+          <div className="absolute top-20 left-20 w-32 h-32 bg-green-200 rounded-full blur-3xl opacity-30" />
+          <div className="absolute bottom-20 right-20 w-40 h-40 bg-emerald-200 rounded-full blur-3xl opacity-30" />
+        </div>
 
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Left Side: Text and Image */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="space-y-8"
+            >
+              <div>
+                <h2 className="text-3xl sm:text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+                  Get Your <span className="text-green-600 block sm:inline">Free Solar Quote</span>
+                </h2>
+                <p className="text-lg sm:text-xl text-gray-600 leading-relaxed">
+                  Take the first step towards sustainable energy. Fill out the form and our solar experts will provide you with a customized, no-obligation quote tailored to your needs.
+                </p>
+              </div>
 
-      {/* Rooftop Solar Services */}
-      <section className="py-20 lg:py-28 bg-white relative overflow-hidden">
+              <div className="relative rounded-2xl overflow-hidden shadow-xl hidden lg:block">
+                <img
+                  src="/quote.jpeg"
+                  alt="Solar Consultation"
+                  className="w-full h-auto object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+                <div className="absolute bottom-6 left-6 text-white">
+                  <p className="font-bold text-lg">Expert Consultation</p>
+                  <p className="text-sm opacity-90">Personalized solutions for your home</p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Right Side: Form */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              <div className="bg-white rounded-3xl shadow-2xl p-8 sm:p-10 border border-green-50">
+                <QuoteForm />
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Rooftop Solar Services in Bhopal */}
+      <section className="py-12 bg-white">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <motion.div
@@ -157,37 +237,37 @@ export default function Home() {
               transition={{ duration: 0.8 }}
               className="space-y-6"
             >
-
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 leading-tight">
-                Our Rooftop Solar
-                <span className="block bg-gradient-to-r from-blue-500 to-cyan-600 bg-clip-text text-transparent">Services in Bhopal</span>
+              <h2 className="text-3xl sm:text-5xl md:text-6xl font-bold text-gray-900 leading-tight">
+                Our Rooftop Solar Services in Bhopal
               </h2>
-
-              <p className="text-lg text-slate-600 leading-relaxed">
-                Whether you're a homeowner or running a business, our tailored solar services cover everything:
+              <p className="text-lg sm:text-xl text-gray-600 leading-relaxed">
+                Whether you’re a homeowner or running a business, our tailored solar services cover everything:
               </p>
-
-              <ul className="space-y-4">
-                {[
-                  'Free rooftop inspection and solar feasibility analysis',
-                  'Custom system design based on roof size, shadow, and tilt',
-                  'Fast, secure installation using pre-fabricated structures',
-                  'Full assistance with subsidy applications and net metering',
-                  'Maintenance contracts to ensure long-term system performance',
-                  'Easy financing plans with zero down payment and EMI options'
-                ].map((item, i) => (
-                  <motion.li
-                    key={i}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: i * 0.1 }}
-                    className="flex items-start gap-3"
-                  >
-                    <CheckCircle className="w-5 h-5 text-emerald-500 mt-0.5 shrink-0" />
-                    <span className="text-slate-700">{item}</span>
-                  </motion.li>
-                ))}
+              <ul className="space-y-3 text-gray-700 text-base sm:text-lg">
+                <li className="flex items-start">
+                  <span className="mt-2 mr-3 h-2 w-2 rounded-full bg-green-600 flex-shrink-0" />
+                  <span>Free rooftop inspection and solar feasibility analysis</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="mt-2 mr-3 h-2 w-2 rounded-full bg-green-600 flex-shrink-0" />
+                  <span>Custom system design based on roof size, shadow, and tilt</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="mt-2 mr-3 h-2 w-2 rounded-full bg-green-600 flex-shrink-0" />
+                  <span>Fast, secure installation using pre-fabricated structures</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="mt-2 mr-3 h-2 w-2 rounded-full bg-green-600 flex-shrink-0" />
+                  <span>Full assistance with subsidy applications and net metering</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="mt-2 mr-3 h-2 w-2 rounded-full bg-green-600 flex-shrink-0" />
+                  <span>Maintenance contracts to ensure long-term system performance</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="mt-2 mr-3 h-2 w-2 rounded-full bg-green-600 flex-shrink-0" />
+                  <span>Easy financing plans with zero down payment and EMI options</span>
+                </li>
               </ul>
             </motion.div>
 
@@ -196,16 +276,13 @@ export default function Home() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.15 }}
-              className="relative"
+              className="relative mt-8 lg:mt-0"
             >
               <div className="grid grid-cols-2 gap-4">
-                {/* Video */}
-                <motion.div
-                  whileHover={{ scale: 1.02 }}
-                  className="relative rounded-2xl overflow-hidden shadow-xl h-48 sm:h-64 group"
-                >
+                {/* 1. Video - Top Left */}
+                <div className="relative rounded-2xl overflow-hidden shadow-lg h-48 sm:h-64 group">
                   <video
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
                     autoPlay
                     muted
                     loop
@@ -213,24 +290,38 @@ export default function Home() {
                   >
                     <source src="/video.mp4" type="video/mp4" />
                   </video>
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                </motion.div>
+                  <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors" />
+                </div>
 
-                {/* Images */}
-                {['/solar-roof.jpeg', '/solar-installed-at-terrace.jpeg', '/solar-roof1.jpeg'].map((img, i) => (
-                  <motion.div
-                    key={img}
-                    whileHover={{ scale: 1.02 }}
-                    className={`relative rounded-2xl overflow-hidden shadow-xl ${i === 0 ? 'h-48 sm:h-64' : 'h-40 sm:h-52'} group`}
-                  >
-                    <img
-                      src={img}
-                      alt="Solar Installation"
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                  </motion.div>
-                ))}
+                {/* 2. Main Roof Image - Top Right */}
+                <div className="relative rounded-2xl overflow-hidden shadow-lg h-48 sm:h-64 group">
+                  <img
+                    src="/solar-roof.jpeg"
+                    alt="Rooftop Installation"
+                    className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors" />
+                </div>
+
+                {/* 3. Detail Image 1 - Bottom Left */}
+                <div className="relative rounded-2xl overflow-hidden shadow-lg h-40 sm:h-52 group">
+                  <img
+                    src="/solar-installed-at-terrace.jpeg"
+                    alt="Terrace View"
+                    className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors" />
+                </div>
+
+                {/* 4. Detail Image 2 - Bottom Right */}
+                <div className="relative rounded-2xl overflow-hidden shadow-lg h-40 sm:h-52 group">
+                  <img
+                    src="/solar-roof1.jpeg"
+                    alt="Structure Detail"
+                    className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors" />
+                </div>
               </div>
             </motion.div>
           </div>
@@ -238,7 +329,7 @@ export default function Home() {
       </section>
 
       {/* Video Showcase */}
-      <section className="py-20 lg:py-28 bg-gradient-to-b from-slate-50 to-white">
+      <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -247,11 +338,10 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className="text-center mb-12"
           >
-
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 mb-4">
-              See Our Work <span className="bg-gradient-to-r from-violet-500 to-purple-600 bg-clip-text text-transparent">in Action</span>
+            <h2 className="text-3xl sm:text-5xl md:text-6xl font-bold text-gray-900 mb-4">
+              See Our Work in Action
             </h2>
-            <p className="text-lg text-slate-600 max-w-3xl mx-auto">
+            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
               A quick look at how our team delivers safe, clean, and professional rooftop solar installations.
             </p>
           </motion.div>
@@ -265,23 +355,25 @@ export default function Home() {
           >
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
               <div className="lg:col-span-2">
-                <div className="relative rounded-3xl overflow-hidden shadow-2xl bg-slate-900">
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-black max-w-3xl mx-auto">
+                  <div className="absolute inset-0 bg-gradient-to-tr from-green-600/15 via-transparent to-orange-500/15" />
                   <video
-                    className="w-full aspect-video object-cover"
+                    className="relative w-full h-auto aspect-video object-cover"
                     controls
                     playsInline
                     preload="metadata"
                   >
                     <source src="/pocura-all-detail-video.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
                   </video>
                 </div>
               </div>
 
               <div className="lg:col-span-1">
-                <div className="bg-white rounded-2xl shadow-xl p-6 text-center border border-slate-100">
-                  <div className="text-lg font-bold text-slate-900 mb-2">Scan Our Google Business Profile</div>
-                  <div className="text-slate-600 text-sm mb-5">Scan this QR code to view our Google profile</div>
-                  <div className="mx-auto w-48 rounded-xl overflow-hidden border-2 border-slate-100 bg-white p-2">
+                <div className="bg-white rounded-2xl shadow-xl p-6 text-center">
+                  <div className="text-lg font-bold text-gray-900 mb-2">Scan Our Google Business Profile</div>
+                  <div className="text-gray-600 text-sm mb-5">Scan this QR code to view our Google profile</div>
+                  <div className="mx-auto w-52 sm:w-56 rounded-xl overflow-hidden border border-gray-200 bg-white">
                     <img
                       src="/qr.png"
                       alt="Google Business Profile QR Code"
@@ -295,66 +387,50 @@ export default function Home() {
         </div>
       </section>
 
+
+
       <WhyChooseUs />
       <OurProjects />
       <Testimonials />
       <FAQ />
 
       {/* CTA Section */}
-      <section className="py-20 lg:py-28 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative overflow-hidden">
-        {/* Background Elements */}
-        <div className="absolute inset-0">
-          <div className="absolute top-20 left-10 w-80 h-80 bg-emerald-500/20 rounded-full blur-[120px]" />
-          <div className="absolute bottom-20 right-10 w-96 h-96 bg-amber-500/15 rounded-full blur-[150px]" />
-        </div>
-
-        <div className="container mx-auto px-4 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="text-center max-w-4xl mx-auto"
-          >
-
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6">
-              Ready to Go <span className="bg-gradient-to-r from-emerald-400 to-green-400 bg-clip-text text-transparent">Solar</span>?
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center">
+            <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-gray-900 mb-8 sm:mb-10">
+              Ready to Go <span className="text-green-600">Solar</span>?
             </h2>
-            <p className="text-xl text-slate-400 mb-10">
-              Take the first step towards sustainable energy and start saving today!
+            <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-600 mb-10 sm:mb-12">
+              Take the first step towards sustainable energy
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <motion.button
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
-                className="px-8 py-4 bg-gradient-to-r from-emerald-500 to-green-600 rounded-full font-semibold text-white flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/25"
+              <button
+                className="bg-green-600 text-white px-6 py-3 rounded-full hover:bg-green-700 transition-colors font-semibold"
                 onClick={() => {
+                  // Open quote form popup using global function
                   if (typeof window !== 'undefined') {
                     (window as any).openQuoteForm();
                   }
                 }}
               >
                 Get Free Quote
-                <ArrowRight className="w-5 h-5" />
-              </motion.button>
+              </button>
 
               <Link href="/project">
-                <motion.button
-                  whileHover={{ scale: 1.03 }}
-                  whileTap={{ scale: 0.97 }}
-                  className="px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full font-semibold text-white flex items-center justify-center gap-2 hover:bg-white/20 transition-colors"
-                >
-                  <Play className="w-5 h-5" />
+                <button className="bg-white text-green-600 border-2 border-green-600 px-6 py-3 rounded-full hover:bg-green-50 transition-colors font-semibold">
                   Explore Projects
-                </motion.button>
+                </button>
               </Link>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
       <Footer />
+
+      {/* Popup Quote Form */}
       <PopupQuoteForm />
     </div>
   );

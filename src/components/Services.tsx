@@ -1,8 +1,9 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Sun, Zap, Wrench, ArrowRight, ArrowUpRight } from 'lucide-react';
+import { Sun, Battery, Home, Trees, Zap, Wrench } from 'lucide-react';
 import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
 
 const Services = () => {
   const services = [
@@ -10,167 +11,153 @@ const Services = () => {
       icon: Wrench,
       title: 'Solar EPC',
       description: 'End-to-end Engineering, Procurement, and Construction services for turnkey solar power projects with guaranteed performance.',
-      image: '/Complete Solar EPC Solutions.jpg',
-      href: '/service/solar-epc',
-      features: ['Design & Engineering', 'Quality Procurement', 'Expert Installation'],
-      color: 'from-violet-500 to-purple-600'
+      image: '/Complete Solar EPC Solutions.jpg'
     },
     {
       icon: Sun,
       title: 'Solar Installation',
       description: 'Professional installation of high-quality solar panel systems for residential, commercial, and industrial properties.',
-      image: '/Rooftop Solar Installation.jpeg',
-      href: '/service/solar-installation',
-      features: ['Residential Setup', 'Commercial Projects', 'Industrial Solutions'],
-      color: 'from-amber-500 to-orange-600'
+      image: '/Rooftop Solar Installation.jpeg'
     },
     {
       icon: Zap,
       title: 'Solar Maintenance',
       description: 'Comprehensive maintenance and cleaning services to keep your solar system operating at peak efficiency.',
-      image: '/solar-maintainance-service.jpg',
-      href: '/service/solar-maintenance',
-      features: ['Regular Cleaning', 'Performance Check', '24/7 Support'],
-      color: 'from-emerald-500 to-green-600'
+      image: '/solar-maintainance-service.jpg'
     }
   ];
 
   return (
-    <section className="py-24 lg:py-32 bg-gradient-to-b from-slate-50 to-white relative overflow-hidden">
-      {/* Background Elements */}
+    <section className="py-16 sm:py-20 lg:py-24 bg-white relative overflow-hidden">
+      {/* Background decoration */}
       <div className="absolute inset-0">
-        <div className="absolute top-40 -left-20 w-80 h-80 bg-emerald-100 rounded-full blur-[100px] opacity-50" />
-        <div className="absolute bottom-40 -right-20 w-96 h-96 bg-amber-100 rounded-full blur-[120px] opacity-40" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-violet-50 rounded-full blur-[150px] opacity-30" />
+        <div className="absolute top-20 left-10 w-32 h-32 bg-green-100 rounded-full blur-3xl opacity-30" />
+        <div className="absolute bottom-20 right-10 w-40 h-40 bg-yellow-100 rounded-full blur-3xl opacity-30" />
+        <div className="absolute top-1/2 left-1/3 w-36 h-36 bg-blue-100 rounded-full blur-3xl opacity-20" />
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16 lg:mb-20"
+          className="text-center mb-12 sm:mb-16 lg:mb-20"
         >
-
-          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-slate-900 mb-6 leading-tight">
-            Complete Solar
-            <span className="block bg-gradient-to-r from-emerald-500 via-green-500 to-emerald-600 bg-clip-text text-transparent">
-              Energy Solutions
+          <motion.h2
+            className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-8 sm:mb-10 leading-tight"
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            whileHover={{ scale: 1.02 }}
+          >
+            <span className="text-gray-900">
+              We are the best of
             </span>
-          </h2>
-
-          <p className="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-            Transform your energy future with our comprehensive range of solar services.
-            From design to installation and ongoing maintenance.
-          </p>
+            <br />
+            <span className="text-green-600">
+              Renewable Energy
+            </span>
+          </motion.h2>
+          <motion.p
+            className="text-lg sm:text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed font-light mb-8 sm:mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            Transform your energy future with our complete range of renewable energy services
+            <span className="block text-green-600 font-medium mt-3">From initial consultation to ongoing maintenance and support</span>
+          </motion.p>
         </motion.div>
 
-        {/* Services Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10">
           {services.map((service, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.15 }}
+              transition={{ duration: 0.8, delay: index * 0.15 }}
+              className="group"
+              whileHover={{ y: -15, scale: 1.03 }}
             >
-              <Link href={service.href} className="block h-full group">
-                <motion.div
-                  className="relative bg-white rounded-3xl overflow-hidden h-full border border-slate-100 shadow-lg shadow-slate-200/50"
-                  whileHover={{ y: -10, boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.15)" }}
-                  transition={{ duration: 0.4 }}
-                >
-                  {/* Image Section */}
-                  <div className="relative h-64 overflow-hidden">
-                    <img
-                      src={service.image}
-                      alt={service.title}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                      onError={(e) => {
-                        e.currentTarget.style.display = 'none';
-                      }}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+              <div className="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden h-full border border-gray-100">
+                {/* Image Section */}
+                <div className="relative h-48 sm:h-56 md:h-64 overflow-hidden bg-green-50">
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    onError={(e) => {
+                      console.log('Image failed to load:', service.image);
+                      e.currentTarget.style.display = 'none';
+                    }}
+                    onLoad={(e) => {
+                      console.log('Image loaded successfully:', service.image);
+                    }}
+                  />
+                  <div className="absolute inset-0 bg-green-600/5" />
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
+                    className="absolute top-2 sm:top-4 right-2 sm:right-4 bg-white/95 backdrop-blur-sm rounded-full p-2 sm:p-4 z-20 shadow-lg border border-green-200"
+                    whileHover={{ rotate: 360, scale: 1.1 }}
+                  >
+                    <service.icon className="w-4 h-4 sm:w-6 sm:h-6 text-green-600" />
+                  </motion.div>
+                </div>
 
-                    {/* Floating Icon */}
+                {/* Content Section */}
+                <div className="p-6 sm:p-8 lg:p-10">
+                  <motion.h3
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
+                    className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 mb-4 sm:mb-6 group-hover:text-green-600 transition-colors duration-300"
+                    whileHover={{ scale: 1.05 }}
+                  >
+                    {service.title}
+                  </motion.h3>
+
+                  <motion.p
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
+                    className="text-gray-600 text-base sm:text-lg lg:text-xl leading-relaxed mb-8 sm:mb-10"
+                  >
+                    {service.description}
+                  </motion.p>
+
+                  <Link href={`/service/${service.title.toLowerCase().replace(/\s+/g, '-')}`}>
                     <motion.div
-                      className={`absolute top-4 right-4 w-14 h-14 rounded-2xl bg-gradient-to-br ${service.color} flex items-center justify-center shadow-lg`}
-                      whileHover={{ rotate: 10, scale: 1.1 }}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
+                      className="flex items-center text-green-600 font-semibold text-base sm:text-lg hover:text-green-700 transition-colors group"
+                      whileHover={{ x: 8 }}
                     >
-                      <service.icon className="w-7 h-7 text-white" />
-                    </motion.div>
-
-                    {/* Features Tags */}
-                    <div className="absolute bottom-4 left-4 right-4 flex flex-wrap gap-2">
-                      {service.features.map((feature, idx) => (
-                        <span
-                          key={idx}
-                          className="px-3 py-1 bg-white/90 backdrop-blur-sm rounded-full text-xs font-medium text-slate-700"
-                        >
-                          {feature}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Content Section */}
-                  <div className="p-6 lg:p-8">
-                    <h3 className="text-2xl lg:text-3xl font-bold text-slate-900 mb-3 group-hover:text-emerald-600 transition-colors">
-                      {service.title}
-                    </h3>
-
-                    <p className="text-slate-600 text-base leading-relaxed mb-6">
-                      {service.description}
-                    </p>
-
-                    <div className="flex items-center text-emerald-600 font-semibold group-hover:text-emerald-700 transition-colors">
                       <span>Explore Service</span>
                       <motion.div
-                        className="ml-2"
                         animate={{ x: [0, 5, 0] }}
-                        transition={{ duration: 1.5, repeat: Infinity }}
+                        transition={{ duration: 2, repeat: Infinity }}
+                        className="ml-3"
                       >
-                        <ArrowRight className="w-5 h-5" />
+                        <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
                       </motion.div>
-                    </div>
-                  </div>
-
-                  {/* Hover Gradient Line */}
-                  <div className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${service.color} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left`} />
-                </motion.div>
-              </Link>
+                    </motion.div>
+                  </Link>
+                </div>
+              </div>
             </motion.div>
           ))}
         </div>
-
-        {/* Bottom CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-center mt-16"
-        >
-          <p className="text-slate-600 mb-6">
-            Not sure which service you need? We're here to help!
-          </p>
-          <motion.button
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.97 }}
-            onClick={() => {
-              if (typeof window !== 'undefined') {
-                (window as any).openQuoteForm();
-              }
-            }}
-            className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-emerald-500 to-green-600 text-white rounded-full font-semibold shadow-lg shadow-emerald-500/25 hover:shadow-emerald-500/40 transition-shadow"
-          >
-            Get Expert Consultation
-            <ArrowUpRight className="w-5 h-5" />
-          </motion.button>
-        </motion.div>
       </div>
     </section>
   );
